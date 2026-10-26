@@ -1,0 +1,15 @@
+{
+  "label": "our-work section",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "Cloned from base-module. Scroll-driven case studies with editable imagery, metrics and links. Base spacing, background, custom ID/class and CTA options are retained.",
+  "content_types": [
+    "SITE_PAGE"
+  ],
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": [],
+  "is_available_for_new_content": true
+}

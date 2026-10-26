@@ -1,0 +1,43 @@
+<section class="{{ name|escape_attr }} hw-awards baseModuleStyle {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    {% if module.content_group.heading %}
+    <p class="hw-awards__eyebrow"{% if not module.content_group.title %} id="{{ name|escape_attr }}-title"{% endif %}>{{ module.content_group.heading|escape_html }}</p>
+    {% endif %}
+    {% if module.content_group.title %}
+    <h2 class="hw-awards__title h3" id="{{ name|escape_attr }}-title"><span>{{ module.content_group.title }}</span></h2>
+    {% endif %}
+    <ul class="hw-awards__grid">
+      {% for item in module.content_group.awards %}
+      <li class="hw-awards__cell{% if item.black_wordmark %} hw-awards__cell--wordmark{% endif %}" style="--award-width:{{ item.width|int }}px;">
+        <img src="{{ resize_image_url(item.image.src, 640)|escape_url }}" alt="{{ item.image.alt|escape_attr }}" {% if item.image.width and item.image.height %}width="{{ item.image.width }}" height="{{ item.image.height }}"{% endif %} loading="lazy" decoding="async">
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% require_css %}
+<style>
+/* Only per-instance editor values live here; all CSS rules are in Page Css. */
+.{{ name }} {
+  --awards-background: var(--color-{{ module.style.background_property.background_palette or 'secondary' }});
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  --awards-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  --awards-overlay: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  --awards-background-image: {{ module.style.background_property.background_gredient.css }};
+  {% endif %}
+  {% for breakpoint in ['desktop', 'tab', 'mobile'] %}
+    {% set spacing = module.style.spacing[breakpoint ~ '_spacing'] %}
+    {% for edge in ['top', 'right', 'bottom', 'left'] %}
+      {% if spacing.padding[edge].value is number %}
+      --awards-{{ breakpoint }}-padding-{{ edge }}: {{ spacing.padding[edge].value }}{{ spacing.padding[edge].units }};
+      {% endif %}
+      {% if spacing.margin[edge].value is number %}
+      --awards-{{ breakpoint }}-margin-{{ edge }}: {{ spacing.margin[edge].value }}{{ spacing.margin[edge].units }};
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+</style>
+{% end_require_css %}

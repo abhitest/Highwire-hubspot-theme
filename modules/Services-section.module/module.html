@@ -1,0 +1,82 @@
+<section class="{{ name|escape_attr }} hw-services baseModuleStyle {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-services-module aria-labelledby="{{ name|escape_attr }}-heading">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    <div class="hw-services__intro">
+      <div class="hw-services_titlesection">
+
+       
+      {% if module.content_group.eyebrow %}
+      <div class="hw-services__eyebrow normal pb24">
+        {{ module.content_group.eyebrow }}
+      </div>
+      {% endif %}
+      <div class="hw-services_title">
+        <h2 class="h4 lh11" id="{{ name|escape_attr }}-heading">
+          <span class="hw-services__line"><span>{{ module.content_group.heading_line_1st }}</span></span>
+          <span class="hw-services__line"><span>{{ module.content_group.heading_line_2nd }}</span></span>
+        </h2>
+      </div>
+       </div>
+      <div class="hw-services_content font20 lh15">
+          {{ module.content_group.description }}
+      </div>
+    </div>
+    {% if module.content_group.services|length %}
+    <div class="hw-services__list">
+      {% for item in module.content_group.services %}
+      {% set tag = 'a' if item.link.url.href else 'div' %}
+      <{{ tag }} class="hw-services__row" style="--service-index:{{ loop.index0 }}; --service-hover:var(--color-{{ item.palette or 'quinary' }});" {% if item.link.url.href %}href="{{ item.link.url.href|escape_url }}" {% if item.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ item.link.rel|escape_attr }}{% if item.link.open_in_new_tab %} noopener{% endif %}"{% endif %}>
+        <span class="hw-services__number semibold">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
+        <span class="hw-services__copy"><span class="hw-services__title"><span hidden>{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>{{ item.title }}</span><span class="hw-services__description font18">{{ item.description }}</span></span>
+        <span class="hw-services__arrow" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none"><g stroke="currentColor" stroke-width="1.4"><path d="M4 14 14 4M6 4h8v8"/></g></svg></span>
+      </{{ tag }}>
+      {% endfor %}
+      {% if module.content_group.cta_text %}
+      {% set tag = 'a' if module.content_group.cta_link.url.href else 'div' %}
+      <{{ tag }} class="hw-services__row hw-services__row--cta" style="--service-index:{{ module.content_group.services|length }};" {% if module.content_group.cta_link.url.href %}href="{{ module.content_group.cta_link.url.href|escape_url }}" {% if module.content_group.cta_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ module.content_group.cta_link.rel|escape_attr }}{% if module.content_group.cta_link.open_in_new_tab %} noopener{% endif %}"{% endif %}>
+        <span class="hw-services__mark{% if module.content_group.cta_image_invert %} hw-services__mark--invert{% endif %}">
+          {% if module.content_group.cta_image.src %}
+          <img src="{{ module.content_group.cta_image.src|escape_url }}" alt="{{ module.content_group.cta_image.alt|escape_attr }}" width="{{ module.content_group.cta_image.width or 18 }}" height="{{ module.content_group.cta_image.height or 18 }}" loading="lazy">
+          {% else %}
+          <span aria-hidden="true"><svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="18" height="18" viewBox="0 0 31.9813 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M31.9804 10.6885H15.9905V16.0095H31.9804V10.6885Z" fill="currentColor"/>
+<path id="Vector_2" fill-rule="evenodd" clip-rule="evenodd" d="M15.9894 15.9916H0V21.3127H15.9894V15.9916Z" fill="currentColor"/>
+<path id="Vector_3" fill-rule="evenodd" clip-rule="evenodd" d="M5.31759 31.9847L5.3176 1.81963e-07L1.39718e-06 0L0 31.9847H5.31759Z" fill="currentColor"/>
+<path id="Vector_4" fill-rule="evenodd" clip-rule="evenodd" d="M31.9813 32V0.0152954L26.6637 0.0152951V32H31.9813Z" fill="currentColor"/>
+</g>
+</svg>
+</span>
+          {% endif %}
+        </span><span class="hw-services__copy"><span class="hw-services__title">{{ module.content_group.cta_text|escape_html }}</span></span><span class="hw-services__arrow" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none"><g stroke="currentColor" stroke-width="1.4"><path d="M4 14 14 4M6 4h8v8"/></g></svg></span>
+      </{{ tag }}>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% require_css %}
+<style>
+/* Only per-instance editor values live here; all CSS rules are in Page Css. */
+.{{ name }} {
+  --services-background: var(--color-{{ module.style.background_property.background_palette or 'secondary' }});
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  --services-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  --services-overlay: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  --services-background-image: {{ module.style.background_property.background_gredient.css }};
+  {% endif %}
+  {% for breakpoint in ['desktop', 'tab', 'mobile'] %}
+    {% set spacing = module.style.spacing[breakpoint ~ '_spacing'] %}
+    {% for edge in ['top', 'right', 'bottom', 'left'] %}
+      {% if spacing.padding[edge].value is number %}
+      --services-{{ breakpoint }}-padding-{{ edge }}: {{ spacing.padding[edge].value }}{{ spacing.padding[edge].units }};
+      {% endif %}
+      {% if spacing.margin[edge].value is number %}
+      --services-{{ breakpoint }}-margin-{{ edge }}: {{ spacing.margin[edge].value }}{{ spacing.margin[edge].units }};
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+</style>
+{% end_require_css %}

@@ -1,0 +1,11 @@
+{
+  "label": "Footer",
+  "global": false,
+  "content_types": [
+    "SITE_PAGE",
+    "LANDING_PAGE",
+    "BLOG_POST",
+    "BLOG_LISTING"
+  ],
+  "is_available_for_new_content": true
+}

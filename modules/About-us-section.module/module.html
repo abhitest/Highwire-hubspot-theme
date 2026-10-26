@@ -1,0 +1,69 @@
+<section class="hw-about {{ name }}" id="{{ module.custom_style.section_id|escape_attr }}" data-about-module aria-labelledby="{{ name|escape_attr }}-heading">
+  <div class="hw-about__stage">
+    <div class="hw-about__scene">
+
+      <div class="hw-about__mbtitlesection" style="display : none">
+        {% if module.content_group.mobile_title %}
+        <div class="hw-about_mbtitle">
+          <h2>{{ module.content_group.mobile_title }}</h2>
+        </div>
+        {% endif %}
+        {% if module.content_group.substance_group.intro_description %}
+        <div class="hw-about_mbcontent pt20 font18">
+{{ module.content_group.substance_group.intro_description }}
+        </div>
+        {% endif %}
+      </div>
+
+
+    <div class="hw-about__intro">
+      <img class="hw-about__mark" src="{{ get_asset_url('../../images/about-highwire-mark.svg')|escape_url }}" width="32" height="32" alt="" loading="lazy">
+      <h2 class="hw-about__intro-heading">
+        <span class="hw-about__primary">
+          <span class="hw-about__intro-line"><span>{{ module.content_group.delivers_text_group.intro_first_line }}</span></span>
+          <span class="hw-about__intro-line hw-about__highlight"><span>{{ module.content_group.delivers_text_group.intro_first_highlight }}</span></span>
+        </span>
+        <span class="hw-about__accent">
+          <span class="hw-about__intro-line"><span>{{ module.content_group.substance_group.intro_second_line }}</span></span>
+          <span class="hw-about__intro-line hw-about__highlight "><span>{{ module.content_group.substance_group.intro_second_highlight }}</span></span>
+        </span>
+      </h2>
+      <p class="hw-about__intro-description font18">{{ module.content_group.substance_group.intro_description }}</p>
+    </div>
+    <div class="hw-about__final">
+    <div class="hw-about__black primarybg" aria-hidden="true"></div>
+    <h5 class="hw-about__heading secondary_color  lh12 primarybg secondarybg_mb primary_color_mb" id="{{ name|escape_attr }}-heading">
+      <span class="hw-about__line"><span>{{ module.content_group.heading_line.line_1st }}</span></span>
+      <span class="hw-about__line"><span>{{ module.content_group.heading_line.line_2nd }}</span></span>
+      <span class="hw-about__line"><span>{{ module.content_group.heading_line.line_3rd }}</span></span>
+    </h5>
+    <div class="hw-about__cards">
+      {% for card in module.content_group.cards %}
+      <article class="hw-about__card hw-about__card--{{ loop.index }}" style="--card-color:var(--color-{{ card.palette or (["tertiary", "quinary", "quaternary"])[loop.index0] }}); --card-mobile-bgcolor:var(--color-{{ card.mobile_palette or (["tertiary", "quinary", "quaternary"])[loop.index0] }});--card-mobile-textcolor:var(--color-{{ card.mobile_text_color }});">
+        <span class="hw-about__number semibold">0{{ loop.index }}</span>
+        <div class="hw-about__copy">
+          <h6>{{ card.title|escape_html }}</h6>
+          <p class="font18 mb_opacity_70">{{ card.description|escape_html }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+{% require_css %}
+<style>
+
+.{{ name }} .hw-about__highlight::before {
+  background: {{ module.content_group.delivers_text_group.highlight_text_bg.css }};
+}
+.{{ name }} .hw-about__accent .hw-about__highlight::before {
+  background: {{ module.content_group.substance_group.highlight_text_bg.css }};
+}
+
+</style>
+
+{% end_require_css %}

@@ -1,0 +1,245 @@
+[
+  {
+  "name": "logo",
+  "label": "Logo",
+  "required": false,
+  "locked": false,
+  "type": "richtext",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": null 
+},
+  
+  {
+    "name": "home_link",
+    "label": "Logo link",
+    "type": "link",
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT"
+    ],
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "/"
+      },
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "name": "navigation",
+    "label": "Navigation",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 5
+    },
+    "children": [
+      {
+        "name": "menu_text",
+        "label": "Label",
+        "type": "text"
+      },
+      {
+        "name": "link",
+        "label": "Link",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "name": "children",
+        "label": "Dropdown links",
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 12
+        },
+        "children": [
+          {
+            "name": "menu_text",
+            "label": "Label",
+            "type": "text"
+          },
+          {
+            "name": "link",
+            "label": "Link",
+            "type": "link",
+            "supported_types": [
+              "EXTERNAL",
+              "CONTENT"
+            ],
+            "default": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              },
+              "open_in_new_tab": false
+            }
+          }
+        ]
+      },
+      {
+        "name": "dropdown_eyebrow",
+        "label": "Dropdown eyebrow",
+        "type": "text",
+        "default": "Our expertise"
+      },
+      {
+        "name": "dropdown_heading",
+        "label": "Dropdown heading",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Sector depth.\nNot guesswork."
+      }
+    ],
+    "default": [
+      {
+        "link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "/industries"
+          }
+        },
+        "children": [
+          {
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/industries/b2b-technology"
+              }
+            },
+            "menu_text": "B2B Technology"
+          },
+          {
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/industries/cybersecurity"
+              }
+            },
+            "menu_text": "Cybersecurity"
+          },
+          {
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/industries/financial-services"
+              }
+            },
+            "menu_text": "Financial Services"
+          },
+          {
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/industries/professional-services"
+              }
+            },
+            "menu_text": "Professional Services"
+          },
+          {
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/industries/health"
+              }
+            },
+            "menu_text": "Health"
+          },
+          {
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/industries/energy"
+              }
+            },
+            "menu_text": "Energy"
+          },
+          {
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/industries/impact"
+              }
+            },
+            "menu_text": "Impact"
+          }
+        ],
+        "menu_text": "Industries"
+      },
+      {
+        "link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#capabilities"
+          }
+        },
+        "children": [],
+        "menu_text": "Capabilities"
+      },
+      {
+        "link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#work"
+          }
+        },
+        "children": [],
+        "menu_text": "Work"
+      },
+      {
+        "link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "/insights"
+          }
+        },
+        "children": [],
+        "menu_text": "Insights"
+      },
+      {
+        "link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "/agency"
+          }
+        },
+        "children": [],
+        "menu_text": "Agency"
+      }
+    ]
+  },
+  {
+    "name": "contact_text",
+    "label": "Contact button text",
+    "type": "text",
+    "default": "Contact"
+  },
+  {
+    "name": "contact_link",
+    "label": "Contact link",
+    "type": "link",
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT"
+    ],
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "/contact"
+      },
+      "open_in_new_tab": false
+    }
+  }
+]

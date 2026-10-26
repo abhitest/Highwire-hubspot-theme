@@ -1,0 +1,54 @@
+<section class="hw-careers baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-careers-module data-autoplay="{{ 'true' if module.content_group.autoplay else 'false' }}" aria-labelledby="{{ name|escape_attr }}-title">
+<span class="baseModuleOverlay" aria-hidden="true"></span>
+<div class="hw-careers__stage baseModuleParent"><div class="hw-careers__scene content-wrapper">
+  <div class="hw-careers__copy">
+    {% if module.content_group.eyebrow %}
+    <div class="hw-careers_eyebrow pb24">
+      <p>{{ module.content_group.eyebrow }}</p>
+    </div>
+    {% endif %}
+    
+    <div class="hw-careers_title">
+      <h2>
+      {{ module.content_group.heading }}
+    </h2>
+    </div>    
+    <div class="hw-careers_content font20">
+        {{ module.content_group.description }}
+    </div>
+
+    
+
+  {% if module.content_group.button_text %}{% set tag = 'a' if module.content_group.button_link.url.href else 'span' %}<{{ tag }} class="hw-careers__cta" {% if module.content_group.button_link.url.href %}href="{{ module.content_group.button_link.url.href|escape_url }}" {% if module.content_group.button_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ module.content_group.button_link.rel|escape_attr }}{% if module.content_group.button_link.open_in_new_tab %} noopener{% endif %}"{% endif %}>{{ module.content_group.button_text|escape_html }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></{{ tag }}>{% endif %}
+  </div>
+  <div class="hw-careers__media">
+    {% for item in module.content_group.slides %}<img class="hw-careers__slide" data-active="{{ 'true' if loop.first else 'false' }}" src="{{ (item.image.src or get_asset_url('../../images/careers-' ~ item.artwork))|escape_url }}" alt="{{ item.image.alt|escape_attr }}" loading="lazy" decoding="async">{% endfor %}
+    <canvas class="hw-careers__pixels" aria-hidden="true"></canvas>
+    <span class="hw-careers__wipe" aria-hidden="true" data-phase="idle"></span>
+  </div>
+</div></div></section>
+{% require_css %}
+<style>
+/* Only per-instance editor values live here; all CSS rules are in Page Css. */
+.{{ name }} {
+  --careers-background: var(--color-{{ module.style.background_property.background_palette or 'secondary' }});
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  --careers-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  --careers-overlay: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  --careers-background-image: {{ module.style.background_property.background_gredient.css }};
+  {% endif %}
+  {% for breakpoint in ['desktop', 'tab', 'mobile'] %}
+    {% set spacing = module.style.spacing[breakpoint ~ '_spacing'] %}
+    {% for edge in ['top', 'right', 'bottom', 'left'] %}
+      {% if spacing.padding[edge].value is number %}
+      --careers-{{ breakpoint }}-padding-{{ edge }}: {{ spacing.padding[edge].value }}{{ spacing.padding[edge].units }};
+      {% endif %}
+      {% if spacing.margin[edge].value is number %}
+      --careers-{{ breakpoint }}-margin-{{ edge }}: {{ spacing.margin[edge].value }}{{ spacing.margin[edge].units }};
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+</style>
+{% end_require_css %}

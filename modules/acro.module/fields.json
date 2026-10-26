@@ -1,0 +1,192 @@
+[
+  {
+    "name": "mobile_title",
+    "label": "Mobile Title",
+    "type": "text",
+    "allow_new_line": true,
+    "default": "Acro Suite\nIntelligence\nInfrastructure"
+  },
+  {
+    "name": "mobile_button_settings",
+    "label": "Mobile Button Settings",
+    "type": "group",
+    "children": [
+      {
+        "name": "button_text",
+        "label": "Button Text",
+        "type": "text",
+        "default": "Learn More About Acro"
+      },
+      {
+        "name": "button_link",
+        "label": "Button Link",
+        "type": "link",
+        "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG"],
+        "show_advanced_rel_options": true,
+        "default": {
+          "url": { "type": "EXTERNAL", "href": "" },
+          "open_in_new_tab": false,
+          "no_follow": false
+        }
+      }
+    ]
+  },
+  {
+    "name": "title_line_1",
+    "label": "Title: first line",
+    "type": "text",
+    "default": "Acro"
+  },
+  {
+    "name": "title_line_2",
+    "label": "Title: second line",
+    "type": "text",
+    "default": "Suite"
+  },
+  {
+    "name": "subtitle_line_1",
+    "label": "Subtitle: first line",
+    "type": "text",
+    "default": "Intelligence"
+  },
+  {
+    "name": "subtitle_line_2",
+    "label": "Subtitle: second line",
+    "type": "text",
+    "default": "Infrastructure"
+  },
+  {
+  "name": "introduction",
+  "label": "Introduction",
+  "required": false,
+  "locked": false,
+  "type": "richtext",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": "<p>The Acro Suite is the intelligence infrastructure built into every Highwire engagement — keeping your programs targeted, fast, and ahead of where the market is heading.</p>" 
+},
+  {
+    "name": "image",
+    "label": "Background artwork (leave empty to use the bundled Acro image)",
+    "type": "image",
+    "responsive": true,
+    "resizable": true,
+    "show_loading": false,
+    "default": {
+      "src": "https://8855469.fs1.hubspotusercontent-na1.net/hubfs/8855469/highwire-theme-assets/image%204.png",
+      "alt": "image 4",
+      "size_type": "auto"
+    }
+  },
+  {
+    "name": "products",
+    "label": "Products (orange, blue, purple camera positions)",
+    "type": "group",
+    "occurrence": {
+      "min": 3,
+      "max": 3,
+      "default": 3,
+      "sorting_label_field": "products.title"
+    },
+    "children": [
+      {
+        "name": "title",
+        "label": "Product name",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "palette",
+        "label": "Theme colour",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "primary",
+            "Primary"
+          ],
+          [
+            "secondary",
+            "Secondary"
+          ],
+          [
+            "tertiary",
+            "Tertiary"
+          ],
+          [
+            "quaternary",
+            "Quaternary"
+          ],
+          [
+            "quinary",
+            "Quinary"
+          ],
+          [
+            "senary",
+            "Senary"
+          ],
+          [
+            "septenary",
+            "Septenary"
+          ],
+          [
+            "octonary",
+            "Octonary"
+          ]
+        ],
+        "default": "tertiary"
+      },
+      {
+      "name": "button_settings",
+      "label": "Button Settings",
+      "required": false,
+      "locked": false,
+      "children": [
+        {
+        "name": "button_text",
+        "label": "Button Text",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": null 
+        },
+        {
+        "name": "button_link",
+        "label": "Button Link",
+        "required": false,
+        "locked": false,
+        "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG"],
+        "type": "link",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false } 
+        }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {} 
+    }
+    ]
+  }
+]

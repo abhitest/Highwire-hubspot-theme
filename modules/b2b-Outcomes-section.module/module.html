@@ -1,0 +1,46 @@
+<section class="hw-b2b-outcomes baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title">
+<span class="baseModuleOverlay" aria-hidden="true"></span>
+<div class="content-wrapper"><div class="baseModuleParent hw-b2b-outcomes__layout">
+<header class="hw-b2b-outcomes__intro"><h2 id="{{ name|escape_attr }}-title">{{ module.content_group.heading|escape_html }}</h2><p>{{ module.content_group.intro|escape_html }}</p></header>
+<div class="hw-b2b-outcomes__list">
+{% for item in module.content_group.capabilities %}
+<article class="hw-b2b-outcomes__item" tabindex="0" aria-labelledby="{{ name|escape_attr }}-item-{{ loop.index }}">
+<div class="hw-b2b-outcomes__heading"><span class="hw-b2b-outcomes__icon" aria-hidden="true">{% if item.icon.src %}<img src="{{ item.icon.src|escape_url }}" alt="" width="24" height="24" loading="lazy">{% endif %}</span><h3 id="{{ name|escape_attr }}-item-{{ loop.index }}">{{ item.title|escape_html }}</h3></div>
+<p>{{ item.description|escape_html }}</p></article>
+{% endfor %}
+</div></div></div></section>
+
+{% require_css %}
+<style>
+/* Only per-instance editor values live here; all CSS rules are in Page Css. */
+.{{ name }} {
+  --outcomes-background: {% if module.style.background_property.background_palette == 'subtle' %}color-mix(in srgb, var(--color-primary) 5%, var(--color-secondary)){% else %}var(--color-{{ module.style.background_property.background_palette or 'secondary' }}){% endif %};
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  --outcomes-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  --outcomes-overlay: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  --outcomes-background-image: {{ module.style.background_property.background_gredient.css }};
+  {% endif %}
+  {% for breakpoint in ['desktop', 'tab', 'mobile'] %}
+    {% set spacing = module.style.spacing[breakpoint ~ '_spacing'] %}
+    {% for edge in ['top', 'right', 'bottom', 'left'] %}
+      {% if spacing.padding[edge].value is number %}
+      --outcomes-{{ breakpoint }}-padding-{{ edge }}: {{ spacing.padding[edge].value }}{{ spacing.padding[edge].units }};
+      {% endif %}
+      {% if spacing.margin[edge].value is number %}
+      --outcomes-{{ breakpoint }}-margin-{{ edge }}: {{ spacing.margin[edge].value }}{{ spacing.margin[edge].units }};
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+
+
+@media (max-width: 767px){
+  .{{ name }} {
+    --outcomes-background: {% if module.style.background_property.mobile_background_palette == 'subtle' %}color-mix(in srgb, var(--color-primary) 5%, var(--color-secondary)){% else %}var(--color-{{ module.style.background_property.mobile_background_palette or 'secondary' }}){% endif %};
+  }
+
+}
+
+</style>
+{% end_require_css %}

@@ -1,0 +1,405 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "parent_label",
+        "label": "Breadcrumb parent",
+        "type": "text",
+        "default": "Industries"
+      },
+      {
+        "name": "parent_url",
+        "label": "Breadcrumb parent link",
+        "type": "url",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "default": {
+          "type": "EXTERNAL",
+          "href": "/#industries"
+        }
+      },
+      {
+        "name": "current_label",
+        "label": "Current page label",
+        "type": "text",
+        "default": "B2B Technology"
+      },
+      {
+        "name": "heading_lines",
+        "label": "Heading lines",
+        "type": "text",
+        "occurrence": {
+          "min": 1,
+          "max": 5,
+          "default": 3
+        },
+        "default": [
+          "Lead the Next",
+          "Version of",
+          "Your Category"
+        ]
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "We help leaders make sense of the shifts in their industry, sharpen where they stand, and build the influence to move with it."
+      },
+      {
+        "name": "hero_image",
+        "label": "Banner image",
+        "type": "image",
+        "resizable": true,
+        "responsive": true,
+        "show_loading": false,
+        "default": {
+          "size_type": "auto",
+          "src": "https://highwire-demo.vercel.app/images/industries/b2b/b2b-hero-product-team-v01.png",
+          "alt": "Two product teammates reviewing a laptop in a glass-walled workspace",
+          "loading": "eager"
+        }
+      },
+      {
+        "name": "mobile_image",
+        "label": "Mobile image (optional)",
+        "type": "image",
+        "resizable": true,
+        "responsive": true,
+        "show_loading": false,
+        "help_text": "Leave empty to use the banner image."
+      },
+      {
+        "name": "body_copy",
+        "label": "Scrolling text panel",
+        "type": "richtext",
+        "default": "<p>Technology companies are managing a set of tensions that don't resolve easily. Protecting market share while pursuing growth. Delivering reliability while staying ahead of what's coming next. Projecting stability without looking like yesterday's solution.</p><p>The leaders who navigate this most successfully are using those tensions to define what their category becomes next, to reimagine what their market looks like, and to build the kind of presence that makes competitors rewrite their playbooks. And doing all of it while demonstrating that marketing and communications efforts connect directly to revenue.</p><p>Highwire has spent decades working with technology companies navigating exactly these pressures. We know how to build the narrative that holds all of it together &mdash; without forcing a choice between who you are and where you're going.</p>"
+      },
+      {
+        "name": "body_cta_label",
+        "label": "Text panel CTA label",
+        "type": "text",
+        "default": "See our technology work"
+      },
+      {
+        "name": "body_cta_url",
+        "label": "Text panel CTA link",
+        "type": "url",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "default": {
+          "type": "EXTERNAL",
+          "href": "/#work"
+        }
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "name": "background_palette",
+            "label": "Theme background colour",
+            "type": "choice",
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "display": "select",
+            "choices": [
+              [
+                "primary",
+                "primary"
+              ],
+              [
+                "secondary",
+                "secondary"
+              ],
+              [
+                "tertiary",
+                "tertiary"
+              ],
+              [
+                "quaternary",
+                "quaternary"
+              ],
+              [
+                "quinary",
+                "quinary"
+              ],
+              [
+                "senary",
+                "senary"
+              ],
+              [
+                "septenary",
+                "septenary"
+              ],
+              [
+                "octonary",
+                "octonary"
+              ],
+              [
+                "subtle",
+                "Light grey (theme tint)"
+              ]
+            ],
+            "default": "subtle"
+          },
+          {
+            "name": "mobile_background_palette",
+            "label": "Mobile background colour",
+            "type": "choice",
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "display": "select",
+            "choices": [
+              [
+                "primary",
+                "primary"
+              ],
+              [
+                "secondary",
+                "secondary"
+              ],
+              [
+                "tertiary",
+                "tertiary"
+              ],
+              [
+                "quaternary",
+                "quaternary"
+              ],
+              [
+                "quinary",
+                "quinary"
+              ],
+              [
+                "senary",
+                "senary"
+              ],
+              [
+                "septenary",
+                "septenary"
+              ],
+              [
+                "octonary",
+                "octonary"
+              ],
+              [
+                "subtle",
+                "Light grey (theme tint)"
+              ]
+            ],
+            "default": "subtle"
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

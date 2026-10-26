@@ -1,0 +1,55 @@
+{# Defaults also cover existing page instances saved before fields were available. #}
+{% set work_cards = module.content_group.cards or [{"client":"Twilio","title":"Shaping the Future of Customer Connection","description":"Twilio introduced a new platform that required the creation of an entirely new category.","image":{"src":"https://highwire-demo.vercel.app/images/home/work/twilio.jpg","alt":"Twilio customer engagement report displayed on a laptop","size_type":"auto"},"tags":["Branded content & campaigns"],"metrics":[{"metric_label":"Global earned media articles","value":"215+"},{"metric_label":"YoY increase in social engagements","value":"270%"}],"link":{"url":{"type":"EXTERNAL","href":""}}},{"client":"Workforce technology platform","title":"Making the Future of Work Work for Everyone","description":"A workforce technology platform needed a story that connected its AI capabilities to the people and businesses they could help.","image":{"src":"https://highwire-demo.vercel.app/images/industries/b2b/upwork-independent-specialist-v01.png","alt":"An independent designer working with a graphics tablet in her studio","size_type":"auto"},"tags":["Brand strategy","Integrated campaigns"],"metrics":[{"metric_label":"Earned media placements","value":"140+"},{"metric_label":"Increase in campaign engagement","value":"3.2×"}],"link":{"url":{"type":"EXTERNAL","href":""}}},{"client":"ServiceNow","title":"Turning Enterprise Ambition Into Everyday Impact","description":"An integrated campaign made a complex platform story tangible, showing how connected workflows help people get meaningful work done.","image":{"src":"https://highwire-demo.vercel.app/images/industries/b2b/servicenow-it-workflow-v01.png","alt":"An IT specialist helping a colleague prepare a laptop at a service workbench","size_type":"auto"},"tags":["Thought leadership","Executive visibility"],"metrics":[{"metric_label":"Stories in priority publications","value":"95+"},{"metric_label":"Growth in audience engagement","value":"180%"}],"link":{"url":{"type":"EXTERNAL","href":""}}},{"client":"Cloud Computing Services","title":"Turning AI Hype Into Market Authority","description":"A top cloud services provider needed to stand out in a lightning-fast AI landscape.","image":{"src":"https://highwire-demo.vercel.app/images/home/work/cloud-ai.jpg","alt":"A diverse creative team working together in a studio","size_type":"auto"},"tags":["Executive visibility","Earned media"],"metrics":[{"metric_label":"High-impact feature articles in one year","value":"80+"},{"metric_label":"Stories featuring customers or executives","value":"70%"}],"link":{"url":{"type":"EXTERNAL","href":""}}}] %}
+<section class="hw-b2b-work baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title">
+<span class="baseModuleOverlay" aria-hidden="true"></span><div class="content-wrapper"><div class="baseModuleParent">
+<header class="hw-b2b-work__header"><h2 id="{{ name|escape_attr }}-title">{{ module.content_group.heading|default('Work That Moves Your Brand Forward', true)|escape_html }}</h2><p class="hw-b2b-work__introduction">{{ module.content_group.intro|default('See how we help technology companies sharpen their story, shape their category, and create momentum.', true)|escape_html }}</p></header>
+<div class="hw-b2b-work__portfolio">
+{% for card in work_cards %}
+{% set href = card.link.url.href %}{% set linked = href and href != '#' %}
+<div class="hw-b2b-work__caseTrack"><article class="hw-b2b-work__case">
+{% set tag = 'a' if linked else 'div' %}
+<{{ tag }} class="hw-b2b-work__visual {% if linked %}hw-b2b-work__linked{% endif %}" {% if linked %}href="{{ href|escape_url }}" {% if card.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ card.link.rel|escape_attr }}{% if card.link.open_in_new_tab %} noopener{% endif %}" aria-label="View case study: {{ card.title|escape_attr }}"{% endif %}>
+{% if card.image.src %}<img src="{{ card.image.src|escape_url }}" alt="{{ card.image.alt|escape_attr }}" loading="lazy" decoding="async">{% endif %}
+{% if linked %}<span class="hw-b2b-work__cursor" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></span>{% endif %}
+</{{ tag }}>
+<div class="hw-b2b-work__copy"><p class="hw-b2b-work__client">{{ card.client|escape_html }}</p><h3>{% if linked %}<a href="{{ href|escape_url }}" {% if card.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ card.link.rel|escape_attr }}{% if card.link.open_in_new_tab %} noopener{% endif %}">{% endif %}{{ card.title|escape_html }}{% if linked %}</a>{% endif %}</h3><p class="hw-b2b-work__description">{{ card.description|escape_html }}</p>
+{% if card.tags %}<ul class="hw-b2b-work__tags" aria-label="Capabilities used">{% for tag in card.tags %}<li>{{ tag|escape_html }}</li>{% endfor %}</ul>{% endif %}
+{% if card.metrics %}<dl class="hw-b2b-work__metrics">{% for metric in card.metrics %}<div><dt>{{ metric.metric_label|escape_html }}</dt><dd>{{ metric.value|escape_html }}</dd></div>{% endfor %}</dl>{% endif %}
+</div></article></div>{% endfor %}</div>
+{% if module.content_group.more_url.href and module.content_group.more_label %}<a class="hw-b2b-work__more" href="{{ module.content_group.more_url.href|escape_url }}">{{ module.content_group.more_label|escape_html }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></a>{% endif %}
+</div></div></section>
+
+{% require_css %}
+<style>
+/* Only per-instance editor values live here; all CSS rules are in Page Css. */
+.{{ name }} {
+  --b2bwork-background: {% if module.style.background_property.background_palette == 'subtle' %}color-mix(in srgb, var(--color-primary) 5%, var(--color-secondary)){% else %}var(--color-{{ module.style.background_property.background_palette or 'secondary' }}){% endif %};
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  --b2bwork-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  --b2bwork-overlay: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  --b2bwork-background-image: {{ module.style.background_property.background_gredient.css }};
+  {% endif %}
+  {% for breakpoint in ['desktop', 'tab', 'mobile'] %}
+    {% set spacing = module.style.spacing[breakpoint ~ '_spacing'] %}
+    {% for edge in ['top', 'right', 'bottom', 'left'] %}
+      {% if spacing.padding[edge].value is number %}
+      --b2bwork-{{ breakpoint }}-padding-{{ edge }}: {{ spacing.padding[edge].value }}{{ spacing.padding[edge].units }};
+      {% endif %}
+      {% if spacing.margin[edge].value is number %}
+      --b2bwork-{{ breakpoint }}-margin-{{ edge }}: {{ spacing.margin[edge].value }}{{ spacing.margin[edge].units }};
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+
+
+@media (max-width: 767px){
+  .{{ name }} {
+    --b2bwork-background: {% if module.style.background_property.mobile_background_palette == 'subtle' %}color-mix(in srgb, var(--color-primary) 5%, var(--color-secondary)){% else %}var(--color-{{ module.style.background_property.mobile_background_palette or 'secondary' }}){% endif %};
+  }
+
+}
+
+</style>
+{% end_require_css %}

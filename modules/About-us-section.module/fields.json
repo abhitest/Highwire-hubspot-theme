@@ -1,0 +1,373 @@
+[
+  
+  {
+  "id" : "custom_style",
+  "name" : "custom_style",
+  "label" : "Custom Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [
+     
+  {
+    "id" : "section_id",
+    "name" : "section_id",
+    "label" : "Section ID",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null
+  } 
+],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}, 
+
+{
+  "id" : "content_group",
+  "name" : "content_group",
+  "label" : "Content Group",
+  "required" : false,
+  "locked" : false,
+  "children" : [ 
+    {
+    "name": "mobile_title",
+    "label": "Mobile Title",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "Highwire delivers speed with substance." 
+    },
+      {
+      "name": "delivers_text_group",
+      "label": "Delivers Text Group",
+      "required": false,
+      "locked": false,
+      "children": [
+          {
+          "name": "intro_first_line",
+          "label": "First line",
+          "type": "text",
+          "default": "Highwire"
+        },
+        {
+          "name": "intro_first_highlight",
+          "label": "Highlighted line",
+          "type": "text",
+          "default": "delivers"
+        },
+        {
+        "name": "highlight_text_bg",
+        "label": "Highlighted Text background",
+        "required": false,
+        "locked": false,
+        "show_opacity": true,
+        "type": "color",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": {
+          "color": "#fa9bff",
+          "opacity": 100 } 
+        }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {} 
+      },
+      {
+      "name": "substance_group",
+      "label": "Substance Group",
+      "required": false,
+      "locked": false,
+      "children": [
+
+        {
+    "name": "intro_second_line",
+    "label": "First line",
+    "type": "text",
+    "default": "speed with"
+  },
+  {
+    "name": "intro_second_highlight",
+    "label": "Highlighted line",
+    "type": "text",
+    "default": "substance."
+  },
+      {
+        "name": "highlight_text_bg",
+        "label": "Highlighted Text background",
+        "required": false,
+        "locked": false,
+        "show_opacity": true,
+        "type": "color",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": {
+          "color": "#4bb7ff",
+          "opacity": 100 } 
+        },
+         {
+    "name": "intro_description",
+    "label": "Intro description",
+    "type": "text",
+    "default": "Programs are built faster, activated with more precision, and measured as forces that shape reputation, accelerate category authority, and advance the growth agenda of the organizations we serve."
+  }
+
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {} 
+    },
+    {
+    "name": "heading_line",
+    "label": "Heading",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+      "name": "line_1st",
+      "label": "Line 1st",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Three ways we" 
+      },
+      {
+      "name": "line_2nd",
+      "label": "Line 2nd",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "make market" 
+      },
+      {
+      "name": "line_3rd",
+      "label": "Line 3rd",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "momentum possible" 
+      }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": {} 
+  },
+    
+  {
+    "name": "cards",
+    "label": "Cards",
+    "type": "group",
+    "occurrence": {
+      "min": 3,
+      "max": 3,
+      "default": 3,
+      "sorting_label_field": "cards.title"
+    },
+    "children": [
+      
+      {
+        "name": "title",
+        "label": "Heading",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "palette",
+        "label": "Theme colour",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "primary",
+            "Primary"
+          ],
+          [
+            "secondary",
+            "Secondary"
+          ],
+          [
+            "tertiary",
+            "Tertiary"
+          ],
+          [
+            "quaternary",
+            "Quaternary"
+          ],
+          [
+            "quinary",
+            "Quinary"
+          ],
+          [
+            "senary",
+            "Senary"
+          ],
+          [
+            "septenary",
+            "Septenary"
+          ],
+          [
+            "octonary",
+            "Octonary"
+          ]
+        ],
+        "default": "tertiary"
+      },
+      {
+        "name": "mobile_palette",
+        "label": "Mobile Background color",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "primary",
+            "Primary"
+          ],
+          [
+            "secondary",
+            "Secondary"
+          ],
+          [
+            "tertiary",
+            "Tertiary"
+          ],
+          [
+            "quaternary",
+            "Quaternary"
+          ],
+          [
+            "quinary",
+            "Quinary"
+          ],
+          [
+            "senary",
+            "Senary"
+          ],
+          [
+            "septenary",
+            "Septenary"
+          ],
+          [
+            "octonary",
+            "Octonary"
+          ]
+        ],
+        "default": "tertiary"
+      },
+      {
+        "name": "mobile_text_color",
+        "label": "Mobile Text Color",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "primary",
+            "Primary"
+          ],
+          [
+            "secondary",
+            "Secondary"
+          ],
+          [
+            "tertiary",
+            "Tertiary"
+          ],
+          [
+            "quaternary",
+            "Quaternary"
+          ],
+          [
+            "quinary",
+            "Quinary"
+          ],
+          [
+            "senary",
+            "Senary"
+          ],
+          [
+            "septenary",
+            "Septenary"
+          ],
+          [
+            "octonary",
+            "Octonary"
+          ]
+        ],
+        "default": "tertiary"
+      }
+    ],
+    "default": [
+      {
+        "number": "01",
+        "title": "Senior Judgment",
+        "description": "The people who win the business run the business. Senior minds stay close to the material, applying strategic judgment at every stage of the engagement.",
+        "palette": "tertiary"
+      },
+      {
+        "number": "02",
+        "title": "Integrated System",
+        "description": "Cross-functional teams across marketing and communications share intelligence and accountability. Every channel informs every other channel.",
+        "palette": "quinary"
+      },
+      {
+        "number": "03",
+        "title": "AI Infrastructure",
+        "description": "Proprietary technology is embedded in how we work, decreasing the distance between market signal and strategic action, and between program activation and measurable result.",
+        "palette": "quaternary"
+      }
+    ]
+  }
+
+],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}
+
+  
+  
+ 
+
+]

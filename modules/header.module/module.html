@@ -1,0 +1,52 @@
+<header class="hw-header" data-hw-header>
+  
+  <div class="hw-header__bar">
+    <a class="hw-header__logo" href="{{ module.home_link.url.href|default('/')|escape_url }}" aria-label="Highwire home">
+      {% if module.logo %}
+      {{ module.logo }}
+      {% else %}
+      <span class="hw-header__brand" aria-hidden="true">
+        <svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="140" height="32" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame" clip-path="url(#clip0_0_4)">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M24.909 8.33429H12.4546V12.4787H24.909V8.33429Z" fill="currentColor"/>
+<path id="Vector_2" fill-rule="evenodd" clip-rule="evenodd" d="M12.454 12.4648H0V16.6093H12.454V12.4648Z" fill="currentColor"/>
+<path id="Vector_3" fill-rule="evenodd" clip-rule="evenodd" d="M4.14181 24.9215L4.14182 0.00937515L0 0.009375L-1.08825e-06 24.9215H4.14181Z" fill="currentColor"/>
+<path id="Vector_4" fill-rule="evenodd" clip-rule="evenodd" d="M24.9092 24.9333V0.0212676L20.7674 0.0212673V24.9333H24.9092Z" fill="currentColor"/>
+<path id="Vector_5" d="M139.075 20.2479C138.545 23.402 135.955 25.2444 132.365 25.2444C128.09 25.2444 124.97 22.5276 124.97 17.0938C124.97 11.6914 128.028 9.00572 132.304 9.00572C136.391 9.00572 139.45 11.8162 139.45 17.125V17.7809H127.216C127.31 21.5908 129.432 23.4957 132.365 23.4957C134.863 23.4957 136.361 22.2153 136.797 20.2479H139.075ZM132.304 10.7545C129.494 10.7545 127.497 12.5033 127.247 16.0009H137.172C136.953 12.597 135.018 10.7545 132.304 10.7545Z" fill="currentColor"/>
+<path id="Vector_6" d="M118.094 9.31826V13.6589C118.905 10.5986 120.996 9.22453 123.649 9.22453C123.992 9.22453 124.242 9.25582 124.491 9.31826V11.3168C124.242 11.2544 123.961 11.2232 123.618 11.2232C120.528 11.2232 118.25 13.0345 118.25 16.9067V24.9324H116.065V9.31826H118.094Z" fill="currentColor"/>
+<path id="Vector_7" d="M113.17 3.07265V5.6646H110.55V3.07265H113.17ZM112.952 9.31833V24.9325H110.768V9.31833H112.952Z" fill="currentColor"/>
+<path id="Vector_8" d="M87.6926 9.31812H89.9397L91.4378 14.4708C92.3119 17.4687 92.9671 19.7484 93.5911 22.2779C94.2776 19.7484 94.9335 17.4999 95.9007 14.4708L97.5238 9.31812H99.5208L101.144 14.4708C102.111 17.4999 102.766 19.7484 103.453 22.2779C104.078 19.7484 104.733 17.4687 105.607 14.4708L107.104 9.31812H109.351L104.452 24.9323H102.486L100.582 19.0301C99.7397 16.282 99.1463 14.2834 98.5223 11.9413C97.8984 14.2834 97.305 16.282 96.4628 19.0301L94.559 24.9323H92.5926L87.6926 9.31812Z" fill="currentColor"/>
+<path id="Vector_9" d="M86.7645 15.1893V24.9325H84.5799V15.4391C84.5799 12.3162 83.0506 10.8173 80.4602 10.8173C77.6829 10.8173 75.9347 12.6285 75.9347 16.1261V24.9325H73.7502V3.07265H75.9347V12.4724C76.8714 10.2239 78.8065 9.00601 81.3343 9.00601C84.5486 9.00601 86.7645 11.0047 86.7645 15.1893Z" fill="currentColor"/>
+<path id="Vector_10" d="M62.5862 23.9953C58.7476 23.9953 55.97 21.3097 55.97 16.5006C55.97 11.6914 58.7476 9.00572 62.5862 9.00572C65.2701 9.00572 67.4235 10.3485 68.4846 12.7844V9.31804H70.638V24.8385C70.638 29.1479 67.642 31.4901 63.3976 31.4901C59.1845 31.4901 56.2197 29.0855 56.2197 24.9321H58.4043C58.4043 27.9925 60.3392 29.7413 63.3976 29.7413C66.4873 29.7413 68.4534 28.055 68.4534 24.8385V20.2791C67.3923 22.6837 65.2389 23.9953 62.5862 23.9953ZM63.3352 22.2465C66.3624 22.2465 68.4534 20.2479 68.4534 16.5006C68.4534 12.7531 66.3624 10.7545 63.3352 10.7545C60.3392 10.7545 58.2482 12.7531 58.2482 16.5006C58.2482 20.2479 60.3392 22.2465 63.3352 22.2465Z" fill="currentColor"/>
+<path id="Vector_11" d="M53.857 3.07265V5.6646H51.2355V3.07265H53.857ZM53.6386 9.31833V24.9325H51.454V9.31833H53.6386Z" fill="currentColor"/>
+<path id="Vector_12" d="M48.5039 15.1893V24.9325H46.3193V15.4391C46.3193 12.3162 44.7901 10.8173 42.1998 10.8173C39.4222 10.8173 37.6746 12.6285 37.6746 16.1261V24.9325H35.49V3.07265H37.6746V12.4724C38.6108 10.2239 40.5457 9.00601 43.0736 9.00601C46.2881 9.00601 48.5039 11.0047 48.5039 15.1893Z" fill="currentColor"/>
+</g>
+<defs>
+<clipPath id="clip0_0_4">
+<rect width="140" height="32" fill="currentColor"/>
+</clipPath>
+</defs>
+</svg>
+</span>
+{% endif %}
+    </a>
+    <button class="hw-header__toggle" type="button" aria-expanded="false" aria-controls="{{ name|escape_attr }}-navigation"><span class="medium">Menu</span> <span class="hw-header__hamburger" aria-hidden="true"></span></button>
+    <nav class="hw-header__nav" id="{{ name|escape_attr }}-navigation" aria-label="Primary navigation">
+      <ul class="hw-header__links">
+      {% for item in module.navigation %}
+        <li>
+        {% if item.children|length %}
+          <div class="hw-header__dropdown"><button class="hw-header__trigger" type="button" aria-expanded="false" aria-controls="{{ name|escape_attr }}-dropdown-{{ loop.index }}">{{ item.menu_text|escape_html }}<span class="hw-header__chevron" aria-hidden="true"></span></button>
+            <div class="hw-header__panel" id="{{ name|escape_attr }}-dropdown-{{ loop.index }}" aria-hidden="true" inert><div class="hw-header__intro"><span>{{ item.dropdown_eyebrow|default('Our expertise')|escape_html }}</span><p>{{ item.dropdown_heading|default('Sector depth.\nNot guesswork.')|escape_html }}</p><a class="hw-header__all" href="{{ item.link.url.href|escape_url }}">All {{ item.menu_text|escape_html }} <span aria-hidden="true">&#8599;</span></a></div><ul>
+            {% for child in item.children %}<li><a href="{{ child.link.url.href|escape_url }}" {% if child.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ child.link.rel|escape_attr }}{% if child.link.open_in_new_tab %} noopener{% endif %}"><small>{{ loop.index }}</small>{{ child.menu_text|escape_html }}<span aria-hidden="true">&#8599;</span></a></li>{% endfor %}
+            </ul></div>
+          </div>
+        {% else %}<a href="{{ item.link.url.href|escape_url }}" {% if item.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ item.link.rel|escape_attr }}{% if item.link.open_in_new_tab %} noopener{% endif %}">{{ item.menu_text|escape_html }}</a>{% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+      {% if module.contact_text %}<a class="hw-header__contact" href="{{ module.contact_link.url.href|escape_url }}" {% if module.contact_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ module.contact_link.rel|escape_attr }}{% if module.contact_link.open_in_new_tab %} noopener{% endif %}">{{ module.contact_text|escape_html }}</a>{% endif %}
+    </nav>
+  </div>
+</header>
+<noscript><style>@media (max-width:900px) { .hw-header:not([data-open="true"]) .hw-header__nav { display:flex; } .hw-header__toggle { display:none; } }</style></noscript>

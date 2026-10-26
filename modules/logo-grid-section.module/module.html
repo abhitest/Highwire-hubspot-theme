@@ -1,0 +1,46 @@
+<section class="{{ name|escape_attr }} hw-logo-grid baseModuleStyle {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-logo-grid aria-label="Selected client work">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    
+    <div class="hw-logo-grid__grid">
+      {% for item in module.content_group.logos %}
+      <div class="hw-logo-grid__cell" style="--logo-index:{{ loop.index0 }};">
+        <span class="hw-logo-grid__logo">
+          {% if item.image.src %}
+          <img class="hw-logo-grid__custom" src="{{ resize_image_url(item.image.src, 640)|escape_url }}" alt="{{ item.image.alt|escape_attr }}" {% if item.image.width and item.image.height %}width="{{ item.image.width }}" height="{{ item.image.height }}"{% endif %} loading="lazy" decoding="async">
+          
+          {% endif %}
+        </span>
+      </div>
+      {% endfor %}
+      {% if module.content_group.cta_text and module.content_group.cta_link.url.href %}
+      <a class="hw-logo-grid__cta" href="{{ module.content_group.cta_link.url.href|escape_url }}" style="--logo-index:{{ module.content_group.logos|length }};" {% if module.content_group.cta_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ module.content_group.cta_link.rel|escape_attr }}{% if module.content_group.cta_link.open_in_new_tab %} noopener{% endif %}"><span>{{ module.content_group.cta_text|escape_html }}</span><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.4"><path d="M4 14 14 4M6 4h8v8"/></g></svg></a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+/* Only per-instance editor values live here; all CSS rules are in Page Css. */
+.{{ name }} {
+  --logos-background: var(--color-{{ module.style.background_property.background_palette or 'primary' }});
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  --logos-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  --logos-overlay: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  --logos-background-image: {{ module.style.background_property.background_gredient.css }};
+  {% endif %}
+  {% for breakpoint in ['desktop', 'tab', 'mobile'] %}
+    {% set spacing = module.style.spacing[breakpoint ~ '_spacing'] %}
+    {% for edge in ['top', 'right', 'bottom', 'left'] %}
+      {% if spacing.padding[edge].value is number %}
+      --logos-{{ breakpoint }}-padding-{{ edge }}: {{ spacing.padding[edge].value }}{{ spacing.padding[edge].units }};
+      {% endif %}
+      {% if spacing.margin[edge].value is number %}
+      --logos-{{ breakpoint }}-margin-{{ edge }}: {{ spacing.margin[edge].value }}{{ spacing.margin[edge].units }};
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+</style>
+{% end_require_css %}

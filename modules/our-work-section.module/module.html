@@ -1,0 +1,110 @@
+<section class="{{ name|escape_attr }} baseModuleStyle hw-work {{ module.custom_style.custom_class|escape_attr }}" id="{{ (module.custom_style.section_id or name)|escape_attr }}" data-work-module aria-label="{{ module.content_group.eyebrow|default('Our Work')|escape_attr }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent hw-work__stage">
+    <div class="content-wrapper hw-work__layout">
+      <div class="customWidthOption hw-work__intro">
+        {% if module.content_group.eyebrow %}
+        <div class="hw-workeyebrow secondary_color primary_color_mb">
+        <p class="hw-work__eyebrow">
+          {{ module.content_group.eyebrow|escape_html }}
+        </p>
+        </div>
+        {% endif %}
+        
+        <div class="moduleTitle hw-work__title secondary_color primary_color_mb">
+          <h2 class="h5 lh12">
+            <span class="hw-work__title-line"><span>{{ module.content_group.title_group.title_line_1st }}</span></span>
+            <span class="hw-work__title-line"><span>{{ module.content_group.title_group.title_line_2nd }}</span></span>
+            <span class="hw-work__title-line"><span>{{ module.content_group.title_group.title_line_3rd }}</span></span>
+          </h2>
+        </div>
+        
+        {% if module.content_group.content %}
+        <div class="moduleContent">
+          {{ module.content_group.content }}
+        </div>
+        {% endif %}
+       
+
+          
+      </div>
+      <div class="hw-work__window">
+        <div class="hw-work__track">
+          {% for item in module.content_group.cases %}
+          <button type="button" class="hw-work__case" id="{{ name|escape_attr }}-case-{{ loop.index }}" aria-controls="{{ name|escape_attr }}-panel-{{ loop.index }}" aria-pressed="{{ 'true' if loop.first else 'false' }}" style="--case-accent:var(--color-{{ item.palette or (["quinary", "quaternary", "tertiary"])[loop.index0 % 3] }});">
+            <span class="hw-work__case-content">
+              {% if item.show_logo %}<span class="hw-work__logo">
+                {% if item.logo.src %}<img src="{{ item.logo.src|escape_url }}" alt="{{ item.logo.alt|escape_attr }}" loading="lazy">
+                {% else %}<img src="{{ get_asset_url('../../images/work-logo-mark.svg')|escape_url }}" alt="" loading="lazy"><img src="{{ get_asset_url('../../images/work-logo-wordmark.svg')|escape_url }}" alt="Client logo placeholder" loading="lazy">{% endif %}
+              </span>{% endif %}
+              <span class="hw-work__case-title primary_color_mb">{{ item.title|escape_html }}</span>
+              <span class="hw-work__case-description font18 primary_color_mb mb_opacity_70">{{ item.description|escape_html }}</span>
+            </span>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="hw-work__media">
+        {% for item in module.content_group.cases %}
+        <article class="hw-work__panel" id="{{ name|escape_attr }}-panel-{{ loop.index }}" aria-labelledby="{{ name|escape_attr }}-case-{{ loop.index }}" data-active="{{ 'true' if loop.first else 'false' }}">
+          <img class="hw-work__image" src="{{ resize_image_url(item.image.src, 1440)|escape_url }}" srcset="{{ resize_image_url(item.image.src, 480)|escape_url }} 480w, {{ resize_image_url(item.image.src, 960)|escape_url }} 960w, {{ resize_image_url(item.image.src, 1440)|escape_url }} 1440w" sizes="(max-width:767px) calc(100vw - 48px), 55vw" alt="{{ item.image.alt|escape_attr }}" {% if item.image.width and item.image.height %}width="{{ item.image.width }}" height="{{ item.image.height }}"{% endif %} style="object-position:{{ item.image_position|escape_attr }};" loading="lazy" decoding="async">
+          <canvas class="hw-work__pixels" aria-hidden="true"></canvas>
+          {% if item.tag_1 or item.tag_2 %}<div class="hw-work__tags"><span>{{ item.tag_1|escape_html }}</span>{% if item.tag_2 %}<span>/</span><span>{{ item.tag_2|escape_html }}</span>{% endif %}</div>{% endif %}
+          <div class="hw-work__mobile-copy primary_color_mb" hidden>
+            <h3 id="{{ name|escape_attr }}-mobile-title-{{ loop.index }}">{{ item.title|escape_html }}</h3>
+            {% if item.description %}<p>{{ item.description|escape_html }}</p>{% endif %}
+          </div>
+          {% if item.box_group|length %}
+          <div class="hw-work__metrics">
+            {% for item2 in item.box_group %}
+              <div class="hw-work__metric">
+                <strong>{{ item2.box_title|escape_html }}</strong>
+                <span>{{ item2.box_content|escape_html }}</span>
+              </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if item.link.url.href %}<a class="hw-work__link" href="{{ item.link.url.href|escape_url }}" aria-label="View case study: {{ item.title|escape_attr }}" {% if item.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ item.link.rel|escape_attr }}{% if item.link.open_in_new_tab %} noopener{% endif %}"></a>{% endif %}
+        </article>
+        {% endfor %}
+        <span class="hw-work__cursor" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none"><g stroke="currentColor" stroke-width="1.4"><path d="M4 14 14 4M6 4h8v8"/></g></svg></span>
+      </div>
+      <p class="hw-work__status" aria-live="polite" aria-atomic="true"></p>
+    </div>
+  </div>
+</section>
+
+{% require_css %}
+<style>
+
+.{{ name }} {
+  --work-background: var(--color-{{ module.style.background_property.background_palette or 'primary' }});
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  --work-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  --work-overlay: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  --work-background-image: {{ module.style.background_property.background_gredient.css }};
+  {% endif %}
+  {% for breakpoint in ['desktop', 'tab', 'mobile'] %}
+    {% set spacing = module.style.spacing[breakpoint ~ '_spacing'] %}
+    {% for edge in ['top', 'right', 'bottom', 'left'] %}
+      {% if spacing.padding[edge].value is number %}
+      --work-{{ breakpoint }}-padding-{{ edge }}: {{ spacing.padding[edge].value }}{{ spacing.padding[edge].units }};
+      {% endif %}
+      {% if spacing.margin[edge].value is number %}
+      --work-{{ breakpoint }}-margin-{{ edge }}: {{ spacing.margin[edge].value }}{{ spacing.margin[edge].units }};
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+
+@media (max-width: 767px){
+  .{{ name }} {
+    --work-background: var(--color-{{ module.style.background_property.mobile_background }});
+  }
+
+}
+
+
+</style>
+{% end_require_css %}

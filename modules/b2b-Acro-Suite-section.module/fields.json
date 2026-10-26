@@ -1,0 +1,418 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "acro"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Acro Suite: Intelligence Built Into the Work"
+      },
+      {
+        "name": "intro",
+        "label": "Introduction",
+        "type": "text",
+        "default": "Acro brings intelligence, AI, and performance data together so our teams can connect what?s happening in the market to the decisions we recommend for your business."
+      },
+      {
+        "name": "cta_text",
+        "label": "Product CTA text",
+        "type": "text",
+        "default": "Explore Acro"
+      },
+      {
+        "name": "products",
+        "label": "Products",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 6,
+          "default": 3
+        },
+        "children": [
+          {
+            "name": "title",
+            "label": "Title",
+            "type": "text"
+          },
+          {
+            "name": "description",
+            "label": "Description",
+            "type": "text",
+            "allow_new_line": true
+          },
+          {
+            "name": "tone",
+            "label": "Accent color",
+            "type": "choice",
+            "display": "select",
+            "choices": [
+              [
+                "zest",
+                "Orange"
+              ],
+              [
+                "sky",
+                "Blue"
+              ],
+              [
+                "orchid",
+                "Pink"
+              ]
+            ],
+            "default": "zest"
+          },
+          {
+            "name": "link",
+            "label": "Product link",
+            "type": "link",
+            "supported_types": [
+              "EXTERNAL",
+              "CONTENT"
+            ],
+            "help_text": "Add a URL to enable the full-card link and Explore Acro CTA."
+          }
+        ],
+        "default": [
+          {
+            "title": "AcroAI",
+            "description": "Highwire’s proprietary AI infrastructure is embedded in every engagement. It compresses the distance between market signal and strategic action so your programs are built on what the market is doing right now, not last quarter's data.",
+            "tone": "zest",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              }
+            }
+          },
+          {
+            "title": "AcroIntelligence",
+            "description": "Real-time market monitoring and narrative analytics built for B2B technology. We track where your category is moving, how competitors are positioning, and where the next trend is forming before it becomes a headline.",
+            "tone": "sky",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              }
+            }
+          },
+          {
+            "title": "AcroAnswers",
+            "description": "Performance measurement in the language of your boardroom. Not vanity metrics, but revenue-tied outcomes that make every program defensible at the executive level.",
+            "tone": "orchid",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "name": "background_palette",
+            "label": "Theme background colour",
+            "type": "choice",
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "display": "select",
+            "choices": [
+              [
+                "primary",
+                "primary"
+              ],
+              [
+                "secondary",
+                "secondary"
+              ],
+              [
+                "tertiary",
+                "tertiary"
+              ],
+              [
+                "quaternary",
+                "quaternary"
+              ],
+              [
+                "quinary",
+                "quinary"
+              ],
+              [
+                "senary",
+                "senary"
+              ],
+              [
+                "septenary",
+                "septenary"
+              ],
+              [
+                "octonary",
+                "octonary"
+              ],
+              [
+                "subtle",
+                "Light grey (theme tint)"
+              ]
+            ],
+            "default": "primary"
+          },
+          {
+            "name": "mobile_background_palette",
+            "label": "Mobile background colour",
+            "type": "choice",
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "display": "select",
+            "choices": [
+              [
+                "primary",
+                "primary"
+              ],
+              [
+                "secondary",
+                "secondary"
+              ],
+              [
+                "tertiary",
+                "tertiary"
+              ],
+              [
+                "quaternary",
+                "quaternary"
+              ],
+              [
+                "quinary",
+                "quinary"
+              ],
+              [
+                "senary",
+                "senary"
+              ],
+              [
+                "septenary",
+                "septenary"
+              ],
+              [
+                "octonary",
+                "octonary"
+              ],
+              [
+                "subtle",
+                "Light grey (theme tint)"
+              ]
+            ],
+            "default": "primary"
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

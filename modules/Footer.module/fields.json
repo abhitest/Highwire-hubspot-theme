@@ -1,0 +1,345 @@
+[
+  {
+    "name": "logo",
+    "label": "Logo",
+    "type": "image",
+    "responsive": true,
+    "resizable": true
+  },
+  {
+    "name": "home_link",
+    "label": "Logo link",
+    "type": "link",
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT"
+    ],
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "/"
+      },
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "name": "navigation",
+    "label": "Navigation groups",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 4,
+      "default": 2
+    },
+    "children": [
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "links",
+        "label": "Links",
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 12
+        },
+        "children": [
+          {
+            "name": "text",
+            "label": "Label",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "link",
+            "label": "Link",
+            "type": "link",
+            "supported_types": [
+              "EXTERNAL",
+              "CONTENT"
+            ],
+            "default": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              },
+              "open_in_new_tab": false
+            }
+          }
+        ]
+      }
+    ],
+    "default": [
+      {
+        "heading": "Explore",
+        "links": [
+          {
+            "text": "Industries",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/#industries"
+              },
+              "open_in_new_tab": false
+            }
+          },
+          {
+            "text": "Capabilities",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/#capabilities"
+              },
+              "open_in_new_tab": false
+            }
+          },
+          {
+            "text": "Work",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/#work"
+              },
+              "open_in_new_tab": false
+            }
+          },
+          {
+            "text": "Insights",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/insights"
+              },
+              "open_in_new_tab": false
+            }
+          },
+          {
+            "text": "Agency",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/agency"
+              },
+              "open_in_new_tab": false
+            }
+          }
+        ]
+      },
+      {
+        "heading": "Connect",
+        "links": [
+          {
+            "text": "Contact",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/contact"
+              },
+              "open_in_new_tab": false
+            }
+          },
+          {
+            "text": "Careers",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/careers"
+              },
+              "open_in_new_tab": false
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "offices",
+    "label": "Offices",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 6,
+      "default": 2
+    },
+    "children": [
+      {
+        "name": "city",
+        "label": "City",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "street",
+        "label": "Street address",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "locality",
+        "label": "City, state and postal code",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "phone_label",
+        "label": "Phone display text",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "phone_number",
+        "label": "Dialing number (including country code)",
+        "type": "text",
+        "default": ""
+      }
+    ],
+    "default": [
+      {
+        "city": "San Francisco",
+        "street": "727 Sansome St 1st Floor",
+        "locality": "San Francisco, CA 94111",
+        "phone_label": "(415) 692-0748",
+        "phone_number": "+14156920748"
+      },
+      {
+        "city": "New York",
+        "street": "230 Park Ave 2nd Floor",
+        "locality": "New York, NY 10169",
+        "phone_label": "(415) 963-4174",
+        "phone_number": "+14159634174"
+      }
+    ]
+  },
+  {
+    "name": "newsletter_heading",
+    "label": "Newsletter heading",
+    "type": "text",
+    "default": "Sign up for The (High)wire Newsletter"
+  },
+  {
+    "name": "newsletter_form",
+    "label": "Newsletter form",
+    "type": "form",
+    "embed_versions": [
+      "v2",
+      "v4"
+    ],
+    "default": {
+      "form_id": "d768a366-1e90-4242-ac32-9cc06b88354e",
+      "response_type": "inline",
+      "message": "<p>Thanks for signing up for The (High)wire!</p>"
+    }
+  },
+  {
+    "name": "copyright",
+    "label": "Copyright text (year is automatic)",
+    "type": "text",
+    "default": "Highwire - All rights reserved"
+  },
+  {
+    "name": "privacy_text",
+    "label": "Privacy link label",
+    "type": "text",
+    "default": "Privacy Policy"
+  },
+  {
+    "name": "privacy_link",
+    "label": "Privacy policy link",
+    "type": "link",
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT"
+    ],
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "/privacy-policy"
+      },
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "name": "social_links",
+    "label": "Social links",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 3,
+      "default": 3
+    },
+    "children": [
+      {
+        "name": "platform",
+        "label": "Platform",
+        "type": "choice",
+        "choices": [
+          [
+            "facebook",
+            "Facebook"
+          ],
+          [
+            "linkedin",
+            "LinkedIn"
+          ],
+          [
+            "instagram",
+            "Instagram"
+          ]
+        ],
+        "default": "facebook"
+      },
+      {
+        "name": "link",
+        "label": "Profile URL",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "default": [
+      {
+        "platform": "facebook",
+        "link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "platform": "linkedin",
+        "link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "platform": "instagram",
+        "link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "help_text": "Add your profile URLs to enable the social links."
+  }
+]

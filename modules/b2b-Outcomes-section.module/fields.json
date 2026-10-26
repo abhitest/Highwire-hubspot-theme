@@ -1,0 +1,410 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "capabilities"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Connected Capabilities, From Strategy to Outcomes"
+      },
+      {
+        "name": "intro",
+        "label": "Introduction",
+        "type": "text",
+        "default": "Strategy, brand, communications, content, and marketing working together toward the same business goal."
+      },
+      {
+        "name": "capabilities",
+        "label": "Capabilities",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 12,
+          "default": 5
+        },
+        "children": [
+          {
+            "name": "title",
+            "label": "Title",
+            "type": "text"
+          },
+          {
+            "name": "description",
+            "label": "Description",
+            "type": "text",
+            "allow_new_line": true
+          },
+          {
+            "name": "icon",
+            "label": "Icon",
+            "type": "image",
+            "resizable": true,
+            "responsive": true
+          }
+        ],
+        "default": [
+          {
+            "title": "Strategy & Intelligence",
+            "description": "Every program starts with a sharper understanding of the landscape it will operate in. We build the market intelligence, audience insight, and competitive context that make every activation more precisely targeted and every decision clearly grounded in where the market is moving.",
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/search.svg",
+              "alt": "",
+              "size_type": "auto",
+              "width": 24,
+              "height": 24
+            }
+          },
+          {
+            "title": "Marketing",
+            "description": "The full growth engine, from awareness through pipeline. We build and activate programs across every channel where the organizations we work with need to be found, considered, and chosen, with measurement frameworks that connect marketing performance to the revenue conversations that matter most.",
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/target.svg",
+              "alt": "",
+              "size_type": "auto",
+              "width": 24,
+              "height": 24
+            }
+          },
+          {
+            "title": "Communications",
+            "description": "Reputation is built over years and tested in moments. We bring the senior counsel, media relationships, and sector fluency to protect and advance reputations across earned media, executive visibility, crisis response, and every channel where the organization’s credibility is at stake.",
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/chat.svg",
+              "alt": "",
+              "size_type": "auto",
+              "width": 24,
+              "height": 24
+            }
+          },
+          {
+            "title": "Content & Thought Leadership",
+            "description": "Intelligence-led content that earns authority with the audiences that shape decisions and produces the commercial results that make every program defensible. We build research-anchored thought leadership that functions as a category asset, compounding in value with every piece that follows.",
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/book-open.svg",
+              "alt": "",
+              "size_type": "auto",
+              "width": 24,
+              "height": 24
+            }
+          },
+          {
+            "title": "Brand & Creative",
+            "description": "Brand is the story an organization tells before anyone asks. We build the strategy, identity, and creative expression that give that story clarity, consistency, and the credibility to hold up in every environment the organization needs to lead.",
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/edit.svg",
+              "alt": "",
+              "size_type": "auto",
+              "width": 24,
+              "height": 24
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "name": "background_palette",
+            "label": "Theme background colour",
+            "type": "choice",
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "display": "select",
+            "choices": [
+              [
+                "primary",
+                "primary"
+              ],
+              [
+                "secondary",
+                "secondary"
+              ],
+              [
+                "tertiary",
+                "tertiary"
+              ],
+              [
+                "quaternary",
+                "quaternary"
+              ],
+              [
+                "quinary",
+                "quinary"
+              ],
+              [
+                "senary",
+                "senary"
+              ],
+              [
+                "septenary",
+                "septenary"
+              ],
+              [
+                "octonary",
+                "octonary"
+              ],
+              [
+                "subtle",
+                "Light grey (theme tint)"
+              ]
+            ],
+            "default": "secondary"
+          },
+          {
+            "name": "mobile_background_palette",
+            "label": "Mobile background colour",
+            "type": "choice",
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "display": "select",
+            "choices": [
+              [
+                "primary",
+                "primary"
+              ],
+              [
+                "secondary",
+                "secondary"
+              ],
+              [
+                "tertiary",
+                "tertiary"
+              ],
+              [
+                "quaternary",
+                "quaternary"
+              ],
+              [
+                "quinary",
+                "quinary"
+              ],
+              [
+                "senary",
+                "senary"
+              ],
+              [
+                "septenary",
+                "septenary"
+              ],
+              [
+                "octonary",
+                "octonary"
+              ],
+              [
+                "subtle",
+                "Light grey (theme tint)"
+              ]
+            ],
+            "default": "secondary"
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

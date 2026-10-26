@@ -1,0 +1,86 @@
+<section class="hw-industries baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-industries-module data-initial="{{ module.content_group.initial_panel }}" aria-labelledby="{{ name|escape_attr }}-title">
+<span class="baseModuleOverlay" aria-hidden="true"></span>
+<div class="content-wrapper">
+<div class="baseModuleParent ">
+<div class="hw-industries__intro">
+  {% if module.content_group.eyebrow %}
+  <div class="hw-industries_eyebrow pb24">
+    <p>{{ module.content_group.eyebrow }}</p>
+  </div>
+  {% endif %} 
+  {% if module.content_group.heading %}
+  <div class="hw-industries_Title">
+ <h2 class="h5">
+    <span>{{ module.content_group.heading }}</span>
+  </h2>
+  </div>
+  {% endif %}
+  {% if module.content_group.description %}
+  <div class="hw-industries_Content font20 septenary_color">
+ {{ module.content_group.description }}
+  </div>
+  {% endif %}
+</div>
+<div class="hw-industries__accordion">
+{% for item in module.content_group.industries %}
+<article class="hw-industries__panel" style="--industry-accent:rgba({{ item.accent.color|convert_rgb }},{{ item.accent.opacity / 100 }});--industry-arrow:var(--color-{{ 'secondary' if item.light_arrow else 'primary' }});">
+<button class="hw-industries__trigger" type="button" aria-expanded="true" aria-controls="{{ name|escape_attr }}-panel-{{ loop.index }}" aria-label="{{ item.title|escape_attr }}">
+  <span class="hw-industries__number">0{{ loop.index }}</span>
+  <span class="hw-industries__vertical h6" aria-hidden="true">{{ item.title }}</span>
+</button>
+<div class="hw-industries__copy" id="{{ name|escape_attr }}-panel-{{ loop.index }}">
+  <h3 class="h5 primary_color_mb">{{ item.title }}</h3>
+  {% if item.description %}
+  <p class="font18 font16_mb primary_color_mb mb_opacity_70">{{ item.description }}</p>
+  {% endif %}
+</div>
+{% if item.link.url.href %}
+<a class="hw-industries__action" href="{{ item.link.url.href|escape_url }}" aria-label="Explore {{ item.title|escape_attr }}" {% if item.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ item.link.rel|escape_attr }}{% if item.link.open_in_new_tab %} noopener{% endif %}">
+  <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></a>{% else %}<span class="hw-industries__action" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg>
+  </span>
+  {% endif %}
+</article>
+{% endfor %}</div>
+{% if module.content_group.cta_text %}{% set tag = 'a' if module.content_group.cta_link.url.href else 'span' %}
+<{{ tag }} class="hw-industries__cta" {% if module.content_group.cta_link.url.href %}href="{{ module.content_group.cta_link.url.href|escape_url }}" {% if module.content_group.cta_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ module.content_group.cta_link.rel|escape_attr }}{% if module.content_group.cta_link.open_in_new_tab %} noopener{% endif %}"{% endif %}>
+{{ module.content_group.cta_text }}
+<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg>
+</{{ tag }}>
+{% endif %}
+</div>
+</div>
+</section>
+{% require_css %}
+<style>
+/* Only per-instance editor values live here; all CSS rules are in Page Css. */
+.{{ name }} {
+  --industries-background: {% if module.style.background_property.background_palette == 'subtle' %}color-mix(in srgb, var(--color-primary) 5%, var(--color-secondary)){% else %}var(--color-{{ module.style.background_property.background_palette or 'secondary' }}){% endif %};
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  --industries-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  --industries-overlay: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  --industries-background-image: {{ module.style.background_property.background_gredient.css }};
+  {% endif %}
+  {% for breakpoint in ['desktop', 'tab', 'mobile'] %}
+    {% set spacing = module.style.spacing[breakpoint ~ '_spacing'] %}
+    {% for edge in ['top', 'right', 'bottom', 'left'] %}
+      {% if spacing.padding[edge].value is number %}
+      --industries-{{ breakpoint }}-padding-{{ edge }}: {{ spacing.padding[edge].value }}{{ spacing.padding[edge].units }};
+      {% endif %}
+      {% if spacing.margin[edge].value is number %}
+      --industries-{{ breakpoint }}-margin-{{ edge }}: {{ spacing.margin[edge].value }}{{ spacing.margin[edge].units }};
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+
+
+@media (max-width: 767px){
+  .{{ name }} {
+    --industries-background: var(--color-{{ module.style.background_property.mobile_background_palette }});
+  }
+
+}
+
+</style>
+{% end_require_css %}

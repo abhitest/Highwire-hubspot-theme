@@ -1,0 +1,646 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "work"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "id": "content_group",
+    "name": "content_group",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "name": "eyebrow",
+        "label": "Eyebrow",
+        "type": "text",
+        "default": "Our Work"
+      },
+      {
+      "name": "title_group",
+      "label": "Title Group",
+      "required": false,
+      "locked": false,
+      "children": [
+        {
+        "name": "title_line_1st",
+        "label": "Title Line 1st",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "Built for Companies" 
+      },
+        {
+        "name": "title_line_2nd",
+        "label": "Title Line 2nd",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "Where Innovation is" 
+      },
+        {
+        "name": "title_line_3rd",
+        "label": "Title Line 3rd",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "the Business Model" 
+      }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {} 
+    },
+      
+      {
+        "id": "content",
+        "name": "content",
+        "label": "Content",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "display_width": null,
+        "default": ""
+      },
+      
+  {
+    "name": "cases",
+    "label": "Case studies",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 4,
+      "sorting_label_field": "cases.title"
+    },
+    "children": [
+      {
+        "name": "title",
+        "label": "Case title",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "description",
+        "label": "Case description",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "image",
+        "label": "Case image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "default": {
+          "src": "https://8855469.fs1.hubspotusercontent-na1.net/hubfs/8855469/highwire-theme-assets/image%203%20(2).png",
+          "alt": "image 3 (2)",
+          "size_type": "auto"
+        }
+      },
+      {
+        "name": "image_position",
+        "label": "Image focus",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "center center",
+            "Centre"
+          ],
+          [
+            "center 30%",
+            "Upper centre"
+          ],
+          [
+            "left center",
+            "Left"
+          ],
+          [
+            "right center",
+            "Right"
+          ]
+        ],
+        "default": "center center"
+      },
+      {
+        "name": "tag_1",
+        "label": "Service tag 1",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "tag_2",
+        "label": "Service tag 2",
+        "type": "text",
+        "default": ""
+      },
+
+      {
+      "name": "box_group",
+      "label": "Box Group",
+      "required": false,
+      "locked": false,
+      "occurrence": {
+        "min": null,
+        "max": 2,
+        "sorting_label_field": null,
+        "default": 2
+      },
+      "children": [
+        {
+        "name": "box_title",
+        "label": "Box title",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "147" 
+        },
+       {
+       "name": "box_content",
+       "label": "Box Content",
+       "required": false,
+       "locked": false,
+       "validation_regex": "",
+       "validation_error_message": "",
+       "allow_new_line": false,
+       "show_emoji_picker": false,
+       "type": "text",
+       "placeholder": "",
+       "inline_help_text": "",
+       "help_text": "",
+       "default": "Total articles, 26 broadcast mentions" 
+      }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": [] 
+    },
+
+
+     
+      {
+        "name": "palette",
+        "label": "Theme colour",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "primary",
+            "Primary"
+          ],
+          [
+            "secondary",
+            "Secondary"
+          ],
+          [
+            "tertiary",
+            "Tertiary"
+          ],
+          [
+            "quaternary",
+            "Quaternary"
+          ],
+          [
+            "quinary",
+            "Quinary"
+          ],
+          [
+            "senary",
+            "Senary"
+          ],
+          [
+            "septenary",
+            "Septenary"
+          ],
+          [
+            "octonary",
+            "Octonary"
+          ]
+        ],
+        "default": "quinary"
+      },
+      {
+        "name": "show_logo",
+        "label": "Show client logo",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "name": "logo",
+        "label": "Client logo (empty uses reference placeholder)",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "default": {
+          "src": "",
+          "alt": "",
+          "size_type": "auto"
+        }
+      },
+      {
+        "name": "link",
+        "label": "Case study link (optional)",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": true,
+        "default": {
+          "url": {
+            "href": "",
+            "type": "EXTERNAL"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "name": "background_palette",
+            "label": "Theme background colour",
+            "type": "choice",
+              "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "display": "select",
+            "choices": [
+              [
+                "primary",
+                "primary"
+              ],
+              [
+                "secondary",
+                "secondary"
+              ],
+              [
+                "tertiary",
+                "tertiary"
+              ],
+              [
+                "quaternary",
+                "quaternary"
+              ],
+              [
+                "quinary",
+                "quinary"
+              ],
+              [
+                "senary",
+                "senary"
+              ],
+              [
+                "septenary",
+                "septenary"
+              ],
+              [
+                "octonary",
+                "octonary"
+              ]
+            ],
+            "default": "primary"
+          },
+           {
+            "name": "mobile_background",
+            "label": "Mobile background color",
+            "type": "choice",
+              "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "display": "select",
+            "choices": [
+              [
+                "primary",
+                "primary"
+              ],
+              [
+                "secondary",
+                "secondary"
+              ],
+              [
+                "tertiary",
+                "tertiary"
+              ],
+              [
+                "quaternary",
+                "quaternary"
+              ],
+              [
+                "quinary",
+                "quinary"
+              ],
+              [
+                "senary",
+                "senary"
+              ],
+              [
+                "septenary",
+                "septenary"
+              ],
+              [
+                "octonary",
+                "octonary"
+              ]
+            ],
+            "default": "secondary"
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

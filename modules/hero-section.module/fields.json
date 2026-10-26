@@ -1,0 +1,159 @@
+[
+     {
+  "id" : "custom_style",
+  "name" : "custom_style",
+  "label" : "Custom Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ 
+    {
+    "id" : "custom_class",
+    "name" : "custom_class",
+    "label" : "Custom Class",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null
+  }, 
+  {
+    "id" : "section_id",
+    "name" : "section_id",
+    "label" : "Section ID",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "container_choice" : "content-wrapper"
+  }
+}, 
+
+{
+  "id" : "content_group",
+  "name" : "content_group",
+  "label" : "Content Group",
+  "required" : false,
+  "locked" : false,
+  "children" : [ 
+    {
+  "allow_new_line": false,
+  "default": "Turn Innovation Into",
+  "display_width": null,
+  "id": "line_1",
+  "label": "Headline line 1",
+  "locked": false,
+  "name": "line_1",
+  "required": false,
+  "type": "text"
+ },
+  {
+  "allow_new_line": false,
+  "default": "Market Momentum",
+  "display_width": null,
+  "id": "line_2",
+  "label": "Headline line 2 (accent colour)",
+  "locked": false,
+  "name": "line_2",
+  "required": false,
+  "type": "text"
+ },
+  {
+  "allow_new_line": false,
+  "default": "Ranked among the top strategic marketing and communications agencies in the U.S. We partner with the leaders who build, defend, and grow the most consequential brands in the world.",
+  "display_width": null,
+  "id": "subhead",
+  "label": "Subhead",
+  "locked": false,
+  "name": "subhead",
+  "required": false,
+  "type": "text"
+ },
+ {
+  "allow_new_line": false,
+  "default": "See our work",
+  "display_width": null,
+  "id": "cta_label",
+  "label": "CTA label",
+  "locked": false,
+  "name": "cta_label",
+  "required": false,
+  "type": "text"
+ },
+ {
+  "default": {
+   "content_id": null,
+   "href": "#work",
+   "type": "EXTERNAL"
+  },
+  "display_width": null,
+  "id": "cta_url",
+  "label": "CTA link",
+  "locked": false,
+  "name": "cta_url",
+  "required": false,
+  "supported_types": [
+   "EXTERNAL",
+   "CONTENT",
+   "FILE",
+   "EMAIL_ADDRESS",
+   "BLOG"
+  ],
+  "type": "url"
+ },
+ {
+  "default": {
+   "size_type": "auto",
+   "src": "https://8855469.fs1.hubspotusercontent-na1.net/hubfs/8855469/highwire-theme-assets/hero-office.webp",
+   "alt": "hero-office",
+   "loading": "eager"
+  },
+  "display_width": null,
+  "id": "hero_image",
+  "label": "Hero image (landscape, at least 2000px wide)",
+  "locked": false,
+  "name": "hero_image",
+  "required": false,
+  "resizable": true,
+  "responsive": false,
+  "show_loading": false,
+  "type": "image"
+ },
+ {
+  "name": "mobile_image",
+  "label": "Mobile Image",
+  "type": "image",
+  "required": false,
+  "resizable": true,
+  "responsive": true,
+  "show_loading": false,
+  "help_text": "Used on screens up to 767px wide. Leave empty to use the desktop hero image.",
+  "default": {
+   "size_type": "auto",
+   "src": "https://8855469.fs1.hubspotusercontent-na1.net/hubfs/8855469/highwire-theme-assets/image%20(28).png",
+   "alt": "Office team",
+   "loading": "eager"
+  }
+ }
+ 
+],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}
+
+
+ 
+
+
+ 
+]

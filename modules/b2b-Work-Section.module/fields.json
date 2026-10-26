@@ -1,0 +1,538 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "work"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Work That Moves Your Brand Forward"
+      },
+      {
+        "name": "intro",
+        "label": "Introduction",
+        "type": "text",
+        "default": "See how we help technology companies sharpen their story, shape their category, and create momentum."
+      },
+      {
+        "name": "cards",
+        "label": "Work cards",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 12,
+          "default": 4
+        },
+        "children": [
+          {
+            "name": "client",
+            "label": "Client",
+            "type": "text"
+          },
+          {
+            "name": "title",
+            "label": "Title",
+            "type": "text"
+          },
+          {
+            "name": "description",
+            "label": "Description",
+            "type": "text",
+            "allow_new_line": true
+          },
+          {
+            "name": "image",
+            "label": "Image",
+            "type": "image",
+            "responsive": true,
+            "resizable": true
+          },
+          {
+            "name": "link",
+            "label": "Case study link (optional)",
+            "type": "link",
+            "supported_types": [
+              "EXTERNAL",
+              "CONTENT"
+            ],
+            "help_text": "Add a destination to enable the zoom, arrow cursor and clickable image/title. Leave blank for a non-linked card."
+          },
+          {
+            "name": "tags",
+            "label": "Capabilities",
+            "type": "text",
+            "occurrence": {
+              "min": 0,
+              "max": 8
+            }
+          },
+          {
+            "name": "metrics",
+            "label": "Metrics",
+            "type": "group",
+            "occurrence": {
+              "min": 0,
+              "max": 4
+            },
+            "children": [
+              {
+                "name": "metric_label",
+                "label": "Label",
+                "type": "text"
+              },
+              {
+                "name": "value",
+                "label": "Value",
+                "type": "text"
+              }
+            ]
+          }
+        ],
+        "default": [
+          {
+            "client": "Twilio",
+            "title": "Shaping the Future of Customer Connection",
+            "description": "Twilio introduced a new platform that required the creation of an entirely new category.",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/home/work/twilio.jpg",
+              "alt": "Twilio customer engagement report displayed on a laptop",
+              "size_type": "auto"
+            },
+            "tags": [
+              "Branded content & campaigns"
+            ],
+            "metrics": [
+              {
+                "value": "215+",
+                "metric_label": "Global earned media articles"
+              },
+              {
+                "value": "270%",
+                "metric_label": "YoY increase in social engagements"
+              }
+            ],
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              }
+            }
+          },
+          {
+            "client": "Workforce technology platform",
+            "title": "Making the Future of Work Work for Everyone",
+            "description": "A workforce technology platform needed a story that connected its AI capabilities to the people and businesses they could help.",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/industries/b2b/upwork-independent-specialist-v01.png",
+              "alt": "An independent designer working with a graphics tablet in her studio",
+              "size_type": "auto"
+            },
+            "tags": [
+              "Brand strategy",
+              "Integrated campaigns"
+            ],
+            "metrics": [
+              {
+                "value": "140+",
+                "metric_label": "Earned media placements"
+              },
+              {
+                "value": "3.2×",
+                "metric_label": "Increase in campaign engagement"
+              }
+            ],
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              }
+            }
+          },
+          {
+            "client": "ServiceNow",
+            "title": "Turning Enterprise Ambition Into Everyday Impact",
+            "description": "An integrated campaign made a complex platform story tangible, showing how connected workflows help people get meaningful work done.",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/industries/b2b/servicenow-it-workflow-v01.png",
+              "alt": "An IT specialist helping a colleague prepare a laptop at a service workbench",
+              "size_type": "auto"
+            },
+            "tags": [
+              "Thought leadership",
+              "Executive visibility"
+            ],
+            "metrics": [
+              {
+                "value": "95+",
+                "metric_label": "Stories in priority publications"
+              },
+              {
+                "value": "180%",
+                "metric_label": "Growth in audience engagement"
+              }
+            ],
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              }
+            }
+          },
+          {
+            "client": "Cloud Computing Services",
+            "title": "Turning AI Hype Into Market Authority",
+            "description": "A top cloud services provider needed to stand out in a lightning-fast AI landscape.",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/home/work/cloud-ai.jpg",
+              "alt": "A diverse creative team working together in a studio",
+              "size_type": "auto"
+            },
+            "tags": [
+              "Executive visibility",
+              "Earned media"
+            ],
+            "metrics": [
+              {
+                "value": "80+",
+                "metric_label": "High-impact feature articles in one year"
+              },
+              {
+                "value": "70%",
+                "metric_label": "Stories featuring customers or executives"
+              }
+            ],
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "more_label",
+        "label": "More work label",
+        "type": "text",
+        "default": "See more technology work"
+      },
+      {
+        "name": "more_url",
+        "label": "More work URL",
+        "type": "url",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "default": {
+          "type": "EXTERNAL",
+          "href": "/#work"
+        }
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "name": "background_palette",
+            "label": "Theme background colour",
+            "type": "choice",
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "display": "select",
+            "choices": [
+              [
+                "primary",
+                "primary"
+              ],
+              [
+                "secondary",
+                "secondary"
+              ],
+              [
+                "tertiary",
+                "tertiary"
+              ],
+              [
+                "quaternary",
+                "quaternary"
+              ],
+              [
+                "quinary",
+                "quinary"
+              ],
+              [
+                "senary",
+                "senary"
+              ],
+              [
+                "septenary",
+                "septenary"
+              ],
+              [
+                "octonary",
+                "octonary"
+              ],
+              [
+                "subtle",
+                "Light grey (theme tint)"
+              ]
+            ],
+            "default": "secondary"
+          },
+          {
+            "name": "mobile_background_palette",
+            "label": "Mobile background colour",
+            "type": "choice",
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "display": "select",
+            "choices": [
+              [
+                "primary",
+                "primary"
+              ],
+              [
+                "secondary",
+                "secondary"
+              ],
+              [
+                "tertiary",
+                "tertiary"
+              ],
+              [
+                "quaternary",
+                "quaternary"
+              ],
+              [
+                "quinary",
+                "quinary"
+              ],
+              [
+                "senary",
+                "senary"
+              ],
+              [
+                "septenary",
+                "septenary"
+              ],
+              [
+                "octonary",
+                "octonary"
+              ],
+              [
+                "subtle",
+                "Light grey (theme tint)"
+              ]
+            ],
+            "default": "secondary"
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

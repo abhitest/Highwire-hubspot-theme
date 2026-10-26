@@ -1,0 +1,57 @@
+<section class="hw-acro" id="{{ name|escape_attr }}" data-acro-module aria-labelledby="{{ name|escape_attr }}-title">
+  <div class="hw-acro__stage">
+    <div class="hw-acro__scene">
+    <div class="hw-acro__media" aria-hidden="true">
+      <div class="hw-acro__camera">
+        <img src="{{ (module.image.src or get_asset_url('../../images/acro-suite.webp'))|escape_url }}" alt="" loading="lazy" decoding="async">
+      </div>
+      <canvas class="hw-acro__pixels"></canvas>
+    </div>
+    <div class="hw-acro__scrim" aria-hidden="true"></div>
+    <div class="hw-acro__intro">
+      <div class="hw-acro_Title"> 
+      <h2 id="{{ name|escape_attr }}-title" class="secondary_color_md">
+        <span class="hw-acro__mobile-title" hidden>{{ module.mobile_title|default('Acro Suite\nIntelligence\nInfrastructure', true)|escape_html }}</span>
+        <span class="hw-acro__primary">
+          <span class="hw-acro__line"><span>{{ module.title_line_1 }}</span></span>
+          <span class="hw-acro__line"><span>{{ module.title_line_2 }}</span></span>
+        </span>
+        <span class="hw-acro__secondary">
+          <span class="hw-acro__line"><span>{{ module.subtitle_line_1 }}</span></span>
+          <span class="hw-acro__line"><span>{{ module.subtitle_line_2 }}</span></span>
+        </span>
+      </h2>
+      </div>
+      {{ module.introduction }}
+      
+    </div>
+    <div class="hw-acro__products">
+      {% for product in module.products %}
+      <article class="hw-acro__product" data-product="{{ loop.index0 }}" style="--acro-tone: var(--color-{{ product.palette or (["tertiary", "quinary", "quaternary"])[loop.index0] }});">
+        <h3><button class="hw-acro__trigger" type="button" id="{{ name|escape_attr }}-trigger-{{ loop.index }}" aria-expanded="true" aria-controls="{{ name|escape_attr }}-panel-{{ loop.index }}">{{ product.title|escape_html }}</button></h3>
+        <div class="hw-acro__detail " id="{{ name|escape_attr }}-panel-{{ loop.index }}" role="region" aria-labelledby="{{ name|escape_attr }}-trigger-{{ loop.index }}">
+          <p class="font20 font16_mb">{{ product.description|escape_html }}</p>
+          {% set href = product.button_settings.button_link.url.href %}
+          {% if product.button_settings.button_link.url.type == 'EMAIL_ADDRESS' %}{% set href = 'mailto:' ~ href %}{% endif %}
+          {% if product.button_settings.button_text %}
+          {% if href %}<a class="hw-acro__cta button" href="{{ href|escape_url }}">{% else %}<span class="hw-acro__cta">{% endif %}
+            <span>{{ product.button_settings.button_text }}</span>
+            <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square"><path d="M4 14 14 4"/><path d="M6 4h8v8"/></g></svg>
+          {% if href %}</a>{% else %}</span>{% endif %}
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% if module.mobile_button_settings.button_text %}
+      {% set mobile_link = module.mobile_button_settings.button_link %}
+      {% set mobile_href = mobile_link.url.href %}
+      {% if mobile_link.url.type == 'EMAIL_ADDRESS' %}{% set mobile_href = 'mailto:' ~ mobile_href %}{% endif %}
+      {% if mobile_href %}<a class="hw-acro__mobile-cta button" hidden href="{{ mobile_href|escape_url }}" {% if mobile_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ mobile_link.rel|escape_attr }}{% if mobile_link.no_follow %} nofollow{% endif %}{% if mobile_link.open_in_new_tab %} noopener{% endif %}">{% else %}<span class="hw-acro__mobile-cta button" hidden>{% endif %}
+        <span>{{ module.mobile_button_settings.button_text|escape_html }}</span>
+        <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg>
+      {% if mobile_href %}</a>{% else %}</span>{% endif %}
+    {% endif %}
+    </div>
+  </div>
+</section>

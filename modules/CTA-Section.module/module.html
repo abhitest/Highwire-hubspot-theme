@@ -1,0 +1,52 @@
+<section class="hw-closing baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-closing data-animate="{% if module.content_group.animate %}true{% else %}false{% endif %}" data-mask="0" aria-labelledby="{{ name|escape_attr }}-title">
+<span class="baseModuleOverlay" aria-hidden="true"></span>
+<div class="baseModuleParent hw-closing__layout">
+<div class="hw-closing__copy">
+  <h2 class="h3">
+    {% for line in module.content_group.heading.split('\n') %}
+    <span class="hw-closing__line">
+      <span>
+        {{ line }}        
+      </span>
+    </span>
+    {% endfor %}
+  </h2>
+<div class="hw-closing__details">
+  <div class="hw-closing_Content font20">
+{{ module.content_group.description }}
+  </div>
+{% if module.content_group.button_text %}{% set link = module.content_group.button_link %}{% set tag = 'a' if link.url.href else 'span' %}<{{ tag }} class="hw-closing__button" {% if link.url.href %}href="{{ link.url.href|escape_url }}"{% if link.open_in_new_tab %} target="_blank"{% endif %} rel="{{ link.rel|escape_attr }}{% if link.open_in_new_tab %} noopener{% endif %}"{% endif %}>{{ module.content_group.button_text|escape_html }}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M6 5h13v13" stroke="currentColor" stroke-width="1.5"/></svg></{{ tag }}>{% endif %}</div></div>
+<div class="hw-closing__media" aria-hidden="true">
+  {% for state in [0,1] %}
+  <div class="hw-closing__mask" data-state="{{ state }}" style="--closing-mask:url('{{ get_asset_url('../../images/cta-h-mark.svg') if state == 0 else get_asset_url('../../images/cta-h-swapped.svg') }}')">
+    <img src="{{ (resize_image_url(module.content_group.image.src, 1600) if module.content_group.image.src else get_asset_url('../../images/cta-warm-motion.webp'))|escape_url }}" alt="" loading="lazy" decoding="async" width="850" height="850">
+  </div>
+  {% endfor %}
+</div>
+</div>
+</section>
+{% require_css %}
+<style>
+/* Only per-instance editor values live here; all CSS rules are in Page Css. */
+.{{ name }} {
+  --closing-background: {% if module.style.background_property.background_palette == 'subtle' %}color-mix(in srgb, var(--color-primary) 5%, var(--color-secondary)){% else %}var(--color-{{ module.style.background_property.background_palette or 'secondary' }}){% endif %};
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  --closing-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  --closing-overlay: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  --closing-background-image: {{ module.style.background_property.background_gredient.css }};
+  {% endif %}
+  {% for breakpoint in ['desktop', 'tab', 'mobile'] %}
+    {% set spacing = module.style.spacing[breakpoint ~ '_spacing'] %}
+    {% for edge in ['top', 'right', 'bottom', 'left'] %}
+      {% if spacing.padding[edge].value is number %}
+      --closing-{{ breakpoint }}-padding-{{ edge }}: {{ spacing.padding[edge].value }}{{ spacing.padding[edge].units }};
+      {% endif %}
+      {% if spacing.margin[edge].value is number %}
+      --closing-{{ breakpoint }}-margin-{{ edge }}: {{ spacing.margin[edge].value }}{{ spacing.margin[edge].units }};
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+</style>
+{% end_require_css %}
