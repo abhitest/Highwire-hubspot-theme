@@ -1,0 +1,193 @@
+[
+  {
+    "name": "custom_style",
+    "label": "Custom Style",
+    "type": "group",
+    "children": [
+      {
+        "name": "custom_class",
+        "label": "Custom class",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "section_id",
+        "label": "Section ID",
+        "type": "text",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Let’s Get to Work"
+  },
+  {
+    "name": "intro",
+    "label": "Introduction",
+    "type": "text",
+    "default": "Senior Highwire leaders stay close to the work, the market, and your business from day one."
+  },
+  {
+    "name": "leader",
+    "label": "Leader",
+    "type": "group",
+    "children": [
+      {
+        "name": "photo",
+        "label": "Leader portrait",
+        "type": "image",
+        "help_text": "Select the leader portrait from your files. Displayed in grayscale at 100 x 124 pixels.",
+        "default": {
+          "src": "",
+          "alt": "Mallory Cloutier"
+        }
+      },
+      {
+        "name": "full_name",
+        "label": "Name",
+        "type": "text",
+        "default": "Mallory Cloutier"
+      },
+      {
+        "name": "role",
+        "label": "Role",
+        "type": "text",
+        "default": "EVP, B2B Technology"
+      },
+      {
+        "name": "bio",
+        "label": "Biography",
+        "type": "richtext",
+        "default": "<p>Mallory brings a track record of elevating private and public companies to skyrocketing growth. Whether it’s guiding a public company to its next stratosphere, leading an IPO, or launching a consumer tech company from stealth.</p>"
+      }
+    ]
+  },
+  {
+    "name": "form",
+    "label": "Contact form",
+    "type": "form",
+    "required": false,
+    "help_text": "Choose a legacy HubSpot form rendered as raw HTML to apply module styling. Use First name and Last name in one row, followed by Work email, Company and a multiline message. Set the submit label to Start the Conversation.",
+    "default": {
+      "response_type": "inline",
+      "message": "Thank you. We’ll be in touch soon."
+    }
+  },
+  {
+    "name": "unconfigured_message",
+    "label": "Message when no form is selected",
+    "type": "text",
+    "default": "The contact form is not available yet."
+  },
+  {
+    "name": "animate",
+    "label": "Enable animations",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "style",
+    "label": "Styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "name": "background_color",
+        "label": "Background colour",
+        "type": "color",
+        "default": {
+          "color": "#f0f0f0",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "spacing",
+        "label": "Section spacing",
+        "type": "group",
+        "children": [
+          {
+            "name": "desktop",
+            "label": "Desktop spacing",
+            "type": "spacing",
+            "help_text": "Top and bottom spacing only. content-wrapper handles horizontal gutters.",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 100,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 100,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "name": "tablet",
+            "label": "Tablet spacing",
+            "type": "spacing",
+            "help_text": "Top and bottom spacing only. content-wrapper handles horizontal gutters.",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "name": "mobile",
+            "label": "Mobile spacing",
+            "type": "spacing",
+            "help_text": "Top and bottom spacing only. content-wrapper handles horizontal gutters.",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

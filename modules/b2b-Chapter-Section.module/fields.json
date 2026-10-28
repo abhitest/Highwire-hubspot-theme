@@ -48,11 +48,15 @@
         "default": "Tensions Shaping Technology?s Next Chapter"
       },
       {
-        "name": "intro",
-        "label": "Introduction",
-        "type": "text",
-        "default": "Technology leaders are navigating a market where expectations keep rising and the rules keep changing. We see five recurring tensions that can shape a company’s reputation, category position, executive influence, growth, and ability to prove impact."
-      },
+      "name": "intro",
+      "label": "Introduction",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "<p>Technology leaders are navigating a market where expectations keep rising and the rules keep changing. We see five recurring tensions that can shape a company’s reputation, category position, executive influence, growth, and ability to prove impact.</p>" 
+    },
       {
         "name": "chapters",
         "label": "Chapters",
@@ -69,11 +73,35 @@
             "type": "text"
           },
           {
-            "name": "description",
-            "label": "Description",
-            "type": "text",
-            "allow_new_line": true
-          }
+          "name": "description",
+          "label": "Description",
+          "required": false,
+          "locked": false,
+          "type": "richtext",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": null 
+        },
+         {
+        "name": "cta_label",
+        "label": "Panel link label",
+        "type": "text",
+        "default": "Let?s talk about it"
+      },
+      {
+        "name": "cta_url",
+        "label": "Panel link",
+        "type": "url",
+        "supported_types": [
+          "CONTENT",
+          "EXTERNAL"
+        ],
+        "default": {
+          "type": "EXTERNAL",
+          "href": "#contact"
+        }
+      }
+          
         ],
         "default": [
           {
@@ -97,26 +125,8 @@
             "description": "Reach and impressions cannot tell the full story. Connect market visibility, message adoption, engagement, and demand signals to the outcomes your CEO, sales leaders, and board care about."
           }
         ]
-      },
-      {
-        "name": "cta_label",
-        "label": "Panel link label",
-        "type": "text",
-        "default": "Let?s talk about it"
-      },
-      {
-        "name": "cta_url",
-        "label": "Panel link",
-        "type": "url",
-        "supported_types": [
-          "CONTENT",
-          "EXTERNAL"
-        ],
-        "default": {
-          "type": "EXTERNAL",
-          "href": "#contact"
-        }
       }
+     
     ]
   },
   {

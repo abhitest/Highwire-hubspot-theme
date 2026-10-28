@@ -1,0 +1,37 @@
+{# All editorial data comes from the current HubSpot blog post. #}
+<section class="hw-blog-banner {{ name|escape_attr }}" aria-labelledby="{{ name|escape_attr }}-title">
+  <div class="hw-blog-banner__inner">
+    <nav class="hw-blog-banner__breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="{{ group.absolute_url|escape_url }}">{{ module.breadcrumb_label|escape_html }}</a></li>
+        <li><span aria-hidden="true">/</span><span aria-current="page">{{ (module.breadcrumb_title or content.name)|striptags|escape_html }}</span></li>
+      </ol>
+    </nav>
+    <h1 id="{{ name|escape_attr }}-title">{{ content.name|sanitize_html }}</h1>
+    {% if (module.show_tags and content.tag_list) or (module.show_author and content.blog_post_author.display_name) or (module.show_date and content.publish_date) %}
+    <div class="hw-blog-banner__meta">
+      {% if module.show_tags and content.tag_list %}
+      <ul class="hw-blog-banner__tags" aria-label="Post tags">
+        {% for tag in content.tag_list %}<li><a href="{{ blog_tag_url(group.id, tag.slug)|escape_url }}" rel="tag">{{ tag.name|escape_html }}</a></li>{% endfor %}
+      </ul>
+      {% endif %}
+      <div class="hw-blog-banner__details">
+        {% if module.show_author and content.blog_post_author.display_name %}<span>By <a href="{{ blog_author_url(group.id, content.blog_post_author.slug)|escape_url }}" rel="author">{{ content.blog_post_author.display_name|escape_html }}</a></span>{% endif %}
+        {% if module.show_date and content.publish_date %}<time datetime="{{ content.publish_date|format_datetime('yyyy-MM-dd')|escape_attr }}">{{ content.publish_date|format_datetime('MMMM d, yyyy')|escape_html }}</time>{% endif %}
+      </div>
+    </div>
+    {% endif %}
+    {% if module.show_image and content.featured_image %}
+    <div class="hw-blog-banner__image"><img src="{{ content.featured_image|escape_url }}" alt="{{ content.featured_image_alt_text|escape_attr }}" loading="eager" fetchpriority="high" decoding="async"></div>
+    {% endif %}
+  </div>
+</section>
+{% require_css %}
+<style>
+  .{{ name }}.hw-blog-banner {
+    --blog-banner-background: {{ module.style.background.css }};
+    --blog-banner-text: {{ module.style.text.css }};
+    --blog-banner-accent: {{ module.style.accent.css }};
+  }
+</style>
+{% end_require_css %}

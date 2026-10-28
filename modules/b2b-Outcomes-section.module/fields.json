@@ -51,8 +51,8 @@
       {
         "name": "intro",
         "label": "Introduction",
-        "type": "text",
-        "default": "Strategy, brand, communications, content, and marketing working together toward the same business goal."
+        "type": "richtext",
+        "default": "<p>Strategy, brand, communications, content, and marketing working together toward the same business goal.</p>"
       },
       {
         "name": "capabilities",
@@ -72,7 +72,7 @@
           {
             "name": "description",
             "label": "Description",
-            "type": "text",
+            "type": "richtext",
             "allow_new_line": true
           },
           {

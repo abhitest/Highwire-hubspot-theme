@@ -1,0 +1,19 @@
+<section class="hw-comparison baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
+<span class="baseModuleOverlay" aria-hidden="true"></span>
+<div class="baseModuleParent"><div class="content-wrapper">
+<h2 class="hw-comparison__title" id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>
+<div class="hw-comparison__scroll" role="region" aria-labelledby="{{ name|escape_attr }}-title" tabindex="0">
+<table class="hw-comparison__table" aria-labelledby="{{ name|escape_attr }}-title"><colgroup><col><col><col></colgroup>
+<thead><tr><th scope="col">{% if module.content_group.mark.src %}<img src="{{ module.content_group.mark.src|escape_url }}" alt="" width="24" height="24" loading="lazy">{% endif %}<span class="hw-comparison__sr">{{ module.content_group.criteria_heading|escape_html }}</span></th><th scope="col">{{ module.content_group.acro_heading|escape_html }}</th><th scope="col">{{ module.content_group.other_heading|escape_html }}</th></tr></thead>
+<tbody>{% for row in module.rows %}<tr><th scope="row">{{ row.criterion|escape_html }}</th><td>{{ row.acro|escape_html }}</td><td>{{ row.other|escape_html }}</td></tr>{% endfor %}</tbody></table>
+</div></div></div></section>
+{% require_css %}<style>
+.{{ name }}.baseModuleStyle {
+{{ module.style.spacing.desktop_spacing.css }} padding-left:0; padding-right:0; margin-left:0; margin-right:0;
+{% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');{% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};{% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}
+{% for key in ['text_color','secondary_color','highlight_background','accent_color','border_color'] %}--comparison-{{ key }}:rgba({{ module.style[key].color|convert_rgb }},{{ module.style[key].opacity / 100 }});{% endfor %}
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }}>.baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }{% endif %}
+@media(max-width:1300px){.{{ name }}.baseModuleStyle { {{ module.style.spacing.tab_spacing.css }} padding-left:0;padding-right:0;margin-left:0;margin-right:0; }}
+@media(max-width:767px){.{{ name }}.baseModuleStyle { {{ module.style.spacing.mobile_spacing.css }} padding-left:0;padding-right:0;margin-left:0;margin-right:0; }}
+</style>{% end_require_css %}

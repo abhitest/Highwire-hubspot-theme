@@ -1,0 +1,25 @@
+.hw-acroai-banner { position:relative; color:var(--acroai-text_color); background-position:center; background-size:cover; font-family:var(--body,Arial,sans-serif); }
+.hw-acroai-banner,.hw-acroai-banner * { box-sizing:border-box; }
+.hw-acroai-banner > .baseModuleOverlay { position:absolute; inset:0; pointer-events:none; }
+.hw-acroai-banner__layout { position:relative; display:grid; grid-template-columns:minmax(0,1fr) var(--acroai-rail_width); min-height:var(--acroai-height); }
+.hw-acroai-banner__copy { min-width:0; display:flex; flex-direction:column; align-items:flex-start; }
+.hw-acroai-banner h1 { margin:var(--acroai-logo_top) 0 var(--acroai-logo_bottom); color:inherit; max-width:100%; font:400 clamp(64px,10vw,150px)/1 var(--display,Arial,sans-serif); }
+.hw-acroai-banner h1 img { display:block; width:var(--acroai-logo_width); max-width:100%; height:auto; filter:brightness(0); }
+.hw-acroai-banner__description { max-width:var(--acroai-description_width); font:400 var(--acroai-description_size)/1.25 var(--display,Arial,sans-serif); letter-spacing:-.03em; }
+.hw-acroai-banner__description p { margin:0; color:inherit; font:inherit; }
+.hw-acroai-banner__rail { position:relative; overflow:hidden; min-height:var(--acroai-height); background:var(--acroai-rail_background); }
+.hw-acroai-banner__field { position:absolute; inset:0; background:var(--acroai-blue_panel); transform-origin:center bottom; }
+.hw-acroai-banner__cta { position:absolute; right:0; bottom:0; display:flex; justify-content:space-between; align-items:flex-end; gap:32px; width:100%; height:var(--acroai-cta_height); max-height:100%; padding:var(--acroai-cta_padding); background:var(--acroai-cta_background); color:var(--acroai-cta_text); font:600 16px/1.5 var(--display,Arial,sans-serif); text-decoration:none; transition:background var(--m-fast,.22s); }
+.hw-acroai-banner__cta svg { flex-shrink:0; width:24px; height:24px; transition:transform var(--m-fast,.22s) var(--ease,cubic-bezier(.22,1,.36,1)); }
+.hw-acroai-banner__cta:is(:hover,:focus-visible) { background:var(--acroai-cta_hover); color:var(--acroai-cta_text); text-decoration:none; }
+.hw-acroai-banner__cta:is(:hover,:focus-visible) svg { transform:translateY(4px); }
+.hw-acroai-banner__cta:focus-visible { outline:2px solid var(--acroai-cta_text); outline-offset:-8px; }
+@media(max-width:767px) {
+ .hw-acroai-banner__layout { grid-template-columns:minmax(0,1fr); min-height:0; }
+ .hw-acroai-banner h1 { margin-top:0; }
+ .hw-acroai-banner__description { font-size:clamp(24px,5vw,var(--acroai-description_size)); }
+ .hw-acroai-banner__rail { min-height:200px; }
+ .hw-acroai-banner__cta { width:50%; height:100%; }
+}
+@media(prefers-reduced-motion:reduce) { .hw-acroai-banner * { transition:none!important; } }
+html[data-motion=reduced] .hw-acroai-banner *,.hw-acroai-banner[data-animate=false] * { transition:none!important; }

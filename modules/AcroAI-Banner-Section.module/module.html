@@ -1,0 +1,41 @@
+<section class="hw-acroai-banner baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent hw-acroai-banner__layout">
+    <div class="hw-acroai-banner__copy">
+      <h1 id="{{ name|escape_attr }}-title">{% if module.content_group.logo.src %}<img src="{{ module.content_group.logo.src|escape_url }}" alt="{{ (module.content_group.logo.alt or module.content_group.title)|escape_attr }}" width="440" height="115" loading="eager" fetchpriority="high">{% else %}{{ module.content_group.title|escape_html }}{% endif %}</h1>
+      <div class="hw-acroai-banner__description">{{ module.content_group.content }}</div>
+    </div>
+    <div class="hw-acroai-banner__rail">
+      <div class="hw-acroai-banner__field" aria-hidden="true"></div>
+      {% if module.content_group.button_link.href %}<a class="hw-acroai-banner__cta" href="{{ module.content_group.button_link.href|escape_url }}">{% else %}<div class="hw-acroai-banner__cta">{% endif %}
+        <span>{{ module.content_group.button_text|escape_html }}</span><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 3v12m-4.5-4.5L9 15l4.5-4.5" stroke="currentColor" stroke-width="1.4"/></svg>
+      {% if module.content_group.button_link.href %}</a>{% else %}</div>{% endif %}
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }} {
+  {% for key in ['text_color','rail_background','blue_panel','cta_background','cta_text','cta_hover'] %}
+  --acroai-{{ key }}:rgba({{ module.style[key].color|convert_rgb }},{{ module.style[key].opacity / 100 }});
+  {% endfor %}
+  {% for key in ['height','rail_width','cta_height','cta_padding','logo_width','logo_top','logo_bottom','description_width','description_size'] %}
+  --acroai-{{ key }}:{{ module.style[key] }}px;
+  {% endfor %}
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}
+  background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});
+  {% endif %}
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}
+.{{ name }} > .baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }
+{% endif %}
+/* Base-module spacing controls the copy panel so the colour rail stays full bleed. */
+.{{ name }} .hw-acroai-banner__copy { {{ module.style.spacing.desktop_spacing.css }} }
+@media(max-width:1300px) { .{{ name }} .hw-acroai-banner__copy { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }} .hw-acroai-banner__copy { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

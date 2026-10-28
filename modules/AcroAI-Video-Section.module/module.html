@@ -1,0 +1,32 @@
+<section class="hw-acro-video baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-label="{{ module.content_group.title|escape_attr }}" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    <div class="hw-acro-video__frame">
+      <video class="hw-acro-video__player" controls playsinline preload="none" poster="{{ module.content_group.poster.src|escape_url }}" aria-label="{{ module.content_group.title|escape_attr }}" data-src="{{ module.content_group.video_url.href|escape_url }}" tabindex="0" {% if module.content_group.captions_url.href %}crossorigin="anonymous"{% endif %}>
+        {% if module.content_group.captions_url.href %}<track kind="captions" src="{{ module.content_group.captions_url.href|escape_url }}" srclang="{{ module.content_group.captions_language|escape_attr }}" label="Captions" default>{% endif %}
+      </video>
+      <div class="hw-acro-video__poster">
+        {% if module.content_group.poster.src %}<img src="{{ module.content_group.poster.src|escape_url }}" alt="" width="1080" height="608" loading="lazy">{% endif %}
+        {% if module.content_group.video_url.href %}<button class="hw-acro-video__play" type="button" aria-label="Play {{ module.content_group.title|escape_attr }}"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M10 5 27 16 10 27Z"/></svg></button>{% endif %}
+      </div>
+      <div class="hw-acro-video__cover" aria-hidden="true"></div>
+    </div>
+    <p class="hw-acro-video__status" role="status" hidden></p>
+    <noscript>{% if module.content_group.video_url.href %}<a href="{{ module.content_group.video_url.href|escape_url }}">Watch {{ module.content_group.title|escape_html }}</a>{% endif %}</noscript>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.baseModuleStyle {
+  {{ module.style.spacing.desktop_spacing.css }} padding-left:0; padding-right:0;
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}
+  {% for key in ['purple','blue','orange','button_icon'] %}--video-{{ key }}:rgba({{ module.style[key].color|convert_rgb }},{{ module.style[key].opacity / 100 }});{% endfor %}
+  --video-width:{{ module.style.video_width }}px;
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }} > .baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }{% endif %}
+@media(max-width:1300px) { .{{ name }}.baseModuleStyle { {{ module.style.spacing.tab_spacing.css }} padding-left:0; padding-right:0; } }
+@media(max-width:767px) { .{{ name }}.baseModuleStyle { {{ module.style.spacing.mobile_spacing.css }} padding-left:0; padding-right:0; } }
+</style>
+{% end_require_css %}

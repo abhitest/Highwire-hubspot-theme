@@ -1,0 +1,42 @@
+<section class="hw-contact {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.animate|escape_attr }}">
+  <span class="hw-contact__rule" aria-hidden="true"></span>
+  <div class="content-wrapper">
+  <div class="hw-contact__layout">
+    <div class="hw-contact__copy">
+      <div class="hw-contact__intro">
+        <h3 id="{{ name|escape_attr }}-title" data-contact-reveal>{{ module.heading }}</h3>
+        <p data-contact-reveal>{{ module.intro }}</p>
+      </div>
+      <article class="hw-contact__leader">
+        <div class="hw-contact__identity">
+          {% if module.leader.photo.src %}
+          <div class="hw-contact__photo" data-contact-reveal="photo"><img src="{{ module.leader.photo.src|escape_url }}" alt="{{ module.leader.photo.alt|escape_attr }}" width="100" height="124" loading="lazy"></div>
+          {% endif %}
+          <div data-contact-reveal><h3>{{ module.leader.full_name }}</h3><p>{{ module.leader.role }}</p></div>
+        </div>
+        <div class="hw-contact__bio" data-contact-reveal>{{ module.leader.bio }}</div>
+      </article>
+    </div>
+    <div class="hw-contact__panel" data-contact-reveal>
+      {% if module.form.form_id %}
+        {% form form_to_use="{{ module.form.form_id }}", response_response_type="{{ module.form.response_type }}", response_message="{{ module.form.message }}", response_redirect_id="{{ module.form.redirect_id }}", response_redirect_url="{{ module.form.redirect_url }}" %}
+     
+      {% endif %}
+    </div>
+  </div>
+  </div>
+</section>
+
+{% require_css %}
+<style>
+.{{ name }}.hw-contact {
+  --contact-background:rgba({{ module.style.background_color.color|convert_rgb }},{{ module.style.background_color.opacity / 100 }});
+  {% for breakpoint in ['desktop','tablet','mobile'] %}
+    {% for edge in ['top','bottom'] %}
+      {% set spacing = module.style.spacing[breakpoint].padding[edge] %}
+      --contact-{{ breakpoint }}-{{ edge }}:{{ spacing.value }}{{ spacing.units }};
+    {% endfor %}
+  {% endfor %}
+}
+</style>
+{% end_require_css %}

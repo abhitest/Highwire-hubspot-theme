@@ -1,0 +1,42 @@
+<section class="hw-work-banner baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="content-wrapper">
+  <div class="baseModuleParent hw-work-banner__inner">
+    <h1 id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}{% if module.content_group.accent_title %}<span>{{ module.content_group.accent_title|escape_html }}</span>{% endif %}</h1>
+    <figure class="hw-work-banner__reel">
+      <div class="hw-work-banner__media">
+        {% if module.content_group.video_type == 'hubspot' and module.content_group.hubspot_video.player_id %}
+          {% video_player "work_reel" player_id={{ module.content_group.hubspot_video.player_id }}, type={{ module.content_group.hubspot_video.player_type or 'hsvideo2' }}, full_width=true, width=1312, height=400, autoplay=false, hidden_controls=false, loop=false, muted=false %}
+        {% elif module.content_group.video_type == 'youtube' and module.content_group.youtube_url %}
+          <div class="hw-work-banner__youtube" data-youtube="{{ module.content_group.youtube_url|escape_attr }}" data-title="{{ module.content_group.video_title|escape_attr }}">
+            <button class="hw-work-banner__play" type="button" aria-label="{{ module.content_group.play_label|escape_attr }}: {{ module.content_group.video_title|escape_attr }}">
+              {% if module.content_group.poster.src %}<img src="{{ module.content_group.poster.src|escape_url }}" alt="" loading="eager">{% endif %}
+              <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M18 10 46 28 18 46Z" fill="currentColor"/></svg><span>{{ module.content_group.play_label|escape_html }}</span>
+            </button>
+            <p class="hw-work-banner__status" role="status" hidden>Please enter a valid YouTube URL in the module settings.</p>
+          </div>
+        {% else %}
+          <div class="hw-work-banner__placeholder" role="img" aria-label="Video placeholder for {{ module.content_group.video_title|escape_attr }}"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M18 10 46 28 18 46Z" fill="currentColor"/></svg><span>Video placeholder</span></div>
+        {% endif %}
+      </div>
+      {% if module.content_group.caption %}<figcaption>{{ module.content_group.caption|escape_html }}</figcaption>{% endif %}
+    </figure>
+  </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-work-banner {
+  {{ module.style.spacing.desktop_spacing.css }}
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background:{{ module.style.background_property.background_color.css }};{% endif %}
+  --work-text:{{ module.style.text_color.css }};
+  --work-accent:{{ module.style.accent_color.css }};
+  --work-caption:{{ module.style.caption_color.css }};
+  --work-video-background:{{ module.style.video_background.css }};
+}
+@media(max-width:1024px) { .{{ name }}.hw-work-banner { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-work-banner { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

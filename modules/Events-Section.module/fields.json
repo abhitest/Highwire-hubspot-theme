@@ -1,0 +1,626 @@
+[
+  {
+    "name": "custom_style",
+    "label": "Custom style",
+    "type": "group",
+    "children": [
+      {
+        "name": "section_id",
+        "label": "Section ID",
+        "type": "text",
+        "default": "event"
+      },
+      {
+        "name": "custom_class",
+        "label": "Custom class",
+        "type": "text",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "default": "You're Invited"
+  },
+  {
+    "name": "heading",
+    "label": "Heading (one line per row)",
+    "type": "text",
+    "default": "How Energy Leaders\nAre Countering\nMisinformation to Keep\nBuilding the Infrastructure\nthe U.S. Needs",
+    "allow_new_line": true
+  },
+  {
+    "name": "background_image",
+    "label": "Background image",
+    "type": "image",
+    "default": {
+      "src": "https://highwire-demo.vercel.app/images/editorial/energy-event-background.png",
+      "alt": ""
+    }
+  },
+  {
+    "name": "event_meta",
+    "label": "Event details",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 8,
+      "default": 3
+    },
+    "children": [
+      {
+        "name": "detail_label",
+        "label": "Label",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "value",
+        "label": "Value",
+        "type": "text",
+        "default": ""
+      }
+    ],
+    "default": [
+      {
+        "value": "Wednesday, September 23, 2026",
+        "detail_label": "Date"
+      },
+      {
+        "value": "5:00PM - 7:00 PM",
+        "detail_label": "Time"
+      },
+      {
+        "value": "230 Park Ave, 2nd FL, New York, NY 10169",
+        "detail_label": "Location"
+      }
+    ]
+  },
+  {
+    "name": "story_heading",
+    "label": "Introduction heading",
+    "type": "text",
+    "default": "Join Highwire for an exclusive in-person panel discussion on building trust and keeping critical energy projects moving forward."
+  },
+  {
+    "name": "story",
+    "label": "Introduction",
+    "type": "richtext",
+    "default": "<p>Across the country, solar farms are stalling, transmission lines are being rerouted and utility-scale projects are being shelved due to community misinformation.</p><p>As misinformation shapes how communities understand and respond to energy development, communications leaders have an increasingly important role to play.</p><p>Hear from leaders at Grid United, AES, and SHINE Technologies, moderated by Dave Roberts, host of Volts, as they share real strategies for preventing project delays, countering misinformation across fragmented platforms and using early community engagement to get ahead of reactive crisis response.</p>"
+  },
+  {
+    "name": "recap_label",
+    "label": "Recap link label",
+    "type": "text",
+    "default": "Read the event recap"
+  },
+  {
+    "name": "recap_link",
+    "label": "Recap link",
+    "type": "url",
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT"
+    ],
+    "default": {
+      "type": "EXTERNAL",
+      "href": "https://highwire-demo.vercel.app/insights/building-trust-to-power-progress-6-takeaways-from-highwires-energy-leaders-panel"
+    }
+  },
+  {
+    "name": "speakers_heading",
+    "label": "Speakers heading",
+    "type": "text",
+    "default": "Moderator and Panelists"
+  },
+  {
+    "name": "speakers",
+    "label": "Speakers",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 12,
+      "default": 4
+    },
+    "children": [
+      {
+        "name": "full_name",
+        "label": "Name",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "role",
+        "label": "Role",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "speaker_label",
+        "label": "Additional label",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "photo",
+        "label": "Portrait",
+        "type": "image"
+      }
+    ],
+    "default": [
+      {
+        "full_name": "David Roberts",
+        "role": "Writer and Founder, Volts",
+        "photo": {
+          "src": "https://highwire-demo.vercel.app/images/editorial/david-roberts.png",
+          "alt": "David Roberts"
+        },
+        "speaker_label": "Moderator"
+      },
+      {
+        "full_name": "Ashley Kang",
+        "role": "External Affairs and Communications, Grid United",
+        "photo": {
+          "src": "https://highwire-demo.vercel.app/images/editorial/ashley-kang.png",
+          "alt": "Ashley Kang"
+        },
+        "speaker_label": ""
+      },
+      {
+        "full_name": "Katie Lau",
+        "role": "Head of External Communications, AES",
+        "photo": {
+          "src": "https://highwire-demo.vercel.app/images/editorial/katie-lau.png",
+          "alt": "Katie Lau"
+        },
+        "speaker_label": ""
+      },
+      {
+        "full_name": "Tammy Kramer",
+        "role": "Chief Marketing Officer, SHINE Technologies",
+        "photo": {
+          "src": "https://highwire-demo.vercel.app/images/editorial/tammy-kramer.png",
+          "alt": "Tammy Kramer"
+        },
+        "speaker_label": ""
+      }
+    ]
+  },
+  {
+    "name": "details_heading",
+    "label": "RSVP heading",
+    "type": "text",
+    "default": "RSVP to Save Your Seat"
+  },
+  {
+    "name": "details_intro",
+    "label": "RSVP introduction",
+    "type": "richtext",
+    "default": "<p>This invite-only event will take place at Highwire’s NYC office, a setting for meaningful conversation and connection. Enjoy drinks and light bites throughout the evening.</p>"
+  },
+  {
+    "name": "schedule_heading",
+    "label": "Schedule heading",
+    "type": "text",
+    "default": "Schedule"
+  },
+  {
+    "name": "schedule",
+    "label": "Schedule",
+    "type": "text",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 3
+    },
+    "default": [
+      "5:00–5:30 PM – Welcome Drinks & Light Bites",
+      "5:30–6:30 PM – Panel Begins",
+      "6:30–7:00 PM – Networking Happy Hour"
+    ]
+  },
+  {
+    "name": "address_heading",
+    "label": "Address heading",
+    "type": "text",
+    "default": "Address"
+  },
+  {
+    "name": "address",
+    "label": "Address and invitation notes",
+    "type": "richtext",
+    "default": "<p><a href=\"https://www.google.com/maps/search/?api=1&amp;query=230+Park+Ave+New+York+NY+10169\" target=\"_blank\" rel=\"noopener\">230 Park Ave, 2nd FL, New York, NY 10169</a></p><p>Have a colleague or contact who would be a strong fit and enjoy this experience? Reach out to our team at <a href=\"mailto:hi@teamhighwire.com\">hi@teamhighwire.com</a> to recommend them for the invite list.</p><p>Space is limited, and a valid photo ID will be required for entry.</p>"
+  },
+  {
+    "name": "form_heading",
+    "label": "Form heading",
+    "type": "text",
+    "default": "RSVP to Save Your Seat"
+  },
+  {
+    "name": "registration_form",
+    "label": "Registration form",
+    "type": "form",
+    "required": true,
+    "help_text": "Use the legacy form rendered as raw HTML to inherit theme styling. Form fields and submit text are managed in HubSpot Forms.",
+    "default": {
+      "form_id": "fbf4a3d8-5bbc-4c91-ab86-1323bb97c3f8",
+      "response_type": "inline",
+      "message": "Thank you for your RSVP."
+    }
+  },
+  {
+    "name": "animate",
+    "label": "Enable animations",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "style",
+    "label": "Styles",
+    "type": "group",
+    "children": [
+      {
+        "name": "custom_colors",
+        "label": "Override global theme colours",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "name": "background",
+        "label": "Background",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "text_color",
+        "label": "Text",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent",
+        "label": "Accent",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "secondary_text",
+        "label": "Secondary text",
+        "type": "color",
+        "default": {
+          "color": "#c4c4c4",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "border_color",
+        "label": "Dividers",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 18
+        }
+      },
+      {
+        "name": "form_background",
+        "label": "Form background",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 0
+        }
+      },
+      {
+        "name": "image_opacity",
+        "label": "Background image opacity (%)",
+        "type": "number",
+        "default": 35,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "name": "image_height",
+        "label": "Background image height (px)",
+        "type": "number",
+        "default": 800,
+        "min": 0,
+        "max": 2000,
+        "step": 1
+      },
+      {
+        "name": "max_width",
+        "label": "Content maximum width (px)",
+        "type": "number",
+        "default": 1440,
+        "min": 0,
+        "max": 2400,
+        "step": 1
+      },
+      {
+        "name": "title_size",
+        "label": "Title size (px)",
+        "type": "number",
+        "default": 56,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "name": "mobile_title_size",
+        "label": "Mobile title size (px)",
+        "type": "number",
+        "default": 36,
+        "min": 0,
+        "max": 80,
+        "step": 1
+      },
+      {
+        "name": "section_gap",
+        "label": "Section spacing (px)",
+        "type": "number",
+        "default": 80,
+        "min": 0,
+        "max": 200,
+        "step": 1
+      },
+      {
+        "name": "speaker_gap",
+        "label": "Speaker column gap (px)",
+        "type": "number",
+        "default": 32,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "name": "sticky_top",
+        "label": "Sticky form top offset (px)",
+        "type": "number",
+        "default": 56,
+        "min": 0,
+        "max": 300,
+        "step": 1
+      },
+      {
+        "name": "section_spacing",
+        "label": "Outer section spacing",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 0,
+              "units": "px"
+            },
+            "right": {
+              "value": 0,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 0,
+              "units": "px"
+            },
+            "left": {
+              "value": 0,
+              "units": "px"
+            }
+          },
+          "margin": {
+            "top": {
+              "value": 0,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 0,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "mobile_section_spacing",
+        "label": "Outer mobile spacing",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 0,
+              "units": "px"
+            },
+            "right": {
+              "value": 0,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 0,
+              "units": "px"
+            },
+            "left": {
+              "value": 0,
+              "units": "px"
+            }
+          },
+          "margin": {
+            "top": {
+              "value": 0,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 0,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "content_spacing",
+        "label": "Content column padding",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 64,
+              "units": "px"
+            },
+            "right": {
+              "value": 64,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 96,
+              "units": "px"
+            },
+            "left": {
+              "value": 64,
+              "units": "px"
+            }
+          },
+          "margin": {
+            "top": {
+              "value": 0,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 0,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "mobile_content_spacing",
+        "label": "Mobile content padding",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 40,
+              "units": "px"
+            },
+            "right": {
+              "value": 24,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 48,
+              "units": "px"
+            },
+            "left": {
+              "value": 24,
+              "units": "px"
+            }
+          },
+          "margin": {
+            "top": {
+              "value": 0,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 0,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "form_spacing",
+        "label": "Form padding",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 64,
+              "units": "px"
+            },
+            "right": {
+              "value": 64,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 64,
+              "units": "px"
+            },
+            "left": {
+              "value": 64,
+              "units": "px"
+            }
+          },
+          "margin": {
+            "top": {
+              "value": 0,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 0,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "mobile_form_spacing",
+        "label": "Mobile form padding",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 40,
+              "units": "px"
+            },
+            "right": {
+              "value": 24,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 48,
+              "units": "px"
+            },
+            "left": {
+              "value": 24,
+              "units": "px"
+            }
+          },
+          "margin": {
+            "top": {
+              "value": 0,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 0,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "fade_distance",
+        "label": "Background fade scroll distance (px)",
+        "type": "number",
+        "default": 180,
+        "min": 1,
+        "max": 2000,
+        "step": 1
+      },
+      {
+        "name": "reference_background_motion",
+        "label": "Match reference background animation",
+        "type": "boolean",
+        "default": true,
+        "help_text": "Uses the reference image height (800px), opacity (35%) and fade distance (180px). Disable to use custom values."
+      }
+    ],
+    "tab": "STYLE"
+  }
+]

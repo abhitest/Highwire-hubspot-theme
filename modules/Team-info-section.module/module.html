@@ -1,0 +1,43 @@
+<section class="hw-team-info {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.animate|string|lower }}">
+  <div class="hw-team-info__layout">
+    <aside class="hw-team-info__rail"><div class="hw-team-info__identity">
+      {% if module.portrait.src %}<div class="hw-team-info__portrait"><img src="{{ module.portrait.src|escape_url }}" alt="{{ module.portrait.alt|escape_attr }}" width="200" height="244" loading="eager"></div>{% endif %}
+      <h1 id="{{ name|escape_attr }}-title">{{ module.full_name|escape_html }}</h1>
+      <p class="hw-team-info__role">{{ module.role|escape_html }}</p>
+      <div class="hw-team-info__details"><p>{{ module.location|escape_html }}</p>
+        {% if module.social_link.href %}<a class="hw-team-info__link" href="{{ module.social_link.href|escape_url }}" target="_blank" rel="noopener noreferrer">{{ module.link_text|escape_html }}<span aria-hidden="true">↗</span></a>{% elif module.link_text %}<span class="hw-team-info__link" aria-disabled="true">{{ module.link_text|escape_html }}<span aria-hidden="true">↗</span></span>{% endif %}
+      </div>
+    </div></aside>
+    <div class="hw-team-info__reading">
+      <div class="hw-team-info__biography">{{ module.biography }}</div>
+      {% if module.fact %}<div class="hw-team-info__fact"><p class="hw-team-info__label">{{ module.fact_title|escape_html }}</p><h2 class="h6">{{ module.fact|escape_html }}</h2></div>{% endif %}
+      {% if module.questions %}<div class="hw-team-info__interview">{% for question in module.questions %}<article class="hw-team-info__question"><p class="hw-team-info__label">{{ question.category|escape_html }}</p><h2>{{ question.title|escape_html }}</h2><div class="hw-team-info__answer font20 lh15">{{ question.content }}</div></article>{% endfor %}</div>{% endif %}
+    </div>
+  </div>
+  {% if module.show_related and module.people %}<div class="hw-team-info__related"><h2 class="h4">{{ module.related_title }}</h2><div class="hw-team-info__people">
+    {% for person in module.people %}<article {% if not person.link.href %}tabindex="0"{% endif %}>
+      {% if person.link.href %}<a href="{{ person.link.href|escape_url }}">{% endif %}
+      <div class="hw-team-info__small-portrait">{% if person.portrait.src %}<img src="{{ person.portrait.src|escape_url }}" alt="{{ person.portrait.alt|escape_attr }}" width="128" height="178" loading="lazy">{% endif %}</div>
+      <div><h3>{{ person.full_name|escape_html }}</h3><p>{{ person.role|escape_html }}</p></div>
+      {% if person.link.href %}</a>{% endif %}
+    </article>{% endfor %}
+  </div></div>{% endif %}
+</section>
+{% require_css %}
+<style>
+.{{ name }} {
+  {% for key in ['profile_background','content_background','related_background','text_color','border_color','accent','hover_accent'] %}
+  --team-{{ key }}:rgba({{ module.style[key].color|convert_rgb }},{{ module.style[key].opacity / 100 }});
+  {% endfor %}
+  --team-sticky-top:{{ module.style.sticky_top }}px;
+}
+.{{ name }} .hw-team-info__identity { {{ module.style.profile_spacing.css }} }
+.{{ name }} .hw-team-info__reading { {{ module.style.content_spacing.css }} }
+.{{ name }} .hw-team-info__related { {{ module.style.related_spacing.css }} }
+@media(max-width:900px) {
+  .{{ name }} .hw-team-info__identity { {{ module.style.mobile_profile_spacing.css }} }
+  .{{ name }} .hw-team-info__reading { {{ module.style.mobile_content_spacing.css }} }
+  .{{ name }} .hw-team-info__related { {{ module.style.mobile_related_spacing.css }} }
+}
+</style>
+{% end_require_css %}

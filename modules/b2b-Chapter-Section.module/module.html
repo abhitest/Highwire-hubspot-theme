@@ -2,23 +2,37 @@
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="content-wrapper">
   <div class="baseModuleParent">
-    <header class="hw-b2b-chapter__header">
-      <h2 id="{{ name|escape_attr }}-title">{{ module.content_group.heading|escape_html }}</h2>
-      <p>{{ module.content_group.intro|escape_html }}</p>
-    </header>
+    <div class="hw-b2b-chapter__header">
+      <div class="hw-b2b-chapter_title secondary_color">
+<h3 id="{{ name|escape_attr }}-title">{{ module.content_group.heading }}</h3>
+      </div>
+      
+      <div class="hw-b2b-chapter_content secondary_color font20">
+{{ module.content_group.intro }}
+      </div>
+    </div>
     <div class="hw-b2b-chapter__layout">
       <div class="hw-b2b-chapter__list" role="group" aria-label="Technology challenges">
         {% for item in module.content_group.chapters %}
         <button type="button" id="{{ name|escape_attr }}-button-{{ loop.index }}" aria-pressed="{{ 'true' if loop.first else 'false' }}" aria-controls="{{ name|escape_attr }}-panel-{{ loop.index }}"><span>{{ '%02d'|format(loop.index) }}</span>{{ item.title|escape_html }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></button>
         {% endfor %}
       </div>
-      <div class="hw-b2b-chapter__detail">
+      <div class="hw-b2b-chapter__detail hw-b2b-chapter_Box">
         {% for item in module.content_group.chapters %}
         <div class="hw-b2b-chapter__panel" id="{{ name|escape_attr }}-panel-{{ loop.index }}" role="region" aria-labelledby="{{ name|escape_attr }}-button-{{ loop.index }}" data-active="{{ 'true' if loop.first else 'false' }}" aria-hidden="{{ 'false' if loop.first else 'true' }}" {% if not loop.first %}inert{% endif %}>
           <span class="hw-b2b-chapter__number">{{ '%02d'|format(loop.index) }}</span>
-          <h3>{{ item.title|escape_html }}</h3>
-          <p>{{ item.description|escape_html }}</p>
-          {% if module.content_group.cta_label and module.content_group.cta_url.href %}<a class="hw-b2b-chapter__link" href="{{ module.content_group.cta_url.href|escape_url }}">{{ module.content_group.cta_label|escape_html }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></a>{% endif %}
+          <div class="hw-b2b-chapter_Boxtitle secondary_color">
+ <h6>{{ item.title }}</h6>
+          </div>
+         
+          <div class="hw-b2b-chapter_BoxContent font20"> 
+{{ item.description }}
+          </div>
+          <div class="hw-b2b-chapter_BoxBtn">
+ <a class="hw-b2b-chapter__link" href="{{ item.cta_url.href }}">{{ item.cta_label }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></a>
+          </div>
+          
+         
         </div>
         {% endfor %}
       </div>

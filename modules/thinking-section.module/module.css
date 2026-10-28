@@ -1,1 +1,14 @@
 /* Styles are centralized in theme-overrides.css, Page Css. */
+
+/* Optional B2B intro; the original layout keeps its global theme rules. */
+.hw-thinking .hw-thinking__intro.hw-thinking__intro--stacked {
+  grid-template-columns:minmax(0,1fr);
+  align-items:start;
+  gap:24px;
+}
+
+.hw-thinking .hw-thinking__intro--stacked .hw-thinking_content {
+  width:100%;
+  max-width:720px;
+}
+

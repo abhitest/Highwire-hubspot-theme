@@ -1,0 +1,35 @@
+<section class="hw-playbook {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.animate|string|lower }}">
+  <div class="hw-playbook__reading">
+    <header><span class="hw-playbook__eyebrow">{{ module.eyebrow|escape_html }}</span>
+      <h1 id="{{ name|escape_attr }}-title"><span data-playbook-title>{{ module.title_first|escape_html }}</span><span data-playbook-title>{{ module.title_second|escape_html }} <em>{{ module.title_accent|escape_html }}</em></span></h1>
+      <div class="hw-playbook__intro opacity70 font20 lh15">{{ module.intro }}</div>
+    </header>
+    <figure class="hw-playbook__preview" aria-label="{{ module.cover_image.alt|default('Report cover preview')|escape_attr }}">
+      <div class="hw-playbook__blocks" aria-hidden="true"><span></span><span></span></div>
+      <div class="hw-playbook__cover">{% if module.cover_image.src %}<img src="{{ module.cover_image.src|escape_url }}" alt="{{ module.cover_image.alt|escape_attr }}" width="280" height="396" loading="lazy">{% endif %}</div>
+    </figure>
+    <div class="hw-playbook__inside"><h2 data-playbook-reveal>{{ module.inside_title|escape_html }}</h2><div class="hw-playbook__inside-content font20 lh15 opacity70">{{ module.inside_content }}</div>
+      <ul class="hw-playbook__benefits">{% for benefit in module.benefits %}<li tabindex="0" data-playbook-reveal><span class="hw-playbook__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6" pathLength="1"/></svg></span><h3>{{ benefit|escape_html }}</h3></li>{% endfor %}</ul>
+    </div>
+    <div class="hw-playbook__closing"><h2 data-playbook-reveal>{{ module.closing_title|escape_html }}</h2>{{ module.closing_content }}</div>
+  </div>
+  <aside class="hw-playbook__rail" aria-labelledby="{{ name|escape_attr }}-form-title"><h2 id="{{ name|escape_attr }}-form-title">{{ module.form_title|escape_html }}</h2>
+    {% if module.form.form_id %}{% form form_to_use="{{ module.form.form_id }}", response_response_type="{{ module.form.response_type }}", response_message="{{ module.form.message }}", response_redirect_id="{{ module.form.redirect_id }}", response_redirect_url="{{ module.form.redirect_url }}" %}{% elif is_in_editor %}<p>Select a download form in the module settings.</p>{% endif %}
+  </aside>
+</section>
+{% require_css %}
+<style>
+.{{ name }} {
+  {% for key in ['background','text_color','secondary_text','accent','check_color','cover_background','cover_paper','cover_block','border_color'] %}
+  --playbook-{{ key }}:rgba({{ module.style[key].color|convert_rgb }},{{ module.style[key].opacity / 100 }});
+  {% endfor %}
+  --playbook-sticky-top:{{ module.style.sticky_top }}px;
+}
+.{{ name }} .hw-playbook__reading { {{ module.style.content_spacing.css }} }
+.{{ name }} .hw-playbook__rail { {{ module.style.form_spacing.css }} }
+@media(max-width:1000px) {
+  .{{ name }} .hw-playbook__reading { {{ module.style.mobile_content_spacing.css }} }
+  .{{ name }} .hw-playbook__rail { {{ module.style.mobile_form_spacing.css }} }
+}
+</style>
+{% end_require_css %}

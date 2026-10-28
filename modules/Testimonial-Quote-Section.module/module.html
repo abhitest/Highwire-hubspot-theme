@@ -1,0 +1,16 @@
+<section class="hw-quote baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-label="{{ module.content_group.accessible_label|escape_attr }}" data-animate="{{ module.content_group.animate|string|lower }}">
+<span class="baseModuleOverlay" aria-hidden="true"></span><div class="baseModuleParent"><div class="content-wrapper">
+<div class="hw-quote__layout{% if not module.content_group.show_mark %} hw-quote__layout--no-mark{% endif %}">
+{% if module.content_group.show_mark %}<svg class="hw-quote__mark" viewBox="0 0 80 64" fill="currentColor" aria-hidden="true" focusable="false"><path d="M0 0H32V32H16V48H0ZM48 0H80V32H64V48H48Z"/></svg>{% endif %}
+<figure class="hw-quote__figure"><blockquote>{{ module.content_group.quote }}</blockquote>{% if module.content_group.author or module.content_group.role %}<figcaption>{% if module.content_group.author %}<span class="hw-quote__author">{{ module.content_group.author|escape_html }}</span>{% endif %}{% if module.content_group.role %}<span class="hw-quote__role">{{ module.content_group.role|escape_html }}</span>{% endif %}</figcaption>{% endif %}</figure>
+</div></div></div></section>
+{% require_css %}<style>
+.{{ name }}.baseModuleStyle {
+{{ module.style.spacing.desktop_spacing.css }} padding-left:0; padding-right:0; margin-left:0; margin-right:0;
+{% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');{% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};{% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}
+{% for key in ['quote_color','author_color','role_color','mark_color'] %}--quote-{{ key }}:rgba({{ module.content_group[key].color|convert_rgb }},{{ module.content_group[key].opacity / 100 }});{% endfor %}
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }}>.baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }{% endif %}
+@media(max-width:1300px){.{{ name }}.baseModuleStyle { {{ module.style.spacing.tab_spacing.css }} padding-left:0;padding-right:0;margin-left:0;margin-right:0; }}
+@media(max-width:767px){.{{ name }}.baseModuleStyle { {{ module.style.spacing.mobile_spacing.css }} padding-left:0;padding-right:0;margin-left:0;margin-right:0; }}
+</style>{% end_require_css %}

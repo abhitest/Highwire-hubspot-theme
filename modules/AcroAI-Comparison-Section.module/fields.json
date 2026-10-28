@@ -1,0 +1,450 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "From Chatbots to\nDigital Workforces",
+        "allow_new_line": true
+      },
+      {
+        "name": "acro_heading",
+        "label": "Highlighted column heading",
+        "type": "text",
+        "default": "Acro AI"
+      },
+      {
+        "name": "other_heading",
+        "label": "Other column heading",
+        "type": "text",
+        "default": "Generic AI Tools"
+      },
+      {
+        "name": "criteria_heading",
+        "label": "Criteria accessible heading",
+        "type": "text",
+        "default": "Comparison criteria"
+      },
+      {
+        "name": "mark",
+        "label": "Brand mark",
+        "type": "image",
+        "default": {
+          "src": "https://highwire-demo.vercel.app/images/home/about/highwire-mark.svg",
+          "alt": "",
+          "width": 24,
+          "height": 24
+        }
+      },
+      {
+        "name": "animate",
+        "label": "Enable title reveal",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "rows",
+    "label": "Comparison rows",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 30,
+      "default": 7
+    },
+    "children": [
+      {
+        "name": "criterion",
+        "label": "Criterion",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "acro",
+        "label": "Highlighted column content",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "other",
+        "label": "Other column content",
+        "type": "text",
+        "default": ""
+      }
+    ],
+    "default": [
+      {
+        "criterion": "Architecture",
+        "acro": "Fleets of AI agents working across tools and processes",
+        "other": "Single chat window"
+      },
+      {
+        "criterion": "Knowledge Base",
+        "acro": "Trained on your organization’s IP; learns and improves from ongoing work",
+        "other": "Starts fresh every time"
+      },
+      {
+        "criterion": "Intelligence Strategy",
+        "acro": "Multi-model approach picks the best AI for each task",
+        "other": "One model fits all"
+      },
+      {
+        "criterion": "Security & Compliance",
+        "acro": "SOC 2 Type 2 certified with enterprise encryption and SSO",
+        "other": "Consumer-grade security"
+      },
+      {
+        "criterion": "Output Quality",
+        "acro": "Brand-aligned deliverables that embed your firm’s perspective every time",
+        "other": "Generic outputs"
+      },
+      {
+        "criterion": "Autonomy",
+        "acro": "Operates autonomously within your standards",
+        "other": "Requires constant direction"
+      },
+      {
+        "criterion": "Expertise Level",
+        "acro": "Agents trained by seasoned agency professionals on proven methodologies",
+        "other": "Relies on generic, untrained outputs"
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#f0f0f0",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Background image overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "Top/bottom section spacing; content-wrapper manages horizontal padding.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 104,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "Top/bottom section spacing; content-wrapper manages horizontal padding.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "Top/bottom section spacing; content-wrapper manages horizontal padding.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "text_color",
+        "label": "Text colour",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "secondary_color",
+        "label": "Other tools text colour",
+        "type": "color",
+        "default": {
+          "color": "#555555",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "highlight_background",
+        "label": "Highlighted column background",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_color",
+        "label": "Highlighted column top border",
+        "type": "color",
+        "default": {
+          "color": "#2b44b5",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "border_color",
+        "label": "Row border colour",
+        "type": "color",
+        "default": {
+          "color": "#cccccc",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

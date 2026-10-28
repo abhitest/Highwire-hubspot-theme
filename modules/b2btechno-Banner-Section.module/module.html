@@ -8,8 +8,20 @@
           <li><span class="hw-b2b-banner__separator" aria-hidden="true">/</span><span aria-current="page">{{ module.content_group.current_label|escape_html }}</span></li>
         </ol>
       </nav>
-      <h1 id="{{ name|escape_attr }}-title">{% for line in module.content_group.heading_lines %}<span class="hw-b2b-banner__line" style="--line:{{ loop.index0 }}"><span>{{ line|escape_html }}</span></span>{% if not loop.last %} {% endif %}{% endfor %}</h1>
-      {% if module.content_group.description %}<p class="hw-b2b-banner__description">{{ module.content_group.description|escape_html }}</p>{% endif %}
+      <h1 class="primary_color">
+        {% for line in module.content_group.heading_lines %}
+        <span class="hw-b2b-banner__line" style="--line:{{ loop.index0 }}"><span>
+          {{ line|escape_html }}</span>
+        </span>
+        {% if not loop.last %} 
+        {% endif %}
+        {% endfor %}
+      </h1>
+      {% if module.content_group.description %}
+      <p class="hw-b2b-banner__description">
+        {{ module.content_group.description }}
+      </p>
+      {% endif %}
     </div>
     {% set hero_image = module.content_group.hero_image %}
     <div class="hw-b2b-banner__right">

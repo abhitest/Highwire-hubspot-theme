@@ -1,0 +1,20 @@
+<section class="hw-icon-cards baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-light-icons="{{ module.content_group.light_icons|string|lower }}" data-animate="{{ module.content_group.animate|string|lower }}" aria-labelledby="{{ name|escape_attr }}-title">
+<span class="baseModuleOverlay" aria-hidden="true"></span><div class="baseModuleParent"><div class="content-wrapper">
+<h2 class="hw-icon-cards__title" id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>
+<div class="hw-icon-cards__grid">{% for card in module.cards %}
+<article class="hw-icon-cards__card" tabindex="0" aria-labelledby="{{ name|escape_attr }}-card-{{ loop.index }}">
+<span class="hw-icon-cards__icon" aria-hidden="true">{% if card.icon.src %}<img src="{{ card.icon.src|escape_url }}" alt="" width="24" height="24" loading="lazy">{% endif %}</span>
+<h3 id="{{ name|escape_attr }}-card-{{ loop.index }}">{{ card.title|escape_html }}</h3><div class="hw-icon-cards__content">{{ card.content }}</div>
+</article>{% endfor %}</div></div></div></section>
+{% require_css %}<style>
+.{{ name }}.baseModuleStyle {
+{{ module.style.spacing.desktop_spacing.css }} padding-left:0; padding-right:0; margin-left:0; margin-right:0;
+{% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');{% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};{% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}
+{% for key in ['border_color','hover_one','hover_two','hover_three'] %}--cards-{{ key }}:rgba({{ module.style[key].color|convert_rgb }},{{ module.style[key].opacity / 100 }});{% endfor %}
+{% for key in ['title_color','content_color'] %}--cards-{{ key }}:rgba({{ module.content_group[key].color|convert_rgb }},{{ module.content_group[key].opacity / 100 }});{% endfor %}
+{% for key in ['grid_gap','heading_gap','row_gap','card_padding'] %}--cards-{{ key }}:{{ module.style[key] }}px;{% endfor %}
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }}>.baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }{% endif %}
+@media(max-width:1300px){.{{ name }}.baseModuleStyle { {{ module.style.spacing.tab_spacing.css }} padding-left:0;padding-right:0;margin-left:0;margin-right:0; }}
+@media(max-width:767px){.{{ name }}.baseModuleStyle { {{ module.style.spacing.mobile_spacing.css }} padding-left:0;padding-right:0;margin-left:0;margin-right:0; }}
+</style>{% end_require_css %}

@@ -1,0 +1,69 @@
+{% set table = module.content_group.table %}
+{% set filters = [{'key':'sector','label':'Sector','all':'All sectors'},{'key':'capability','label':'Capability','all':'All capabilities'},{'key':'outcome','label':'Outcome','all':'All outcomes'}] %}
+{% set query = [] %}
+{% set active = [] %}
+<section class="hw-work-filter baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" data-work-filter="{{ name|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-label="{{ module.content_group.section_label|escape_attr }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    {% if table %}
+    <form class="hw-work-filter__filters" method="get" action="{{ request.path|escape_url }}">
+      {% for key, value in request.query_dict.items() %}
+        {% if key not in ['sector', 'capability', 'outcome'] and key != name ~ '_sector' and key != name ~ '_capability' and key != name ~ '_outcome' %}<input type="hidden" name="{{ key|escape_attr }}" value="{{ value|escape_attr }}">{% endif %}
+      {% endfor %}
+      {% for filter in filters %}
+      {% set param = filter.key %}
+      {% set selected = request.query_dict[param]|default('')|string %}
+      {% set column = hubdb_table_column(table, filter.key) %}
+      <label><span>{{ filter.label }}</span><span class="hw-work-filter__select">
+        <select onchange="this.form.requestSubmit()" name="{{ param|escape_attr }}" aria-controls="{{ name|escape_attr }}-results">
+          <option value="">{{ filter.all }}</option>
+          {% for option in column.options %}
+          {% set matches = selected and selected|int == option.id|int %}
+          {% if matches %}{% do query.append(filter.key ~ '=' ~ option.id) %}{% do active.append(filter.key) %}{% endif %}
+          <option value="{{ option.id|escape_attr }}" {% if matches %}selected{% endif %}>{{ option.label|escape_html }}</option>
+          {% endfor %}
+        </select>
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </span></label>
+      {% endfor %}
+    </form>
+    {% set rows = hubdb_table_rows(table, query|join('&')) %}
+    <div class="hw-work-filter__results" id="{{ name|escape_attr }}-results" data-results>
+      <div class="hw-work-filter__result-bar"><p data-count role="status" aria-live="polite" aria-atomic="true">{{ rows|length }} {{ 'project' if rows|length == 1 else 'projects' }}{% if active %} found{% endif %}</p></div>
+      <div class="hw-work-filter__grid">
+        {% for row in rows %}
+        {% set href = row.redirection_url|default('', true)|trim %}
+        {% set linked = href and href != '#' and href|lower not in ['null', 'none', 'undefined'] %}
+        {% set border_color = row.hover_border_color|trim %}
+        {% set title_color = row.hover_title_color|trim %}
+        <article class="hw-work-filter__card{% if linked %} hw-work-filter__card--linked{% endif %}" style="{% if border_color|regex_replace('[#0-9a-fA-F]', '') == '' and border_color|length in [4,7,9] %}--case-accent:{{ border_color|escape_attr }};{% endif %}{% if title_color|regex_replace('[#0-9a-fA-F]', '') == '' and title_color|length in [4,7,9] %}--case-title-accent:{{ title_color|escape_attr }};{% endif %}">
+          {% if linked %}<a class="hw-work-filter__card-link" href="{{ href|escape_url }}" aria-label="{{ row.client_name|escape_attr }}: {{ row.name|escape_attr }}">{% endif %}
+          <div class="hw-work-filter__image">{% if row.image.url %}<img src="{{ row.image.url|escape_url }}" alt="{{ row.image.alt_text|default(row.client_name, true)|escape_attr }}" loading="lazy" decoding="async">{% endif %}</div>
+          <div class="hw-work-filter__copy">
+            {% if row.client_name %}<p class="hw-work-filter__client">{{ row.client_name|escape_html }}</p>{% endif %}
+            <h2>{{ row.name|escape_html }}</h2>
+            {% if row.services_text_1st or row.services_text_2nd %}<ul class="hw-work-filter__tags" aria-label="Services">{% if row.services_text_1st %}<li>{{ row.services_text_1st|escape_html }}</li>{% endif %}{% if row.services_text_2nd %}<li>{{ row.services_text_2nd|escape_html }}</li>{% endif %}</ul>{% endif %}
+          </div>
+          {% if linked %}</a>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
+      {% if not rows %}<div class="hw-work-filter__empty"><h2>No projects match these filters.</h2><p>Try another combination or select the All options to explore all our work.</p></div>{% endif %}
+    </div>
+    {% elif is_in_editor %}<p>Select a HubDB table in this module's content settings.</p>{% endif %}
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-work-filter {
+  {{ module.style.spacing.desktop_spacing.css }}
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background:{{ module.style.background_property.background_color.css }};{% endif %}
+  --work-filter-text:{{ module.style.text_color.css }};
+  --work-filter-accent:{{ module.style.accent.css }};
+}
+@media(max-width:1024px) { .{{ name }}.hw-work-filter { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-work-filter { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

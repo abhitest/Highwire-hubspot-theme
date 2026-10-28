@@ -1,0 +1,322 @@
+[
+  {
+    "name": "custom_style",
+    "label": "Custom style",
+    "type": "group",
+    "children": [
+      {
+        "name": "section_id",
+        "label": "Section ID",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "custom_class",
+        "label": "Custom class",
+        "type": "text",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "default": "Your B2B strategy guide"
+  },
+  {
+    "name": "title_first",
+    "label": "Title first line",
+    "type": "text",
+    "default": "The New Media"
+  },
+  {
+    "name": "title_second",
+    "label": "Title second line",
+    "type": "text",
+    "default": "Influence"
+  },
+  {
+    "name": "title_accent",
+    "label": "Title accent",
+    "type": "text",
+    "default": "Playbook"
+  },
+  {
+    "name": "intro",
+    "label": "Introduction",
+    "type": "richtext",
+    "default": "<p>The media landscape has changed—and B2B marketers need a new playbook.</p>"
+  },
+  {
+    "name": "cover_image",
+    "label": "Report cover image (optional)",
+    "type": "image",
+    "default": {
+      "src": "",
+      "alt": "The New Media Influence Playbook"
+    }
+  },
+  {
+    "name": "inside_title",
+    "label": "Inside heading",
+    "type": "text",
+    "default": "Inside, you’ll find:"
+  },
+  {
+    "name": "inside_content",
+    "label": "Inside content",
+    "type": "richtext",
+    "default": "<p>The New Media Influence Playbook shows you how to combine legacy media with podcasts, newsletters, and independent creators to reach decision-makers where they are.</p>"
+  },
+  {
+    "name": "benefits",
+    "label": "Benefits",
+    "type": "text",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 4
+    },
+    "default": [
+      "How influence has shifted for B2B brands",
+      "Five actionable strategies to build trust and engagement",
+      "Data-driven insights on today’s PR and marketing trends",
+      "Tactics to amplify earned media and measure real impact"
+    ]
+  },
+  {
+    "name": "closing_title",
+    "label": "Closing heading",
+    "type": "text",
+    "default": "Ready to lead, not follow?"
+  },
+  {
+    "name": "closing_content",
+    "label": "Closing content",
+    "type": "richtext",
+    "default": "<p>Fill out the form to get your free copy and start transforming your brand’s approach.</p>"
+  },
+  {
+    "name": "form_title",
+    "label": "Form heading",
+    "type": "text",
+    "default": "Get the playbook"
+  },
+  {
+    "name": "form",
+    "label": "Download form",
+    "type": "form",
+    "required": true,
+    "help_text": "Use a legacy form rendered as raw HTML for module styling. Configure fields, submit label and delivery/redirect in HubSpot Forms.",
+    "default": {
+      "form_id": "c273ce0b-175e-41d2-8883-4e168135fd19",
+      "response_type": "inline",
+      "message": "Thank you for your interest in the playbook."
+    }
+  },
+  {
+    "name": "animate",
+    "label": "Enable animations",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "style",
+    "label": "Styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "name": "background",
+        "label": "Background",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "text_color",
+        "label": "Text",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "secondary_text",
+        "label": "Secondary text",
+        "type": "color",
+        "default": {
+          "color": "#c4c4c4",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent",
+        "label": "Accent",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "check_color",
+        "label": "Checkmarks and cover stripe",
+        "type": "color",
+        "default": {
+          "color": "#4bb7ff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "cover_background",
+        "label": "Cover area background",
+        "type": "color",
+        "default": {
+          "color": "#222222",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "cover_paper",
+        "label": "Cover paper",
+        "type": "color",
+        "default": {
+          "color": "#f0f0f0",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "cover_block",
+        "label": "Cover purple block",
+        "type": "color",
+        "default": {
+          "color": "#c66bea",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "border_color",
+        "label": "Dividers",
+        "type": "color",
+        "default": {
+          "color": "#333333",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_spacing",
+        "label": "Content padding",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 64,
+              "units": "px"
+            },
+            "right": {
+              "value": 64,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 96,
+              "units": "px"
+            },
+            "left": {
+              "value": 64,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "form_spacing",
+        "label": "Form padding",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 64,
+              "units": "px"
+            },
+            "right": {
+              "value": 64,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 64,
+              "units": "px"
+            },
+            "left": {
+              "value": 64,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "mobile_content_spacing",
+        "label": "Mobile content padding",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 40,
+              "units": "px"
+            },
+            "right": {
+              "value": 24,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 48,
+              "units": "px"
+            },
+            "left": {
+              "value": 24,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "mobile_form_spacing",
+        "label": "Mobile form padding",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 40,
+              "units": "px"
+            },
+            "right": {
+              "value": 24,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 48,
+              "units": "px"
+            },
+            "left": {
+              "value": 24,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "sticky_top",
+        "label": "Sticky form offset (px)",
+        "type": "number",
+        "default": 56,
+        "min": 0,
+        "max": 300,
+        "step": 1
+      }
+    ]
+  }
+]

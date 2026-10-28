@@ -12,17 +12,10 @@
 
   {# Blog post #}
 
+  {% module "blog_post_banner" path="../modules/blog-post-banner-section.module", label="Blog post banner" %}
+
   <div class="content-wrapper">
     <article class="blog-post">
-      <h1>{{ content.name|sanitize_html }}</h1>
-      <div class="blog-post__meta">
-        <a href="{{ blog_author_url(group.id, content.blog_post_author.slug)|escape_url }}" rel="author">
-          {{ content.blog_post_author.display_name|escape_html }}
-        </a>
-        <time datetime="{{ content.publish_date|escape_attr }}" class="blog-post__timestamp">
-          {{ content.publish_date_localized|escape_html }}
-        </time>
-      </div>
       <div class="blog-post__body">
         {{ content.post_body }}{# escaped elsewhere #}
       </div>
