@@ -1,6 +1,5 @@
 <section class="hw-work-banner baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
   <span class="baseModuleOverlay" aria-hidden="true"></span>
-  <div class="content-wrapper">
   <div class="baseModuleParent hw-work-banner__inner">
     <h1 id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}{% if module.content_group.accent_title %}<span>{{ module.content_group.accent_title|escape_html }}</span>{% endif %}</h1>
     <figure class="hw-work-banner__reel">
@@ -19,9 +18,9 @@
           <div class="hw-work-banner__placeholder" role="img" aria-label="Video placeholder for {{ module.content_group.video_title|escape_attr }}"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M18 10 46 28 18 46Z" fill="currentColor"/></svg><span>Video placeholder</span></div>
         {% endif %}
       </div>
-      {% if module.content_group.caption %}<figcaption>{{ module.content_group.caption|escape_html }}</figcaption>{% endif %}
+      {% if module.content_group.caption %}
+      <figcaption>{{ module.content_group.caption|escape_html }}</figcaption>{% endif %}
     </figure>
-  </div>
   </div>
 </section>
 {% require_css %}
