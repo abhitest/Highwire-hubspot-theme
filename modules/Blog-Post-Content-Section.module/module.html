@@ -1,0 +1,87 @@
+<section class="hw-article baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %}>
+<div class="content-wrapper">
+  <div class="hw-article__layout">
+{% if module.content_group.show_toc %}
+    <nav class="hw-article__toc" aria-label="{{ module.content_group.toc_title|escape_attr }}" hidden>
+      <p>{{ module.content_group.toc_title|escape_html }}</p>
+      <ul>
+      </ul>
+    </nav>
+    {% endif %}
+<div class="hw-article__body">
+  {{ content.post_body }}
+    </div>
+</div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-article{ {{ module.style.spacing.desktop_spacing.css }} --article-offset:{{ module.style.sticky_offset }}px;--article-accent:{{ module.style.accent.color }};
+{% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');{% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};{% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}}
+@media(max-width:1300px){.{{ name }}.hw-article{ {{ module.style.spacing.tab_spacing.css }} }}
+@media(max-width:767px){.{{ name }}.hw-article{ {{ module.style.spacing.mobile_spacing.css }} }}
+</style>{% end_require_css %}
+{% require_js position="footer" %}
+<script>
+(function () {
+  document.querySelectorAll('.hw-article').forEach(function (section, sectionIndex) {
+    if (section.dataset.tocReady) return;
+    section.dataset.tocReady = 'true';
+    var body = section.querySelector('.hw-article__body');
+    var nav = section.querySelector('.hw-article__toc');
+    if (!nav) return;
+    var list = nav.querySelector('ul');
+    function build() {
+      list.innerHTML = '';
+      var mainItem;
+      body.querySelectorAll('h2, h6').forEach(function (heading, index) {
+        var title = heading.textContent.trim();
+        if (!title || (heading.tagName === 'H6' && !mainItem)) return;
+        if (!heading.id || document.getElementById(heading.id) !== heading) {
+          var base = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'article-heading';
+          var id = base, suffix = 2;
+          while (document.getElementById(id)) id = base + '-' + suffix++;
+          heading.id = id;
+        }
+        var item = document.createElement('li');
+        var link = document.createElement('a');
+        link.href = '#' + encodeURIComponent(heading.id);
+        link.textContent = title;
+        item.appendChild(link);
+        if (heading.tagName === 'H2') {
+          list.appendChild(item);
+          mainItem = item;
+        } else {
+          var sublist = mainItem.querySelector('ul');
+          if (!sublist) { sublist = document.createElement('ul'); mainItem.appendChild(sublist); }
+          sublist.appendChild(item);
+        }
+      });
+      nav.hidden = !list.children.length;
+      section.classList.toggle('hw-article--with-toc', !nav.hidden);
+    }
+    nav.addEventListener('click', function (event) {
+      var link = event.target.closest('a');
+      if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      var target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+      if (!target) return;
+      event.preventDefault();
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.dataset.motion === 'reduced';
+      target.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block: 'start'});
+      target.setAttribute('tabindex', '-1');
+      target.focus({preventScroll: true});
+      history.replaceState(null, '', link.hash);
+    });
+    build();
+    var timer;
+    new MutationObserver(function () { clearTimeout(timer); timer = setTimeout(build, 100); }).observe(body, {childList: true, subtree: true, characterData: true});
+    if (location.hash) {
+      var id;
+      try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+      var target = document.getElementById(id);
+      if (target && body.contains(target)) requestAnimationFrame(function () { target.scrollIntoView({block:'start'}); });
+    }
+  });
+})();
+</script>
+{% end_require_js %}

@@ -1,0 +1,532 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "id": "content_group",
+    "name": "content_group",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "name": "heading",
+        "label": "Section heading",
+        "type": "text",
+        "default": "FAQ"
+      },
+      {
+        "name": "layout",
+        "label": "FAQ layout",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "categorized",
+            "With category navigation"
+          ],
+          [
+            "simple",
+            "Without category navigation"
+          ]
+        ],
+        "default": "categorized"
+      },
+      {
+        "name": "intro",
+        "label": "Introduction (optional)",
+        "type": "richtext",
+        "default": "<p>AcroAI is a sandboxed agentic AI platform designed to help marketing and communications teams drive measurable business impact and turn complexity into competitive advantage � securely and at scale.It's powered by generative AI, guided by Highwire's proprietary methodologies, and trained on your business.</p>"
+      },
+      {
+        "name": "initially_open",
+        "label": "Initially open the first answer",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "name": "groups",
+        "label": "FAQ groups",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "default": 5
+        },
+        "children": [
+          {
+            "name": "category",
+            "label": "Category name",
+            "type": "text"
+          },
+          {
+            "name": "show_heading",
+            "label": "Show category heading above questions",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "questions",
+            "label": "Questions and answers",
+            "type": "group",
+            "occurrence": {
+              "min": 1,
+              "default": 1
+            },
+            "children": [
+              {
+                "name": "question",
+                "label": "Question",
+                "type": "text"
+              },
+              {
+                "name": "answer",
+                "label": "Answer",
+                "type": "richtext"
+              }
+            ]
+          }
+        ],
+        "default": [
+          {
+            "category": "Overview",
+            "show_heading": false,
+            "questions": [
+              {
+                "question": "What is AcroAI?",
+                "answer": "<p>AcroAI is a sandboxed agentic AI platform designed to help marketing and communications teams drive measurable business impact and turn complexity into competitive advantage � securely and at scale.</p> <p> AcroAI is powered by generative AI, guided by Highwire proprietary methodologies, and trained on your business� needs. It leverages multiple AI models (such as ChatGPT and Claude) to deliver pre-trained tools for tasks like data analysis, strategic planning, and content development.  </p>"
+              },
+              {
+                "question": "Who is it designed for?",
+                "answer": "AcroAI is built specifically for marketing and communications teams, with tools designed to support their workflows and speed up time-consuming tasks. This includes large, matrixed organizations, �one-man bands,� and everyone in between."
+              },
+              {
+                "question": "Why Acro? What does it mean?",
+                "answer": "Acro comes from the word \"akros\", meaning high, extreme, or point. We believe in our athleticism as an agency is representative of agility and the ability to pivot and perform in the most pressing circumstances. When it comes to helping our clients get the agility they need, our AI strategy provides an ever-evolving, specialized, and custom approach that never loses its edge."
+              },
+              {
+                "question": "What kind of work can AcroAI support?",
+                "answer": "AcroAI supports the full spectrum of marketing and communications needs, including workflows custom-tailored to your specific needs. Common use cases include:   <ul> <li><strong>Research & intelligence</strong> � Actionable insights from 100+ data sources, aggregated in one place and delivered automatically to your team.</li> <li><strong>Real-time, 24/7 monitoring</strong> � Competitive and market intelligence monitoring to proactively identify trends, opportunities, and risks to your organization.</li> <li><strong>SEO & GEO optimization</strong> � Audit content performance and optimize copy to improve visibility, relevance, and readability. This capability is part of Highwire's broader AI-powered suite, which includes the Highwire AI Index for AEO and GEO and advanced measurement tools that track how your content performs across both traditional search and generative engine results.</li> <li><strong>Content & campaign execution</strong> � Develop and execute multi-channel content campaigns with consistent brand voice, messaging, and goals across assets.</li> </ul>"
+              },
+              {
+                "question": "How is AcroAI different from generic tools like ChatGPT?",
+                "answer": "ChatGPT is like a smart intern; it�s capable but limited and can�t deliver unless you spell everything out every time. AcroAI is a seasoned professional who already works at your firm, understands your processes and frameworks, and operates within your systems. Because AcroAI operates at the level of institutional specificity your firm requires, it becomes a competitive advantage � not just a productivity tool."
+              },
+              {
+                "question": "What is an AI agent?",
+                "answer": "<p>An AI agent is a <strong>digital team member</strong> securely trained on your firm�s IP, client knowledge, voice, and more. It is configured to handle specific tasks � like research, media monitoring, and content creation � without the need for constant prompting. AcroAI agents are trained by seasoned agency professionals, so every output matches organizational standards and brand voice without sacrificing the institutional depth that senior audiences expect.</p> <p> Example: Marketing Manager: Crafts marketing strategies, campaign planning & analytics to boost your brand's market presence. (Uses Claude 4.5)</p>"
+              },
+              {
+                "question": "What is an AI workflow?",
+                "answer": "<p>AI workflows are <strong>repeatable processes</strong> that string together multiple steps (and agents and tools) to deliver complex outcomes such as a content calendar, synthetic focus group, or research report.</p> <p> Example: Journalist AI Clone & Pitch Evaluator: Share your pitch for feedback with an AI clone of your target reporter!</p>"
+              },
+              {
+                "question": "What are workflow bundles?",
+                "answer": "<p>Bundles are groups of complementary workflows organized around specific marketing functions, such as:</p>  <ul> <li><strong>Audience Intelligence</strong></li> <li><strong>Earned Media</strong></li> <li><strong>Executive Eminence</strong></li> <li><strong>Brand Strategy</strong></li> <li><strong>Content Strategy</strong></li> <li><strong>Digital Strategy </strong></li> <li><strong>Internal Communications</strong></li> <li><strong>Social Media</strong></li> </ul>"
+              },
+              {
+                "question": "How does AcroAI integrate with existing tools?",
+                "answer": "<p>AcroAI is designed to sit within your existing tech stack. It integrates seamlessly with tools including:</p>  <ul> <li><strong>File repositories</strong> (SharePoint, Google Drive, Dropbox)</li> <li><strong>CRMs & project trackers</strong> (HubSpot, Asana, Monday.com)</li> <li><strong>Email & calendar clients</strong> (Outlook, Gmail, Google Calendar)</li> <li><strong>Messaging platforms</strong> (Teams, Slack)</li> </ul>"
+              },
+              {
+                "question": "How is AcroAI customized to my needs?",
+                "answer": "<p>There is no need to train or configure AcroAI. You allow the platform to train itself by providing access to:</p> <ul> <li><strong>Processes & frameworks</strong> � Playbooks, templates, and methodologies �teach� AI agents to follow your way of doing things.</li> <li><strong>Data sources</strong> � Repositories like SharePoint, Outlook, and Google Drive enable AcroAI to incorporate your existing knowledge.</li> </ul> <p>AcroAI is designed to learn from your data and ongoing work. That means AI agents improve and become more aligned with your standards as they are used.</p>"
+              },
+              {
+                "question": "Do we need in-house data scientists or engineers?",
+                "answer": "No. AcroAI does not require any specialized prompt-engineering, machine learning, or data science skills. It is designed for use by marketing and communications professionals, not technologists."
+              }
+            ]
+          },
+          {
+            "category": "Benefits & business impacts",
+            "show_heading": true,
+            "questions": [
+              {
+                "question": "How can AcroAI benefit our organization?",
+                "answer": "<p>AcroAI gives marketing and communications leaders the leverage to turn complexity into competitive advantage. By automating routine tasks and streamlining day-to-day operations, it enables your team to ditch the busywork and focus on the higher-level strategic challenges that drive measurable business results.</p>  <ul> <li> <p>Stronger market differentiation � Create and scale repeatable narratives that reinforce brand authority, highlight differentiated thinking, and demonstrate how your approach is the right one.</p> </li> <li>Productivity & time savings � Automate time-consuming research and repetitive tasks, freeing up your teammates to focus on higher priorities.</li> <li> <p>High-quality, consistent deliverables � Elevate content quality and analytical depth, improve clarity and structure, and embed your perspective into every deliverable.</p> </li> </ul>"
+              }
+            ]
+          },
+          {
+            "category": "Security, privacy & compliance",
+            "show_heading": true,
+            "questions": [
+              {
+                "question": "How secure is AcroAI?",
+                "answer": "<p>AcroAI is built on Google Cloud Platform and offers enterprise-grade protection. </p>  <p>It is SOC 2 Type 2 certified, meaning an independent auditor has verified its security controls. Access is managed through Single Sign-On (SSO), giving your IT team centralized control over who can log in, so that credentials never become a vulnerability.</p>  <p>All data is fully encrypted using industry standard encryption, so your firm's information is protected at every stage. </p>  <p>Your data is never used to train external models. It is isolated and protected at all times. Formal Data Processing Agreements with AI partners explicitly prevent your data from ever being used to train external models, meaning your proprietary workflows, client data, and firm expertise stay completely yours.</p>"
+              },
+              {
+                "question": "Does AcroAI keep a human in the loop?",
+                "answer": "Yes. AcroAI agents and workflows are subject to human oversight, review, and control."
+              },
+              {
+                "question": "How does AcroAI handle our data and IP?",
+                "answer": "Your data powers your AI agents and workflows � and nothing else. AcroAI analyzes data from sources like documents, emails, and shared drives (e.g., SharePoint, Google Drive) to build a custom knowledge base."
+              },
+              {
+                "question": "Does AcroAI use our data to train public AI models?",
+                "answer": "No, your data is never used to train external models. It is isolated and protected at all times."
+              }
+            ]
+          },
+          {
+            "category": "Implementation & operations",
+            "show_heading": true,
+            "questions": [
+              {
+                "question": "How long does implementation typically take?",
+                "answer": "<p>Depending on your need, implementation can take as little as 60 minutes.</p>"
+              },
+              {
+                "question": "Does Highwire offer training and support?",
+                "answer": "From webinars and guides to workshops and dedicated training, we offer a variety of materials and live sessions to support your team."
+              }
+            ]
+          },
+          {
+            "category": "Price",
+            "show_heading": true,
+            "questions": [
+              {
+                "question": "How is AcroAI priced?",
+                "answer": "<p>We offer several packages based on your team�s size and needs, from a pilot program to full-scale enterprise support. </p>"
+              },
+              {
+                "question": "Do you offer a free trial?",
+                "answer": "Yes, we offer a two-week trial."
+              },
+              {
+                "question": "How do we get started?",
+                "answer": "Reach out to schedule a demo and/or conversation about how AcroAI can drive measurable results for your team."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 104,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 104,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "text_color",
+        "label": "Heading and question colour",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "answer_color",
+        "label": "Introduction and answer colour",
+        "type": "color",
+        "default": {
+          "color": "#5f5f5f",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent",
+        "label": "Hover colour",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "border_color",
+        "label": "Divider colour",
+        "type": "color",
+        "default": {
+          "color": "#bfbfbf",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "sticky_offset",
+        "label": "Sticky navigation / anchor offset (px)",
+        "type": "number",
+        "default": 96,
+        "min": 0,
+        "max": 300
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

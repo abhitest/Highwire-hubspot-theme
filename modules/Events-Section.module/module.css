@@ -46,7 +46,7 @@
 .hw-events__rail label { color:inherit; font:400 16px/1.5 var(--body,Arial,sans-serif); }
 .hw-events__rail :is(input:not([type=submit]):not([type=checkbox]):not([type=radio]):not([type=hidden]),select,textarea) { width:100%!important; min-width:0; min-height:44px; margin-top:12px; padding:6px 0; border:0; border-bottom:1px solid var(--event-border_color,color-mix(in srgb,var(--color-secondary,#fff) 35%,transparent)); border-radius:0; background:transparent; color:inherit; box-shadow:none; font:400 18px/1.5 var(--body,Arial,sans-serif); transition:border-color var(--m-fast,.22s); }
 .hw-events__rail select option { background:var(--event-background,var(--color-primary,#000)); color:var(--event-text_color,var(--color-secondary,#fff)); }
-.hw-events__rail :is(input,textarea,select):focus { border-bottom-color:var(--event-accent,var(--color-tertiary,#ff7042)); }
+.hw-events__rail :is(input,textarea,select):focus { border-bottom-color:var(--event-accent,var(--color-tertiary,#ff7042)) !important; }
 .hw-events :is(a,button,input,textarea,select):focus-visible { outline:2px solid var(--event-accent,var(--color-tertiary,#ff7042)); outline-offset:5px; }
 .hw-events__rail .hs_submit { position:relative; margin-top:48px; }
 .hw-events__rail :is(input[type=submit],button[type=submit]) { width:100%; min-height:64px; padding:20px 56px 20px 24px; border:0; border-radius:0; background:var(--event-accent,var(--color-tertiary,#ff7042)); color:var(--event-background,var(--color-primary,#000)); font:600 16px/1.5 var(--display,Arial,sans-serif); text-align:left; white-space:normal; cursor:pointer; transition:background var(--m-fast,.22s),color var(--m-fast,.22s); }

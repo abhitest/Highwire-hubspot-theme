@@ -14,6 +14,12 @@
 .hw-acroai-banner__cta:is(:hover,:focus-visible) { background:var(--acroai-cta_hover); color:var(--acroai-cta_text); text-decoration:none; }
 .hw-acroai-banner__cta:is(:hover,:focus-visible) svg { transform:translateY(4px); }
 .hw-acroai-banner__cta:focus-visible { outline:2px solid var(--acroai-cta_text); outline-offset:-8px; }
+
+@media (max-width: 900px){
+    .hw-acroai-banner__description { font: 400 30px / 1.25 var(--display);}
+}
+
+
 @media(max-width:767px) {
  .hw-acroai-banner__layout { grid-template-columns:minmax(0,1fr); min-height:0; }
  .hw-acroai-banner h1 { margin-top:0; }

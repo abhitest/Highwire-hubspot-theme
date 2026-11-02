@@ -3,8 +3,8 @@
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent content-wrapper">
     <div class="hw-info-section__layout">
-      <{{ heading_tag }} id="{{ name|escape_attr }}-title" class="hw-info-section__title">{{ module.content_group.title|escape_html }}</{{ heading_tag }}>
-      <div class="hw-info-section__copy">
+      <{{ heading_tag }} id="{{ name|escape_attr }}-title" class="hw-info-section__title">{{ module.content_group.title }}</{{ heading_tag }}>
+      <div class="hw-info-section__copy font20 normal">
         <div class="hw-info-section__content">{{ module.content_group.content }}</div>
         {% if module.content_group.secondary_content %}
         <div class="hw-info-section__secondary{% if module.content_group.show_divider %} hw-info-section__secondary--divider{% endif %}">{{ module.content_group.secondary_content }}</div>

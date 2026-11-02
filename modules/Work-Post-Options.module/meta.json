@@ -1,0 +1,9 @@
+{
+  "label": "Work Post Options",
+  "content_types": [
+    "BLOG_POST"
+  ],
+  "is_available_for_new_content": true,
+  "global": false,
+  "help_text": "Select sectors, capabilities, and outcomes for this post. These fields are not displayed on the published page."
+}

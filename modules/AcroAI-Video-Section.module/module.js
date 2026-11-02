@@ -11,14 +11,14 @@
     entry.target.dataset.coverVisible=String(visible);
   }),{threshold:.18}):null;
   const refresh=()=>{
-    sections.forEach((state,section)=>{if(!section.isConnected){state.video.pause();if(observer)observer.unobserve(section);sections.delete(section);}});
+    sections.forEach((state,section)=>{if(!section.isConnected){if(state.video)state.video.pause();if(observer)observer.unobserve(section);sections.delete(section);}});
     document.querySelectorAll('.hw-acro-video').forEach(section=>{
       if(sections.has(section))return;
       const video=section.querySelector('video'),button=section.querySelector('.hw-acro-video__play'),poster=section.querySelector('.hw-acro-video__poster'),status=section.querySelector('.hw-acro-video__status');
-      if(!video||!poster)return;
+      if(!section.querySelector('.hw-acro-video__frame'))return;
       sections.set(section,{count:0,visible:false,video});
       if(observer){section.dataset.coverReady='true';observer.observe(section);}
-      if(!button)return;
+      if(!video||!poster||!button)return;
       let hover=0;
       const colour=()=>button.style.setProperty('--play-accent',`var(--video-${['blue','purple','orange'][hover++%3]})`);
       button.addEventListener('pointerenter',colour);

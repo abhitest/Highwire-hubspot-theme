@@ -1,0 +1,83 @@
+<section class="hw-acro-leverage baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    <div class="hw-acro-leverage__layout">
+      <div class="hw-acro-leverage__copy">
+        <h3 id="{{ name|escape_attr }}-title" data-leverage-reveal>{{ module.content_group.heading }}</h3>
+        <div class="hw-acro-leverage__intro font20 lh15" data-leverage-reveal>{{ module.content_group.intro }}</div>
+        {% if module.content_group.deployment_heading or module.content_group.deployment_content %}
+        <div class="hw-acro-leverage__deployment">
+          <h6>{{ module.content_group.deployment_heading }}</h6>
+          <div class="hw-acro-leverage__deploymentcnt font18 lh15">{{ module.content_group.deployment_content }}</div>
+        </div>
+        {% endif %}
+      </div>
+     
+      <div class="hw-acro-leverage__form" id="leverageform">
+       
+      </div>
+      
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-acro-leverage {
+  {{ module.style.spacing.desktop_spacing.css }}
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background:{{ module.style.background_property.background_color.css }};{% endif %}
+  --leverage-text:{{ module.style.text_color.css }};
+  --leverage-body:{{ module.style.body_color.css }};
+  --leverage-divider:{{ module.style.divider.css }};
+  --leverage-form-background:{{ module.style.form_background.css }};
+  --leverage-form-text:{{ module.style.form_text.css }};
+  --leverage-hover:{{ module.style.hover_color.css }};
+}
+@media(max-width:1024px) { .{{ name }}.hw-acro-leverage { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-acro-leverage { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}
+
+{% require_js %}
+  <script>
+(function() {
+  var formLoaded = false;
+  
+  function loadForm() {
+    if (formLoaded) return;
+    formLoaded = true;
+
+    // Load reCAPTCHA + HubSpot form ONLY when user scrolls near it
+    var script = document.createElement('script');
+    script.src = '//js.hsforms.net/forms/embed/v2.js';
+    script.charset = 'utf-8';
+    script.type = 'text/javascript';
+    script.onload = function() {
+      hbspt.forms.create({
+        portalId: "8855469",   // ← replace with your portal ID
+        formId: `{{ module.content_group.form.form_id }}`,       // ← replace with your form ID
+        target: "#leverageform"
+      });
+    };
+    document.body.appendChild(script);
+  }
+
+  // Trigger when user scrolls within 300px of the form
+  var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      loadForm();
+      observer.disconnect();
+    }
+  }, { rootMargin: "300px" });
+
+  var wrapper = document.getElementById('leverageform');
+  if (wrapper) observer.observe(wrapper);
+
+  // Fallback: also load on first user interaction
+  ['mousedown','touchstart','keydown'].forEach(function(evt) {
+    document.addEventListener(evt, loadForm, { once: true });
+  });
+})();
+</script>
+{% end_require_js %}

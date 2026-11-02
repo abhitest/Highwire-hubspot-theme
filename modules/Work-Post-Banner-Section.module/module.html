@@ -1,0 +1,33 @@
+<section class="hw-case hw-case--banner baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title">
+    <div class="content-wrapper hw-case__hero-copy">
+        <nav class="hw-case__breadcrumb" aria-label="Breadcrumb">
+            <a href="{{ group.absolute_url|escape_url }}">
+                {{ module.content_group.breadcrumb_label|escape_html }}
+            </a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">
+                {{ widget_data.work_category.value|default(widget_data.work_category.body.value, true)|default(content.name, true)|striptags|escape_html }}
+            </span>
+        </nav>
+        <h1 id="{{ name|escape_attr }}-title" data-case-reveal>{{ module.content_group.title|default(content.name, true)|striptags|escape_html }}</h1>
+        {% if content.tag_list %}
+            <ul class="hw-case__tags">
+                {% for tag in content.tag_list %}
+                    <li>{{ tag.name|escape_html }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="hw-case__hero-media">
+        {% set hero_src = content.featured_image or module.content_group.image.src %}
+        {% if hero_src %}
+            <img src="{{ hero_src|escape_url }}" alt="{{ content.featured_image_alt_text|default(module.content_group.image.alt, true)|escape_attr }}" fetchpriority="high" decoding="async">
+        {% endif %}
+    </div>
+</section>
+{% require_css %}<style>
+.{{ name }}.hw-case{ {{ module.style.spacing.desktop_spacing.css }} color:{{ module.style.text_color.color }};--case-accent:{{ module.style.accent.color }};
+{% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');{% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};{% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}}
+@media(max-width:1300px){.{{ name }}.hw-case{ {{ module.style.spacing.tab_spacing.css }} }}
+@media(max-width:767px){.{{ name }}.hw-case{ {{ module.style.spacing.mobile_spacing.css }} }}
+</style>{% end_require_css %}

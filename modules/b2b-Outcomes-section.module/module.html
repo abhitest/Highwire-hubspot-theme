@@ -17,7 +17,13 @@
 </div>
 <div class="hw-b2b-outcomes__list">
 {% for item in module.content_group.capabilities %}
-<article class="hw-b2b-outcomes__item" tabindex="0" aria-labelledby="{{ name|escape_attr }}-item-{{ loop.index }}">
+{% set href = item.link.url.href|default('', true)|trim %}
+{% if href and item.link.url.type == 'EMAIL_ADDRESS' %}
+  {% set href = 'mailto:' ~ href %}
+{% elif href and item.link.url.type == 'PHONE_NUMBER' %}
+  {% set href = 'tel:' ~ href %}
+{% endif %}
+<article class="hw-b2b-outcomes__item" {% if not href %}tabindex="0"{% endif %} aria-labelledby="{{ name|escape_attr }}-item-{{ loop.index }}">
 <div class="hw-b2b-outcomes__heading">
   <span class="hw-b2b-outcomes__icon" aria-hidden="true">
     {% if item.icon.src %}
@@ -29,6 +35,13 @@
   </h6>
 </div>
 {{ item.description }}
+{% if href %}
+  <a class="hw-b2b-outcomes__box-link"
+    href="{{ href|escape_url }}"
+    aria-labelledby="{{ name|escape_attr }}-item-{{ loop.index }}"
+    {% if item.link.open_in_new_tab %}target="_blank"{% endif %}
+    rel="{% if item.link.open_in_new_tab %}noopener {% endif %}{% if item.link.no_follow %}nofollow {% endif %}{{ item.link.rel|escape_attr }}"></a>
+{% endif %}
 </article>
 {% endfor %}
 </div>

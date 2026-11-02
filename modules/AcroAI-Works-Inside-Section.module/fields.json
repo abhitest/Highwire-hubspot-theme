@@ -54,10 +54,49 @@
         "default": "<p>AcroAI integrates with SharePoint, Google Drive, Dropbox, HubSpot, Asana, Outlook, Gmail, Microsoft Teams, Slack, and more — no new systems or workflow disruption.</p>"
       },
       {
+        "name": "media_type",
+        "label": "Media type",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "animation",
+            "Animation"
+          ],
+          [
+            "image",
+            "Image"
+          ]
+        ],
+        "default": "animation"
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "image",
+          "operator": "EQUAL"
+        },
+        "default": {
+          "src": "",
+          "alt": "",
+          "size_type": "auto"
+        }
+      },
+      {
         "name": "map_description",
         "label": "Diagram accessible description",
         "type": "text",
-        "default": "Highwire connected to SharePoint, Google Drive, Dropbox, HubSpot, Asana, Outlook, Gmail, Microsoft Teams and Slack"
+        "default": "Highwire connected to SharePoint, Google Drive, Dropbox, HubSpot, Asana, Outlook, Gmail, Microsoft Teams and Slack",
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "animation",
+          "operator": "EQUAL"
+        }
       },
       {
         "name": "center_logo",
@@ -66,6 +105,11 @@
         "default": {
           "src": "https://highwire-demo.vercel.app/images/home/about/highwire-mark.svg",
           "alt": "Highwire"
+        },
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "animation",
+          "operator": "EQUAL"
         }
       },
       {
@@ -153,7 +197,12 @@
               "alt": "Slack"
             }
           }
-        ]
+        ],
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "animation",
+          "operator": "EQUAL"
+        }
       },
       {
         "name": "animate",

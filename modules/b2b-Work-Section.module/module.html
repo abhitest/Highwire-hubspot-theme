@@ -1,29 +1,4 @@
-{% set work_cards = module.content_group.cards or [{"client":"Twilio","title":"Shaping the Future of Customer
-Connection","description":"Twilio introduced a new platform that required the creation of an entirely new
-category.","image":{"src":"https://highwire-demo.vercel.app/images/home/work/twilio.jpg","alt":"Twilio customer
-engagement report displayed on a laptop","size_type":"auto"},"tags":["Branded content &
-campaigns"],"metrics":[{"metric_label":"Global earned media articles","value":"215+"},{"metric_label":"YoY increase in
-social engagements","value":"270%"}],"link":{"url":{"type":"EXTERNAL","href":""}}},{"client":"Workforce technology
-platform","title":"Making the Future of Work Work for Everyone","description":"A workforce technology platform needed a
-story that connected its AI capabilities to the people and businesses they could
-help.","image":{"src":"https://highwire-demo.vercel.app/images/industries/b2b/upwork-independent-specialist-v01.png","alt":"An
-independent designer working with a graphics tablet in her studio","size_type":"auto"},"tags":["Brand
-strategy","Integrated campaigns"],"metrics":[{"metric_label":"Earned media
-placements","value":"140+"},{"metric_label":"Increase in campaign
-engagement","value":"3.2×"}],"link":{"url":{"type":"EXTERNAL","href":""}}},{"client":"ServiceNow","title":"Turning
-Enterprise Ambition Into Everyday Impact","description":"An integrated campaign made a complex platform story tangible,
-showing how connected workflows help people get meaningful work
-done.","image":{"src":"https://highwire-demo.vercel.app/images/industries/b2b/servicenow-it-workflow-v01.png","alt":"An
-IT specialist helping a colleague prepare a laptop at a service workbench","size_type":"auto"},"tags":["Thought
-leadership","Executive visibility"],"metrics":[{"metric_label":"Stories in priority
-publications","value":"95+"},{"metric_label":"Growth in audience
-engagement","value":"180%"}],"link":{"url":{"type":"EXTERNAL","href":""}}},{"client":"Cloud Computing
-Services","title":"Turning AI Hype Into Market Authority","description":"A top cloud services provider needed to stand
-out in a lightning-fast AI
-landscape.","image":{"src":"https://highwire-demo.vercel.app/images/home/work/cloud-ai.jpg","alt":"A diverse creative
-team working together in a studio","size_type":"auto"},"tags":["Executive visibility","Earned
-media"],"metrics":[{"metric_label":"High-impact feature articles in one year","value":"80+"},{"metric_label":"Stories
-featuring customers or executives","value":"70%"}],"link":{"url":{"type":"EXTERNAL","href":""}}}] %}
+{% set work_cards = module.content_group.cards %}
 <section class="hw-b2b-work baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"
   {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}" {% endif %}
   aria-labelledby="{{ name|escape_attr }}-title">

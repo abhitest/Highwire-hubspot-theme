@@ -49,6 +49,12 @@
         "allow_new_line": true
       },
       {
+        "name": "description",
+        "label": "Description",
+        "type": "richtext",
+        "default": ""
+      },
+      {
         "name": "title_color",
         "label": "Title colour",
         "type": "color",
@@ -67,10 +73,76 @@
         }
       },
       {
+        "name": "media_type",
+        "label": "Media type",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "video",
+            "Video"
+          ],
+          [
+            "image",
+            "Image"
+          ]
+        ],
+        "default": "video"
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "image",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "video_type",
+        "label": "Video source",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "mp4",
+            "MP4 URL"
+          ],
+          [
+            "hubspot",
+            "HubSpot video"
+          ]
+        ],
+        "default": "mp4",
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "hubspot_video",
+        "label": "HubSpot video",
+        "type": "videoplayer",
+        "visibility": {
+          "controlling_field_path": "content_group.video_type",
+          "controlling_value_regex": "hubspot",
+          "operator": "EQUAL"
+        }
+      },
+      {
         "name": "video_url",
         "label": "Video URL (MP4)",
         "type": "text",
-        "default": "https://highwire-demo.vercel.app/images/products/acroai/capabilities-combined.mp4"
+        "default": "https://highwire-demo.vercel.app/images/products/acroai/capabilities-combined.mp4",
+        "visibility": {
+          "controlling_field_path": "content_group.video_type",
+          "controlling_value_regex": "mp4",
+          "operator": "EQUAL"
+        }
       },
       {
         "name": "poster",
@@ -81,6 +153,11 @@
           "alt": "AcroAI campaign creation demo",
           "width": 1280,
           "height": 720
+        },
+        "visibility": {
+          "controlling_field_path": "content_group.video_type",
+          "controlling_value_regex": "mp4",
+          "operator": "EQUAL"
         }
       },
       {
@@ -94,78 +171,78 @@
         "label": "Enable description reveal",
         "type": "boolean",
         "default": true
-      }
-    ]
-  },
-  {
-    "name": "capabilities",
-    "label": "Capabilities",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 20,
-      "default": 4
-    },
-    "children": [
-      {
-        "name": "icon",
-        "label": "Icon",
-        "type": "image",
-        "default": {}
       },
       {
-        "name": "title",
-        "label": "Title",
-        "type": "text",
-        "default": ""
-      },
-      {
-        "name": "description",
-        "label": "Description",
-        "type": "richtext",
-        "default": ""
-      }
-    ],
-    "default": [
-      {
-        "icon": {
-          "src": "https://highwire-demo.vercel.app/images/icons/industry/search.svg",
-          "alt": "",
-          "width": 24,
-          "height": 24
+        "name": "capabilities",
+        "label": "Capabilities",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 20,
+          "default": 4
         },
-        "title": "Research & Intelligence",
-        "description": "<p>Actionable insights from 100+ data sources, delivered automatically.</p>"
-      },
-      {
-        "icon": {
-          "src": "https://highwire-demo.vercel.app/images/icons/industry/view.svg",
-          "alt": "",
-          "width": 24,
-          "height": 24
-        },
-        "title": "Real-Time Monitoring",
-        "description": "<p>24/7 competitive and market intelligence so you're always the most prepared person in the room.</p>"
-      },
-      {
-        "icon": {
-          "src": "https://highwire-demo.vercel.app/images/icons/industry/target.svg",
-          "alt": "",
-          "width": 24,
-          "height": 24
-        },
-        "title": "SEO & GEO Optimization",
-        "description": "<p>Audit and optimize content for both traditional search and generative engine results.</p>"
-      },
-      {
-        "icon": {
-          "src": "https://highwire-demo.vercel.app/images/icons/industry/edit.svg",
-          "alt": "",
-          "width": 24,
-          "height": 24
-        },
-        "title": "Content & Campaign Execution",
-        "description": "<p>Multi-channel campaigns with consistent brand voice, from strategy to delivery</p>"
+        "children": [
+          {
+            "name": "icon",
+            "label": "Icon",
+            "type": "image",
+            "default": {}
+          },
+          {
+            "name": "title",
+            "label": "Title",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "description",
+            "label": "Description",
+            "type": "richtext",
+            "default": ""
+          }
+        ],
+        "default": [
+          {
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/search.svg",
+              "alt": "",
+              "width": 24,
+              "height": 24
+            },
+            "title": "Research & Intelligence",
+            "description": "<p>Actionable insights from 100+ data sources, delivered automatically.</p>"
+          },
+          {
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/view.svg",
+              "alt": "",
+              "width": 24,
+              "height": 24
+            },
+            "title": "Real-Time Monitoring",
+            "description": "<p>24/7 competitive and market intelligence so you're always the most prepared person in the room.</p>"
+          },
+          {
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/target.svg",
+              "alt": "",
+              "width": 24,
+              "height": 24
+            },
+            "title": "SEO & GEO Optimization",
+            "description": "<p>Audit and optimize content for both traditional search and generative engine results.</p>"
+          },
+          {
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/edit.svg",
+              "alt": "",
+              "width": 24,
+              "height": 24
+            },
+            "title": "Content & Campaign Execution",
+            "description": "<p>Multi-channel campaigns with consistent brand voice, from strategy to delivery</p>"
+          }
+        ]
       }
     ]
   },

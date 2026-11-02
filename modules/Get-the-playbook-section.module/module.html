@@ -8,7 +8,7 @@
       <div class="hw-playbook__blocks" aria-hidden="true"><span></span><span></span></div>
       <div class="hw-playbook__cover">{% if module.cover_image.src %}<img src="{{ module.cover_image.src|escape_url }}" alt="{{ module.cover_image.alt|escape_attr }}" width="280" height="396" loading="lazy">{% endif %}</div>
     </figure>
-    <div class="hw-playbook__inside"><h2 data-playbook-reveal>{{ module.inside_title|escape_html }}</h2><div class="hw-playbook__inside-content font20 lh15 opacity70">{{ module.inside_content }}</div>
+    <div class="hw-playbook__inside"><h3 data-playbook-reveal>{{ module.inside_title }}</h3><div class="hw-playbook__inside-content font20 lh15 opacity70">{{ module.inside_content }}</div>
       <ul class="hw-playbook__benefits">{% for benefit in module.benefits %}<li tabindex="0" data-playbook-reveal><span class="hw-playbook__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6" pathLength="1"/></svg></span><h3>{{ benefit|escape_html }}</h3></li>{% endfor %}</ul>
     </div>
     <div class="hw-playbook__closing"><h2 data-playbook-reveal>{{ module.closing_title|escape_html }}</h2>{{ module.closing_content }}</div>

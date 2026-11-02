@@ -1,13 +1,134 @@
 [
-  {"name":"breadcrumb_label","label":"Blog breadcrumb label","type":"text","default":"Insights"},
-  {"name":"breadcrumb_title","label":"Short breadcrumb title","type":"text","help_text":"Optional short label, e.g. Energy Leaders Panel. Defaults to the current post title."},
-  {"name":"show_tags","label":"Show post tags","type":"boolean","default":true},
-  {"name":"show_author","label":"Show post author","type":"boolean","default":true},
-  {"name":"show_date","label":"Show publication date","type":"boolean","default":true},
-  {"name":"show_image","label":"Show featured image","type":"boolean","default":true},
-  {"name":"style","label":"Style","type":"group","tab":"STYLE","children":[
-    {"name":"background","label":"Background","type":"color","default":{"color":"#ffffff","opacity":100}},
-    {"name":"text","label":"Text","type":"color","default":{"color":"#000000","opacity":100}},
-    {"name":"accent","label":"Breadcrumb accent","type":"color","default":{"color":"#fa9bff","opacity":100}}
-  ]}
+  {
+    "name": "breadcrumb_label",
+    "label": "Blog breadcrumb label",
+    "type": "text",
+    "default": "Insights"
+  },
+  {
+    "name": "breadcrumb_title",
+    "label": "Short breadcrumb title",
+    "type": "text",
+    "help_text": "Optional short label, e.g. Energy Leaders Panel. Defaults to the current post title."
+  },
+  {
+    "name": "show_tags",
+    "label": "Show post tags",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "show_author",
+    "label": "Show post author",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "show_date",
+    "label": "Show publication date",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "show_image",
+    "label": "Show featured image",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "style",
+    "label": "Style",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "name": "background",
+        "label": "Background",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "text",
+        "label": "Text",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent",
+        "label": "Breadcrumb accent",
+        "type": "color",
+        "default": {
+          "color": "#fa9bff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "spacing",
+        "label": "Section spacing (top and bottom only)",
+        "type": "group",
+        "children": [
+          {
+            "name": "desktop_top",
+            "label": "Desktop top (px)",
+            "type": "number",
+            "default": 64,
+            "min": 0,
+            "max": 400,
+            "step": 1
+          },
+          {
+            "name": "desktop_bottom",
+            "label": "Desktop bottom (px)",
+            "type": "number",
+            "default": 56,
+            "min": 0,
+            "max": 400,
+            "step": 1
+          },
+          {
+            "name": "tablet_top",
+            "label": "Tablet top (px)",
+            "type": "number",
+            "default": 48,
+            "min": 0,
+            "max": 400,
+            "step": 1
+          },
+          {
+            "name": "tablet_bottom",
+            "label": "Tablet bottom (px)",
+            "type": "number",
+            "default": 48,
+            "min": 0,
+            "max": 400,
+            "step": 1
+          },
+          {
+            "name": "mobile_top",
+            "label": "Mobile top (px)",
+            "type": "number",
+            "default": 32,
+            "min": 0,
+            "max": 400,
+            "step": 1
+          },
+          {
+            "name": "mobile_bottom",
+            "label": "Mobile bottom (px)",
+            "type": "number",
+            "default": 32,
+            "min": 0,
+            "max": 400,
+            "step": 1
+          }
+        ]
+      }
+    ]
+  }
 ]

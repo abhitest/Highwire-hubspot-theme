@@ -4,19 +4,51 @@ const init = () => document.querySelectorAll('.hw-b2b-work').forEach(section => 
  if(section.dataset.initialized) return; section.dataset.initialized='true';
  const reduced=matchMedia('(prefers-reduced-motion: reduce)'), mobile=matchMedia('(max-width:767px)');
  const motionOff=()=>reduced.matches||mobile.matches||document.documentElement.dataset.motion==='reduced';
- // Content stays visible until the observer actually starts a finite animation.
- if(!motionOff() && 'IntersectionObserver' in window){
- const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-  if(!entry.isIntersecting)return;
-  observer.unobserve(entry.target);
-  if(motionOff() || typeof entry.target.animate!=='function')return;
-  const visual=entry.target.querySelector('.hw-b2b-work__visual');
-  const copy=entry.target.querySelector('.hw-b2b-work__copy') || entry.target.querySelector('h2');
-  if(visual)visual.animate([{clipPath:'inset(0 0 100%)'},{clipPath:'inset(0)'}],{duration:650,easing:'cubic-bezier(.22,1,.36,1)'});
-  if(copy)copy.animate([{opacity:0,transform:'translateY(24px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,easing:'cubic-bezier(.22,1,.36,1)'});
- }),{threshold:0});
- section.querySelectorAll('.hw-b2b-work__header,.hw-b2b-work__case').forEach(el=>observer.observe(el));
+ // Measure stationary tracks so the translated cards never feed back into scroll progress.
+ const tracks=Array.from(section.querySelectorAll('.hw-b2b-work__caseTrack'));
+ let scrollFrame=0;
+ const updateParallax=()=>{
+  scrollFrame=0;
+  if(motionOff()){
+   tracks.forEach(track=>track.style.removeProperty('--work-parallax'));
+   return;
+  }
+  const height=document.documentElement.clientHeight;
+  const offsets=tracks.map((track,index)=>{
+   const rect=track.getBoundingClientRect();
+   const progress=Math.max(-1,Math.min(1,(height/2-rect.top-rect.height/2)/((height+rect.height)/2)));
+   return progress*(index%2===0?-32:-88);
+  });
+  tracks.forEach((track,index)=>track.style.setProperty('--work-parallax',offsets[index].toFixed(2)+'px'));
+ };
+ const scheduleParallax=()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(updateParallax);};
+ document.addEventListener('scroll',scheduleParallax,{passive:true,capture:true});
+ window.addEventListener('resize',scheduleParallax,{passive:true});
+ if('ResizeObserver' in window)new ResizeObserver(scheduleParallax).observe(section);
+ const revealTargets=section.querySelectorAll('.hw-b2b-work__header,.hw-b2b-work__case');
+ let revealObserver;
+ if('IntersectionObserver' in window){
+  revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+   if(!entry.isIntersecting)return;
+   entry.target.removeAttribute('data-work-pending');
+   revealObserver.unobserve(entry.target);
+  }),{rootMargin:'0px 0px -18% 0px',threshold:.08});
+  if(!motionOff())revealTargets.forEach(target=>{
+   target.setAttribute('data-work-pending','');
+   revealObserver.observe(target);
+  });
  }
+ const syncMotion=()=>{
+  if(motionOff())revealTargets.forEach(target=>{
+   target.removeAttribute('data-work-pending');
+   if(revealObserver)revealObserver.unobserve(target);
+  });
+  scheduleParallax();
+ };
+ reduced.addEventListener('change',syncMotion);
+ mobile.addEventListener('change',syncMotion);
+ new MutationObserver(syncMotion).observe(document.documentElement,{attributes:true,attributeFilter:['data-motion']});
+ updateParallax();
  section.querySelectorAll('.hw-b2b-work__visual').forEach(media=>{
  const photo=media.querySelector('img');if(!photo)return;
  if(media.tagName==='A'){

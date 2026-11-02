@@ -1,6 +1,6 @@
 {# All editorial data comes from the current HubSpot blog post. #}
 <section class="hw-blog-banner {{ name|escape_attr }}" aria-labelledby="{{ name|escape_attr }}-title">
-  <div class="hw-blog-banner__inner">
+  <div class="content-wrapper">
     <nav class="hw-blog-banner__breadcrumb" aria-label="Breadcrumb">
       <ol>
         <li><a href="{{ group.absolute_url|escape_url }}">{{ module.breadcrumb_label|escape_html }}</a></li>
@@ -29,9 +29,24 @@
 {% require_css %}
 <style>
   .{{ name }}.hw-blog-banner {
+    padding-top: {{ module.style.spacing.desktop_top }}px;
+    padding-bottom: {{ module.style.spacing.desktop_bottom }}px;
     --blog-banner-background: {{ module.style.background.css }};
     --blog-banner-text: {{ module.style.text.css }};
     --blog-banner-accent: {{ module.style.accent.css }};
+  }
+  @media (max-width: 1024px) {
+    .{{ name }}.hw-blog-banner {
+      padding-top: {{ module.style.spacing.tablet_top }}px;
+      padding-bottom: {{ module.style.spacing.tablet_bottom }}px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .{{ name }}.hw-blog-banner {
+      padding-top: {{ module.style.spacing.mobile_top }}px;
+      padding-bottom: {{ module.style.spacing.mobile_bottom }}px;
+    }
   }
 </style>
 {% end_require_css %}

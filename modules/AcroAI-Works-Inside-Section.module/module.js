@@ -12,6 +12,7 @@
   const reveal=(section,state)=>{
     if(state.played||off(section))return;state.played=true;
     const map=section.querySelector('.hw-acro-stack__map');
+    if(!map)return;
     map.querySelectorAll('.hw-acro-stack__tile,.hw-acro-stack__block').forEach(target=>{
       const css=getComputedStyle(target);
       animate(target,[{transform:`translate(${css.getPropertyValue('--from-x')},${css.getPropertyValue('--from-y')})`},{transform:'translate(0,0)'}],parseFloat(css.getPropertyValue('--arrival'))||0,state);
@@ -30,11 +31,11 @@
     copySeen.add(entry.target);animate(entry.target,[{opacity:0,transform:'translateY(28px)'},{opacity:1,transform:'translateY(0)'}],0,state);
   }),{threshold:0}):null;
   const refresh=()=>{
-    states.forEach((state,section)=>{if(!section.isConnected){cancel(state);if(observer)observer.unobserve(state.map);if(copyObserver)section.querySelectorAll('[data-stack-copy]').forEach(e=>copyObserver.unobserve(e));states.delete(section);}});
+    states.forEach((state,section)=>{if(!section.isConnected){cancel(state);if(observer&&state.map)observer.unobserve(state.map);if(copyObserver)section.querySelectorAll('[data-stack-copy]').forEach(e=>copyObserver.unobserve(e));states.delete(section);}});
     document.querySelectorAll('.hw-acro-stack').forEach(section=>{
-      if(states.has(section))return;const map=section.querySelector('.hw-acro-stack__map');if(!map)return;
+      if(states.has(section))return;const map=section.querySelector('.hw-acro-stack__map');
       states.set(section,{map,played:false,visible:false,animations:new Set()});
-      if(observer)observer.observe(map);if(copyObserver)section.querySelectorAll('[data-stack-copy]').forEach(e=>copyObserver.observe(e));
+      if(observer&&map)observer.observe(map);if(copyObserver)section.querySelectorAll('[data-stack-copy]').forEach(e=>copyObserver.observe(e));
     });
   };
   const sync=()=>states.forEach((state,section)=>{if(off(section)){cancel(state);state.played=false;}else if(state.visible)reveal(section,state);});

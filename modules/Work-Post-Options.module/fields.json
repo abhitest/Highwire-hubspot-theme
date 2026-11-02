@@ -1,0 +1,115 @@
+[
+  {
+    "name": "sector",
+    "label": "Sector",
+    "type": "choice",
+    "display": "checkbox",
+    "multiple": true,
+    "choices": [
+      [
+        "b2b-technology",
+        "B2B Technology"
+      ],
+      [
+        "cybersecurity",
+        "Cybersecurity"
+      ],
+      [
+        "health",
+        "Health"
+      ],
+      [
+        "financial-services",
+        "Financial Services"
+      ],
+      [
+        "professional-services",
+        "Professional Services"
+      ],
+      [
+        "energy",
+        "Energy"
+      ],
+      [
+        "impact",
+        "Impact"
+      ]
+    ],
+    "default": [],
+    "help_text": "Select all that apply to this work post."
+  },
+  {
+    "name": "capability",
+    "label": "Capability",
+    "type": "choice",
+    "display": "checkbox",
+    "multiple": true,
+    "choices": [
+      [
+        "strategy-and-intelligence",
+        "Strategy & Intelligence"
+      ],
+      [
+        "marketing",
+        "Marketing"
+      ],
+      [
+        "communications",
+        "Communications"
+      ],
+      [
+        "content-and-thought-leadership",
+        "Content & Thought Leadership"
+      ],
+      [
+        "brand-and-creative",
+        "Brand & Creative"
+      ],
+      [
+        "acro-suite",
+        "Acro Suite"
+      ]
+    ],
+    "default": [],
+    "help_text": "Select all that apply to this work post."
+  },
+  {
+    "name": "outcome",
+    "label": "Outcome",
+    "type": "choice",
+    "display": "checkbox",
+    "multiple": true,
+    "choices": [
+      [
+        "build-reputation",
+        "Build Reputation"
+      ],
+      [
+        "earn-category-authority",
+        "Earn Category Authority"
+      ],
+      [
+        "drive-pipeline-and-growth",
+        "Drive Pipeline & Growth"
+      ],
+      [
+        "launch-products-and-brands",
+        "Launch Products & Brands"
+      ],
+      [
+        "navigate-crisis-and-issues",
+        "Navigate Crisis & Issues"
+      ],
+      [
+        "guide-ipos-and-transactions",
+        "Guide IPOs & Transactions"
+      ],
+      [
+        "grow-ai-visibility",
+        "Grow AI Visibility"
+      ]
+    ],
+    "default": [],
+    "help_text": "Select all that apply to this work post."
+  }
+]

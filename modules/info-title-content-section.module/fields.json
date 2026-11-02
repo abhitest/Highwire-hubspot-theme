@@ -78,24 +78,7 @@
           "opacity": 100
         }
       },
-      {
-        "name": "title_size",
-        "label": "Title size (px)",
-        "type": "number",
-        "default": 56,
-        "min": 16,
-        "max": 120,
-        "step": 1
-      },
-      {
-        "name": "mobile_title_size",
-        "label": "Mobile title size (px)",
-        "type": "number",
-        "default": 36,
-        "min": 16,
-        "max": 80,
-        "step": 1
-      },
+     
       {
         "name": "content",
         "label": "Content",

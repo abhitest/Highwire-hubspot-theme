@@ -1,0 +1,160 @@
+{% set tags = content.tag_list|map('slug')|list %}
+{% set related = [] %}
+{% set seen = [] %}
+{% if tags %}
+  {% set candidates = blog_recent_tag_posts(group.id, tags, module.content_group.limit + 1, 'OR') %}
+  {% for post in candidates %}
+    {% if post.id != content.id and post.id not in seen and related|length < module.content_group.limit %}
+      {% do related.append(post) %}
+      {% do seen.append(post.id) %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if related %}
+<section class="hw-related baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"
+  {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %}
+  aria-labelledby="{{ name|escape_attr }}-title">
+  <div class="content-wrapper">
+    <h3 id="{{ name|escape_attr }}-title">{{ module.content_group.title }}</h3>
+    <div class="hw-related__grid">
+      {% for post in related %}
+      <article class="hw-related__item">
+        <a class="hw-related__card" href="{{ post.absolute_url|escape_url }}">
+          <span class="hw-related__media">
+            {% if post.featured_image %}
+            <img src="{{ post.featured_image|escape_url }}"
+              alt="{{ post.featured_image_alt_text|default('', true)|escape_attr }}"
+              loading="lazy" decoding="async">
+            {% endif %}
+            <span class="hw-related__accent" aria-hidden="true"></span>
+            <span class="hw-related__cursor" aria-hidden="true">
+              <svg viewBox="0 0 18 18" width="18" height="18" fill="none">
+                <path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"></path>
+              </svg>
+            </span>
+          </span>
+          <h3>{{ post.name|striptags }}</h3>
+          {% if post.post_summary %}
+          <p>{{ post.post_summary|striptags|truncate(300, true, '?')|escape_html }}</p>
+          {% endif %}
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% require_css %}
+<style>
+  .{{ name }}.hw-related {
+    {{ module.style.spacing.desktop_spacing.css }}
+    {% if module.style.background_property.background_choice == 'bgImage' %}
+      background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+    {% elif module.style.background_property.background_choice == 'gredient' %}
+      background: {{ module.style.background_property.background_gredient.css }};
+    {% else %}
+      background-color: rgba({{ module.style.background_property.background_color.color|convert_rgb }}, {{ module.style.background_property.background_color.opacity / 100 }});
+    {% endif %}
+  }
+
+  @media (max-width: 1300px) {
+    .{{ name }}.hw-related {
+      {{ module.style.spacing.tab_spacing.css }}
+    }
+  }
+
+  @media (max-width: 767px) {
+    .{{ name }}.hw-related {
+      {{ module.style.spacing.mobile_spacing.css }}
+    }
+  }
+</style>
+{% end_require_css %}
+
+{% require_js position="footer" %}
+<script>
+(function () {
+  document.querySelectorAll('.hw-related:not([data-ready])').forEach(function (section) {
+    section.dataset.ready = 'true';
+    var colors = ['#4bb7ff', '#fa9bff', '#ff7042'];
+    var index = 0;
+    section.querySelectorAll('.hw-related__card').forEach(function (card) {
+      var media = card.querySelector('.hw-related__media');
+      var photo = media.querySelector('img');
+      var pixels, buffer, frame = 0, pointer;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function drawPixels() {
+        frame = 0;
+        if (!pointer || !photo || !photo.complete || !photo.naturalWidth || reduced.matches || document.documentElement.dataset.motion === 'reduced') return;
+        if (!pixels) {
+          pixels = document.createElement('canvas');
+          pixels.className = 'hw-related__pixels';
+          pixels.setAttribute('aria-hidden', 'true');
+          media.appendChild(pixels);
+          buffer = document.createElement('canvas');
+        }
+        var rect = media.getBoundingClientRect();
+        var columns = Math.max(1, Math.ceil(rect.width / 26));
+        var rows = Math.max(1, Math.ceil(rect.height / 26));
+        pixels.width = buffer.width = columns;
+        pixels.height = buffer.height = rows;
+        var source = buffer.getContext('2d');
+        var context = pixels.getContext('2d');
+        if (!source || !context) return;
+        var scale = Math.max(rect.width / photo.naturalWidth, rect.height / photo.naturalHeight);
+        var width = photo.naturalWidth * scale;
+        var height = photo.naturalHeight * scale;
+        source.drawImage(photo, (rect.width - width) / 2 * columns / rect.width,
+          (rect.height - height) / 2 * rows / rect.height,
+          width * columns / rect.width, height * rows / rect.height);
+        var centerX = Math.floor((pointer.x - rect.left) / rect.width * columns);
+        var centerY = Math.floor((pointer.y - rect.top) / rect.height * rows);
+        var radius = 3 + Math.floor(Math.random() * 2);
+        for (var y = Math.max(0, centerY - radius); y <= Math.min(rows - 1, centerY + radius); y++) {
+          for (var x = Math.max(0, centerX - radius); x <= Math.min(columns - 1, centerX + radius); x++) {
+            var distance = Math.max(Math.abs(x - centerX), Math.abs(y - centerY));
+            if (distance <= 2 || (distance < radius && Math.random() < .9 * (1 - (distance - 2) / (radius - 2)))) {
+              context.drawImage(buffer, x, y, 1, 1, x, y, 1, 1);
+            }
+          }
+        }
+        pixels.hidden = false;
+      }
+
+      function cycle() {
+        card.style.setProperty('--related-accent', colors[index++ % colors.length]);
+      }
+      card.addEventListener('pointerenter', cycle);
+      card.addEventListener('focus', function () {
+        if (!card.matches(':hover')) cycle();
+      });
+      media.addEventListener('pointermove', function (event) {
+        if (event.pointerType !== 'mouse') return;
+        var rect = media.getBoundingClientRect();
+        media.style.setProperty('--cursor-x', event.clientX - rect.left + 'px');
+        media.style.setProperty('--cursor-y', event.clientY - rect.top + 'px');
+        media.dataset.cursor = 'true';
+        pointer = {x: event.clientX, y: event.clientY};
+        if (!frame) frame = requestAnimationFrame(drawPixels);
+      });
+      function hideCursor() {
+        delete media.dataset.cursor;
+        pointer = null;
+        cancelAnimationFrame(frame);
+        frame = 0;
+        if (pixels) pixels.hidden = true;
+      }
+      window.addEventListener('scroll', hideCursor, {passive: true, capture: true});
+      window.addEventListener('resize', hideCursor);
+      window.addEventListener('blur', hideCursor);
+      reduced.addEventListener('change', hideCursor);
+      media.addEventListener('pointerleave', hideCursor);
+      media.addEventListener('pointercancel', hideCursor);
+    });
+  });
+})();
+</script>
+{% end_require_js %}
+{% endif %}

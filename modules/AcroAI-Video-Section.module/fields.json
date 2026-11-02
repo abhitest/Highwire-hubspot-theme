@@ -43,8 +43,42 @@
     "type": "group",
     "children": [
       {
+        "name": "media_type",
+        "label": "Media type",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "video",
+            "Video"
+          ],
+          [
+            "image",
+            "Image"
+          ]
+        ],
+        "default": "video"
+      },
+      {
+        "name": "image",
+        "label": "Section image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "default": {
+          "src": "",
+          "alt": "",
+          "size_type": "auto"
+        },
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "image",
+          "operator": "EQUAL"
+        }
+      },
+      {
         "name": "title",
-        "label": "Video accessible title",
+        "label": "Media accessible title",
         "type": "text",
         "default": "AcroAI introduction video"
       },
@@ -55,6 +89,11 @@
         "default": {
           "src": "https://highwire-demo.vercel.app/images/products/acroai/video-frame.jpg",
           "alt": ""
+        },
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
         }
       },
       {
@@ -68,6 +107,11 @@
         "default": {
           "href": "https://highwire-demo.vercel.app/images/products/acroai/introduction.mp4",
           "type": "EXTERNAL"
+        },
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
         }
       },
       {
@@ -80,13 +124,23 @@
         ],
         "default": {
           "href": ""
+        },
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
         }
       },
       {
         "name": "captions_language",
         "label": "Captions language code",
         "type": "text",
-        "default": "en"
+        "default": "en",
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
+        }
       },
       {
         "name": "animate",

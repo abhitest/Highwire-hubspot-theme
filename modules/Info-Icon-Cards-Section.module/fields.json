@@ -49,6 +49,24 @@
         "allow_new_line": true
       },
       {
+        "name": "columns",
+        "label": "Desktop columns",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "2",
+            "2 Columns"
+          ],
+          [
+            "3",
+            "3 Columns"
+          ]
+        ],
+        "default": "3",
+        "help_text": "Tablet uses 2 columns; mobile uses 1 column."
+      },
+      {
         "name": "title_color",
         "label": "Heading colour",
         "type": "color",

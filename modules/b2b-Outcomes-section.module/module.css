@@ -7,13 +7,13 @@
 .hw-b2b-outcomes__intro p { margin:32px 0 0; }
 .hw-b2b-outcomes__item { position:relative; border-top:1px solid #bfbfbf; padding:40px 0 56px; }
 .hw-b2b-outcomes .hw-b2b-outcomes__item::before { content:''; position:absolute; top:-1px; left:0; right:0; height:4px; background:var(--outcomes-hover-accent,#4bb7ff); transform:scaleY(0); transform-origin:center top; pointer-events:none; transition:transform .36s cubic-bezier(.22,1,.36,1); }
-.hw-b2b-outcomes .hw-b2b-outcomes__item:hover::before,.hw-b2b-outcomes .hw-b2b-outcomes__item:focus-visible::before { transform:scaleY(1); }
-.hw-b2b-outcomes__item:focus-visible { outline:2px solid var(--outcomes-hover-accent,#4bb7ff); outline-offset:8px; }
+.hw-b2b-outcomes .hw-b2b-outcomes__item:hover::before,.hw-b2b-outcomes .hw-b2b-outcomes__item:focus-within::before { transform:scaleY(1); }
+.hw-b2b-outcomes__item:focus-within { outline:2px solid var(--outcomes-hover-accent,#4bb7ff); outline-offset:8px; }
 .hw-b2b-outcomes__item:last-child { padding-bottom:0; }
 .hw-b2b-outcomes__heading { display:flex; align-items:center; gap:24px; }
 .hw-b2b-outcomes__icon { display:grid; place-items:center; width:48px; height:48px; flex:0 0 48px; transition:background-color .22s cubic-bezier(.4,0,.2,1); }
 .hw-b2b-outcomes__icon img { width:24px; height:24px; object-fit:contain; filter:brightness(0); }
-.hw-b2b-outcomes__item:hover .hw-b2b-outcomes__icon,.hw-b2b-outcomes__item:focus-visible .hw-b2b-outcomes__icon { background:var(--outcomes-hover-accent,#4bb7ff); }
+.hw-b2b-outcomes__item:hover .hw-b2b-outcomes__icon,.hw-b2b-outcomes__item:focus-within .hw-b2b-outcomes__icon { background:var(--outcomes-hover-accent,#4bb7ff); }
 .hw-b2b-outcomes__heading h3 { margin:0; }
 .hw-b2b-outcomes__item p { margin:28px 0 0 72px; color:#404040; font:400 18px/1.5 var(--body,Arial,sans-serif); }
 @media(max-width:767px) {
@@ -51,6 +51,13 @@ html[data-motion=reduced] .hw-b2b-outcomes *,html[data-motion=reduced] .hw-b2b-o
  margin-left:var(--outcomes-tab-margin-left,0px);
 }
 }
+
+@media (max-width:900px) {
+.hw-b2b-outcomes__layout {grid-template-columns: minmax(0, 1fr);; gap:48px; }
+.hw-b2b-outcomes__intro { position:static; }
+}
+
+
 @media (max-width:767px) {
 .hw-b2b-outcomes.baseModuleStyle {
  padding-top:var(--outcomes-mobile-padding-top,48px);
@@ -64,3 +71,14 @@ html[data-motion=reduced] .hw-b2b-outcomes *,html[data-motion=reduced] .hw-b2b-o
 }
 }
 
+
+.hw-b2b-outcomes__box-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hw-b2b-outcomes__item a:not(.hw-b2b-outcomes__box-link) {
+  position: relative;
+  z-index: 2;
+}

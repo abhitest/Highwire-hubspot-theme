@@ -2,7 +2,19 @@
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent content-wrapper hw-acro-stack__inner">
     <div class="hw-acro-stack__layout">
-      <div class="hw-acro-stack__copy"><h2 id="{{ name|escape_attr }}-title" data-stack-copy>{{ module.content_group.title|escape_html }}</h2><div class="hw-acro-stack__content" data-stack-copy>{{ module.content_group.content }}</div></div>
+      <div class="hw-acro-stack__copy">
+        <h3 id="{{ name|escape_attr }}-title" data-stack-copy>
+          {{ module.content_group.title|escape_html }}
+        </h3>
+        <div class="hw-acro-stack__content font20 lh15" data-stack-copy>
+          {{ module.content_group.content }}
+        </div>
+      </div>
+      {% if module.content_group.media_type == "image" %}
+      <div class="hw-acro-stack__image-wrap">
+        {% if module.content_group.image.src %}<img class="hw-acro-stack__image" src="{{ module.content_group.image.src|escape_url }}" alt="{{ module.content_group.image.alt|escape_attr }}" loading="lazy" decoding="async"{% if module.content_group.image.width %} width="{{ module.content_group.image.width|escape_attr }}"{% endif %}{% if module.content_group.image.height %} height="{{ module.content_group.image.height|escape_attr }}"{% endif %}>{% endif %}
+      </div>
+      {% else %}
       {% set positions = [[48,40],[324,40],[600,40],[48,244],[600,244],[48,448],[232,448],[416,448],[600,448]] %}
       <div class="hw-acro-stack__map" role="img" aria-label="{{ module.content_group.map_description|escape_attr }}">
         <svg class="hw-acro-stack__lines" viewBox="0 0 744 584" fill="none" aria-hidden="true">{% for item in module.content_group.integrations %}{% set pos = positions[loop.index0] %}<path d="M372 292 H{{ pos[0] + 48 }} V{{ pos[1] + 48 }}"/>{% endfor %}</svg>
@@ -13,6 +25,7 @@
           {% if item.image.src %}<img src="{{ item.image.src|escape_url }}" alt="" width="48" height="48" loading="lazy">{% endif %}
         </div>{% endfor %}
       </div>
+      {% endif %}
     </div>
     {% if module.style.show_divider %}<div class="hw-acro-stack__divider" aria-hidden="true"></div>{% endif %}
   </div>

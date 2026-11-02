@@ -81,6 +81,26 @@
             "type": "image",
             "resizable": true,
             "responsive": true
+          },
+          {
+            "name": "link",
+            "label": "Box link (optional)",
+            "type": "link",
+            "supported_types": [
+              "EXTERNAL",
+              "CONTENT",
+              "FILE",
+              "EMAIL_ADDRESS",
+              "PHONE_NUMBER"
+            ],
+            "default": {
+              "url": {
+                "href": "",
+                "type": "EXTERNAL"
+              },
+              "open_in_new_tab": false,
+              "no_follow": false
+            }
           }
         ],
         "default": [

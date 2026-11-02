@@ -14,15 +14,13 @@
           {% endif %}
           <div data-contact-reveal><h3>{{ module.leader.full_name }}</h3><p>{{ module.leader.role }}</p></div>
         </div>
-        <div class="hw-contact__bio" data-contact-reveal>{{ module.leader.bio }}</div>
+        <div class="hw-contact__bio font20 lh15" data-contact-reveal>{{ module.leader.bio }}</div>
       </article>
     </div>
-    <div class="hw-contact__panel" data-contact-reveal>
       {% if module.form.form_id %}
-        {% form form_to_use="{{ module.form.form_id }}", response_response_type="{{ module.form.response_type }}", response_message="{{ module.form.message }}", response_redirect_id="{{ module.form.redirect_id }}", response_redirect_url="{{ module.form.redirect_url }}" %}
-     
-      {% endif %}
+    <div class="hw-contact__panel" id="hwcontactform"  data-contact-reveal>     
     </div>
+    {% endif %}
   </div>
   </div>
 </section>
@@ -40,3 +38,48 @@
 }
 </style>
 {% end_require_css %}
+
+
+
+{% require_js %}
+  <script>
+(function() {
+  var formLoaded = false;
+  
+  function loadForm() {
+    if (formLoaded) return;
+    formLoaded = true;
+
+    // Load reCAPTCHA + HubSpot form ONLY when user scrolls near it
+    var script = document.createElement('script');
+    script.src = '//js.hsforms.net/forms/embed/v2.js';
+    script.charset = 'utf-8';
+    script.type = 'text/javascript';
+    script.onload = function() {
+      hbspt.forms.create({
+        portalId: "8855469",   // ← replace with your portal ID
+        formId: `{{ module.form.form_id }}`,       // ← replace with your form ID
+        target: "#hwcontactform"
+      });
+    };
+    document.body.appendChild(script);
+  }
+
+  // Trigger when user scrolls within 300px of the form
+  var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      loadForm();
+      observer.disconnect();
+    }
+  }, { rootMargin: "300px" });
+
+  var wrapper = document.getElementById('hwcontactform');
+  if (wrapper) observer.observe(wrapper);
+
+  // Fallback: also load on first user interaction
+  ['mousedown','touchstart','keydown'].forEach(function(evt) {
+    document.addEventListener(evt, loadForm, { once: true });
+  });
+})();
+</script>
+{% end_require_js %}

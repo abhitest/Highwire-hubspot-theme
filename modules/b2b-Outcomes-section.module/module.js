@@ -12,7 +12,7 @@
     section.querySelectorAll('.hw-b2b-outcomes__item').forEach(item => {
       const changeAccent = () => item.style.setProperty('--outcomes-hover-accent', accents[accentIndex++ % accents.length]);
       item.addEventListener('pointerenter', changeAccent);
-      item.addEventListener('focus', () => { if (!item.matches(':hover')) changeAccent(); });
+      item.addEventListener('focusin', () => { if (!item.matches(':hover')) changeAccent(); });
     });
     if (motionOff() || !('IntersectionObserver' in window)) return;
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {

@@ -1,7 +1,10 @@
 <section class="hw-acro-video baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-label="{{ module.content_group.title|escape_attr }}" data-animate="{{ module.content_group.animate|string|lower }}">
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent content-wrapper">
-    <div class="hw-acro-video__frame">
+    <div class="hw-acro-video__frame{% if module.content_group.media_type == 'image' %} hw-acro-video__frame--image{% endif %}">
+      {% if module.content_group.media_type == 'image' %}
+        {% if module.content_group.image.src %}<img class="hw-acro-video__image" src="{{ module.content_group.image.src|escape_url }}" alt="{{ module.content_group.image.alt|escape_attr }}" {% if module.content_group.image.width %}width="{{ module.content_group.image.width|escape_attr }}"{% endif %} {% if module.content_group.image.height %}height="{{ module.content_group.image.height|escape_attr }}"{% endif %} loading="lazy" decoding="async">{% elif is_in_editor %}<p>Select an image in the module settings.</p>{% endif %}
+      {% else %}
       <video class="hw-acro-video__player" controls playsinline preload="none" poster="{{ module.content_group.poster.src|escape_url }}" aria-label="{{ module.content_group.title|escape_attr }}" data-src="{{ module.content_group.video_url.href|escape_url }}" tabindex="0" {% if module.content_group.captions_url.href %}crossorigin="anonymous"{% endif %}>
         {% if module.content_group.captions_url.href %}<track kind="captions" src="{{ module.content_group.captions_url.href|escape_url }}" srclang="{{ module.content_group.captions_language|escape_attr }}" label="Captions" default>{% endif %}
       </video>
@@ -9,10 +12,13 @@
         {% if module.content_group.poster.src %}<img src="{{ module.content_group.poster.src|escape_url }}" alt="" width="1080" height="608" loading="lazy">{% endif %}
         {% if module.content_group.video_url.href %}<button class="hw-acro-video__play" type="button" aria-label="Play {{ module.content_group.title|escape_attr }}"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M10 5 27 16 10 27Z"/></svg></button>{% endif %}
       </div>
+      {% endif %}
       <div class="hw-acro-video__cover" aria-hidden="true"></div>
     </div>
+    {% if module.content_group.media_type != 'image' %}
     <p class="hw-acro-video__status" role="status" hidden></p>
     <noscript>{% if module.content_group.video_url.href %}<a href="{{ module.content_group.video_url.href|escape_url }}">Watch {{ module.content_group.title|escape_html }}</a>{% endif %}</noscript>
+    {% endif %}
   </div>
 </section>
 {% require_css %}

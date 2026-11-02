@@ -1,7 +1,7 @@
 .hw-work-banner { position:relative; background:#000; background-size:cover; background-position:center; color:var(--work-text,#fff); }
 .hw-work-banner,.hw-work-banner * { box-sizing:border-box; }
 .hw-work-banner__inner { position:relative; max-width:1440px; margin-inline:auto; }
-.hw-work-banner h1 { max-width:1150px; margin:0 0 40px; color:inherit; font:400 88px/1 var(--display,Arial,sans-serif); letter-spacing:-.05em; text-wrap:initial; overflow-wrap:break-word; }
+.hw-work-banner h1 { max-width:1150px; margin:0 0 40px; color:inherit;text-wrap:initial; overflow-wrap:break-word; }
 .hw-work-banner h1 span { display:block; color:var(--work-accent,#ff7042); }
 .hw-work-banner__reel { margin:0; }
 .hw-work-banner__media { height:400px; background:var(--work-video-background,#202020); overflow:hidden; }

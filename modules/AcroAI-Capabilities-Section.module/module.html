@@ -1,17 +1,27 @@
-<section class="hw-cap baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
+<section class="hw-cap{% if module.content_group.description %} hw-cap--has-intro{% endif %} baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent content-wrapper">
-    <h2 class="hw-cap__title" id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>
+    <h3 class="hw-cap__title" id="{{ name|escape_attr }}-title">{{ module.content_group.title }}</h3>
+    {% if module.content_group.description %}
+    <div class="hw-cap__intro">{{ module.content_group.description }}</div>
+    {% endif %}
     <div class="hw-cap__layout">
-      <figure class="hw-cap__media">
-        <video class="hw-cap__video" muted loop playsinline preload="none" poster="{{ module.content_group.poster.src|escape_url }}" data-src="{{ module.content_group.video_url|escape_url }}" aria-label="{{ module.content_group.video_label|escape_attr }}"></video>
-        <button class="hw-cap__pause" type="button" hidden aria-label="Pause video">Pause</button>
+      <figure class="hw-cap__media{% if module.content_group.media_type == "image" %} hw-cap__media--image{% endif %}">
+        {% if module.content_group.media_type == "image" %}
+          {% if module.content_group.image.src %}<img class="hw-cap__image" src="{{ module.content_group.image.src|escape_url }}" alt="{{ module.content_group.image.alt|escape_attr }}" loading="lazy" decoding="async">{% endif %}
+        {% elif module.content_group.video_type == "hubspot" %}
+          {% if module.content_group.hubspot_video.player_id %}
+            {% video_player "capabilities_video" player_id={{ module.content_group.hubspot_video.player_id }}, type={{ module.content_group.hubspot_video.player_type or "hsvideo2" }}, full_width=true, width=1280, height=720, autoplay=true, hidden_controls=true, loop=true, muted=true %}
+          {% endif %}
+        {% else %}
+        <video class="hw-cap__video" autoplay muted loop playsinline preload="auto" poster="{{ module.content_group.poster.src|escape_url }}" src="{{ module.content_group.video_url|escape_url }}" aria-label="{{ module.content_group.video_label|escape_attr }}"></video>
+        {% endif %}
       </figure>
       <div class="hw-cap__list">
-        {% for item in module.capabilities %}
+        {% for item in module.content_group.capabilities %}
         <article class="hw-cap__card" tabindex="0" aria-labelledby="{{ name|escape_attr }}-item-{{ loop.index }}">
-          <div class="hw-cap__heading"><span class="hw-cap__icon" aria-hidden="true">{% if item.icon.src %}<img src="{{ item.icon.src|escape_url }}" alt="" width="24" height="24" loading="lazy">{% endif %}</span><h3 id="{{ name|escape_attr }}-item-{{ loop.index }}">{{ item.title|escape_html }}</h3><span class="hw-cap__number">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span></div>
-          <div class="hw-cap__description">{{ item.description }}</div>
+          <div class="hw-cap__heading"><span class="hw-cap__icon" aria-hidden="true">{% if item.icon.src %}<img src="{{ item.icon.src|escape_url }}" alt="" width="24" height="24" loading="lazy">{% endif %}</span><h6 id="{{ name|escape_attr }}-item-{{ loop.index }}">{{ item.title|escape_html }}</h6><span class="hw-cap__number">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span></div>
+          <div class="hw-cap__description font18">{{ item.description }}</div>
         </article>
         {% endfor %}
       </div>
