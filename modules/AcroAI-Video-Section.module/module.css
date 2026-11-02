@@ -14,7 +14,7 @@
 .hw-acro-video__play:is(:hover,:focus-visible) { background:var(--play-accent,var(--video-blue)); color:var(--video-button_icon); }
 .hw-acro-video__play:is(:hover,:focus-visible) svg { transform:scale(1.1); }
 .hw-acro-video__play:focus-visible { outline:2px solid #fff; outline-offset:6px; }
-.hw-acro-video__cover { position:absolute; inset:0; z-index:2; background:var(--video-cover,var(--video-purple)); transform-origin:center top; pointer-events:none; transform:scaleY(0); }
+.hw-acro-video__cover { position:absolute; inset:0; z-index:2; background:var(--video-cover,var(--video-purple)); transform-origin:center top; pointer-events:none; transform:scaleY(0); display : none}
 .hw-acro-video[data-cover-ready=true] .hw-acro-video__cover { transform:scaleY(1); }
 .hw-acro-video[data-cover-visible=true] .hw-acro-video__cover { transform:scaleY(0); transition:transform .87s var(--ease,cubic-bezier(.22,1,.36,1)); }
 .hw-acro-video__frame:focus-within .hw-acro-video__cover { transform:scaleY(0); }

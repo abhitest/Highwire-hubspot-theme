@@ -127,6 +127,13 @@
         "name": "hubspot_video",
         "label": "HubSpot video",
         "type": "videoplayer",
+        "help_text": "Videos in this section automatically play muted and loop continuously with controls hidden.",
+        "default": {
+          "autoplay": true,
+          "loop_video": true,
+          "mute_by_default": true,
+          "hide_controls": true
+        },
         "visibility": {
           "controlling_field_path": "content_group.video_type",
           "controlling_value_regex": "hubspot",

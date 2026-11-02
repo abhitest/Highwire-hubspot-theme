@@ -1,3 +1,4 @@
+{{ require_js(get_asset_url('../../js/blog-image-pixels.js'), { position: 'footer', defer: true }) }}
 <section class="hw-article baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %}>
 <div class="content-wrapper">
   <div class="hw-article__layout">

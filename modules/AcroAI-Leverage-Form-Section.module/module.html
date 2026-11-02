@@ -48,7 +48,7 @@
     if (formLoaded) return;
     formLoaded = true;
 
-    // Load reCAPTCHA + HubSpot form ONLY when user scrolls near it
+    // Start the embed before the section enters view to avoid scroll-time layout shifts.
     var script = document.createElement('script');
     script.src = '//js.hsforms.net/forms/embed/v2.js';
     script.charset = 'utf-8';
@@ -63,21 +63,8 @@
     document.body.appendChild(script);
   }
 
-  // Trigger when user scrolls within 300px of the form
-  var observer = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting) {
-      loadForm();
-      observer.disconnect();
-    }
-  }, { rootMargin: "300px" });
-
   var wrapper = document.getElementById('leverageform');
-  if (wrapper) observer.observe(wrapper);
-
-  // Fallback: also load on first user interaction
-  ['mousedown','touchstart','keydown'].forEach(function(evt) {
-    document.addEventListener(evt, loadForm, { once: true });
-  });
+  if (wrapper) loadForm();
 })();
 </script>
 {% end_require_js %}

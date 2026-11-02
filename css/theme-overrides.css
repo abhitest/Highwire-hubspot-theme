@@ -35,13 +35,6 @@
 {% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '1rem' %}
 
 
-:root{
-  /* motion tokens */
-  --m-imm:.12s;--m-fast:.22s;--m-std:.36s;--m-exp:.65s;--m-stagger:80ms;
-  --ease:cubic-bezier(.22,1,.36,1);--ease-std:cubic-bezier(.4,0,.2,1);
-  /* layout */
-  --maxw:{{ container_width }};--gutter:clamp(20px,4.45vw,64px);--hdr:56px;--vh:100vh;
-}
 
 /* 1b. Colors */
 
@@ -53,6 +46,15 @@
 {% set senary_color = theme.global_colors.senary.color %}
 {% set septenary_color = theme.global_colors.septenary.color %}
 {% set octonary_color = theme.global_colors.octonary.color %}
+
+:root{
+  /* motion tokens */
+  --m-imm:.12s;--m-fast:.22s;--m-std:.36s;--m-exp:.65s;--m-stagger:80ms;
+  --ease:cubic-bezier(.22,1,.36,1);--ease-std:cubic-bezier(.4,0,.2,1);
+  /* layout */
+  --maxw:{{ container_width }};--gutter:clamp(20px,4.45vw,64px);--hdr:56px;--vh:100vh;
+
+}
 
 
 {% set color_defult = {

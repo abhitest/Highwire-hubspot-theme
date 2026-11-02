@@ -61,7 +61,7 @@
   const position=()=>{const r=slot.getBoundingClientRect();header.style.setProperty('--header-left',r.left+'px');header.style.setProperty('--header-width',r.width+'px');header.style.setProperty('--header-top',(scroller===window?0:scroller.getBoundingClientRect().top)+'px');slot.style.height=header.querySelector('.hw-header__logo').offsetHeight+'px';};
   position();header.dataset.fixed='true';
   let last=scroller===window?scrollY:scroller.scrollTop;
-  scroller.addEventListener('scroll',()=>{const y=scroller===window?scrollY:scroller.scrollTop,delta=y-last;const open=header.dataset.open==='true'||menus.some(m=>m.dataset.open==='true');if(y<=4||open||header.contains(document.activeElement))header.dataset.hidden='false';else if(Math.abs(delta)>6)header.dataset.hidden=String(delta>0);last=y;},{passive:true});
+  scroller.addEventListener('scroll',()=>{const y=scroller===window?scrollY:scroller.scrollTop,delta=y-last;if(header.dataset.anchorScrolling==='true'){last=y;return;}const open=header.dataset.open==='true'||menus.some(m=>m.dataset.open==='true');if(y<=4||open||header.contains(document.activeElement))header.dataset.hidden='false';else if(Math.abs(delta)>6)header.dataset.hidden=String(delta>0);last=y;},{passive:true});
   window.addEventListener('resize',()=>{syncNav();position();},{passive:true});
   new ResizeObserver(position).observe(slot);
  });

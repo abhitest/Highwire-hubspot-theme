@@ -1,1 +1,1 @@
-/* This banner uses native blog data and needs no JavaScript. */
+/* Image hover behavior is loaded from js/blog-image-pixels.js by module.html. */
