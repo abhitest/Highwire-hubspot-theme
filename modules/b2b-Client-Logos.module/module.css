@@ -1,0 +1,22 @@
+.hw-client-logos { background:var(--clients-background); color:var(--clients-text_color); font-family:var(--body,Arial,sans-serif); }
+.hw-client-logos,.hw-client-logos * { box-sizing:border-box; }
+.hw-client-logos__inner { width:100%; }
+.hw-client-logos h3 { margin:0; }
+.hw-client-logos_content { max-width:var(--clients-intro_width); margin:var(--clients-heading_gap) 0 0; }
+.hw-client-logos__grid { display:grid; grid-template-columns:repeat(var(--clients-columns),minmax(0,1fr)); gap:0 var(--clients-border_width); padding:var(--clients-border_width); margin:var(--clients-grid_gap) 0 0; list-style:none; background:var(--clients-border_color); }
+.hw-client-logos__cell { display:grid; place-items:center; min-width:0; height:var(--clients-cell_height); padding:var(--clients-cell_padding); background:var(--clients-background); }
+.hw-client-logos__cell img { display:block; width:var(--logo-width); max-width:100%; height:var(--clients-logo_height); max-height:100%; object-fit:contain; filter:var(--clients-filter); opacity:var(--clients-logo_opacity); transition:opacity .18s ease; }
+.hw-client-logos__cell:hover img { opacity:var(--clients-hover_opacity); }
+.hw-client-logos { padding:var(--clients-desktop-padding-top) 0 var(--clients-desktop-padding-bottom); margin:var(--clients-desktop-margin-top) 0 var(--clients-desktop-margin-bottom); }
+@media(max-width:1024px) {
+ .hw-client-logos { padding:var(--clients-tablet-padding-top) 0 var(--clients-tablet-padding-bottom); margin:var(--clients-tablet-margin-top) 0 var(--clients-tablet-margin-bottom); }
+ .hw-client-logos__grid { grid-template-columns:repeat(var(--clients-tablet_columns),minmax(0,1fr)); }
+}
+@media(max-width:767px) {
+ .hw-client-logos { padding:var(--clients-mobile-padding-top) 0 var(--clients-mobile-padding-bottom); margin:var(--clients-mobile-margin-top) 0 var(--clients-mobile-margin-bottom); }
+ .hw-client-logos h2 { font-size:var(--clients-mobile_heading_size); }
+ .hw-client-logos__grid { grid-template-columns:repeat(var(--clients-mobile_columns),minmax(0,1fr)); }
+ .hw-client-logos__cell { height:var(--clients-mobile_cell_height); }
+}
+@media(prefers-reduced-motion:reduce) { .hw-client-logos img { transition:none; } }
+html[data-motion=reduced] .hw-client-logos img,.hw-client-logos[data-animate=false] img { transition:none; }

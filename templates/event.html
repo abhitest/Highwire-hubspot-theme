@@ -1,0 +1,13 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Event Page
+-->
+{% extends "./layouts/base.html" %}
+{% block body %}
+{% dnd_area "dnd_area", label="Event page", class="body-container--event" %}
+  {% dnd_section padding={"top":0,"right":0,"bottom":0,"left":0}, full_width=true %}
+    {% dnd_module path="../modules/Events-Section.module" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+{% end_dnd_area %}
+{% endblock body %}

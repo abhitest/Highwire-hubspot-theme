@@ -1,0 +1,386 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "sections",
+        "label": "Policy sections",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 50,
+          "default": 18
+        },
+        "children": [
+          {
+            "name": "heading",
+            "label": "Section heading",
+            "type": "text"
+          },
+          {
+            "name": "content",
+            "label": "Section content",
+            "type": "richtext"
+          }
+        ],
+        "default": [
+          {
+            "heading": "1. Overview of this Policy",
+            "content": "<div class=\"privacy-rich-group\" style=\"gap:24px\"><ul><li><p>We collect Personally Identifiable Information (as defined below) from users of our Site when it is voluntarily provided to us and use it for the purposes for which it was provided (see Information We Collect Directly From You).</p></li><li><p>We automatically collect information from users of our Site for advertising and analytical purposes (see Information We Collect From You Automatically).</p></li><li><p>We will not use or share your information with anyone except as described in this Privacy Policy.</p></li></ul> <p>Please read this Privacy Policy carefully to understand our policies and practices regarding your information and how we will treat it. By visiting our Site, downloading any information made available via our Site (e.g., whitepapers, etc.), using the Service, or in any manner communicating with us via our Site or Service, you accept our practices described in this Policy, and you consent to our collection, use and disclosure of your information, including personally identifiable information, as described in this Privacy Policy. If you do not wish to agree to the practices and uses described in this Privacy Policy, please do not access our Site or use the Service. If you have questions, you can always contact us using the information in the section below titled Contact.</p></div>"
+          },
+          {
+            "heading": "2. Information We Collect Directly From You",
+            "content": "<p>We may collect information, including Personally Identifiable Information, when you provide such information to us directly, such as when you send us an email or text message, give us a telephone call, use a web-based form, or otherwise interact with us on the Site. Your provision of your Personally Identifiable Information to us is completely voluntary. “Personally Identifiable Information” is information that specifically identifies you. We do not collect Personally Identifiable Information unless you submit that information to us. Categories of Personally Identifiable Information we collect directly from you include: identity data (your first and last name) and contact data (your email address). We may also collect other information that you directly provide us, including business data (your company name, company website, and industry). You may also elect to provide us with other information about yourself or others at your own discretion.</p>"
+          },
+          {
+            "heading": "3. Information We Collect Automatically",
+            "content": "<div class=\"privacy-rich-group\" style=\"gap:24px\"><p>The Company, Third-Party Services, or our service providers may also automatically collect information from you when you visit our Site and use our Services through cookies and other tracking technologies. Such information does not directly identify you as an individual and may include:</p> <ul><li><p>Log Data. Like most websites and web-based technology services, our servers may automatically collect data when you access or use the Service and record it in log files. Such may include your Internet Protocol (IP) address, Internet service provider (ISP), geographic location, browser type and settings, information about browser plugins, language preference, default email application, referring/exit websites, operating system, date and time stamp, cookie data, and certain user activities.</p></li><li><p>Technical Data. We may collect technical data, such as information about devices accessing the Service, including the type of device, device settings, operating system, application software, peripherals, and unique device identifiers, phone number, country, location, and any other data you choose to provide. We do not intentionally relate this to any individual user of the Service.</p></li><li><p>Cookies and Similar Technologies. We may store some information on your device or device hard drive as a cookie or similar type of file (such as clear gifs, web beacons, tags, and similar technologies that work on mobile devices) to collect data related to usage of the Site and Service. Cookies are files with a small amount of data, which may include an anonymous unique identifier. Cookies are sent to your browser from a web site and transferred to your device. We use cookies to collect information in order to improve our services for you. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. The Help feature on most browsers provides information on how to accept cookies, disable cookies or to notify you when receiving a new cookie. If you do not accept cookies, you may not be able to use some features of our Service and we recommend that you leave them turned on.</p></li><li><p>Analytics. We may work with third-party service providers who use the technologies described in this section to conduct website analytics to help us track and understand how visitors use our Site and Service. By accessing the Site, you consent to the collection and use of your information by these third-party service providers. You are encouraged to review such third-party service providers’ privacy policies and contact them directly for responses to your questions.</p></li></ul> <p>If you want to stop or restrict the placement of cookies or flush any cookies that may already be on your computer or device, please refer to and adjust your web browser preferences. Further information on cookies is available at www.allaboutcookies.org. By deleting our cookies or disabling future cookies you may not be able to access certain areas or features of our Site or some of its functionality may be affected.</p> <p>Please be aware that our Site and Service do not support Do Not Track (“DNT”). Do Not Track is a preference you can set in your web browser to inform websites that you do not want to be tracked. You can enable or disable Do Not Track by visiting the Preferences or Settings page of your web browser.</p> <p>We do not sell your personal information for monetary consideration. However, certain of our data practices — such as the use of third-party cookies, analytics, or advertising technologies — may be considered a “sale” or “sharing” of personal information for “cross-context behavioral advertising” under the California Consumer Privacy Act, as amended by the California Privacy Rights Act (together, the “CCPA”), and under similar state laws, even where no money is exchanged. You have the right to opt out of any such sale or sharing, as described in the section titled California Consumer Notice. We honor opt-out preference signals (such as the Global Privacy Control - https://globalprivacycontrol.org/) as a valid opt-out request where required by applicable law.</p></div>"
+          },
+          {
+            "heading": "4. How We Use Your Data",
+            "content": "<div class=\"privacy-rich-group\" style=\"gap:24px\"><p>We use Personally Identifiable Information and other information as described herein including for the following purposes:</p> <ul><li><p>To operate the Site, provide you and our clients with our Service, and provide any specific services you have requested;</p></li><li><p>To contact you about our Service;</p></li><li><p>For testing, research, analysis, and product development, including to develop and improve our Site, Service, and other products and services;</p></li><li><p>To provide you with support and to respond to your direct inquiries, including to investigate and address your concerns and monitor and improve our responses;</p></li><li><p>To add you to our mailing lists and send you emails from time to time;</p></li><li><p>To personalize your experience with us including by presenting content, products, offers, or marketing messages tailored to you;</p></li><li><p>To carry out our obligations and enforce our rights arising from any contracts entered into between you and us;</p></li><li><p>To help maintain the safety, security, and integrity of our Site, Service, databases, and other technology assets, and business;</p></li><li><p>For detecting security incidents, protecting against malicious, deceptive, fraudulent, or illegal activity, and prosecuting those responsible for that activity;</p></li><li><p>To enforce and monitor adherence to the Terms of Use;</p></li><li><p>To respond to law enforcement requests and as required by applicable law, court order, legal process, or governmental regulation, inclusive of all intellectual property laws; and</p></li><li><p>To transfer your information in connection with a bankruptcy proceeding or the sale, merger, or change of control of the Company or the division responsible for the services with which your information is associated.</p></li></ul> <p>We may permit our vendors and subcontractors to access your information, but they are only permitted to do so in connection with performing services for us. They are not authorized by us to use any Personally Identifiable Information for their own benefit.</p> <p>Please note that if you consent to additional uses of your information, we may use your information in a manner consistent with that consent.</p> <p>Please be advised that “non-personal information” (i.e., information that does not personally identify you, such as aggregated data) may be shared with any number of parties and may be used in any manner consistent with applicable law and/or subject to the section titled California Consumer Notice, as applicable. Without limiting the forgoing, as used herein, personal information does not include information that is lawfully made available from federal, state, or local government records, or de-identified, anonymized, or aggregated information. Please be aware that information which you voluntarily include and transmit on public areas of the Services, such as comment sections, on our blog, or via your interaction with the Services, should be deemed publicly available information that is not subject to this Privacy Policy.</p></div>"
+          },
+          {
+            "heading": "5. How We Share Your Information",
+            "content": "<div class=\"privacy-rich-group\" style=\"gap:24px\"><p>Besides using your Personally Identifiable Information ourselves, we may send your Personally Identifiable Information and other information to other companies, affiliates and third parties in the following instances:</p> <ul><li><p>Clients. We may share your information with our clients who we provide data management services through our Site.</p></li><li><p>Service Providers. We may share your Personally Identifiable Information with third parties who may use your information to provide us services such as website hosting, data analysis, infrastructure provision, information technology services, customer service, e-mail delivery services, auditing, anti-fraud monitoring, and legal services. These third parties may have access to Personally Identifiable Information that is necessary to perform their functions.</p></li><li><p>Legal Compliance and to Defend Our Rights. We may disclose Personally Identifiable Information and other information as we believe necessary or appropriate: (a) under applicable law, including laws outside your country of residence; (b) to comply with legal process; (c) to respond to requests from public and government authorities including public and government authorities outside your country of residence; (d) to enforce our terms and conditions; (e) to protect our operations or those of any of our affiliates; (f) to protect our rights, privacy, safety or property, and/or that of our affiliates, you or others; and (g) to allow us to pursue available remedies or limit the damages that we may sustain.</p></li><li><p>Business Transfers. We may share your Personally Identifiable Information and other information with third parties in connection with a corporate restructuring, merger, acquisition, asset sale, or divestiture. In such cases, we will attempt in good faith to provide notice before your Personally Identifiable Information is transferred and/or becomes subject to a different privacy policy.</p></li></ul> <p>Please note that if you specifically consent to additional uses of your Personally Identifiable Information, we may use your Personally Identifiable Information in a manner consistent with that consent.</p></div>"
+          },
+          {
+            "heading": "6. Use of Third Parties and Third Party Services",
+            "content": "<div class=\"privacy-rich-group\" style=\"gap:24px\"><p>We may employ third-party companies and individuals to facilitate our Service and manage our Site and to provide the Service on our behalf. These third parties have access to your personal information only to perform specific tasks on our behalf and are obligated not to disclose or use your information for any other purpose. Moreover, we may use third-party services, such as those that collect, monitor and analyze this type of information in order to increase our Service’s functionality. These third parties may use cookies to help us analyze how our users are using the Service and they have their own Privacy Policies addressing how they use such information. Below are examples of some third-party service providers that we utilize:</p> <ul><li><p>HubSpot hosts our Site and runs our CRM, forms, pop-ups, and marketing email. HubSpot uses cookies to track how visitors interact with our Site and, once you submit a form, links that activity to your contact record. <u>HubSpot Privacy Policy</u></p></li><li><p>Typeform collects responses to forms and surveys. <u>Typeform Privacy Policy</u></p></li><li><p>DemandScience Web Experiences is an analytics and personalization platform that uses cookies (gsci, gscv, gscs; up to two years) to customize the experience for website visitors. In regions governed by GDPR, CCPA, or LGPD, it does not collect personally identifiable information or use behavioral data for targeting, and it does not use third-party data to personalize your experience without your explicit agreement. It does not use this data for advertising and does not sell it. You can opt out of these cookies in your browser settings.</p></li><li><p>Seamless.AI and LinkedIn Sales Navigator are business contact and professional network tools we use to research and contact professionals at organizations that may benefit from our services.</p></li><li><p>Google Analytics is a web analytics service provided by Google LLC. It uses cookies to help us understand how visitors use our Site, such as which pages they view and how they arrive. You can opt out by installing the <u>Google Analytics Opt-out Browser Add-on</u> . To learn how Google handles this information, see the <u>Google Privacy Policy</u> .</p></li></ul></div>"
+          },
+          {
+            "heading": "7. Security",
+            "content": "<div class=\"privacy-rich-group\" style=\"gap:24px\"><p>The security of your information is important to us, and we strive to implement and maintain reasonable, commercially acceptable security procedures and practices appropriate to the nature of the information we store, in order to protect it from unauthorized access, destruction, use, modification, or disclosure. Substantially all information we receive from you or via your use of the Service are copied, stored and managed through computer servers owned or controlled by us. While we attempt to employ security techniques commensurate with industry norms to protect your Personal Information and other hosted information from unauthorized access by users inside and outside the organization, you should be aware that “perfect security” does not exist on the internet or any other method of electronic transmission or storage; third parties may unlawfully or improperly intercept or access transmissions, personal information, or private communications. As such, we cannot make any assurances or guarantee in any manner that a security breach will not occur that may expose your Personally Identifiable Information or other information to unauthorized parties.</p> <p>For example, our servers are not located at our principal place of business but rather are managed and located at a third-party Infrastructure-as-a-Service provider (an “IAAS”). We have taken commercially reasonable steps to choose a professional IAAS provider but we cannot guarantee the performance of the IAAS provider, its security measures, or the actions or inactions it takes in the future. By using our Service, you understand and agree that we have no liability for the action, behaviors or failings of our IAAS provider.</p> <p>We endeavor to only require the collection of as much Personal Information as required to provide you access to our Service, ensure our ability to send you the communications described above, and meet our legal obligations. In addition, we will use commercially reasonable efforts to attempt to store Personally Identifiable Information in a secure location. We do not represent that any Personally Identifiable Information provided to us will be encrypted in any manner.</p> <p>If you have reason to believe that your interaction with us is no longer secure (for example, if you feel that the security of any communications you might have with us has been compromised), please immediately notify us of the problem by contacting us at <a href=\"mailto:privacy@highwirepr.com\">privacy@highwirepr.com</a> .</p></div>"
+          },
+          {
+            "heading": "8. United States of America; International Transfer",
+            "content": "<p>Our Site is maintained in the United States and our Service is targeted solely to U.S. users. By using the Site or Service, you authorize the export of personal information to the United States, where it is accessible by U.S. law enforcement. The storage and use of personal information are specified in this Privacy Policy. Your consent to this Privacy Policy, followed by your submission of such information, represents your agreement to abide by the restrictions contained herein.</p>"
+          },
+          {
+            "heading": "9. Links To Other Sites",
+            "content": "<p>Our Service and our Site may contain links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third-party’s site. We strongly advise you to review the privacy policy of every site you visit. We have no control over, and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>"
+          },
+          {
+            "heading": "10. Children’s Privacy",
+            "content": "<div class=\"privacy-rich-block\"><p>Only persons age 18 or older have permission to access our Service. Our Service is meant for working professionals only and, therefore, is not meant to be used or accessed in any manner by minors . We do not knowingly collect Personally Identifiable Information or other information that is protected under applicable law from children under the age of 13 (or such other age as may be restricted under local law). If we come aware that Personally Identifiable Information or other protected information has been collected from such individuals, we will use all reasonable efforts to delete this information from our servers. If you are a parent or guardian and you learn that your child has provided us with Personally Identifiable Information, please contact us at</p> <p> <a href=\"mailto:privacy@highwirepr.com\">privacy@highwirepr.com</a> .</p></div>"
+          },
+          {
+            "heading": "11. Enforcement",
+            "content": "<p>We will actively monitor our relevant privacy and security practices to verify adherence to this Privacy Policy. Any agents, contractors, service providers, or other third parties subject to this Privacy Policy that we determine to be in violation of this Privacy Policy or applicable data protection laws will be subject to disciplinary action up to and including termination of applicable services. Please contact us immediately at <a href=\"mailto:privacy@highwirepr.com\">privacy@highwirepr.com</a> if you believe there has been a material violation of this Privacy Policy.</p>"
+          },
+          {
+            "heading": "12. Opt Out",
+            "content": "<div class=\"privacy-rich-group\" style=\"gap:24px\"><p>To opt out of any future promotional or direct marketing messages from us or to make an access or deletion request, you should send an unsubscribe request by using the “opt out” contact information described below:</p> <div class=\"privacy-rich-block\"><p>Email:</p> <p>privacy@teamhighwire.com</p></div> <div class=\"privacy-rich-block\"><p>Postal address:</p> <p>Highwire Public Relations, Inc.</p> <p>Attn: Privacy Policy Agent</p> <p>727 Sansome Street</p> <p>San Francisco, CA, 94111</p></div> <p>Telephone: <u>415-963-4174</u></p> <p>Additionally, upon receipt of any electronic communication from us to you, to unsubscribe from future communications, you can click on the link that says words substantially to the effect of: “If you do not wish to receive these emails in the future, You can click here to unsubscribe.”</p> <p>We will process your request within a reasonable time after receipt. Please note that if you opt out in this manner, certain aspects of the Site or Services may no longer be available to you.</p></div>"
+          },
+          {
+            "heading": "13. California Consumer Notice",
+            "content": "<div class=\"privacy-rich-group\" style=\"gap:40px\"><p>If you are a California consumer, as defined by the California Consumer Privacy Act of 2018 (“CCPA”), the CCPA provides you with specific rights regarding your personal information. This section describes rights that pertain solely to California consumers and explains how to exercise those rights. We collect information (some of which may also constitute Personally Identifiable Information) that identifies, relates to, describes, references, or is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular consumer or household. The CCPA refers to such information as “personal information.” For the purposes of this section, personal information does not include: (i) information that is lawfully made available from federal, state or local government records; (ii) de-identified or aggregated data; or (iii) information excluded from the scope of the CCPA. To be clear, the rights in this section are not intended to grant you additional rights, but just your rights under CCPA.</p> <div class=\"privacy-rich-group\" style=\"gap:24px\"><h3>Information We Collect; How We Collect It; How We Use It</h3> <p>Information about our data collection during the prior 12 months is described below.</p> <p>California consumers may access, delete and control certain uses of their information as set forth in Rights to Your Information. We also may collect information on behalf of our clients to provide them with our services and in such cases, the client’s privacy policy, not this Privacy Policy, will apply. Please consult the client’s privacy policy as applicable, for information on your rights over personal information collected in relation to our clients.</p></div> <div class=\"privacy-table-wrap\"><table><tr><th scope=\"col\"><div class=\"privacy-rich-block\"><h3>Categories of Personal Information</h3></div></th><th scope=\"col\"><div class=\"privacy-rich-block\"><h3>Sources of such Personal Information</h3></div></th><th scope=\"col\"><div class=\"privacy-rich-block\"><h3>Business Purpose for such Personal Information</h3></div></th><th scope=\"col\"><div class=\"privacy-rich-block\"><h3>Categories of Third Parties with whom information is shared</h3></div></th></tr><tr><td><div class=\"privacy-rich-block\"><p>Contact information and other personal identifiers such as your name, and email address.</p></div></td><td><div class=\"privacy-rich-block\"><p>Collected from you directly through the Site and Service when you contact us by using the “Get In Touch” function on the Site, when you subscribe to our blog, and when you post comments to our blog.</p></div></td><td><div class=\"privacy-rich-block\"><p>We use such information to provide you with our products and services and send you marketing communications.</p></div></td><td><div class=\"privacy-rich-block\"><p>We share such information with our email service providers.</p></div></td></tr><tr><td><div class=\"privacy-rich-block\"><p>Online identifiers such as cookies and mobile device IDs including advertising identifiers, IP address, type of browser and operating system.</p></div></td><td><div class=\"privacy-rich-block\"><p>Collected automatically through the Site and Service.</p></div></td><td><div class=\"privacy-rich-block\"><p>We use such information to better understand how the site is being used and improve our Site’s functionality.</p></div></td><td><div class=\"privacy-rich-block\"><p>We share such information with our website analytics service providers.</p></div></td></tr><tr><td><div class=\"privacy-rich-block\"><p>Professional or employment-related information such as company name, company website, or industry.</p></div></td><td><div class=\"privacy-rich-block\"><p>Collected from you directly through the Site and Service when you contact us by using the “Get In Touch” function on the Site.</p></div></td><td><div class=\"privacy-rich-block\"><p>We use such information to provide you with our products and services and send you marketing communications.</p></div></td><td><div class=\"privacy-rich-block\"><p>We share such information with our service providers.</p></div></td></tr></table></div> <div class=\"privacy-rich-group\" style=\"gap:24px\"><p>In addition to the purposes set forth above, each of these categories of personal information may be collected and used as described above in How We Use Your Data.</p> <div class=\"privacy-rich-block\"><p>Sensitive Personal Information</p>  <p>We do not collect “sensitive personal information” as that term is defined under the CCPA (for example, Social Security, driver’s license, or passport numbers; account log-in or financial account credentials; precise geolocation; racial or ethnic origin; citizenship or immigration status; religious or philosophical beliefs; union membership; the contents of mail, email, or text messages; genetic or biometric information; information concerning health; or information concerning sex life or sexual orientation). Because we do not collect sensitive personal information, we do not use or disclose it for any purpose that would give rise to a right to limit its use or disclosure.</p>  <p>Retention of Personal Information</p>  <p>We retain each category of personal information for as long as reasonably necessary for the purposes described in this Privacy Policy, after which we will delete or de-identify it. To determine the appropriate retention period, we consider the amount, nature, and sensitivity of the personal information; the purposes for which we collected it; our legal, accounting, and reporting obligations; and whether we can achieve those purposes through other means. For example, we generally retain contact and business information for as long as you remain a subscriber or active business contact and for a reasonable period thereafter.</p>  <p>Sharing of Personal Information</p>  <p>The Company may disclose your personal information to service providers for a business purpose, as described in the chart above and in the section titled How We Share Your Information. We do not sell your personal information for monetary consideration. To the extent any of our data practices — such as the use of third-party cookies, analytics, or advertising technologies — constitutes a “sale” or “sharing” of personal information under the CCPA, you have the right to opt out, as described below under Right to Opt-Out of Sale or Sharing of Personal Information. The chart found above under Information We Collect; How We Collect It; How We Use It lists the categories of third parties to which we disclose your personal information.</p></div> <p>Disclosures of Personal Information</p> <p>In the preceding twelve (12) months, the Company has disclosed the following categories of personal information for a business purpose:</p> <ul><li><p>Personal identifiers.</p></li><li><p>Personal information covered by the California Customer Records statute (Cal. Civ. Code § 1798.80(e)).</p></li><li><p>Internet or other similar network activity.</p></li><li><p>Professional and Employment-related information</p></li></ul> <p>See above under Personally Identifiable Information We Collect and Information We Collect; How We Collect It; How We Use It for more information regarding each category.</p></div> <div class=\"privacy-rich-group\" style=\"gap:24px\"><h3>Rights to Your Information</h3> <p>Right to Know About Personal Information Collected, Disclosed or Sold</p> <p>As a California consumer, you have the right to request that we disclose certain information to you about our collection, use, disclosure or sale of your personal information over the past 12 months. Once we receive and confirm your verifiable consumer request (see Exercising Access and Deletion Rights), and subject to certain limitations that we describe below, we will disclose such information. You have the right to request any or all of the following:</p> <ul><li><p>The categories of personal information we collected about you.</p></li><li><p>The categories of sources from which the personal information is collected.</p></li><li><p>Our business or commercial purpose for collecting or selling that personal information.</p></li><li><p>The categories of third parties with whom we share that personal information.</p></li><li><p>The specific pieces of personal information we collected about you (also called a data portability request).</p></li></ul> <div class=\"privacy-rich-block\"><p>Right to Delete</p>  <p>To exercise the access and deletion rights described above, subject to exceptions under applicable laws, please submit a request to us by contacting us at 415-963-4174 or by filling out the form at <a href=\"https://www.teamhighwire.com/contact\">https://www.teamhighwire.com/contact</a> .</p>  <p>Right to Correct Inaccurate Information</p>  <p>You have the right to request that we correct inaccurate personal information that we maintain about you, taking into account the nature of the personal information and the purposes of processing it. To exercise your right to correct, please submit a request to us by contacting us at 415-963-4174 or by filling out the form at <a href=\"https://www.teamhighwire.com/contact\">https://www.teamhighwire.com/contact</a> . Upon receipt and verification of your request, we will use commercially reasonable efforts to correct the inaccurate information as directed, subject to the exceptions permitted under the CCPA.</p>  <p>Only you, or a person or business that you authorize to act on your behalf (an “authorized agent”), may make the requests set forth above. We may require an authorized agent to provide proof of your written permission to act on your behalf and to verify their own identity with us.</p>  <p>The request should include your contact information and describe your request with sufficient detail that allows us to properly understand, evaluate, and respond to it. In addition, you should provide sufficient information that allows us to reasonably verify that you are the person about whom we collected the personal information or an authorized representative of that person.</p>  <p>For more information about verification, see Response Timing and Format immediately below.</p>  <p>Response Timing and Format</p></div> <p>We will confirm receipt of your request within 10 business days and respond no later than 45 calendar days of receiving your request. If we require extra time, up to an additional 45 calendar days, we will inform you of the reason and extension period in writing within the first 45 calendar days. In order to protect the security of your personal information, we will not honor a request if we cannot verify your identity or authority to make the request and confirm the personal information relates to you. The method used to verify your identity will depend on the type, sensitivity and value of the information, including the risk of harm to you posed by any authorized access or deletion. Generally speaking, verification will be performed by matching the identifying information provided by you to the personal information that we already have.</p> <div class=\"privacy-rich-block\"><p>Any disclosures we provide will cover the 12-month period preceding our receipt of your request, or a longer period back to January 1, 2022 if you request it, unless that proves impossible or would involve disproportionate effort. We will not make such disclosures more than twice in a 12-month period. If we cannot comply with a request, or cannot fully comply with a request, the response we provide will also explain the reasons we cannot comply.</p>  <p>Right to Opt-Out of Sale or Sharing of Personal Information</p>  <p>You have the right, at any time, to direct us to stop selling or sharing your personal information (the “right to opt-out”). We do not sell your personal information for monetary consideration; however, to the extent our use of cookies, analytics, or advertising technologies constitutes a “sale” or “sharing” of personal information under the CCPA, you may opt out as described below. We do not have actual knowledge that we sell or share the personal information of consumers under 16 years of age.</p>  <p>To exercise your right to opt out, you (or your authorized agent) may submit a request to us by emailing <a href=\"mailto:privacy@teamhighwire.com\">privacy@teamhighwire.com</a> with the subject line “Do Not Sell or Share My Personal Information,” by calling 415-963-4174, or by using the form at https://www.highwirepr.com/contact. We also treat a valid opt-out preference signal (such as the Global Privacy Control) as a request to opt out of the sale or sharing of personal information where required by applicable law.</p>  <p>If you have any questions about our sale or sharing practices, you may contact us at <a href=\"mailto:privacy@teamhighwire.com\">privacy@teamhighwire.com</a> or 415-963-4174.</p>  <p>Non-Discrimination</p>  <p>We will not discriminate against you for exercising any of your rights, including your rights pursuant to the CCPA rights, including, but not limited to, by:</p>  <p>• Denying you goods or services.</p> <p>• Charging you different prices or rates for goods or services, including through granting discounts or other benefits, or imposing penalties.</p> <p>• Providing you a different level or quality of goods or services.</p> <p>• Suggesting that you may receive a different price or rate for goods or services or a different level or quality of goods or services..</p></div></div></div>"
+          },
+          {
+            "heading": "14. California “Shine the Light”",
+            "content": "<p>Under California Civil Code Section 1798.83 (“Shine the Light”), California residents have the right to request in writing from businesses with whom they have an established business relationship: (a) a list of the categories of personal information, as defined under Shine the Light, such as name, email address, and mailing address, and the type of services provided to the customer that a business has disclosed to third parties (including affiliates that are separate legal entities) during the immediately preceding calendar year for the third parties’ direct marketing purposes; and (b) the names and addresses of all such third parties. To request the above information, please contact us by email at <a href=\"mailto:privacy@highwirepr.com\">privacy@highwirepr.com</a> . If you do not want your personal information shared with any third party who may use such information for direct marketing purposes, then you may opt out of such disclosures by sending an email to us at <a href=\"mailto:privacy@highwirepr.com\">privacy@highwirepr.com</a> .</p>"
+          },
+          {
+            "heading": "15. Nevada Privacy Rights",
+            "content": "<p>If you are a Nevada resident, you have the right to request that we do not sell your covered information (as those terms are defined in N.R.S. 603A) that we have collected, or may collect, from you. We do not sell your covered information, however, if you would like to make such a request you may do so by contacting us at <a href=\"mailto:privacy@highwirepr.com\">privacy@highwirepr.com</a> .</p>"
+          },
+          {
+            "heading": "16. Additional U.S. State Privacy Rights",
+            "content": "<div class=\"privacy-rich-block\"><p>A number of U.S. states have enacted comprehensive consumer privacy laws. To provide a consistent standard of privacy protection, and except where a specific right is limited by law of where a specific state grants you more or broader rights, we extend the rights described in this section to all U.S. residents, regardless of the state in which you live. Depending on your state of residence and subject to certain exceptions, you may have the following rights with respect to your personal information (also called “Personal Data”):</p>  <p>• The right to confirm whether we are processing your personal information and to access that information;</p>  <p>• The right to correct inaccuracies in your personal information;</p>  <p>• The right to delete personal information that you provided or that we obtained about you;</p>  <p>• The right to obtain a copy of your personal information in a portable and, to the extent technically feasible, readily usable format;</p>  <p>• The right to opt out of (i) the sale of your personal information, (ii) targeted advertising (also called “cross-context behavioral advertising”), and (iii) profiling in furtherance of decisions that produce legal or similarly significant effects concerning you; and</p>  <p>• The right to opt out of, or (where your state requires opt-in consent) to decline consent to, the processing of your sensitive personal information.</p>  <p>As described elsewhere in this Privacy Policy, we do not sell your personal information for monetary consideration, we do not knowingly use it for profiling that produces legal or similarly significant effects, and we do not collect sensitive personal information. To the extent our use of cookies, analytics, or advertising technologies constitutes a “sale” or “sharing” of personal information, or processing for targeted advertising, under applicable law, you may exercise the opt-out right described in this section. We do not make decisions about you that produce legal or similarly significant effects based solely on automated processing.</p>  <p>Where required by applicable law, we recognize universal opt-out preference signals, such as the Global Privacy Control, as a valid request to opt out of the sale of personal information and processing for targeted advertising.</p>  <p>To exercise any of the rights above, submit a request to us at <a href=\"mailto:privacy@teamhighwire.com\">privacy@teamhighwire.com</a> , by calling 415-963-4174, or by using the form at <a href=\"https://www.teamhighwire.com/contact\">https://www.teamhighwire.com/contact</a> . We will respond within the time required by applicable law (generally within 45 days, subject to any extension permitted by law). You may submit a request yourself or, where permitted, through an authorized agent. We will not discriminate or retaliate against you for exercising any of these rights.</p>  <p>If we decline to act on your request, you may appeal by contacting us at <a href=\"mailto:privacy@highwirepr.com\">privacy@highwirepr.com</a> within a reasonable time after you receive our decision. We will respond to your appeal in writing within the time required by applicable law (generally within 60 days) and will explain the reasons for our decision. If your appeal is denied and your state law so provides, you may submit a complaint to your state Attorney General.</p></div>"
+          },
+          {
+            "heading": "17. Changes To This Privacy Policy",
+            "content": "<div class=\"privacy-rich-block\"><p>This Privacy Policy is effective as of the date listed at the top of this Privacy Policy, and will remain in effect except with respect to any changes to its provisions in the future, which will be in effect immediately after being posted on this page.</p> <p>We reserve the right, at our discretion, to change, modify, add, or remove portions from this Privacy Policy at any time, provided that such modifications will only be applied prospectively. Your continued use of the Site and Service after we post any modifications to the Privacy Policy on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy. You should check the language of our Privacy Policy periodically for any changes.</p></div>"
+          },
+          {
+            "heading": "18. Contact Us",
+            "content": "<div class=\"privacy-rich-block\"><p>Please do not hesitate to contact us with any questions, complaints, or requests with respect to your personal information, this Privacy Policy, and/or our privacy practices.</p> <p>Email: <a href=\"mailto:privacy@teamhighwire.com\">privacy@teamhighwire.com</a></p> <p>Mail:</p> <p>Highwire Public Relations, Inc.</p> <p>Attn: Privacy Policy Agent</p> <p>727 Sansome Street</p> <p>San Francisco, CA, 94111</p></div>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 128,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 128,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 64,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "content_width",
+        "label": "Content max width (px)",
+        "type": "number",
+        "default": 960,
+        "min": 320,
+        "max": 1312,
+        "step": 1
+      },
+      {
+        "name": "heading_color",
+        "label": "Heading color",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "text_color",
+        "label": "Content color",
+        "type": "color",
+        "default": {
+          "color": "#333333",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

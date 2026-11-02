@@ -1,1 +1,16 @@
-/* Styles live in css/theme-overrides.css. */
+/* Layout lives in theme-overrides.css; motion is scoped to this module. */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  html:not([data-motion="reduced"]) .hw-b2b-work__case {
+    transform: translate3d(0, var(--work-parallax, 0px), 0);
+  }
+
+  html:not([data-motion="reduced"]) .hw-b2b-work__header[data-work-pending] :is(h2, h3),
+  html:not([data-motion="reduced"]) .hw-b2b-work__case[data-work-pending] .hw-b2b-work__copy {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  html:not([data-motion="reduced"]) .hw-b2b-work__case[data-work-pending] .hw-b2b-work__visual {
+    clip-path: inset(0 0 100%);
+  }
+}

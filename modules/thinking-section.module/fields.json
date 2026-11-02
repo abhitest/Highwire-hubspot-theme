@@ -42,6 +42,14 @@
     "type": "group",
     "children": [
       {
+        "name": "stacked_intro",
+        "label": "Stack title and content (B2B layout)",
+        "type": "boolean",
+        "display": "checkbox",
+        "default": false,
+        "help_text": "Checked: full-width title with content underneath, without the eyebrow, matching the B2B Technology page. Unchecked: original side-by-side title and content."
+      },
+      {
       "name": "eyebrow",
       "label": "Eyebrow",
       "required": false,

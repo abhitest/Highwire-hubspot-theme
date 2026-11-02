@@ -1,0 +1,15 @@
+.hw-comparison{position:relative;background-size:cover;background-position:center;color:var(--comparison-text_color,#000)}
+.hw-comparison,.hw-comparison *{box-sizing:border-box}
+.hw-comparison>.baseModuleOverlay{position:absolute;inset:0;pointer-events:none}.hw-comparison>.baseModuleParent{position:relative}
+.hw-comparison .hw-comparison__title{ max-width:720px;margin:0; color:inherit}
+.hw-comparison__scroll{margin-top:63px;overflow-x:auto}.hw-comparison__scroll:focus-visible{outline:2px solid var(--comparison-accent_color);outline-offset:4px}
+.hw-comparison .hw-comparison__table{border-collapse:separate;border-spacing:0;table-layout:fixed;width:100%;margin:0;border:0;background:transparent;color:inherit;font:400 18px/1.5 var(--body,Arial,sans-serif)}
+.hw-comparison__table col:first-child{width:26%}.hw-comparison__table col:nth-child(2){width:41%}.hw-comparison__table col:nth-child(3){width:33%}
+.hw-comparison .hw-comparison__table th,.hw-comparison .hw-comparison__table td{padding:28px 32px;border:0;border-bottom:1px solid var(--comparison-border_color);text-align:left;vertical-align:top;background:transparent;color:inherit;overflow-wrap:anywhere}
+.hw-comparison .hw-comparison__table thead th{ border-bottom-color:var(--comparison-text_color);padding-block:20px}
+.hw-comparison .hw-comparison__table thead th:nth-child(2){background:var(--comparison-highlight_background);border-top:4px solid var(--comparison-accent_color);padding-top:16px}
+.hw-comparison .hw-comparison__table td:nth-child(2){background:var(--comparison-highlight_background)}
+.hw-comparison .hw-comparison__table :is(th,td):nth-child(3){color:var(--comparison-secondary_color)}
+.hw-comparison .hw-comparison__table tbody th{font-weight:500;padding-left:0}.hw-comparison .hw-comparison__table thead th:first-child{padding-left:0}.hw-comparison__table img{display:block;width:24px;height:24px;object-fit:contain}
+.hw-comparison__sr{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:767px){.hw-comparison__scroll{margin-top:32px}.hw-comparison .hw-comparison__table{min-width:640px;font-size:16px}.hw-comparison .hw-comparison__table th,.hw-comparison .hw-comparison__table td{padding:20px 16px}}

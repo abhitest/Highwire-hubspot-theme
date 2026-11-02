@@ -51,8 +51,8 @@
       {
         "name": "intro",
         "label": "Introduction",
-        "type": "text",
-        "default": "Acro brings intelligence, AI, and performance data together so our teams can connect what?s happening in the market to the decisions we recommend for your business."
+        "type": "richtext",
+        "default": "<p>Acro brings intelligence, AI, and performance data together so our teams can connect what?s happening in the market to the decisions we recommend for your business.</p>"
       },
       {
         "name": "cta_text",
@@ -78,7 +78,7 @@
           {
             "name": "description",
             "label": "Description",
-            "type": "text",
+            "type": "richtext",
             "allow_new_line": true
           },
           {

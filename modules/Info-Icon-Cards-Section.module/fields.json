@@ -1,0 +1,503 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "title",
+        "label": "Section title",
+        "type": "text",
+        "default": "Enterprise Security. Zero Compromise.",
+        "allow_new_line": true
+      },
+      {
+        "name": "columns",
+        "label": "Desktop columns",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "2",
+            "2 Columns"
+          ],
+          [
+            "3",
+            "3 Columns"
+          ]
+        ],
+        "default": "3",
+        "help_text": "Tablet uses 2 columns; mobile uses 1 column."
+      },
+      {
+        "name": "title_color",
+        "label": "Heading colour",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_color",
+        "label": "Content colour",
+        "type": "color",
+        "default": {
+          "color": "#bfbfbf",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "light_icons",
+        "label": "Use white icons (dark backgrounds)",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "animate",
+        "label": "Enable title reveal",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "cards",
+    "label": "Cards",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 24,
+      "default": 5
+    },
+    "children": [
+      {
+        "name": "icon",
+        "label": "Icon",
+        "type": "image"
+      },
+      {
+        "name": "title",
+        "label": "Card title",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "content",
+        "label": "Card content",
+        "type": "richtext"
+      }
+    ],
+    "default": [
+      {
+        "icon": {
+          "src": "https://highwire-demo.vercel.app/images/icons/industry/check.svg",
+          "alt": "",
+          "width": 24,
+          "height": 24
+        },
+        "title": "SOC 2 Type 2 Certified",
+        "content": "<p>Independently verified security controls</p>"
+      },
+      {
+        "icon": {
+          "src": "https://highwire-demo.vercel.app/images/icons/industry/lock.svg",
+          "alt": "",
+          "width": 24,
+          "height": 24
+        },
+        "title": "Full Encryption",
+        "content": "<p>Data protected in transit and at rest</p>"
+      },
+      {
+        "icon": {
+          "src": "https://highwire-demo.vercel.app/images/icons/industry/key.svg",
+          "alt": "",
+          "width": 24,
+          "height": 24
+        },
+        "title": "SSO Support",
+        "content": "<p>Centralized identity management</p>"
+      },
+      {
+        "icon": {
+          "src": "https://highwire-demo.vercel.app/images/icons/industry/user.svg",
+          "alt": "",
+          "width": 24,
+          "height": 24
+        },
+        "title": "Human-in-the-Loop",
+        "content": "<p>All agents subject to human oversight</p>"
+      },
+      {
+        "icon": {
+          "src": "https://highwire-demo.vercel.app/images/icons/industry/database.svg",
+          "alt": "",
+          "width": 24,
+          "height": 24
+        },
+        "title": "Your Data Stays Yours",
+        "content": "<p>Never used to train public AI models. Built on Google Cloud Platform.</p>"
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#000000",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Background image overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "Top/bottom section spacing; content-wrapper manages horizontal padding.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 128,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 128,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "Top/bottom section spacing; content-wrapper manages horizontal padding.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "Top/bottom section spacing; content-wrapper manages horizontal padding.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "grid_gap",
+        "label": "Column gap (px)",
+        "type": "number",
+        "default": 48,
+        "min": 0,
+        "max": 200,
+        "step": 1
+      },
+      {
+        "name": "heading_gap",
+        "label": "Space below heading (px)",
+        "type": "number",
+        "default": 72,
+        "min": 0,
+        "max": 200,
+        "step": 1
+      },
+      {
+        "name": "row_gap",
+        "label": "Row gap (px)",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 200,
+        "step": 1
+      },
+      {
+        "name": "card_padding",
+        "label": "Card top/bottom padding (px)",
+        "type": "number",
+        "default": 32,
+        "min": 0,
+        "max": 200,
+        "step": 1
+      },
+      {
+        "name": "border_color",
+        "label": "Default border colour",
+        "type": "color",
+        "default": {
+          "color": "#333333",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "hover_one",
+        "label": "First hover colour",
+        "type": "color",
+        "default": {
+          "color": "#4bb7ff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "hover_two",
+        "label": "Second hover colour",
+        "type": "color",
+        "default": {
+          "color": "#fa9bff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "hover_three",
+        "label": "Third hover colour",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

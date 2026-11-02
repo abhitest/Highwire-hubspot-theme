@@ -1,0 +1,16 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Privacy Policy
+-->
+{% extends './layouts/base.html' %}
+{% block body %}
+{% dnd_area 'privacy_area', label='Privacy policy', class='body-container body-container--privacy' %}
+{% dnd_section padding={"top":0,"right":0,"bottom":0,"left":0}, full_width=true %}
+{% dnd_module path='../modules/Privacy-Banner-Section.module', label='Privacy banner and introduction' %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% dnd_section padding={"top":0,"right":0,"bottom":0,"left":0}, full_width=true %}
+{% dnd_module path='../modules/Privacy-Content-Section.module', label='Policy sections' %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% end_dnd_area %}
+{% endblock body %}

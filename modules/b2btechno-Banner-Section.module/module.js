@@ -69,9 +69,13 @@
     if (motionOff()) finish();
     else {
       section.dataset.b2bMotion = 'preparing';
-      // Wait for the page loader and image before revealing the banner.
-      if (document.readyState === 'complete') ready();
-      else window.addEventListener('load', ready, { once: true });
+      // Gate only on a visible loader, never on unrelated page assets.
+      const loader = document.querySelector('.hw-page-loader');
+      const loaderStyle = loader && getComputedStyle(loader);
+      const loaderAnimations = loader && loaderStyle.display !== 'none' && loaderStyle.visibility !== 'hidden'
+        ? loader.getAnimations().filter(animation => animation.playState === 'running') : [];
+      if (loaderAnimations.length) Promise.allSettled(loaderAnimations.map(animation => animation.finished)).then(ready);
+      else ready();
       // Failed or stalled assets must not leave content hidden indefinitely.
       setTimeout(() => { if (!started) { if (observer) observer.disconnect(); finish(); } }, 5000);
     }

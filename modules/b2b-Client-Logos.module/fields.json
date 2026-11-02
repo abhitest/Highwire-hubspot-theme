@@ -1,0 +1,468 @@
+[
+  {
+    "name": "custom_style",
+    "label": "Custom style",
+    "type": "group",
+    "children": [
+      {
+        "name": "custom_class",
+        "label": "Custom class",
+        "type": "text"
+      },
+      {
+        "name": "section_id",
+        "label": "Section ID",
+        "type": "text",
+        "default": "clients"
+      }
+    ]
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Trusted by Technology Leaders"
+  },
+  {
+    "name": "intro",
+    "label": "Introduction",
+    "type": "richtext",
+    "default": "<p>We partner with technology companies tackling consequential challenges and looking for a team that can help turn ambition into action.</p>"
+  },
+  {
+    "name": "logos",
+    "label": "Client logos",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 24,
+      "default": 8
+    },
+    "children": [
+      {
+        "name": "image",
+        "label": "Logo",
+        "type": "image",
+        "responsive": true,
+        "resizable": true
+      },
+      {
+        "name": "width",
+        "label": "Logo maximum width (px)",
+        "type": "number",
+        "default": 184,
+        "min": 20,
+        "max": 500,
+        "step": 1
+      }
+    ],
+    "default": [
+      {
+        "company": "Everpure",
+        "image": {
+          "src": "https://highwire-demo.vercel.app/images/industries/b2b/everpure.svg",
+          "alt": "Everpure"
+        },
+        "width": 184
+      },
+      {
+        "company": "Bluehost",
+        "image": {
+          "src": "https://highwire-demo.vercel.app/images/industries/b2b/bluehost.svg",
+          "alt": "Bluehost"
+        },
+        "width": 188
+      },
+      {
+        "company": "ServiceNow",
+        "image": {
+          "src": "https://highwire-demo.vercel.app/images/industries/b2b/servicenow.svg",
+          "alt": "ServiceNow"
+        },
+        "width": 196
+      },
+      {
+        "company": "IBM",
+        "image": {
+          "src": "https://highwire-demo.vercel.app/images/industries/b2b/ibm.svg",
+          "alt": "IBM"
+        },
+        "width": 132
+      },
+      {
+        "company": "Boomi",
+        "image": {
+          "src": "https://highwire-demo.vercel.app/images/industries/b2b/boomi.svg",
+          "alt": "Boomi"
+        },
+        "width": 156
+      },
+      {
+        "company": "GitLab",
+        "image": {
+          "src": "https://highwire-demo.vercel.app/images/industries/b2b/gitlab.svg",
+          "alt": "GitLab"
+        },
+        "width": 188
+      },
+      {
+        "company": "Splunk",
+        "image": {
+          "src": "https://highwire-demo.vercel.app/images/industries/b2b/splunk.svg",
+          "alt": "Splunk"
+        },
+        "width": 160
+      },
+      {
+        "company": "Twilio",
+        "image": {
+          "src": "https://highwire-demo.vercel.app/images/industries/b2b/twilio.svg",
+          "alt": "Twilio"
+        },
+        "width": 164
+      }
+    ]
+  },
+  {
+    "name": "animate",
+    "label": "Enable logo reveal animation",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "style",
+    "label": "Styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "name": "background",
+        "label": "Background colour",
+        "type": "color",
+        "default": {
+          "color": "#f0f0f0",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "heading_color",
+        "label": "Heading colour",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "text_color",
+        "label": "Description colour",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "border_color",
+        "label": "Grid border colour",
+        "type": "color",
+        "default": {
+          "color": "#c4c4c4",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "spacing",
+        "label": "Section spacing",
+        "type": "group",
+        "children": [
+          {
+            "name": "desktop",
+            "label": "Desktop",
+            "type": "spacing",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                }
+              },
+              "margin": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            },
+            "help_text": "Only top and bottom section spacing is used. Global content-wrapper controls horizontal gutters."
+          },
+          {
+            "name": "tablet",
+            "label": "Tablet",
+            "type": "spacing",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                }
+              },
+              "margin": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            },
+            "help_text": "Only top and bottom section spacing is used. Global content-wrapper controls horizontal gutters."
+          },
+          {
+            "name": "mobile",
+            "label": "Mobile",
+            "type": "spacing",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                }
+              },
+              "margin": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            },
+            "help_text": "Only top and bottom section spacing is used. Global content-wrapper controls horizontal gutters."
+          }
+        ]
+      },
+      {
+        "name": "max_width",
+        "label": "Content maximum width (px)",
+        "type": "number",
+        "default": 1312,
+        "min": 320,
+        "max": 2000,
+        "step": 1
+      },
+      {
+        "name": "intro_width",
+        "label": "Description maximum width (px)",
+        "type": "number",
+        "default": 840,
+        "min": 200,
+        "max": 2000,
+        "step": 1
+      },
+      {
+        "name": "heading_size",
+        "label": "Heading size (px)",
+        "type": "number",
+        "default": 56,
+        "min": 16,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "name": "mobile_heading_size",
+        "label": "Mobile heading size (px)",
+        "type": "number",
+        "default": 36,
+        "min": 16,
+        "max": 80,
+        "step": 1
+      },
+      {
+        "name": "text_size",
+        "label": "Description size (px)",
+        "type": "number",
+        "default": 20,
+        "min": 12,
+        "max": 40,
+        "step": 1
+      },
+      {
+        "name": "heading_gap",
+        "label": "Heading to description gap (px)",
+        "type": "number",
+        "default": 24,
+        "min": 0,
+        "max": 2000,
+        "step": 1
+      },
+      {
+        "name": "grid_gap",
+        "label": "Description to grid gap (px)",
+        "type": "number",
+        "default": 48,
+        "min": 0,
+        "max": 2000,
+        "step": 1
+      },
+      {
+        "name": "columns",
+        "label": "Desktop columns",
+        "type": "number",
+        "default": 4,
+        "min": 1,
+        "max": 6,
+        "step": 1
+      },
+      {
+        "name": "tablet_columns",
+        "label": "Tablet columns",
+        "type": "number",
+        "default": 4,
+        "min": 1,
+        "max": 6,
+        "step": 1
+      },
+      {
+        "name": "mobile_columns",
+        "label": "Mobile columns",
+        "type": "number",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1
+      },
+      {
+        "name": "cell_height",
+        "label": "Logo cell height (px)",
+        "type": "number",
+        "default": 150,
+        "min": 60,
+        "max": 500,
+        "step": 1
+      },
+      {
+        "name": "mobile_cell_height",
+        "label": "Mobile logo cell height (px)",
+        "type": "number",
+        "default": 120,
+        "min": 60,
+        "max": 500,
+        "step": 1
+      },
+      {
+        "name": "cell_padding",
+        "label": "Logo cell padding (px)",
+        "type": "number",
+        "default": 24,
+        "min": 0,
+        "max": 80,
+        "step": 1
+      },
+      {
+        "name": "logo_height",
+        "label": "Logo maximum height (px)",
+        "type": "number",
+        "default": 64,
+        "min": 20,
+        "max": 200,
+        "step": 1
+      },
+      {
+        "name": "border_width",
+        "label": "Grid border width (px)",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 1
+      },
+      {
+        "name": "logo_opacity",
+        "label": "Logo opacity (%)",
+        "type": "number",
+        "default": 60,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "name": "hover_opacity",
+        "label": "Logo hover opacity (%)",
+        "type": "number",
+        "default": 100,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "name": "monochrome",
+        "label": "Monochrome logos",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "duration",
+        "label": "Reveal duration (ms)",
+        "type": "number",
+        "default": 650,
+        "min": 0,
+        "max": 3000,
+        "step": 1
+      },
+      {
+        "name": "stagger",
+        "label": "Logo stagger (ms)",
+        "type": "number",
+        "default": 40,
+        "min": 0,
+        "max": 300,
+        "step": 1
+      }
+    ]
+  }
+]

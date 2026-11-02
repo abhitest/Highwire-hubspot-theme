@@ -1,0 +1,185 @@
+{# Each post stores these choices directly in the Work post template. #}
+{% set filters = [{"key":"sector","label":"Sector","all":"All sectors","choices":[["b2b-technology","B2B Technology"],["cybersecurity","Cybersecurity"],["health","Health"],["financial-services","Financial Services"],["professional-services","Professional Services"],["energy","Energy"],["impact","Impact"]]},{"key":"capability","label":"Capability","all":"All capabilities","choices":[["strategy-and-intelligence","Strategy & Intelligence"],["marketing","Marketing"],["communications","Communications"],["content-and-thought-leadership","Content & Thought Leadership"],["brand-and-creative","Brand & Creative"],["acro-suite","Acro Suite"]]},{"key":"outcome","label":"Outcome","all":"All outcomes","choices":[["build-reputation","Build Reputation"],["earn-category-authority","Earn Category Authority"],["drive-pipeline-and-growth","Drive Pipeline & Growth"],["launch-products-and-brands","Launch Products & Brands"],["navigate-crisis-and-issues","Navigate Crisis & Issues"],["guide-ipos-and-transactions","Guide IPOs & Transactions"],["grow-ai-visibility","Grow AI Visibility"]]}] %}
+{% set blog_id = module.content_group.blog or group.id %}
+{% set posts = blog_recent_posts(blog_id, 200) if blog_id else [] %}
+{% set projects = [] %}
+{% set available = {'sector':[], 'capability':[], 'outcome':[]} %}
+{% for post in posts %}
+  {% set terms = {'sector':[], 'capability':[], 'outcome':[]} %}
+  {% for filter in filters %}
+    {% set field_name = 'work_' ~ filter.key %}
+    {% set field = post.widget_data[field_name] %}
+    {% set values = field.value if field.value is defined else field.body.value %}
+    {% if values is not defined %}{% set values = post.widgets[field_name].body.value %}{% endif %}
+    {% if values is string %}{% set values = values|split(',') %}{% endif %}
+    {% for option in filter.choices %}
+      {% if option[0] in values or option[1] in values %}
+        {% do terms[filter.key].append(option[0]) %}
+        {% if option[0] not in available[filter.key] %}{% do available[filter.key].append(option[0]) %}{% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  {% do projects.append({'post':post, 'terms':terms}) %}
+{% endfor %}
+{% set matches = [] %}
+{% for project in projects %}
+  {% set rejected = [] %}
+  {% for filter in filters %}
+    {% set selected = request.query_dict[filter.key]|default('') %}
+    {% if selected and selected not in project.terms[filter.key] %}{% do rejected.append(filter.key) %}{% endif %}
+  {% endfor %}
+  {% if not rejected %}{% do matches.append(project) %}{% endif %}
+{% endfor %}
+{% set page_size = 9 %}
+{% set total_pages = ((matches|length + page_size - 1) / page_size)|int %}
+{% set current_page = request.query_dict.work_page|default(1)|int %}
+{% if current_page < 1 %}{% set current_page = 1 %}{% endif %}
+{% if total_pages > 0 and current_page > total_pages %}{% set current_page = total_pages %}{% endif %}
+{% set start_index = (current_page - 1) * page_size %}
+{% set page_params = [] %}
+{% for key,value in request.query_dict.items() %}{% if key != 'work_page' %}{% do page_params.append((key|urlencode) ~ '=' ~ (value|urlencode)) %}{% endif %}{% endfor %}
+{% set page_base = request.path ~ '?' ~ (page_params|join('&')) ~ ('&' if page_params else '') ~ 'work_page=' %}
+<section class="hw-work-overview-filter baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-label="{{ module.content_group.section_label|escape_attr }}">
+<div class="baseModuleParent content-wrapper">
+<form class="hw-work-overview-filter__filters" method="get" action="{{ request.path|escape_url }}">
+  {% for key,value in request.query_dict.items() %}{% if key not in ['sector','capability','outcome','work_page'] %}<input type="hidden" name="{{ key|escape_attr }}" value="{{ value|escape_attr }}">{% endif %}{% endfor %}
+  {% for filter in filters %}
+  <label><span>{{ filter.label }}</span><span class="hw-work-overview-filter__select">
+    <select name="{{ filter.key }}" aria-controls="{{ name|escape_attr }}-results">
+      <option value="">{{ filter.all }}</option>
+      {% for option in filter.choices %}{% if option[0] in available[filter.key] %}<option value="{{ option[0]|escape_attr }}"{% if request.query_dict[filter.key] == option[0] %} selected{% endif %}>{{ option[1]|escape_html }}</option>{% endif %}{% endfor %}
+      {% set selected = request.query_dict[filter.key] %}
+      {% if selected and selected not in available[filter.key] %}<option value="{{ selected|escape_attr }}" selected>Unavailable selection</option>{% endif %}
+    </select>
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+  </span></label>
+  {% endfor %}
+</form>
+<div class="hw-work-overview-filter__results" id="{{ name|escape_attr }}-results">
+  <div class="hw-work-overview-filter__result-bar"><p role="status" tabindex="-1">{{ matches|length }} {{ 'project' if matches|length == 1 else 'projects' }}</p></div>
+  <div class="hw-work-overview-filter__grid">
+    {% for project in matches %}{% if loop.index0 >= start_index and loop.index0 < start_index + page_size %}{% set post = project.post %}
+    <article class="hw-work-overview-filter__card{% if post.absolute_url %} hw-work-overview-filter__card--linked{% endif %}">
+      {% if post.absolute_url %}<a class="hw-work-overview-filter__card-link" href="{{ post.absolute_url|escape_url }}">{% endif %}
+      <div class="hw-work-overview-filter__image">{% if post.featured_image %}<img src="{{ post.featured_image|escape_url }}" alt="{{ post.featured_image_alt_text|default('', true)|escape_attr }}" loading="lazy" decoding="async">{% endif %}</div>
+      {% set category_field = post.widget_data.work_category %}
+      {% set category = category_field.value if category_field.value is defined else category_field.body.value %}
+      {% if category is not defined %}{% set category = post.widgets.work_category.body.value %}{% endif %}
+      <div class="hw-work-overview-filter__copy">
+      {% if category|trim %}<p class="hw-work-overview-filter__client">{{ category|escape_html }}</p>{% endif %}
+      <h2>{{ post.name|striptags|escape_html }}</h2>
+      {% if post.tag_list %}<ul class="hw-work-overview-filter__tags" aria-label="Tags">{% for tag in post.tag_list %}<li>{{ tag.name|escape_html }}</li>{% endfor %}</ul>{% endif %}
+      </div>
+      {% if post.absolute_url %}</a>{% endif %}
+    </article>
+    {% endif %}{% endfor %}
+  </div>
+  {% if total_pages > 1 %}
+  <nav class="hw-work-overview-filter__pagination" aria-label="Work pagination">
+    {% if current_page > 1 %}
+    <a href="{{ (page_base ~ (current_page - 1))|escape_url }}" data-work-page aria-label="Previous page">
+      <svg  width="24" height="24" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M390.627 54.627 189.255 256l201.372 201.373a32 32 0 1 1-45.254 45.254l-224-224a32 32 0 0 1 0-45.254l224-224a32 32 0 0 1 45.254 45.254" fill="#000000" opacity="1" data-original="#000000" class=""></path></g></svg>
+    </a>
+    {% endif %}
+    {% for page_number in range(1,total_pages + 1) %}
+      {% if page_number == 1 or page_number == total_pages or (page_number >= current_page - 2 and page_number <= current_page + 2) %}
+      {% if page_number == current_page %}<span aria-current="page" aria-label="Page {{ page_number }}">{{ page_number }}</span>{% else %}<a href="{{ (page_base ~ page_number)|escape_url }}" data-work-page aria-label="Page {{ page_number }}">{{ page_number }}</a>{% endif %}
+      {% elif page_number == current_page - 3 or page_number == current_page + 3 %}<span class="pagination-gap" aria-hidden="true">?</span>{% endif %}
+    {% endfor %}
+    {% if current_page < total_pages %}
+    <a href="{{ (page_base ~ (current_page + 1))|escape_url }}" data-work-page aria-label="Next page">
+      <svg  width="24" height="24" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M44 108a4 4 0 0 1-2.828-1.172 3.997 3.997 0 0 1 0-5.656L78.344 64 41.172 26.828c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0l40 40a3.997 3.997 0 0 1 0 5.656l-40 40A4 4 0 0 1 44 108" fill="#000000" opacity="1" data-original="#000000" class=""></path></g></svg>
+    </a>
+    {% endif %}
+  </nav>
+  {% endif %}
+  {% if not matches %}<div class="hw-work-overview-filter__empty"><p>No projects found. Select the All options or try another combination.</p></div>{% endif %}
+  {% if is_in_editor and not blog_id %}<p>Select your Work blog in this module's Content settings.</p>{% endif %}
+</div>
+</div></section>
+{% require_css %}
+<style>
+.{{ name }}.hw-work-overview-filter {
+  {{ module.style.spacing.desktop_spacing.css }}
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background:{{ module.style.background_property.background_color.css }};{% endif %}
+  --work-filter-text:{{ module.style.text_color.css }};
+  --work-filter-accent:{{ module.style.accent.css }};
+}
+@media(max-width:1024px) { .{{ name }}.hw-work-overview-filter { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-work-overview-filter { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}
+
+{% require_js position="footer" %}
+<script>
+(function () {
+  function initWorkFilter($) {
+    $('.hw-work-overview-filter').each(function () {
+      var section = $(this);
+      if (section.data('ajax-ready')) return;
+      section.data('ajax-ready', true);
+      var form = section.find('form');
+      var postContainer = section.find('.hw-work-overview-filter__results');
+      var loading = false;
+      var error = $('<p class="hw-work-overview-filter__error" role="alert" hidden></p>').insertAfter(form);
+
+      function loadPosts(hrefValue, scrollTop) {
+        if (loading) return;
+        loading = true;
+        error.prop('hidden', true);
+        form.find('select').prop('disabled', true);
+        postContainer.attr('aria-busy', 'true');
+        $.ajax({
+          url: hrefValue,
+          success: function (result) {
+            var page = $(new DOMParser().parseFromString(result, 'text/html'));
+            var posts = page.find('.hw-work-overview-filter__results').filter(function () {
+              return this.id === postContainer.attr('id');
+            });
+            if (posts.length) {
+              postContainer.html(posts.html());
+              if (scrollTop) {
+                var duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.dataset.motion === 'reduced' ? 0 : 400;
+                $('html, body').stop().animate({scrollTop: Math.max(0, section.offset().top - 80)}, duration);
+              }
+
+            } else {
+              error.text('Could not load projects. Please try again.').prop('hidden', false);
+            }
+          },
+          error: function () {
+            error.text('Could not load projects. Please try again.').prop('hidden', false);
+          },
+          complete: function () {
+            loading = false;
+            form.find('select').prop('disabled', false);
+            postContainer.removeAttr('aria-busy');
+          }
+        });
+      }
+
+      form.on('submit', function (e) {
+        e.preventDefault();
+        loadPosts(form.attr('action') + '?' + form.serialize());
+      });
+      form.find('select').on('change', function () { form.trigger('submit'); });
+      section.on('click', 'a[data-work-page]', function (e) {
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        loadPosts($(this).attr('href'), true);
+      });
+    });
+  }
+  if (window.jQuery) {
+    window.jQuery(function ($) { initWorkFilter($); });
+  } else {
+    var script = document.createElement('script');
+    script.src = 'https://code.jquery.com/jquery-3.7.1.min.js';
+    script.onload = function () { window.jQuery(function ($) { initWorkFilter($); }); };
+    document.head.appendChild(script);
+  }
+})();
+</script>
+{% end_require_js %}

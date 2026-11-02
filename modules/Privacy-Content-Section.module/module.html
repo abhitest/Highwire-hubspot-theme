@@ -1,0 +1,9 @@
+<section class="hw-privacy hw-privacy--sections baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %}>
+<div class="content-wrapper"><div class="hw-privacy__inner">{% for item in module.content_group.sections %}<article class="hw-privacy__item"><img class="hw-privacy__divider" src="{{ get_asset_url('../../images/privacy/section-divider.svg') }}" alt="" aria-hidden="true" width="960" height="1"><h2>{{ item.heading|escape_html }}</h2><div class="hw-privacy__rich">{{ item.content }}</div></article>{% endfor %}</div></div>
+</section>
+{% require_css %}<style>
+.{{ name }}.hw-privacy{ {{ module.style.spacing.desktop_spacing.css }} --privacy-width:{{ module.style.content_width }}px;--privacy-heading:{{ module.style.heading_color.color }};--privacy-text:{{ module.style.text_color.color }};
+{% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');{% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};{% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}}
+@media(max-width:1300px){.{{ name }}.hw-privacy{ {{ module.style.spacing.tab_spacing.css }} }}
+@media(max-width:767px){.{{ name }}.hw-privacy{ {{ module.style.spacing.mobile_spacing.css }} }}
+</style>{% end_require_css %}

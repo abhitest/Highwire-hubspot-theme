@@ -1,13 +1,15 @@
 <section class="hw-b2b-acro hw-b2b-acro__compact baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title">
 <span class="baseModuleOverlay" aria-hidden="true"></span><div class="content-wrapper"><div class="baseModuleParent">
-<div class="hw-b2b-acro__overview"><h2 id="{{ name|escape_attr }}-title">{{ module.content_group.heading|escape_html }}</h2></div>
-<div class="hw-b2b-acro__introduction"><p>{{ module.content_group.intro|escape_html }}</p></div>
+<div class="hw-b2b-acro__overview">
+  <h3 id="{{ name|escape_attr }}-title">{{ module.content_group.heading }}</h3>
+</div>
+<div class="hw-b2b-acro__introduction font20 lh15">{{ module.content_group.intro }}</div>
 <div class="hw-b2b-acro__products">
 {% for item in module.content_group.products %}{% set linked = item.link.url.href and item.link.url.href != '#' %}
 <article class="hw-b2b-acro__product" data-tone="{{ item.tone|escape_attr }}" data-active="false" {% if not linked %}tabindex="0"{% endif %} aria-labelledby="{{ name|escape_attr }}-product-{{ loop.index }}">
-<div class="hw-b2b-acro__productHeading"><span class="hw-b2b-acro__productNumber" aria-hidden="true">{{ '%02d'|format(loop.index) }}</span><h3 id="{{ name|escape_attr }}-product-{{ loop.index }}">{% if linked %}<a class="hw-b2b-acro__productLink" href="{{ item.link.url.href|escape_url }}" {% if item.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ item.link.rel|escape_attr }}{% if item.link.open_in_new_tab %} noopener{% endif %}">{% endif %}{{ item.title|escape_html }}{% if linked %}</a>{% endif %}</h3><span class="hw-b2b-acro__productMarker" aria-hidden="true"></span></div>
-<p>{{ item.description|escape_html }}</p>
-{% if linked and module.content_group.cta_text %}<span class="hw-b2b-acro__productCta" aria-hidden="true">{{ module.content_group.cta_text|escape_html }}<svg viewBox="0 0 18 18" fill="none"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></span>{% endif %}
+<div class="hw-b2b-acro__productHeading"><span class="hw-b2b-acro__productNumber" aria-hidden="true">{{ '%02d'|format(loop.index) }}</span><h3 id="{{ name|escape_attr }}-product-{{ loop.index }}">{% if linked %}<a class="hw-b2b-acro__productLink" href="{{ item.link.url.href|escape_url }}" {% if item.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ item.link.rel|escape_attr }}{% if item.link.open_in_new_tab %} noopener{% endif %}">{% endif %}{{ item.title }}{% if linked %}</a>{% endif %}</h3><span class="hw-b2b-acro__productMarker" aria-hidden="true"></span></div>
+<p>{{ item.description }}</p>
+{% if linked and module.content_group.cta_text %}<span class="hw-b2b-acro__productCta" aria-hidden="true">{{ module.content_group.cta_text }}<svg viewBox="0 0 18 18" fill="none"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></span>{% endif %}
 </article>{% endfor %}</div></div></div></section>
 
 {% require_css %}

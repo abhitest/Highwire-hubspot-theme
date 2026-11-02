@@ -49,11 +49,15 @@
         "default": "Work That Moves Your Brand Forward"
       },
       {
-        "name": "intro",
-        "label": "Introduction",
-        "type": "text",
-        "default": "See how we help technology companies sharpen their story, shape their category, and create momentum."
-      },
+      "name": "intro",
+      "label": "Introduction",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "<p>See how we help technology companies sharpen their story, shape their category, and create momentum.</p>" 
+    },
       {
         "name": "cards",
         "label": "Work cards",

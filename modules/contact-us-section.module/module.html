@@ -1,0 +1,41 @@
+<section class="hw-contact-us baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper hw-contact-us__layout">
+    <div class="hw-contact-us__copy">
+      <div class="moduletitleSection">
+        <h1 class="moduleTitle primary_color" id="{{ name|escape_attr }}-title" data-contact-us-reveal>{{ module.content_group.title|escape_html }}</h1>
+        <div class="moduleContent font20 lh15">{{ module.content_group.content }}</div>
+      </div>
+      {% if module.content_group.show_mark %}<div class="hw-contact-us__mark" role="img" aria-label="Highwire"><svg viewBox="0 0 31.9813 32" aria-hidden="true"><path d="M31.9804 10.6885H15.9905V16.0095H31.9804V10.6885Z"/><path d="M15.9894 15.9916H0V21.3127H15.9894V15.9916Z"/><path d="M5.31759 31.9847L5.3176 0H0V31.9847H5.31759Z"/><path d="M31.9813 32V.0152954H26.6637V32H31.9813Z"/></svg></div>{% endif %}
+    </div>
+    <div class="hw-contact-us__form">
+      {% if module.content_group.form.form_id %}
+      {% form form_to_use="{{ module.content_group.form.form_id }}", response_response_type="{{ module.content_group.form.response_type }}", response_message="{{ module.content_group.form.message }}", response_redirect_id="{{ module.content_group.form.redirect_id }}", response_redirect_url="{{ module.content_group.form.redirect_url }}" %}
+      {% elif is_in_editor %}<p>Select a contact form in the module settings.</p>{% endif %}
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.baseModuleStyle {
+  {{ module.style.spacing.desktop_spacing.css }} padding-left:0; padding-right:0; margin-left:0; margin-right:0;
+  color:rgba({{ module.style.text_color.color|convert_rgb }},{{ module.style.text_color.opacity / 100 }});
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}
+  background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});
+  {% endif %}
+  --contact-us-form-background:rgba({{ module.style.form_background.color|convert_rgb }},{{ module.style.form_background.opacity / 100 }});
+  --contact-us-form-text:rgba({{ module.style.form_text.color|convert_rgb }},{{ module.style.form_text.opacity / 100 }});
+  --contact-us-form-padding:{{ module.style.form_padding }}px;
+  --contact-us-mobile-form-padding:{{ module.style.mobile_form_padding }}px;
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}
+.{{ name }} > .baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }
+{% endif %}
+@media(max-width:1300px) { .{{ name }}.baseModuleStyle { {{ module.style.spacing.tab_spacing.css }} padding-left:0; padding-right:0; margin-left:0; margin-right:0; } }
+@media(max-width:767px) { .{{ name }}.baseModuleStyle { {{ module.style.spacing.mobile_spacing.css }} padding-left:0; padding-right:0; margin-left:0; margin-right:0; } }
+</style>
+{% end_require_css %}

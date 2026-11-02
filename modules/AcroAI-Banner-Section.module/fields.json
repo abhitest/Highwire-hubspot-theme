@@ -1,0 +1,477 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "title",
+        "label": "Accessible title / fallback title",
+        "type": "text",
+        "default": "AcroAI"
+      },
+      {
+        "name": "logo",
+        "label": "Logo",
+        "type": "image",
+        "default": {
+          "src": "https://highwire-demo.vercel.app/images/products/acroai/logo.webp",
+          "alt": "AcroAI"
+        }
+      },
+      {
+        "name": "content",
+        "label": "Content",
+        "type": "richtext",
+        "default": "<p>Agentic AI built for marketing and communications teams who demand speed with substance.</p>"
+      },
+      {
+        "name": "button_text",
+        "label": "CTA text",
+        "type": "text",
+        "default": "Explore AcroAI"
+      },
+      {
+        "name": "button_link",
+        "label": "CTA link",
+        "type": "url",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "default": {
+          "href": "#product-media",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "name": "animate",
+        "label": "Enable animations",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#f0f0f0",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Image overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 64,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 40,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 40,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 40,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 24,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 24,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "text_color",
+        "label": "Text colour",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "rail_background",
+        "label": "Rail background",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "blue_panel",
+        "label": "Upper panel",
+        "type": "color",
+        "default": {
+          "color": "#2b44b5",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "cta_background",
+        "label": "CTA background",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "cta_text",
+        "label": "CTA text",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "cta_hover",
+        "label": "CTA hover background",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "height",
+        "label": "Banner minimum height (px)",
+        "type": "number",
+        "default": 640,
+        "min": 0,
+        "max": 1600,
+        "step": 1
+      },
+      {
+        "name": "rail_width",
+        "label": "Rail width (px)",
+        "type": "number",
+        "default": 280,
+        "min": 120,
+        "max": 600,
+        "step": 1
+      },
+      {
+        "name": "cta_height",
+        "label": "CTA panel height (px)",
+        "type": "number",
+        "default": 320,
+        "min": 0,
+        "max": 1600,
+        "step": 1
+      },
+      {
+        "name": "cta_padding",
+        "label": "CTA padding (px)",
+        "type": "number",
+        "default": 32,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "name": "logo_width",
+        "label": "Logo width (px)",
+        "type": "number",
+        "default": 440,
+        "min": 0,
+        "max": 1600,
+        "step": 1
+      },
+      {
+        "name": "logo_top",
+        "label": "Space above logo (px)",
+        "type": "number",
+        "default": 88,
+        "min": 0,
+        "max": 1600,
+        "step": 1
+      },
+      {
+        "name": "logo_bottom",
+        "label": "Space below logo (px)",
+        "type": "number",
+        "default": 40,
+        "min": 0,
+        "max": 1600,
+        "step": 1
+      },
+      {
+        "name": "description_width",
+        "label": "Description maximum width (px)",
+        "type": "number",
+        "default": 760,
+        "min": 0,
+        "max": 1600,
+        "step": 1
+      },
+      {
+        "name": "description_size",
+        "label": "Description size (px)",
+        "type": "number",
+        "default": 36,
+        "min": 12,
+        "max": 80,
+        "step": 1
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

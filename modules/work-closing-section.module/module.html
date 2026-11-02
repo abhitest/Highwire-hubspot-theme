@@ -1,0 +1,36 @@
+{% macro action(label, link, kind) %}
+  {% set href = link.url.href %}
+  {% if link.url.type == 'EMAIL_ADDRESS' %}{% set href = 'mailto:' ~ href %}{% elif link.url.type == 'PHONE_NUMBER' %}{% set href = 'tel:' ~ href %}{% endif %}
+  {% if label and href %}<a class="hw-work-closing__{{ kind }}" href="{{ href|escape_url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ link.rel|escape_attr }}{% if link.open_in_new_tab %} noopener{% endif %}"><span>{{ label|escape_html }}</span><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square"><path d="M4 14 14 4"/><path d="M6 4h8v8"/></g></svg></a>{% endif %}
+{% endmacro %}
+<section class="hw-work-closing baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-heading" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="content-wrapper">
+  <div class="baseModuleParent hw-work-closing__copy">
+    <h3 class="secondary_color" id="{{ name|escape_attr }}-heading">{{ module.content_group.heading|escape_html }}</h3>
+    {% if module.content_group.description %}<p>{{ module.content_group.description|escape_html }}</p>{% endif %}
+    <div class="hw-work-closing__actions">
+      {{ action(module.content_group.primary_label, module.content_group.primary_link, 'primary') }}
+      {{ action(module.content_group.secondary_label, module.content_group.secondary_link, 'secondary') }}
+    </div>
+  </div>
+  </div>
+  <div class="hw-work-closing__panels" aria-hidden="true"><div class="hw-work-closing__pink"></div><div class="hw-work-closing__blue"></div><svg class="hw-work-closing__mark" viewBox="0 0 31.9813 32" fill="currentColor"><path d="M31.9804 10.6885H15.9905V16.0095H31.9804Z M15.9894 15.9916H0V21.3127H15.9894Z M5.31759 31.9847V0H0V31.9847Z M31.9813 32V.0153H26.6637V32Z"/></svg></div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-work-closing {
+  {{ module.style.spacing.desktop_spacing.css }}
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background:{{ module.style.background_property.background_color.css }};{% endif %}
+  --closing-text:{{ module.style.text_color.css }};
+  --closing-accent:{{ module.style.accent.css }};
+  --closing-pink:{{ module.style.pink.css }};
+  --closing-blue:{{ module.style.blue.css }};
+  --closing-mark:{{ module.style.mark.css }};
+}
+@media(max-width:1100px) { .{{ name }}.hw-work-closing { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-work-closing { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

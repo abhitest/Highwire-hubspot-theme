@@ -1,0 +1,35 @@
+{% set heading_tag = module.content_group.heading_tag if module.content_group.heading_tag in ['h1','h2','h3'] else 'h2' %}
+<section class="hw-info-section baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    <div class="hw-info-section__layout">
+      <{{ heading_tag }} id="{{ name|escape_attr }}-title" class="hw-info-section__title">{{ module.content_group.title }}</{{ heading_tag }}>
+      <div class="hw-info-section__copy font20 normal">
+        <div class="hw-info-section__content">{{ module.content_group.content }}</div>
+        {% if module.content_group.secondary_content %}
+        <div class="hw-info-section__secondary{% if module.content_group.show_divider %} hw-info-section__secondary--divider{% endif %}">{{ module.content_group.secondary_content }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.baseModuleStyle {
+  {{ module.style.spacing.desktop_spacing.css }} padding-left:0; padding-right:0;
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}
+  {% for key in ['title_color','content_color','divider_color'] %}--info-{{ key }}:rgba({{ module.content_group[key].color|convert_rgb }},{{ module.content_group[key].opacity / 100 }});{% endfor %}
+  {% for key in ['title_size','mobile_title_size','content_size','mobile_content_size','divider_spacing'] %}--info-{{ key }}:{{ module.content_group[key] }}px;{% endfor %}
+  --info-title-width:{{ module.style.title_width }}fr;
+  --info-copy-width:{{ 100 - module.style.title_width }}fr;
+  --info-gap:{{ module.style.column_gap }}px;
+  --info-mobile-gap:{{ module.style.mobile_gap }}px;
+  --info-alignment:{{ module.style.alignment }};
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }} > .baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }{% endif %}
+@media(max-width:1300px) { .{{ name }}.baseModuleStyle { {{ module.style.spacing.tab_spacing.css }} padding-left:0; padding-right:0; } }
+@media(max-width:767px) { .{{ name }}.baseModuleStyle { {{ module.style.spacing.mobile_spacing.css }} padding-left:0; padding-right:0; } }
+</style>
+{% end_require_css %}

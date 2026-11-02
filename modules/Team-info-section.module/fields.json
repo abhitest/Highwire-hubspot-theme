@@ -1,0 +1,465 @@
+[
+  {
+    "name": "custom_style",
+    "label": "Custom style",
+    "type": "group",
+    "children": [
+      {
+        "name": "section_id",
+        "label": "Section ID",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "custom_class",
+        "label": "Custom class",
+        "type": "text",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "full_name",
+    "label": "Name",
+    "type": "text",
+    "default": "Michael O'Brien"
+  },
+  {
+    "name": "role",
+    "label": "Role",
+    "type": "text",
+    "default": "CEO"
+  },
+  {
+    "name": "location",
+    "label": "Location",
+    "type": "text",
+    "default": "New York, NY"
+  },
+  {
+    "name": "portrait",
+    "label": "Portrait",
+    "type": "image",
+    "default": {
+      "src": "https://highwire-demo.vercel.app/images/editorial/michael-obrien.png",
+      "alt": "Michael O'Brien, CEO of Highwire"
+    }
+  },
+  {
+    "name": "link_text",
+    "label": "Social link label",
+    "type": "text",
+    "default": "LinkedIn"
+  },
+  {
+    "name": "social_link",
+    "label": "Social link",
+    "type": "url",
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT"
+    ],
+    "default": {
+      "href": ""
+    }
+  },
+  {
+    "name": "biography",
+    "label": "Biography",
+    "type": "richtext",
+    "default": "<p>Michael O'Brien leads Highwire with a collaborative vision as CEO, connecting client storytelling to the reputation drivers that work hardest for their success. His approach centers on meeting audiences where they are and building trust through sophisticated marketing strategies that interpret complex realities into simple, measurable solutions that advance business goals.</p>"
+  },
+  {
+    "name": "fact_title",
+    "label": "Fun fact label",
+    "type": "text",
+    "default": "Fun Fact"
+  },
+  {
+    "name": "fact",
+    "label": "Fun fact",
+    "type": "text",
+    "default": "I Was Arrested (Not Convicted) For Jumping A Freight Train."
+  },
+  {
+    "name": "questions",
+    "label": "Interview questions",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 30,
+      "default": 5
+    },
+    "children": [
+      {
+        "name": "category",
+        "label": "Category",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "title",
+        "label": "Question",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "content",
+        "label": "Answer",
+        "type": "richtext",
+        "default": ""
+      }
+    ],
+    "default": [
+      {
+        "category": "Business Strategy",
+        "title": "How Do You Balance Creativity With Business Strategy In Your Day-To-Day Work?",
+        "content": "<p>I focus on connecting client storytelling to the reputation drivers that work hardest for their company or brand. The most powerful creative work emerges when we understand what truly matters to our clients’ business and audiences. This approach ensures every creative decision is anchored in strategic insight that drives measurable business impact.</p>"
+      },
+      {
+        "category": "Industry/Service Expertise",
+        "title": "How Does Your Background Shape How You Lead In Fast-Evolving Industries?",
+        "content": "<p>A sophisticated marketing strategy reaches audiences on their terms, where they consume information in natural and authentic ways. My approach centers on meeting people where they are—understanding their media consumption habits, their decision-making processes, and the voices they trust. This audience-first mindset enables us to craft communications that breakthrough in an increasingly complex and fragmented media landscape.</p>"
+      },
+      {
+        "category": "Strategic Marcomms",
+        "title": "How Do You Build Trust And Clarity In Environments Defined By Noise And Complexity?",
+        "content": "<p>In today’s complex media environment, you build trust by demonstrating an ability to interpret and analyze current reality while building simple, measurable solutions that advance your clients’ business goals. Trust comes from consistent delivery on promises and the courage to cut through complexity with clear, authentic communication that drives real outcomes.</p>"
+      },
+      {
+        "category": "Client Results",
+        "title": "What's A Campaign Or Client Partnership You're Especially Proud Of–And What Made It Successful?",
+        "content": "<p>My team spent a year convincing payroll provider ADP to use their proprietary data as a communications tool. Sixteen years later, the ADP Jobs Report remains CNBC’s longest-standing branded monthly segment. It continues to position ADP as an economic and technology leader, demonstrating the power of transforming business assets into sustained thought leadership platforms that deliver lasting value.</p>"
+      },
+      {
+        "category": "Our Culture",
+        "title": "What Does Highwire's Culture Mean To You, And How Does It Shape How You Lead?",
+        "content": "<p>Highwire’s culture is about “we,” not “me.” It enables collaboration as the default setting for problem-solving and helps the agency rally around opportunities with shared purpose. This collaborative foundation shapes how I lead by fostering an environment where diverse perspectives drive breakthrough thinking and where every team member feels empowered to contribute to our collective success.</p>"
+      }
+    ]
+  },
+  {
+    "name": "show_related",
+    "label": "Show related profiles",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "related_title",
+    "label": "Related profiles heading",
+    "type": "text",
+    "default": "Explore more profiles"
+  },
+  {
+    "name": "people",
+    "label": "Related profiles",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 12,
+      "default": 3
+    },
+    "children": [
+      {
+        "name": "full_name",
+        "label": "Name",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "role",
+        "label": "Role",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "portrait",
+        "label": "Portrait",
+        "type": "image"
+      },
+      {
+        "name": "link",
+        "label": "Profile link",
+        "type": "url",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "default": {
+          "href": ""
+        }
+      }
+    ],
+    "default": [
+      {
+        "full_name": "Carol Carrubba",
+        "role": "Co-founder, President",
+        "portrait": {
+          "src": "https://highwire-demo.vercel.app/images/editorial/carol-carrubba.png",
+          "alt": "Carol Carrubba"
+        },
+        "link": {
+          "href": ""
+        }
+      },
+      {
+        "full_name": "Emily Call Borders",
+        "role": "Co-founder, Chief Client Officer",
+        "portrait": {
+          "src": "https://highwire-demo.vercel.app/images/editorial/emily-call-borders.png",
+          "alt": "Emily Call Borders"
+        },
+        "link": {
+          "href": ""
+        }
+      },
+      {
+        "full_name": "Michael Byrnes",
+        "role": "Chief Growth Officer",
+        "portrait": {
+          "src": "https://highwire-demo.vercel.app/images/editorial/michael-byrnes.png",
+          "alt": "Michael Byrnes"
+        },
+        "link": {
+          "href": ""
+        }
+      }
+    ]
+  },
+  {
+    "name": "animate",
+    "label": "Enable motion and sticky profile",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "style",
+    "label": "Styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "name": "profile_background",
+        "label": "Profile background",
+        "type": "color",
+        "default": {
+          "color": "#f0f0f0",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_background",
+        "label": "Content background",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "related_background",
+        "label": "Related profiles background",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "text_color",
+        "label": "Text colour",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "border_color",
+        "label": "Divider colour",
+        "type": "color",
+        "default": {
+          "color": "#cccccc",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent",
+        "label": "Fun fact and link accent",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "hover_accent",
+        "label": "Related profile hover accent",
+        "type": "color",
+        "default": {
+          "color": "#4bb7ff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "profile_spacing",
+        "label": "Profile spacing",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 56,
+              "units": "px"
+            },
+            "right": {
+              "value": 64,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 64,
+              "units": "px"
+            },
+            "left": {
+              "value": 64,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "content_spacing",
+        "label": "Content spacing",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 64,
+              "units": "px"
+            },
+            "right": {
+              "value": 80,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 96,
+              "units": "px"
+            },
+            "left": {
+              "value": 80,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "related_spacing",
+        "label": "Related profiles spacing",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 64,
+              "units": "px"
+            },
+            "right": {
+              "value": 64,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 96,
+              "units": "px"
+            },
+            "left": {
+              "value": 64,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "mobile_profile_spacing",
+        "label": "Mobile profile spacing",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 40,
+              "units": "px"
+            },
+            "right": {
+              "value": 24,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 40,
+              "units": "px"
+            },
+            "left": {
+              "value": 24,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "mobile_content_spacing",
+        "label": "Mobile content spacing",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 40,
+              "units": "px"
+            },
+            "right": {
+              "value": 24,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 48,
+              "units": "px"
+            },
+            "left": {
+              "value": 24,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "mobile_related_spacing",
+        "label": "Mobile related profiles spacing",
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 40,
+              "units": "px"
+            },
+            "right": {
+              "value": 24,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 48,
+              "units": "px"
+            },
+            "left": {
+              "value": 24,
+              "units": "px"
+            }
+          }
+        }
+      },
+      {
+        "name": "sticky_top",
+        "label": "Sticky top offset (px)",
+        "type": "number",
+        "default": 56,
+        "min": 0,
+        "max": 300,
+        "step": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+.hw-acro-stack { position:relative; background-position:center; background-size:cover; font-family:var(--body,Arial,sans-serif); }
+.hw-acro-stack,.hw-acro-stack * { box-sizing:border-box; }
+.hw-acro-stack > .baseModuleOverlay { position:absolute; inset:0; pointer-events:none; }
+.hw-acro-stack__inner { position:relative; }
+.hw-acro-stack__layout { display:grid; grid-template-columns:minmax(0,456fr) minmax(0,744fr); align-items:center; gap:clamp(40px,7.778vw,112px); }
+.hw-acro-stack h3 { margin:0; color:var(--stack-heading_color); }
+.hw-acro-stack__content { margin-top:32px; color:var(--stack-content_color); }
+.hw-acro-stack__content p { margin:0; color:inherit; }
+.hw-acro-stack__map { position:relative; width:100%; aspect-ratio:744/584; }
+.hw-acro-stack__lines { position:absolute; inset:0; width:100%; height:100%; stroke:var(--stack-line_color); stroke-width:1; transform-origin:center; }
+.hw-acro-stack__center { position:absolute; z-index:2; left:40.860215%; top:38.356164%; width:18.27957%; height:23.287671%; display:grid; place-items:center; background:var(--stack-center_color); }
+.hw-acro-stack__center img { width:41.17647%; height:41.17647%; object-fit:contain; filter:brightness(0) invert(1); }
+.hw-acro-stack__tile { position:absolute; width:12.903226%; height:16.438356%; display:grid; place-items:center; background:var(--stack-tile_background); border:1px solid var(--stack-line_color); }
+.hw-acro-stack__tile img { width:50%; height:50%; object-fit:contain; }
+.hw-acro-stack__block { position:absolute; }
+.hw-acro-stack__block--one { left:34.408602%; top:30.136986%; width:12.903226%; height:16.438356%; background:var(--stack-block_one); --from-x:70.833333%; --from-y:70.833333%; }
+.hw-acro-stack__block--two { left:53.763441%; top:53.424658%; width:11.827957%; height:16.438356%; background:var(--stack-block_two); --from-x:-81.818182%; --from-y:-70.833333%; }
+.hw-acro-stack__divider { margin-top:var(--stack-divider-gap); border-top:1px solid var(--stack-line_color); }
+@media(max-width:1000px) { .hw-acro-stack__layout { grid-template-columns:minmax(0,1fr); gap:40px; } .hw-acro-stack__map { max-width:744px; margin-inline:auto; } .hw-acro-stack__copy { max-width:700px; } }
+@media(max-width:767px) {  .hw-acro-stack__content { font-size:18px; margin-top:24px; } }
+
+.hw-acro-stack__image-wrap{width:100%;min-width:0}.hw-acro-stack__image{display:block;width:100%;height:auto}@media(max-width:1000px){.hw-acro-stack__image-wrap{max-width:744px;margin-inline:auto}}

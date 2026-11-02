@@ -1,0 +1,47 @@
+<section class="hw-client-logos {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.animate|string|lower }}">
+  <div class="hw-client-logos__inner content-wrapper">
+    <h3 id="{{ name|escape_attr }}-title">{{ module.heading }}</h3>
+
+    {% if module.intro %}
+    <div class="hw-client-logos_content font20 lh15">
+    {{ module.intro }}
+    </div>
+    {% endif %}
+    <ul class="hw-client-logos__grid" aria-label="Technology clients">
+      {% for logo in module.logos %}
+      <li class="hw-client-logos__cell" style="--logo-width:{{ logo.width }}px;--logo-index:{{ loop.index0 }}">
+        <img src="{{ logo.image.src|escape_url }}" alt="{{ (logo.image.alt or logo.company)|escape_attr }}" loading="lazy" decoding="async" width="{{ logo.width }}" height="{{ module.style.logo_height }}">
+        
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }} {
+  {% for key in ['background','heading_color','text_color','border_color'] %}
+  --clients-{{ key }}:rgba({{ module.style[key].color|convert_rgb }},{{ module.style[key].opacity / 100 }});
+  {% endfor %}
+  {% for key in ['max_width','intro_width','heading_size','mobile_heading_size','text_size','heading_gap','grid_gap','cell_height','mobile_cell_height','cell_padding','logo_height','border_width'] %}
+  --clients-{{ key }}:{{ module.style[key] }}px;
+  {% endfor %}
+  {% for key in ['columns','tablet_columns','mobile_columns'] %}
+  --clients-{{ key }}:{{ module.style[key] }};
+  {% endfor %}
+  --clients-logo_opacity:{{ module.style.logo_opacity / 100 }};
+  --clients-hover_opacity:{{ module.style.hover_opacity / 100 }};
+  --clients-filter:{% if module.style.monochrome %}brightness(0){% else %}none{% endif %};
+  --clients-duration:{{ module.style.duration }}ms;
+  --clients-stagger:{{ module.style.stagger }}ms;
+  {% for breakpoint in ['desktop','tablet','mobile'] %}
+    {% for property in ['padding','margin'] %}
+      {% for edge in ['top','right','bottom','left'] %}
+      {% set spacing = module.style.spacing[breakpoint][property][edge] %}
+      --clients-{{ breakpoint }}-{{ property }}-{{ edge }}:{{ spacing.value|default(0) }}{{ spacing.units|default('px') }};
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+}
+</style>
+{% end_require_css %}

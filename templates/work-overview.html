@@ -1,0 +1,32 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: Work Overview
+  screenshotPath: ../images/template-previews/blog-index.png
+-->
+{% set template_css = "../../css/templates/blog.css" %}
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "dnd_area"
+  label="Main section",
+  class="body-container body-container--blog-index"
+%}
+
+   {% dnd_section padding={"top":0,"right":0,"bottom":0,"left":0}, full_width=true %}
+    {% dnd_module path="../modules/work-banner-section.module", label="Work banner" %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {# Work posts filtered by the choices saved in each post. #}
+  {% dnd_section padding={"top":0,"right":0,"bottom":0,"left":0}, full_width=true %}
+    {% dnd_module path="../modules/Work-Overview-Filter-Section.module" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+    {% dnd_section padding={"top":0,"right":0,"bottom":0,"left":0}, full_width=true %}
+    {% dnd_module path="../modules/work-closing-section.module", label="Work closing CTA" %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

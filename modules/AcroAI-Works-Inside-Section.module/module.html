@@ -1,0 +1,55 @@
+<section class="hw-acro-stack baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper hw-acro-stack__inner">
+    <div class="hw-acro-stack__layout">
+      <div class="hw-acro-stack__copy">
+        <h3 id="{{ name|escape_attr }}-title" data-stack-copy>
+          {{ module.content_group.title|escape_html }}
+        </h3>
+        <div class="hw-acro-stack__content font20 lh15" data-stack-copy>
+          {{ module.content_group.content }}
+        </div>
+      </div>
+      {% if module.content_group.media_type == "image" %}
+      <div class="hw-acro-stack__image-wrap">
+        {% if module.content_group.image.src %}<img class="hw-acro-stack__image" src="{{ module.content_group.image.src|escape_url }}" alt="{{ module.content_group.image.alt|escape_attr }}" loading="lazy" decoding="async"{% if module.content_group.image.width %} width="{{ module.content_group.image.width|escape_attr }}"{% endif %}{% if module.content_group.image.height %} height="{{ module.content_group.image.height|escape_attr }}"{% endif %}>{% endif %}
+      </div>
+      {% else %}
+      {% set positions = [[48,40],[324,40],[600,40],[48,244],[600,244],[48,448],[232,448],[416,448],[600,448]] %}
+      <div class="hw-acro-stack__map" role="img" aria-label="{{ module.content_group.map_description|escape_attr }}">
+        <svg class="hw-acro-stack__lines" viewBox="0 0 744 584" fill="none" aria-hidden="true">{% for item in module.content_group.integrations %}{% set pos = positions[loop.index0] %}<path d="M372 292 H{{ pos[0] + 48 }} V{{ pos[1] + 48 }}"/>{% endfor %}</svg>
+        <span class="hw-acro-stack__block hw-acro-stack__block--one" aria-hidden="true"></span><span class="hw-acro-stack__block hw-acro-stack__block--two" aria-hidden="true"></span>
+        <div class="hw-acro-stack__center">{% if module.content_group.center_logo.src %}<img src="{{ module.content_group.center_logo.src|escape_url }}" alt="" width="56" height="56" loading="lazy">{% endif %}</div>
+        {% for item in module.content_group.integrations %}{% set pos = positions[loop.index0] %}
+        <div class="hw-acro-stack__tile" title="{{ item.app_title|escape_attr }}" style="left:{{ pos[0] / 744 * 100 }}%;top:{{ pos[1] / 584 * 100 }}%;--from-x:{{ (324 - pos[0]) / 96 * 100 }}%;--from-y:{{ (244 - pos[1]) / 96 * 100 }}%;--arrival:{{ loop.index0 * 35 }}ms">
+          {% if item.image.src %}<img src="{{ item.image.src|escape_url }}" alt="" width="48" height="48" loading="lazy">{% endif %}
+        </div>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% if module.style.show_divider %}<div class="hw-acro-stack__divider" aria-hidden="true"></div>{% endif %}
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.baseModuleStyle {
+  {{ module.style.spacing.desktop_spacing.css }}
+  padding-left:0;
+  padding-right:0;
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}
+  background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});
+  {% endif %}
+  {% for key in ['heading_color','content_color','tile_background','line_color','center_color','block_one','block_two'] %}
+  --stack-{{ key }}:rgba({{ module.style[key].color|convert_rgb }},{{ module.style[key].opacity / 100 }});
+  {% endfor %}
+  --stack-divider-gap:{{ module.style.divider_gap }}px;
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }} > .baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }{% endif %}
+@media(max-width:1300px) { .{{ name }}.baseModuleStyle { {{ module.style.spacing.tab_spacing.css }} padding-left:0; padding-right:0; } }
+@media(max-width:767px) { .{{ name }}.baseModuleStyle { {{ module.style.spacing.mobile_spacing.css }} padding-left:0; padding-right:0; } }
+</style>
+{% end_require_css %}

@@ -1,0 +1,23 @@
+
+<section class="hw-case hw-case--challenge baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title">
+    <div class="content-wrapper">
+        <div class="hw-case__reading-row">
+            <h4 id="{{ name|escape_attr }}-title">
+                {{ module.content_group.title }}
+            </h4>
+            <div class="hw-case__prose font20 lh15">
+                {{ module.content_group.content }}
+            </div>
+        </div>
+        <div class="hw-case__gallery">
+            <figure data-case-reveal>{% if module.content_group.image_one.src %}<img class="" src="{{ module.content_group.image_one.src|escape_url }}" alt="{{ module.content_group.image_one.alt|escape_attr }}" loading="lazy" decoding="async">{% endif %}</figure>
+            <figure data-case-reveal style="--case-delay:80ms">{% if module.content_group.image_two.src %}<img class="" src="{{ module.content_group.image_two.src|escape_url }}" alt="{{ module.content_group.image_two.alt|escape_attr }}" loading="lazy" decoding="async">{% endif %}</figure>
+        </div>
+    </div>
+</section>
+{% require_css %}<style>
+.{{ name }}.hw-case{ {{ module.style.spacing.desktop_spacing.css }} color:{{ module.style.text_color.color }};--case-accent:{{ module.style.accent.color }};
+{% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');{% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};{% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}}
+@media(max-width:1300px){.{{ name }}.hw-case{ {{ module.style.spacing.tab_spacing.css }} }}
+@media(max-width:767px){.{{ name }}.hw-case{ {{ module.style.spacing.mobile_spacing.css }} }}
+</style>{% end_require_css %}

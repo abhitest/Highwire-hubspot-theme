@@ -1,0 +1,11 @@
+.hw-quote{position:relative;background-size:cover;background-position:center}
+.hw-quote,.hw-quote *{box-sizing:border-box}
+.hw-quote>.baseModuleOverlay{position:absolute;inset:0;pointer-events:none}
+.hw-quote>.baseModuleParent{position:relative}
+.hw-quote__layout{display:grid;grid-template-columns:104px minmax(0,1fr);gap:32px}.hw-quote__layout--no-mark{grid-template-columns:minmax(0,1fr)}.hw-quote__mark{width:80px;height:64px;margin-top:8px;color:var(--quote-mark_color)}.hw-quote .hw-quote__figure{margin:0;min-width:0}.hw-quote blockquote{max-width:1080px;padding:0;border:0;margin:0;background:none;color:var(--quote-quote_color);font:400 36px/1.25 var(--display,Arial,sans-serif);letter-spacing:-.03em;overflow-wrap:anywhere}.hw-quote blockquote:before,.hw-quote blockquote:after{content:none}.hw-quote blockquote p{margin:0 0 24px;font:inherit;color:inherit}.hw-quote blockquote>:last-child{margin-bottom:0}.hw-quote blockquote a{color:inherit}.hw-quote figcaption{display:flex;flex-direction:column;gap:4px;margin-top:40px;font:400 18px/1.5 var(--body,Arial,sans-serif)}.hw-quote__author{color:var(--quote-author_color)}.hw-quote__role{color:var(--quote-role_color)}
+
+@media (max-width: 900px){
+    .hw-quote blockquote {  font-size: 30px;}
+}
+
+@media(max-width:767px){.hw-quote__layout{grid-template-columns:minmax(0,1fr);gap:24px}.hw-quote__mark{width:48px;height:38px;margin-top:0}.hw-quote blockquote{font-size:28px}.hw-quote figcaption{font-size:16px;margin-top:28px}}

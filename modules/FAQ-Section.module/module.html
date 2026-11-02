@@ -1,0 +1,53 @@
+<section class="hw-faq baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-heading" data-layout="{{ module.content_group.layout|escape_attr }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    <div class="hw-faq__layout">
+      <div class="hw-faq__sidebar">
+        <h3 id="{{ name|escape_attr }}-heading">{{ module.content_group.heading }}</h3>
+        {% if module.content_group.layout == 'categorized' %}
+        <nav class="hw-faq__index" aria-label="FAQ topics">
+          {% for group in module.content_group.groups %}
+          <a href="#{{ name|escape_attr }}-group-{{ loop.index }}"><span>{{ group.category|escape_html }}</span><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square"><path d="M9 3v12"/><path d="m4.5 10.5 4.5 4.5 4.5-4.5"/></g></svg></a>
+          {% endfor %}
+        </nav>
+        {% endif %}
+      </div>
+      <div class="hw-faq__content">
+        {% if module.content_group.intro %}
+        <div class="hw-faq__intro lh15 font20">
+          {{ module.content_group.intro }}
+        </div>
+        {% endif %}
+        {% for group in module.content_group.groups %}
+        {% set group_index = loop.index %}
+        <div class="hw-faq__group" id="{{ name|escape_attr }}-group-{{ group_index }}" tabindex="-1">
+          {% if group.show_heading %}<h6>{{ group.category }}</h6>{% endif %}
+          {% for item in group.questions %}
+          <details class="hw-faq__item" name="{{ name|escape_attr }}-accordion" id="{{ name|escape_attr }}-faq-{{ group_index }}-{{ loop.index }}" {% if module.content_group.initially_open and group_index == 1 and loop.first %}open{% endif %}>
+            <summary>{% if group.show_heading %}<h4>{{ item.question|escape_html }}</h4>{% else %}<h3>{{ item.question|escape_html }}</h3>{% endif %}<span class="hw-faq__mark" aria-hidden="true"></span></summary>
+            <div class="hw-faq__answer">{{ item.answer }}</div>
+          </details>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-faq {
+  {{ module.style.spacing.desktop_spacing.css }}
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background:{{ module.style.background_property.background_color.css }};{% endif %}
+  --faq-text:{{ module.style.text_color.css }};
+  --faq-answer:{{ module.style.answer_color.css }};
+  --faq-accent:{{ module.style.accent.css }};
+  --faq-border:{{ module.style.border_color.css }};
+  --faq-offset:{{ module.style.sticky_offset }}px;
+}
+@media(max-width:1024px) { .{{ name }}.hw-faq { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-faq { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

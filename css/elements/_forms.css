@@ -131,7 +131,7 @@ form .hs-richtext img {
 /* Validation */
 
 .hs-form-required {
-  color: #EF6B51;
+  color: #000;
 }
 
 .hs-input.invalid.error {

@@ -1,0 +1,1 @@
+/* This banner uses native blog data and needs no JavaScript. */

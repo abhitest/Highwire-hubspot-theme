@@ -1,0 +1,550 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "The Full Spectrum of Marketing and Communications Capabilities",
+        "allow_new_line": true
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "richtext",
+        "default": ""
+      },
+      {
+        "name": "title_color",
+        "label": "Title colour",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_color",
+        "label": "Description colour",
+        "type": "color",
+        "default": {
+          "color": "#666666",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "media_type",
+        "label": "Media type",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "video",
+            "Video"
+          ],
+          [
+            "image",
+            "Image"
+          ]
+        ],
+        "default": "video"
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "image",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "video_type",
+        "label": "Video source",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "mp4",
+            "MP4 URL"
+          ],
+          [
+            "hubspot",
+            "HubSpot video"
+          ]
+        ],
+        "default": "mp4",
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "hubspot_video",
+        "label": "HubSpot video",
+        "type": "videoplayer",
+        "visibility": {
+          "controlling_field_path": "content_group.video_type",
+          "controlling_value_regex": "hubspot",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "video_url",
+        "label": "Video URL (MP4)",
+        "type": "text",
+        "default": "https://highwire-demo.vercel.app/images/products/acroai/capabilities-combined.mp4",
+        "visibility": {
+          "controlling_field_path": "content_group.video_type",
+          "controlling_value_regex": "mp4",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "poster",
+        "label": "Video poster",
+        "type": "image",
+        "default": {
+          "src": "https://highwire-demo.vercel.app/images/products/acroai/capabilities-poster.jpg",
+          "alt": "AcroAI campaign creation demo",
+          "width": 1280,
+          "height": 720
+        },
+        "visibility": {
+          "controlling_field_path": "content_group.video_type",
+          "controlling_value_regex": "mp4",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "video_label",
+        "label": "Video accessible label",
+        "type": "text",
+        "default": "AcroAI capabilities demonstration"
+      },
+      {
+        "name": "animate",
+        "label": "Enable description reveal",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "capabilities",
+        "label": "Capabilities",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 20,
+          "default": 4
+        },
+        "children": [
+          {
+            "name": "icon",
+            "label": "Icon",
+            "type": "image",
+            "default": {}
+          },
+          {
+            "name": "title",
+            "label": "Title",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "description",
+            "label": "Description",
+            "type": "richtext",
+            "default": ""
+          }
+        ],
+        "default": [
+          {
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/search.svg",
+              "alt": "",
+              "width": 24,
+              "height": 24
+            },
+            "title": "Research & Intelligence",
+            "description": "<p>Actionable insights from 100+ data sources, delivered automatically.</p>"
+          },
+          {
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/view.svg",
+              "alt": "",
+              "width": 24,
+              "height": 24
+            },
+            "title": "Real-Time Monitoring",
+            "description": "<p>24/7 competitive and market intelligence so you're always the most prepared person in the room.</p>"
+          },
+          {
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/target.svg",
+              "alt": "",
+              "width": 24,
+              "height": 24
+            },
+            "title": "SEO & GEO Optimization",
+            "description": "<p>Audit and optimize content for both traditional search and generative engine results.</p>"
+          },
+          {
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/edit.svg",
+              "alt": "",
+              "width": 24,
+              "height": 24
+            },
+            "title": "Content & Campaign Execution",
+            "description": "<p>Multi-channel campaigns with consistent brand voice, from strategy to delivery</p>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Background image overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "Top/bottom section spacing; content-wrapper manages horizontal padding.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 120,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 120,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "Top/bottom section spacing; content-wrapper manages horizontal padding.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "Top/bottom section spacing; content-wrapper manages horizontal padding.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "column_gap",
+        "label": "Column gap (px)",
+        "type": "number",
+        "default": 80,
+        "min": 0,
+        "max": 160
+      },
+      {
+        "name": "heading_gap",
+        "label": "Space below heading (px)",
+        "type": "number",
+        "default": 64,
+        "min": 0,
+        "max": 160
+      },
+      {
+        "name": "sticky_offset",
+        "label": "Sticky video top offset (px)",
+        "type": "number",
+        "default": 96,
+        "min": 0,
+        "max": 300
+      },
+      {
+        "name": "accent_color",
+        "label": "Hover accent",
+        "type": "color",
+        "default": {
+          "color": "#4bb7ff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "line_color",
+        "label": "Divider colour",
+        "type": "color",
+        "default": {
+          "color": "#cccccc",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "video_background",
+        "label": "Video background",
+        "type": "color",
+        "default": {
+          "color": "#2b44b5",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

@@ -1,0 +1,543 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Works Inside Your Existing Stack"
+      },
+      {
+        "name": "content",
+        "label": "Content",
+        "type": "richtext",
+        "default": "<p>AcroAI integrates with SharePoint, Google Drive, Dropbox, HubSpot, Asana, Outlook, Gmail, Microsoft Teams, Slack, and more — no new systems or workflow disruption.</p>"
+      },
+      {
+        "name": "media_type",
+        "label": "Media type",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "animation",
+            "Animation"
+          ],
+          [
+            "image",
+            "Image"
+          ]
+        ],
+        "default": "animation"
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "image",
+          "operator": "EQUAL"
+        },
+        "default": {
+          "src": "",
+          "alt": "",
+          "size_type": "auto"
+        }
+      },
+      {
+        "name": "map_description",
+        "label": "Diagram accessible description",
+        "type": "text",
+        "default": "Highwire connected to SharePoint, Google Drive, Dropbox, HubSpot, Asana, Outlook, Gmail, Microsoft Teams and Slack",
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "animation",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "center_logo",
+        "label": "Centre logo",
+        "type": "image",
+        "default": {
+          "src": "https://highwire-demo.vercel.app/images/home/about/highwire-mark.svg",
+          "alt": "Highwire"
+        },
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "animation",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "integrations",
+        "label": "Integration logos (positions follow reference order)",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 9,
+          "default": 9
+        },
+        "children": [
+          {
+            "name": "app_title",
+            "label": "App name",
+            "type": "text"
+          },
+          {
+            "name": "image",
+            "label": "App icon",
+            "type": "image"
+          }
+        ],
+        "default": [
+          {
+            "app_title": "SharePoint",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/products/acroai/integrations/sharepoint.svg",
+              "alt": "SharePoint"
+            }
+          },
+          {
+            "app_title": "Google Drive",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/products/acroai/integrations/drive.png",
+              "alt": "Google Drive"
+            }
+          },
+          {
+            "app_title": "Dropbox",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/products/acroai/integrations/dropbox.svg",
+              "alt": "Dropbox"
+            }
+          },
+          {
+            "app_title": "HubSpot",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/products/acroai/integrations/hubspot.svg",
+              "alt": "HubSpot"
+            }
+          },
+          {
+            "app_title": "Asana",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/products/acroai/integrations/asana.svg",
+              "alt": "Asana"
+            }
+          },
+          {
+            "app_title": "Outlook",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/products/acroai/integrations/outlook.svg",
+              "alt": "Outlook"
+            }
+          },
+          {
+            "app_title": "Gmail",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/products/acroai/integrations/gmail.png",
+              "alt": "Gmail"
+            }
+          },
+          {
+            "app_title": "Microsoft Teams",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/products/acroai/integrations/teams.svg",
+              "alt": "Microsoft Teams"
+            }
+          },
+          {
+            "app_title": "Slack",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/products/acroai/integrations/slack.svg",
+              "alt": "Slack"
+            }
+          }
+        ],
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "animation",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "animate",
+        "label": "Enable animations",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Background image overlay",
+            "type": "color",
+            "default": {
+              "color": "#ffffff",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "Only top and bottom padding apply. Horizontal spacing is managed by the global content-wrapper.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 96,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "Only top and bottom padding apply. Horizontal spacing is managed by the global content-wrapper.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "Only top and bottom padding apply. Horizontal spacing is managed by the global content-wrapper.",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "heading_color",
+        "label": "Heading",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_color",
+        "label": "Content",
+        "type": "color",
+        "default": {
+          "color": "#666666",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "tile_background",
+        "label": "App tiles",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "line_color",
+        "label": "Lines and borders",
+        "type": "color",
+        "default": {
+          "color": "#cccccc",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "center_color",
+        "label": "Centre tile",
+        "type": "color",
+        "default": {
+          "color": "#2b44b5",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "block_one",
+        "label": "Upper accent",
+        "type": "color",
+        "default": {
+          "color": "#ed93f7",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "block_two",
+        "label": "Lower accent",
+        "type": "color",
+        "default": {
+          "color": "#4bb7ff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "show_divider",
+        "label": "Show bottom divider",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "divider_gap",
+        "label": "Bottom divider spacing (px)",
+        "type": "number",
+        "default": 80,
+        "min": 0,
+        "max": 200,
+        "step": 1
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

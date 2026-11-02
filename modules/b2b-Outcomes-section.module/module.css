@@ -2,25 +2,27 @@
 .hw-b2b-outcomes * { box-sizing:border-box; }
 .hw-b2b-outcomes .baseModuleOverlay { position:absolute; inset:0; pointer-events:none; background:var(--outcomes-overlay,transparent); }
 .hw-b2b-outcomes__layout { position:relative; display:grid; grid-template-columns:minmax(0,456fr) minmax(0,744fr); gap:clamp(48px,7.778vw,112px); align-items:start; }
-.hw-b2b-outcomes__intro h2 { margin:0; color:inherit; font:400 clamp(36px,3.889vw,56px)/1.08 var(--display,Arial,sans-serif); letter-spacing:-.04em; }
-.hw-b2b-outcomes__intro p { margin:40px 0 0; color:inherit; font:400 20px/1.5 var(--body,Arial,sans-serif); }
+.hw-b2b-outcomes__intro { position:sticky; top:96px; align-self:start; }
+.hw-b2b-outcomes__intro h2 { margin:0; }
+.hw-b2b-outcomes__intro p { margin:32px 0 0; }
 .hw-b2b-outcomes__item { position:relative; border-top:1px solid #bfbfbf; padding:40px 0 56px; }
-.hw-b2b-outcomes__item::before { content:''; position:absolute; top:-1px; left:0; right:0; height:4px; background:#4bb7ff; transform:scaleY(0); transform-origin:top; transition:transform .36s cubic-bezier(.22,1,.36,1); }
-.hw-b2b-outcomes__item:hover::before,.hw-b2b-outcomes__item:focus-visible::before { transform:scaleY(1); }
-.hw-b2b-outcomes__item:focus-visible { outline:2px solid #4bb7ff; outline-offset:8px; }
+.hw-b2b-outcomes .hw-b2b-outcomes__item::before { content:''; position:absolute; top:-1px; left:0; right:0; height:4px; background:var(--outcomes-hover-accent,#4bb7ff); transform:scaleY(0); transform-origin:center top; pointer-events:none; transition:transform .36s cubic-bezier(.22,1,.36,1); }
+.hw-b2b-outcomes .hw-b2b-outcomes__item:hover::before,.hw-b2b-outcomes .hw-b2b-outcomes__item:focus-within::before { transform:scaleY(1); }
+.hw-b2b-outcomes__item:focus-within { outline:2px solid var(--outcomes-hover-accent,#4bb7ff); outline-offset:8px; }
 .hw-b2b-outcomes__item:last-child { padding-bottom:0; }
 .hw-b2b-outcomes__heading { display:flex; align-items:center; gap:24px; }
-.hw-b2b-outcomes__icon { display:grid; place-items:center; width:48px; height:48px; flex:0 0 48px; transition:background-color .22s; }
+.hw-b2b-outcomes__icon { display:grid; place-items:center; width:48px; height:48px; flex:0 0 48px; transition:background-color .22s cubic-bezier(.4,0,.2,1); }
 .hw-b2b-outcomes__icon img { width:24px; height:24px; object-fit:contain; filter:brightness(0); }
-.hw-b2b-outcomes__item:hover .hw-b2b-outcomes__icon,.hw-b2b-outcomes__item:focus-visible .hw-b2b-outcomes__icon { background:#4bb7ff; }
-.hw-b2b-outcomes__heading h3 { margin:0; color:inherit; font:400 30px/1.2 var(--display,Arial,sans-serif); letter-spacing:-.6px; }
+.hw-b2b-outcomes__item:hover .hw-b2b-outcomes__icon,.hw-b2b-outcomes__item:focus-within .hw-b2b-outcomes__icon { background:var(--outcomes-hover-accent,#4bb7ff); }
+.hw-b2b-outcomes__heading h3 { margin:0; }
 .hw-b2b-outcomes__item p { margin:28px 0 0 72px; color:#404040; font:400 18px/1.5 var(--body,Arial,sans-serif); }
 @media(max-width:767px) {
+ .hw-b2b-outcomes__intro { position:static; }
  .hw-b2b-outcomes__layout { grid-template-columns:minmax(0,1fr); gap:48px; }
  .hw-b2b-outcomes__intro p { margin-top:24px; font-size:18px; }
  .hw-b2b-outcomes__item { padding:28px 0 36px; }
  .hw-b2b-outcomes__heading { gap:16px; }
- .hw-b2b-outcomes__heading h3 { font-size:26px; }
+ 
  .hw-b2b-outcomes__item p { margin-left:64px; font-size:16px; }
 }
 @media(prefers-reduced-motion:reduce) { .hw-b2b-outcomes *,.hw-b2b-outcomes *::before { transition:none!important; } }
@@ -49,6 +51,13 @@ html[data-motion=reduced] .hw-b2b-outcomes *,html[data-motion=reduced] .hw-b2b-o
  margin-left:var(--outcomes-tab-margin-left,0px);
 }
 }
+
+@media (max-width:900px) {
+.hw-b2b-outcomes__layout {grid-template-columns: minmax(0, 1fr);; gap:48px; }
+.hw-b2b-outcomes__intro { position:static; }
+}
+
+
 @media (max-width:767px) {
 .hw-b2b-outcomes.baseModuleStyle {
  padding-top:var(--outcomes-mobile-padding-top,48px);
@@ -62,3 +71,14 @@ html[data-motion=reduced] .hw-b2b-outcomes *,html[data-motion=reduced] .hw-b2b-o
 }
 }
 
+
+.hw-b2b-outcomes__box-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hw-b2b-outcomes__item a:not(.hw-b2b-outcomes__box-link) {
+  position: relative;
+  z-index: 2;
+}
