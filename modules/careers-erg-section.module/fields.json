@@ -1,0 +1,431 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Where We Belong:\nEmployee Resource\nGroups (ERGs)"
+      },
+      {
+        "name": "content",
+        "label": "Content",
+        "type": "richtext",
+        "default": "<p>Guided by the 4Cs (community, culture, career, and commerce), our ERGs bring the right issues to light, the right people to the table, and the right energy to drive lasting change.</p>"
+      }
+    ]
+  },
+  {
+    "name": "groups",
+    "label": "Employee resource groups",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 5,
+      "sorting_label_field": "groups.group_title"
+    },
+    "children": [
+      {
+        "name": "group_title",
+        "label": "Title",
+        "type": "text"
+      },
+      {
+        "name": "group_content",
+        "label": "Content",
+        "type": "richtext"
+      },
+      {
+        "name": "group_logo",
+        "label": "Logo",
+        "type": "image",
+        "responsive": true,
+        "resizable": true
+      }
+    ],
+    "default": [
+      {
+        "group_title": "Más Sabor",
+        "group_content": "<p>The purpose of Mas Sabor is to unite and uplift the Highwire Latine community to promote progress, raise cultural awareness, attract and retain talent, and foster personal and professional growth.</p>",
+        "group_logo": {
+          "src": "../../images/careers-erg/mas-sabor.svg",
+          "alt": "Más Sabor",
+          "size_type": "auto"
+        }
+      },
+      {
+        "group_title": "Here & Queer",
+        "group_content": "<p>Here &amp; Queer exists to challenge binaries, expand perspectives and create a safe space to explore our identities. The heart of Here &amp; Queer is to raise awareness of issues impacting the community, partner with leadership to achieve equality and inclusion, and celebrate queer joy and achievements.</p>",
+        "group_logo": {
+          "src": "../../images/careers-erg/here-and-queer.svg",
+          "alt": "Here & Queer",
+          "size_type": "auto"
+        }
+      },
+      {
+        "group_title": "For the Culture",
+        "group_content": "<p>The purpose of For The Culture is to maintain a safe space for Black Highwire Walkers and unpacking external events/issues that impact our community. We deliberately and unapologetically take time to center and celebrate Black joy, culture and career achievements.</p>",
+        "group_logo": {
+          "src": "../../images/careers-erg/for-the-culture.svg",
+          "alt": "For the Culture",
+          "size_type": "auto"
+        }
+      },
+      {
+        "group_title": "Have Several Seats",
+        "group_content": "<p>Our mission for Have Several Seats is to empower Black women in our agency by fostering an inclusive and safe space, providing mentorship, professional development, and networking opportunities for personal and career growth. We will also leverage this forum as a place for identifying agency/industry-facing learning and allyship opportunities connected to the unique needs and lived experiences of Black women in the workplace.</p>",
+        "group_logo": {
+          "src": "../../images/careers-erg/have-several-seats.svg",
+          "alt": "Have Several Seats",
+          "size_type": "auto"
+        }
+      },
+      {
+        "group_title": "Cut Fruit Collective",
+        "group_content": "<p>Cut Fruit Collective is dedicated to amplifying Asian American and Pacific Islander (AAPI) voices and creating a space to explore the depth of our diverse community. We aim to foster an environment of belonging where members can freely express themselves and connect on important issues within the AAPI community, while also growing personally and professionally.</p>",
+        "group_logo": {
+          "src": "../../images/careers-erg/cut-fruit-collective.png",
+          "alt": "Cut Fruit Collective",
+          "size_type": "auto"
+        }
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Image overlay color",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 96,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 96,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "title_color",
+        "label": "Heading color",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_color",
+        "label": "Content color",
+        "type": "color",
+        "default": {
+          "color": "#666666",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "rule_color",
+        "label": "Divider color",
+        "type": "color",
+        "default": {
+          "color": "#cccccc",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "enable_animation",
+        "label": "Enable animations",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "sticky_intro",
+        "label": "Sticky introduction on desktop",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "sticky_offset",
+        "label": "Sticky top offset",
+        "type": "number",
+        "default": 96,
+        "min": 0,
+        "max": 300,
+        "suffix": "px"
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

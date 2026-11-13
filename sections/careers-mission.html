@@ -1,0 +1,13 @@
+<!--
+ templateType: section
+ label: Careers Mission
+ isAvailableForNewContent: true
+ description: "Editable careers introduction and icon rows."
+-->
+{% dnd_section full_width=true, padding={"top":0,"bottom":0,"left":0,"right":0} %}
+ {% dnd_module path="../modules/careers-values-section.module", width=12, offset=0,
+ content_group={"eyebrow":"Mission","title":"Ignite Your Growth,\nAmplify Our Impact","content":"<p>We craft communications that connect, inspire, and transform business potential into business progress. To do that, we must first support and inspire our remarkable people. And that could mean you.</p><p>Our values guide how we hire, promote, collaborate, and nurture our team.</p>"},
+ items=[{"item_title":"Inclusion Always","item_content":"<p>Safe spaces, shared voices, a culture that brings out your best</p>","icon_choice":"group"},{"item_title":"Growth Mindset","item_content":"<p>Curiosity fuels our innovation</p>","icon_choice":"lamp"},{"item_title":"Team Empowerment","item_content":"<p>We equip our team with the tools, resources, and guidance to lead and soar</p>","icon_choice":"lightning"},{"item_title":"Fierce Distinction","item_content":"<p>High standards, bold moves, and standout work</p>","icon_choice":"trophy"}],
+ style={"background_property":{"background_choice":"bgColor","background_color":{"color":"#ffffff","opacity":100}}}
+ %}{% end_dnd_module %}
+{% end_dnd_section %}

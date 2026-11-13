@@ -1,0 +1,448 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "eyebrow",
+        "label": "Eyebrow",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Diversity, Inclusion\nand Belonging:\nCulture as a Catalyst",
+        "allow_new_line": true
+      },
+      {
+        "name": "content",
+        "label": "Content",
+        "type": "richtext",
+        "default": "<p>Our award-winning DIBs culture is built with intention, creating empowered spaces where everyone can thrive, grow, and contribute authentically. From our employee resource groups (ERGs) to our DIBs Ambassadors, we're shaping what's next ? and building a more inclusive, inspired world.</p>"
+      },
+      {
+        "name": "image",
+        "label": "Photo",
+        "type": "image",
+        "default": {
+          "src": "../../images/careers-belonging.webp",
+          "alt": "Two Highwire colleagues reviewing work together in the office",
+          "size_type": "auto"
+        },
+        "responsive": true,
+        "resizable": true
+      },
+      {
+        "name": "image_x",
+        "label": "Horizontal image position",
+        "type": "number",
+        "default": 85,
+        "min": 0,
+        "max": 100
+      },
+      {
+        "name": "image_y",
+        "label": "Vertical image position",
+        "type": "number",
+        "default": 50,
+        "min": 0,
+        "max": 100
+      }
+    ]
+  },
+  {
+    "name": "items",
+    "label": "Article rows",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 3,
+      "sorting_label_field": "items.item_title"
+    },
+    "children": [
+      {
+        "name": "item_title",
+        "label": "Title",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "item_content",
+        "label": "Content",
+        "type": "richtext",
+        "default": ""
+      }
+    ],
+    "default": [
+      {
+        "item_title": "Good Trouble is Good Business",
+        "item_content": "<p>Our DIBs Ambassadors challenges the status quo and ensures equity stays at the center of our work.</p>"
+      },
+      {
+        "item_title": "Accountability Is Our Foundation",
+        "item_content": "<p>Every Highwire Walker sets a personal inclusion and belonging goal tied to their performance and growth. It?s how we keep DIBs top of mind, every day.</p>"
+      },
+      {
+        "item_title": "Partnerships with Purpose",
+        "item_content": "<p>We extend our impact through collaboration with community organizations focused on equity for historically marginalized populations ? because real change requires collective effort.</p>"
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#000000",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Image overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "title_color",
+        "label": "Heading color",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_color",
+        "label": "Content color",
+        "type": "color",
+        "default": {
+          "color": "#b3b3b3",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "panel_padding",
+        "label": "Panel padding",
+        "type": "number",
+        "default": 64,
+        "min": 0,
+        "max": 150,
+        "suffix": "px"
+      },
+      {
+        "name": "mobile_padding",
+        "label": "Mobile panel padding",
+        "type": "number",
+        "default": 24,
+        "min": 0,
+        "max": 150,
+        "suffix": "px"
+      },
+      {
+        "name": "enable_animation",
+        "label": "Enable scroll animations",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "panel_vertical_padding",
+        "label": "Panel top and bottom padding",
+        "type": "number",
+        "default": 88,
+        "min": 0,
+        "max": 200,
+        "suffix": "px"
+      },
+      {
+        "name": "mobile_vertical_padding",
+        "label": "Mobile top and bottom padding",
+        "type": "number",
+        "default": 48,
+        "min": 0,
+        "max": 200,
+        "suffix": "px"
+      },
+      {
+        "name": "rule_color",
+        "label": "Divider color",
+        "type": "color",
+        "default": {
+          "color": "#444444",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

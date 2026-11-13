@@ -1,0 +1,50 @@
+<section class="hw-career-values baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %} data-career-values data-animate="{{ 'true' if module.style.enable_animation else 'false' }}" data-sticky="{{ 'true' if module.style.sticky_intro else 'false' }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent">
+    <div class="content-wrapper"><div class="hw-career-values__layout">
+      <header class="hw-career-values__intro">
+        {% if module.content_group.eyebrow %}<p class="hw-career-values__eyebrow">{{ module.content_group.eyebrow }}</p>{% endif %}
+        {% if module.content_group.title %}<h2 id="{{ name|escape_attr }}-title" class="hw-career-values__title" data-values-reveal>{{ module.content_group.title }}</h2>{% endif %}
+        {% if module.content_group.content %}<div class="hw-career-values__copy">{{ module.content_group.content }}</div>{% endif %}
+      </header>
+      <div class="hw-career-values__rows">
+        {% for item in module.items %}
+        <article class="hw-career-values__row" tabindex="0" {% if item.item_title %}aria-labelledby="{{ name|escape_attr }}-value-{{ loop.index }}"{% endif %}>
+          {% if item.icon_choice != 'none' %}<span class="hw-career-values__icon" aria-hidden="true">
+            {% if item.icon_choice == 'custom' %}
+              {% if item.icon_image.src %}<img src="{{ item.icon_image.src|escape_url }}" alt="" width="32" height="32" loading="lazy">{% endif %}
+            {% else %}<img src="{{ get_asset_url('../../images/careers-icons/' ~ item.icon_choice ~ '.svg')|escape_url }}" alt="" width="32" height="32" loading="lazy">{% endif %}
+          </span>{% endif %}
+          <div class="hw-career-values__row-copy">
+            {% if item.item_title %}<h3 id="{{ name|escape_attr }}-value-{{ loop.index }}">{{ item.item_title }}</h3>{% endif %}
+            {% if item.item_content %}<div class="hw-career-values__description">{{ item.item_content }}</div>{% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div></div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-career-values {
+  {{ module.style.spacing.desktop_spacing.css }}
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}
+  background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});
+  {% endif %}
+  {% for color in ['title_color','content_color','rule_color','accent_one','accent_two','accent_three'] %}
+  --values-{{ color }}:rgba({{ module.style[color].color|convert_rgb }},{{ module.style[color].opacity / 100 }});
+  {% endfor %}
+  --values-sticky-offset:{{ module.style.sticky_offset }}px;
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}
+.{{ name }} > .baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }
+{% endif %}
+@media(max-width:1300px) { .{{ name }}.hw-career-values { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-career-values { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

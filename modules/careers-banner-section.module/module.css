@@ -1,0 +1,25 @@
+.hw-careers-banner { position:relative; background-position:center; background-size:cover; background-repeat:no-repeat; font-family:var(--body,Arial,sans-serif); }
+.hw-careers-banner,.hw-careers-banner * { box-sizing:border-box; }
+.hw-careers-banner > .baseModuleOverlay { position:absolute; inset:0; pointer-events:none; }
+.hw-careers-banner > .baseModuleParent { position:relative; }
+.hw-careers-banner .hw-careers-banner__title { margin:0; color:var(--careers-title_color); font:400 clamp(44px,6vw,80px)/1.04 var(--display,Arial,sans-serif); letter-spacing:-.045em; overflow-wrap:break-word; }
+.hw-careers-banner__title span { display:block; color:var(--careers-accent_color); }
+.hw-careers-banner__lead { display:flex; justify-content:space-between; align-items:center; gap:48px; margin-top:36px; }
+.hw-careers-banner__content { max-width:790px; min-width:0; color:var(--careers-content_color); font-size:20px; line-height:1.5; }
+.hw-careers-banner__content p { margin:0 0 20px; color:inherit; }
+.hw-careers-banner__content p:last-child { margin-bottom:0; }
+.hw-careers-banner__content a { color:inherit; text-decoration:underline; }
+.hw-careers-banner a.hw-careers-banner__button { flex-shrink:0; display:inline-flex; justify-content:space-between; align-items:center; gap:32px; min-height:58px; padding:18px 22px; background:var(--careers-button_background); color:var(--careers-button_color); font:600 14px/1.5 var(--body,Arial,sans-serif); text-decoration:none; border:1px solid transparent; transition:background .2s,color .2s; }
+.hw-careers-banner__button svg { width:20px; height:20px; flex-shrink:0; }
+.hw-careers-banner a.hw-careers-banner__button:hover { background:var(--careers-accent_color); }
+.hw-careers-banner a:focus-visible { outline:2px solid var(--careers-accent_color); outline-offset:5px; }
+.hw-careers-banner__media { margin:44px 0 0; overflow:hidden; }
+.hw-careers-banner__media img { display:block; width:100%; height:auto; aspect-ratio:2.4; object-fit:cover; object-position:center; }
+@media(max-width:1024px) { .hw-careers-banner__lead { gap:32px; } .hw-careers-banner__content { font-size:18px; } }
+@media(max-width:767px) {
+.hw-careers-banner .hw-careers-banner__title { font-size:clamp(36px,8vw,56px); line-height:1.08; }
+.hw-careers-banner__lead { flex-direction:column; align-items:flex-start; gap:24px; margin-top:28px; }
+.hw-careers-banner__media { margin-top:32px; }
+.hw-careers-banner__media img { aspect-ratio:1.5; }
+}
+@media(prefers-reduced-motion:reduce) { .hw-careers-banner a.hw-careers-banner__button { transition:none; } }

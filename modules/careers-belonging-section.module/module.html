@@ -1,0 +1,30 @@
+<section class="hw-career-belonging baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %} data-career-belonging data-animate="{{ 'true' if module.style.enable_animation else 'false' }}">
+<span class="baseModuleOverlay" aria-hidden="true"></span>
+<div class="baseModuleParent hw-career-belonging__layout">
+<div class="hw-career-belonging__panel">
+{% if module.content_group.eyebrow %}<p class="hw-career-belonging__eyebrow">{{ module.content_group.eyebrow }}</p>{% endif %}
+{% if module.content_group.title %}<h2 class="hw-career-belonging__heading" id="{{ name|escape_attr }}-title">{{ module.content_group.title }}</h2>{% endif %}
+{% if module.content_group.content %}<div class="hw-career-belonging__content">{{ module.content_group.content }}</div>{% endif %}
+{% if module.items %}<div class="hw-career-belonging__articles">{% for item in module.items %}<article>{% if item.item_title %}<h3>{{ item.item_title }}</h3>{% endif %}{% if item.item_content %}<div class="hw-career-belonging__article-content">{{ item.item_content }}</div>{% endif %}</article>{% endfor %}</div>{% endif %}
+</div>
+{% if module.content_group.image.src %}<div class="hw-career-belonging__photo"><img src="{{ module.content_group.image.src|escape_url }}" alt="{{ module.content_group.image.alt|escape_attr }}" loading="lazy" style="object-position:{{ module.content_group.image_x }}% {{ module.content_group.image_y }}%"><canvas aria-hidden="true"></canvas></div>{% endif %}
+</div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-career-belonging {
+ {{ module.style.spacing.desktop_spacing.css }}
+ {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+ {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+ {% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}
+ {% for color in ['title_color','content_color','rule_color'] %}--belonging-{{ color }}:rgba({{ module.style[color].color|convert_rgb }},{{ module.style[color].opacity / 100 }});{% endfor %}
+ --belonging-vertical-padding:{{ module.style.panel_vertical_padding }}px;
+ --belonging-mobile-vertical-padding:{{ module.style.mobile_vertical_padding }}px;
+ --belonging-padding:{{ module.style.panel_padding }}px;
+ --belonging-mobile-padding:{{ module.style.mobile_padding }}px;
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }} > .baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }{% endif %}
+@media(max-width:1300px) { .{{ name }}.hw-career-belonging { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-career-belonging { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

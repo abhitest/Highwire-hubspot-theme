@@ -1,0 +1,13 @@
+<!--
+ templateType: section
+ label: Careers How We Work
+ isAvailableForNewContent: true
+ description: "Editable careers introduction and icon rows."
+-->
+{% dnd_section full_width=true, padding={"top":0,"bottom":0,"left":0,"right":0} %}
+ {% dnd_module path="../modules/careers-values-section.module", width=12, offset=0,
+ content_group={"eyebrow":"How we work","title":"For Audacious Thinkers, Curious Minds and Collaborative Innovators","content":"<p>We're not for everyone. But, then again, you?re probably not like ?everyone.? If you?re ready to soar, read on. We thrive on:</p>"},
+ items=[{"item_title":"Radical Candor","item_content":"<p>We communicate directly and care personally, fostering growth through honest, empathetic feedback.</p>","icon_choice":"comment"},{"item_title":"Creative Ideation","item_content":"<p>Curiosity is our competitive advantage, driving us to ask better questions and push ideas forward, not just process.</p>","icon_choice":"pen"},{"item_title":"DiSC Workstyles","item_content":"<p>We value diverse perspectives to build high-performing teams that deliver undeniable results.</p>","icon_choice":"settings"},{"item_title":"Tenacious Execution","item_content":"<p>We think fast, deliver smart, and learn constantly, turning potential into influence.</p>","icon_choice":"finish"}],
+ style={"background_property":{"background_choice":"bgColor","background_color":{"color":"#f0f0f0","opacity":100}}}
+ %}{% end_dnd_module %}
+{% end_dnd_section %}

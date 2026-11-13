@@ -1,0 +1,513 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "eyebrow",
+        "label": "Eyebrow",
+        "type": "text",
+        "default": "Life at Highwire"
+      },
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Flexibility Meets Connection"
+      },
+      {
+        "name": "content",
+        "label": "Content",
+        "type": "richtext",
+        "default": "<p>Our SWOOP (Stay Wired Office Opportunity Plan) gives you the best of both.</p>"
+      },
+      {
+        "name": "image",
+        "label": "Photo",
+        "type": "image",
+        "default": {
+          "src": "../../images/careers-flexibility.webp",
+          "alt": "A Highwire colleague joining a video meeting with the wider team",
+          "size_type": "auto"
+        },
+        "responsive": true,
+        "resizable": true
+      },
+      {
+        "name": "image_x",
+        "label": "Horizontal image position",
+        "type": "number",
+        "default": 62,
+        "min": 0,
+        "max": 100
+      },
+      {
+        "name": "image_y",
+        "label": "Vertical image position",
+        "type": "number",
+        "default": 50,
+        "min": 0,
+        "max": 100
+      },
+      {
+        "name": "show_stats",
+        "label": "Show statistics",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "items",
+    "label": "Checklist",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 6
+    },
+    "children": [
+      {
+        "name": "item_content",
+        "label": "Content",
+        "type": "richtext",
+        "default": ""
+      }
+    ],
+    "default": [
+      {
+        "item_content": "<p>Offices in SF and NYC plus growing remote hubs</p>"
+      },
+      {
+        "item_content": "<p>Recognized by PRovoke and Inc. as a Best Workplace</p>"
+      },
+      {
+        "item_content": "<p>3 in-office days/week for local employees</p>"
+      },
+      {
+        "item_content": "<p>Monthly experience days to connect as a team</p>"
+      },
+      {
+        "item_content": "<p>4 ?Work From Anywhere? weeks each year</p>"
+      },
+      {
+        "item_content": "<p>Remote-first for all-agency meetings and training</p>"
+      }
+    ]
+  },
+  {
+    "name": "stats",
+    "label": "Statistics",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 12,
+      "default": 4,
+      "sorting_label_field": "stats.stat_value"
+    },
+    "children": [
+      {
+        "name": "stat_value",
+        "label": "Value",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "stat_content",
+        "label": "Content",
+        "type": "richtext",
+        "default": ""
+      }
+    ],
+    "default": [
+      {
+        "stat_value": "250+",
+        "stat_content": "<p>Highwire Walkers across the U.S</p>"
+      },
+      {
+        "stat_value": "46%",
+        "stat_content": "<p>Team Diversity</p>"
+      },
+      {
+        "stat_value": "75%",
+        "stat_content": "<p>Women in the workforce</p>"
+      },
+      {
+        "stat_value": "40%",
+        "stat_content": "<p>Of roles filled through internal promotion</p>"
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#f0f0f0",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Image overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "title_color",
+        "label": "Heading and checklist color",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_color",
+        "label": "Content color",
+        "type": "color",
+        "default": {
+          "color": "#666666",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_one",
+        "label": "First wipe / hover color",
+        "type": "color",
+        "default": {
+          "color": "#4bb7ff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_two",
+        "label": "Second wipe / hover color",
+        "type": "color",
+        "default": {
+          "color": "#fa9bff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_three",
+        "label": "Third wipe / hover color",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "panel_padding",
+        "label": "Panel padding",
+        "type": "number",
+        "default": 64,
+        "min": 0,
+        "max": 150,
+        "suffix": "px"
+      },
+      {
+        "name": "mobile_padding",
+        "label": "Mobile panel padding",
+        "type": "number",
+        "default": 24,
+        "min": 0,
+        "max": 150,
+        "suffix": "px"
+      },
+      {
+        "name": "enable_animation",
+        "label": "Enable scroll animations",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "panel_vertical_padding",
+        "label": "Panel top and bottom padding",
+        "type": "number",
+        "default": 88,
+        "min": 0,
+        "max": 200,
+        "suffix": "px"
+      },
+      {
+        "name": "mobile_vertical_padding",
+        "label": "Mobile top and bottom padding",
+        "type": "number",
+        "default": 48,
+        "min": 0,
+        "max": 200,
+        "suffix": "px"
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

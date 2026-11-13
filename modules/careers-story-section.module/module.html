@@ -1,0 +1,40 @@
+<div class="hw-career-story baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-career-story data-animate="{{ 'true' if module.style.enable_animation else 'false' }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent hw-career-story__layout">
+    <div class="hw-career-story__panels">
+      {% for chapter in module.chapters %}
+      <section class="hw-career-story__panel" data-story-panel {% if chapter.title %}aria-labelledby="{{ name|escape_attr }}-story-{{ loop.index }}"{% endif %}>
+        {% if chapter.eyebrow %}<p class="hw-career-story__eyebrow">{{ chapter.eyebrow }}</p>{% endif %}
+        {% if chapter.title %}<h2 id="{{ name|escape_attr }}-story-{{ loop.index }}" class="hw-career-story__heading"><span>{{ chapter.title }}</span></h2>{% endif %}
+        {% if chapter.content %}<div class="hw-career-story__content">{{ chapter.content }}</div>{% endif %}
+        {% if chapter.items %}<ul class="hw-career-story__checklist">
+          {% for item in chapter.items %}<li tabindex="0"><span class="hw-career-story__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6" pathLength="1"/></svg></span><div>{{ item.item_content }}</div></li>{% endfor %}
+        </ul>{% endif %}
+        {% if chapter.image.src %}<div class="hw-career-story__inline-photo"><img src="{{ chapter.image.src|escape_url }}" alt="{{ chapter.image.alt|escape_attr }}" loading="lazy" style="object-position:{{ chapter.image_x }}% {{ chapter.image_y }}%"></div>{% endif %}
+      </section>
+      {% endfor %}
+    </div>
+    <div class="hw-career-story__media" aria-hidden="true">
+      {% for chapter in module.chapters %}<div class="hw-career-story__image" data-active="{{ 'true' if loop.first else 'false' }}" data-previous="{{ 'true' if loop.first else 'false' }}">{% if chapter.image.src %}<img src="{{ chapter.image.src|escape_url }}" alt="" loading="eager" style="object-position:{{ chapter.image_x }}% {{ chapter.image_y }}%">{% endif %}</div>{% endfor %}
+      <div class="hw-career-story__wipe"></div>
+    </div>
+  </div>
+</div>
+{% require_css %}
+<style>
+.{{ name }}.hw-career-story {
+ {{ module.style.spacing.desktop_spacing.css }}
+ {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+ {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+ {% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}
+ {% for color in ['title_color','content_color','accent_one','accent_two','accent_three'] %}--story-{{ color }}:rgba({{ module.style[color].color|convert_rgb }},{{ module.style[color].opacity / 100 }});{% endfor %}
+ --story-vertical-padding:{{ module.style.panel_vertical_padding }}px;
+ --story-mobile-vertical-padding:{{ module.style.mobile_vertical_padding }}px;
+ --story-padding:{{ module.style.panel_padding }}px;
+ --story-mobile-padding:{{ module.style.mobile_padding }}px;
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }} > .baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }{% endif %}
+@media(max-width:1300px) { .{{ name }}.hw-career-story { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-career-story { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

@@ -1,0 +1,495 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "eyebrow",
+        "label": "Eyebrow",
+        "type": "text",
+        "default": "Mission"
+      },
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Ignite Your Growth,\nAmplify Our Impact",
+        "allow_new_line": true
+      },
+      {
+        "name": "content",
+        "label": "Content",
+        "type": "richtext",
+        "default": "<p>We craft communications that connect, inspire, and transform business potential into business progress. To do that, we must first support and inspire our remarkable people. And that could mean you.</p><p>Our values guide how we hire, promote, collaborate, and nurture our team.</p>"
+      }
+    ]
+  },
+  {
+    "name": "items",
+    "label": "Value rows",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 4,
+      "sorting_label_field": "items.item_title"
+    },
+    "children": [
+      {
+        "name": "item_title",
+        "label": "Title",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "item_content",
+        "label": "Content",
+        "type": "richtext",
+        "default": ""
+      },
+      {
+        "name": "icon_choice",
+        "label": "Icon",
+        "type": "choice",
+        "default": "group",
+        "display": "select",
+        "choices": [
+          [
+            "group",
+            "People"
+          ],
+          [
+            "lamp",
+            "Light bulb"
+          ],
+          [
+            "lightning",
+            "Lightning"
+          ],
+          [
+            "trophy",
+            "Trophy"
+          ],
+          [
+            "comment",
+            "Conversation"
+          ],
+          [
+            "pen",
+            "Pen"
+          ],
+          [
+            "settings",
+            "Settings"
+          ],
+          [
+            "finish",
+            "Finish flag"
+          ],
+          [
+            "custom",
+            "Custom image"
+          ],
+          [
+            "none",
+            "No icon"
+          ]
+        ]
+      },
+      {
+        "name": "icon_image",
+        "label": "Custom icon image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "visibility": {
+          "controlling_field_path": "items.icon_choice",
+          "controlling_value_regex": "custom",
+          "operator": "EQUAL"
+        }
+      }
+    ],
+    "default": [
+      {
+        "item_title": "Inclusion Always",
+        "item_content": "<p>Safe spaces, shared voices, a culture that brings out your best</p>",
+        "icon_choice": "group"
+      },
+      {
+        "item_title": "Growth Mindset",
+        "item_content": "<p>Curiosity fuels our innovation</p>",
+        "icon_choice": "lamp"
+      },
+      {
+        "item_title": "Team Empowerment",
+        "item_content": "<p>We equip our team with the tools, resources, and guidance to lead and soar</p>",
+        "icon_choice": "lightning"
+      },
+      {
+        "item_title": "Fierce Distinction",
+        "item_content": "<p>High standards, bold moves, and standout work</p>",
+        "icon_choice": "trophy"
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Image overlay color",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 96,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 96,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "title_color",
+        "label": "Heading color",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_color",
+        "label": "Content color",
+        "type": "color",
+        "default": {
+          "color": "#666666",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "rule_color",
+        "label": "Divider color",
+        "type": "color",
+        "default": {
+          "color": "#cccccc",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_one",
+        "label": "Hover color 1",
+        "type": "color",
+        "default": {
+          "color": "#8cc8ff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_two",
+        "label": "Hover color 2",
+        "type": "color",
+        "default": {
+          "color": "#c5a1ff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_three",
+        "label": "Hover color 3",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "enable_animation",
+        "label": "Enable animations",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "sticky_intro",
+        "label": "Sticky introduction on desktop",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "sticky_offset",
+        "label": "Sticky top offset",
+        "type": "number",
+        "default": 96,
+        "min": 0,
+        "max": 300,
+        "suffix": "px"
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

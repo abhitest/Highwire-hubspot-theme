@@ -1,0 +1,46 @@
+<section class="hw-careers-banner baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title or module.content_group.highlighted_title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %}>
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent">
+    <div class="content-wrapper">
+      {% if module.content_group.title or module.content_group.highlighted_title %}
+      <h1 class="hw-careers-banner__title" id="{{ name|escape_attr }}-title">{% if module.content_group.title %}{{ module.content_group.title }}{% endif %}{% if module.content_group.highlighted_title %}<span>{{ module.content_group.highlighted_title }}</span>{% endif %}</h1>
+      {% endif %}
+      <div class="hw-careers-banner__lead">
+        {% if module.content_group.content %}<div class="hw-careers-banner__content">{{ module.content_group.content }}</div>{% endif %}
+        {% if module.content_group.button_text and module.content_group.button_link.url.href %}
+          {% set href = module.content_group.button_link.url.href %}
+          {% if module.content_group.button_link.url.type == 'EMAIL_ADDRESS' %}{% set href = 'mailto:' ~ href %}{% elif module.content_group.button_link.url.type == 'PHONE_NUMBER' %}{% set href = 'tel:' ~ href %}{% endif %}
+          <a class="hw-careers-banner__button" href="{{ href|escape_url }}" {% if module.content_group.button_link.open_in_new_tab %}target="_blank"{% endif %} {% if module.content_group.button_link.rel %}rel="{{ module.content_group.button_link.rel|escape_attr }}{% if module.content_group.button_link.open_in_new_tab %} noopener{% endif %}"{% elif module.content_group.button_link.open_in_new_tab %}rel="noopener"{% endif %}>
+            <span>{{ module.content_group.button_text }}</span>
+            {% if module.content_group.show_arrow %}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><path d="M9 3v12m-4.5-4.5L9 15l4.5-4.5" stroke="currentColor" stroke-width="1.4"/></svg>{% endif %}
+          </a>
+        {% endif %}
+      </div>
+      {% if module.content_group.hero_image.src %}
+      <figure class="hw-careers-banner__media"><img src="{{ module.content_group.hero_image.src|escape_url }}" alt="{{ module.content_group.hero_image.alt|escape_attr }}" {% if module.content_group.hero_image.width %}width="{{ module.content_group.hero_image.width }}"{% endif %} {% if module.content_group.hero_image.height %}height="{{ module.content_group.hero_image.height }}"{% endif %} {% if module.content_group.hero_image.loading != 'disabled' %}loading="{{ module.content_group.hero_image.loading|default('eager')|escape_attr }}"{% endif %} decoding="async"></figure>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-careers-banner {
+  {{ module.style.spacing.desktop_spacing.css }}
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}
+  background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});
+  {% endif %}
+  {% for color in ['title_color','accent_color','content_color','button_background','button_color'] %}
+  --careers-{{ color }}:rgba({{ module.style[color].color|convert_rgb }},{{ module.style[color].opacity / 100 }});
+  {% endfor %}
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}
+.{{ name }} > .baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }
+{% endif %}
+@media(max-width:1300px) { .{{ name }}.hw-careers-banner { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-careers-banner { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}
