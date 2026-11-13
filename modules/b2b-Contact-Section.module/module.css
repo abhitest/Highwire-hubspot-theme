@@ -1,5 +1,5 @@
-.hw-contact { position:relative; isolation:isolate; border-top:8px solid #ffce3d; padding:var(--contact-desktop-top,100px) 0 var(--contact-desktop-bottom,100px); background:var(--contact-background,#f0f0f0); color:#000; font-family:var(--body,Arial,sans-serif); }
-.hw-contact::after { content:''; position:absolute; inset:0; z-index:5; background:#ffce3d; pointer-events:none; transform-origin:center top; transform:scaleY(0); }
+.hw-contact { position:relative; isolation:isolate; border-top:8px solid var(--contact-accent,#ffce3d); padding:var(--contact-desktop-top,100px) 0 var(--contact-desktop-bottom,100px); background:var(--contact-background,#f0f0f0); color:#000; font-family:var(--body,Arial,sans-serif); }
+.hw-contact::after { content:''; position:absolute; inset:0; z-index:5; background:var(--contact-accent,#ffce3d); pointer-events:none; transform-origin:center top; transform:scaleY(0); }
 .hw-contact[data-cover-ready=true]::after { transform:scaleY(1); }
 .hw-contact[data-cover-visible=true]::after { transform:scaleY(0); transition:transform .87s cubic-bezier(.22,1,.36,1); }
 .hw-contact:focus-within::after { transform:scaleY(0); transition:none; }
@@ -20,6 +20,10 @@ html[data-motion=reduced] .hw-contact::after,.hw-contact[data-animate=false]::af
 .hw-contact__bio { margin-top:28px; color:#4b483f; font-size:17px; line-height:1.45; }
 .hw-contact__bio p { margin:0 0 16px; }
 .hw-contact__panel { align-self:start; min-width:0; padding:44px; background:#fff; }
+/* Keep the shorter form alongside long biographies, as on the Health page. */
+@media(min-width:901px) {
+ .hw-contact__panel { position:sticky; top:96px; }
+}
 .hw-contact__panel form,.hw-contact__panel fieldset { max-width:none!important; padding:0; border:0; background:transparent; }
 .hw-contact__panel .hs-form-field,.hw-contact__preview > label { display:block; margin:0 0 25px; }
 .hw-contact__panel label { display:block; color:#111; font:400 16px/1.5 var(--body,Arial,sans-serif); }

@@ -1,0 +1,65 @@
+{% set content = module.content_group %}
+<section class="hw-podcast hw-podcast-banner baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-animate="{{ content.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    {% if content.show_breadcrumb|default(true) and (content.parent_label or content.current_label) %}
+    <nav class="pod-breadcrumb" aria-label="Breadcrumb"><ol>
+      {% if content.parent_label %}<li>{% if content.parent_url.href %}<a href="{{ content.parent_url.href }}">{{ content.parent_label|escape_html }}</a>{% else %}{{ content.parent_label }}{% endif %}</li>{% endif %}
+      {% if content.current_label %}<li>{% if content.parent_label %}<span aria-hidden="true">/</span>{% endif %}<span aria-current="page">{{ content.current_label }}</span></li>{% endif %}
+    </ol></nav>
+    {% endif %}
+    {% set cover_src = content.cover.src %}
+    {% if not cover_src and content.use_default_cover|default(true) %}{% set cover_src = get_asset_url('../../images/podcast/show-cover.jpg') %}{% endif %}
+    {% set has_cover = content.show_cover|default(true) and cover_src %}
+    <div class="pod-hero-grid{% if not has_cover %} pod-hero-grid--no-cover{% endif %}">
+      <div>
+        {% if content.eyebrow %}<p class="pod-eyebrow">{{ content.eyebrow }}</p>{% endif %}
+        {% if content.title %}<div class="pod-title" data-podcast-reveal>{{ content.title }}</div>{% endif %}
+        {% if content.subhead %}<h6 class="pod-subhead">{{ content.subhead }}</h6>{% endif %}
+        {% if content.platforms %}<div class="pod-platforms">
+          {% if content.listen_label %}<p>{{ content.listen_label }}</p>{% endif %}
+          <div>{% for platform in content.platforms %}{% if platform.url.href and platform.platform_title %}
+            <a class="pod-link" href="{{ platform.url.href|escape_url }}"{% if platform.new_tab|default(true) %} target="_blank" rel="noopener noreferrer"{% endif %}>
+              <span>{% if platform.icon.src or platform.default_icon %}<img src="{{ (platform.icon.src or get_asset_url('../../images/podcast/' ~ platform.default_icon))|escape_url }}" alt="" width="24" height="24" loading="lazy">{% endif %}{{ platform.platform_title|escape_html }}</span>
+              {% if platform.show_arrow|default(true) %}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg>{% endif %}
+            </a>
+          {% endif %}{% endfor %}</div>
+        </div>{% endif %}
+      </div>
+      {% if has_cover %}<figure class="pod-cover"><img src="{{ cover_src|escape_url }}" alt="{{ content.cover.alt|escape_attr }}" width="520" height="520" loading="eager" fetchpriority="high"></figure>{% endif %}
+    </div>
+    {% if content.description %}<div class="pod-description font20 lh15 {% if not content.show_divider|default(true) %} pod-description--no-divider{% endif %}">{{ content.description }}</div>{% endif %}
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-podcast-banner {
+  {{ module.style.spacing.desktop_spacing.css }}
+  --pod-cover-background:{{ module.style.cover_background.css|default('#ffffff') }};
+  --pod-title-size:{{ module.style.title_size|default(96) }}px;
+  --pod-tablet-title-size:{{ module.style.tablet_title_size|default(72) }}px;
+  --pod-mobile-title-size:{{ module.style.mobile_title_size|default(56) }}px;
+  --pod-column-gap:{{ module.style.column_gap|default(112) }}px;
+  --pod-text:{{ module.style.text_color.css|default('#ffffff') }};
+  --pod-muted:{{ module.style.muted_color.css|default('#cccccc') }};
+  --pod-accent:{{ module.style.accent_color.css|default('#ff7042') }};
+  --pod-border:{{ module.style.border_color.css|default('#555555') }};
+  --pod-breadcrumb:{{ module.style.breadcrumb_color.css|default('#4bb7ff') }};
+  {% if module.style.background_property.background_color.color %}
+  --pod-banner-background:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity|default(100) / 100 }});
+  {% endif %}
+  {% if module.style.background_property.background_choice == 'bgImage' and module.style.background_property.background_image.src %}
+  background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  background-image:{{ module.style.background_property.background_gredient.css }};
+  {% endif %}
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}
+.{{ name }} > .baseModuleOverlay {
+  background:rgba({{ module.style.background_property.overlay_color.color|default('#000000')|convert_rgb }},{{ module.style.background_property.overlay_color.opacity|default(0) / 100 }});
+}
+{% endif %}
+@media(max-width:1300px) { .{{ name }}.hw-podcast-banner { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-podcast-banner { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

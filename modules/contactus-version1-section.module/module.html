@@ -1,0 +1,57 @@
+<section class="hw-contact-v1 baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %}>
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper hw-contact-v1__layout">
+    <div class="hw-contact-v1__copy">
+      <div class="moduletitleSection">
+        {% if module.content_group.title %}
+        <h3 class="moduleTitle" id="{{ name|escape_attr }}-title">
+          {{ module.content_group.title }}
+        </h3>
+        {% endif %}
+        {% if module.content_group.content %}
+        <div class="moduleContent font20 lh15">
+          {{ module.content_group.content }}
+        </div>
+        {% endif %} 
+      </div>
+    </div>
+    <div class="hw-contact-v1__form">
+      {% if module.content_group.form.form_id %}
+      {% form form_to_use="{{ module.content_group.form.form_id }}", response_response_type="{{ module.content_group.form.response_type }}", response_message="{{ module.content_group.form.message }}", response_redirect_id="{{ module.content_group.form.redirect_id }}", response_redirect_url="{{ module.content_group.form.redirect_url }}" %}
+      
+      {% elif is_in_editor %}
+      <p>Select a subscription form in the module settings. Edit its field labels, sector options, and submit text in HubSpot Forms.</p>
+      {% endif %}
+      {% if module.content_group.privacy_note %}
+      <div class="hw-contact-v1__privacy">
+        {{ module.content_group.privacy_note }}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.baseModuleStyle {
+  {{ module.style.spacing.desktop_spacing.css }}
+  color:rgba({{ module.style.text_color.color|convert_rgb }},{{ module.style.text_color.opacity / 100 }});
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}
+  background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});
+  {% endif %}
+  --cv1-form-background:rgba({{ module.style.form_background.color|convert_rgb }},{{ module.style.form_background.opacity / 100 }});
+  --cv1-form-text:rgba({{ module.style.form_text.color|convert_rgb }},{{ module.style.form_text.opacity / 100 }});
+  --cv1-privacy:rgba({{ module.style.privacy_color.color|convert_rgb }},{{ module.style.privacy_color.opacity / 100 }});
+  --cv1-form-padding:{{ module.style.form_padding }}px;
+  --cv1-mobile-form-padding:{{ module.style.mobile_form_padding }}px;
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}
+.{{ name }} > .baseModuleOverlay { background:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity / 100 }}); }
+{% endif %}
+@media(max-width:1300px) { .{{ name }}.baseModuleStyle { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.baseModuleStyle { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

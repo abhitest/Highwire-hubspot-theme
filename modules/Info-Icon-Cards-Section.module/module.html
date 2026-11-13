@@ -28,6 +28,7 @@
 {% require_css %}<style>
 .{{ name }}.baseModuleStyle {
 --cards-columns:{% if module.content_group.columns == "2" %}2{% else %}3{% endif %};
+--cards-title-max-width:{% if module.style.title_max_width == 0 %}100%{% else %}{{ module.style.title_max_width|default(900) }}px{% endif %};
 {{ module.style.spacing.desktop_spacing.css }} padding-left:0; padding-right:0; margin-left:0; margin-right:0;
 {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');{% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};{% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}
 {% for key in ['border_color','hover_one','hover_two','hover_three'] %}--cards-{{ key }}:rgba({{ module.style[key].color|convert_rgb }},{{ module.style[key].opacity / 100 }});{% endfor %}

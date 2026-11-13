@@ -52,6 +52,7 @@
 <style>
 /* Only per-instance editor values live here; all CSS rules are in Page Css. */
 .{{ name }} {
+  --b2b-banner-accent: {{ module.style.accent_color.css|default('#ffca3a') }};
   --b2b-banner-background: {% if module.style.background_property.background_palette == 'subtle' %}color-mix(in srgb, var(--color-primary) 5%, var(--color-secondary)){% else %}var(--color-{{ module.style.background_property.background_palette or 'secondary' }}){% endif %};
   {% if module.style.background_property.background_choice == 'bgImage' %}
   --b2b-banner-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
@@ -81,4 +82,15 @@
 }
 
 </style>
+{% if module.style.override_heading_size %}
+<style>
+.{{ name }}.hw-b2b-banner h1 { font-size:{{ module.style.heading_sizes.desktop_size|default(88) }}px; }
+@media(max-width:1300px) {
+  .{{ name }}.hw-b2b-banner h1 { font-size:{{ module.style.heading_sizes.tablet_size|default(64) }}px; }
+}
+@media(max-width:767px) {
+  .{{ name }}.hw-b2b-banner h1 { font-size:{{ module.style.heading_sizes.mobile_size|default(48) }}px; }
+}
+</style>
+{% endif %}
 {% end_require_css %}

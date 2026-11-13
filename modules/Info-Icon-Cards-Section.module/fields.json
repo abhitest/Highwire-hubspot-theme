@@ -422,6 +422,16 @@
         "display_width": null
       },
       {
+        "name": "title_max_width",
+        "label": "Title max width (px)",
+        "type": "number",
+        "default": 900,
+        "min": 0,
+        "max": 2400,
+        "step": 1,
+        "help_text": "Maximum width of the section title. Set to 0 for full container width."
+      },
+      {
         "name": "grid_gap",
         "label": "Column gap (px)",
         "type": "number",

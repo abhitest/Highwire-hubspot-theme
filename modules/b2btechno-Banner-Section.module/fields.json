@@ -146,6 +146,69 @@
     "locked": false,
     "children": [
       {
+        "name": "override_heading_size",
+        "label": "Override Heading Font Size",
+        "type": "boolean",
+        "display": "toggle",
+        "default": false
+      },
+      {
+        "name": "heading_sizes",
+        "label": "Heading Font Sizes",
+        "type": "group",
+        "visibility": {
+          "controlling_field_path": "style.override_heading_size",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        },
+        "children": [
+          {
+            "name": "desktop_size",
+            "label": "Desktop Font Size",
+            "type": "number",
+            "display": "text",
+            "default": 88,
+            "min": 16,
+            "max": 180,
+            "step": 1,
+            "suffix": "px"
+          },
+          {
+            "name": "tablet_size",
+            "label": "Tablet Font Size",
+            "type": "number",
+            "display": "text",
+            "default": 64,
+            "min": 16,
+            "max": 180,
+            "step": 1,
+            "suffix": "px"
+          },
+          {
+            "name": "mobile_size",
+            "label": "Mobile Font Size",
+            "type": "number",
+            "display": "text",
+            "default": 48,
+            "min": 16,
+            "max": 180,
+            "step": 1,
+            "suffix": "px"
+          }
+        ]
+      },
+      {
+        "id": "style.accent_color",
+        "name": "accent_color",
+        "label": "Accent Color",
+        "help_text": "Color of the breadcrumb square and the background behind the banner image.",
+        "type": "color",
+        "default": {
+          "color": "#ffca3a",
+          "opacity": 100
+        }
+      },
+      {
         "id": "style.background_property",
         "name": "background_property",
         "label": "Background Property",

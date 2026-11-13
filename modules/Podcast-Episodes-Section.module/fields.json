@@ -1,0 +1,627 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "id": "content_group",
+    "name": "content_group",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "All Episodes"
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "text",
+        "default": "Browse conversations by the topics that matter to you."
+      },
+      {
+        "name": "filter_label",
+        "label": "Filter Label",
+        "type": "text",
+        "default": "Filter by topic"
+      },
+      {
+        "name": "all_label",
+        "label": "All Topics Label",
+        "type": "text",
+        "default": "All topics"
+      },
+      {
+        "name": "reset_label",
+        "label": "Reset Filter Label",
+        "type": "text",
+        "default": "Clear filter"
+      },
+      {
+        "name": "empty_label",
+        "label": "Empty Results Message",
+        "type": "text",
+        "default": "No episodes match this topic."
+      },
+      {
+        "name": "singular_label",
+        "label": "Singular Result Label",
+        "type": "text",
+        "default": "episode"
+      },
+      {
+        "name": "plural_label",
+        "label": "Plural Result Label",
+        "type": "text",
+        "default": "episodes"
+      },
+      {
+        "name": "apple_label",
+        "label": "Apple Link Label",
+        "type": "text",
+        "default": "Apple Podcasts"
+      },
+      {
+        "name": "spotify_label",
+        "label": "Spotify Link Label",
+        "type": "text",
+        "default": "Spotify"
+      },
+      {
+        "name": "episodes",
+        "label": "Episodes",
+        "type": "group",
+        "default": [
+          {
+            "title": "Modern Leadership",
+            "date": "October 21, 2026",
+            "iso_date": "2026-10-21",
+            "duration": "25:43",
+            "guest": "Christina Twomey, CCO, S&P Global",
+            "topics": "Leadership, AI",
+            "apple_url": {
+              "href": "https://podcasts.apple.com/us/podcast/a-better-angle-on-modern-leadership-with/id1799265091?i=1000797441738",
+              "type": "EXTERNAL"
+            },
+            "spotify_url": {
+              "href": "https://open.spotify.com/show/0PfltCTXYhOvWlgp689n5q",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "Nonprofit Leadership",
+            "date": "September 30, 2026",
+            "iso_date": "2026-09-30",
+            "duration": "16:14",
+            "guest": "Tom Jones, EVP & COO, Women's World Banking",
+            "topics": "Leadership, Brand & Community",
+            "apple_url": {
+              "href": "https://podcasts.apple.com/us/podcast/a-better-angle-on-nonprofit-leadership-with-tom/id1799265091?i=1000792396175",
+              "type": "EXTERNAL"
+            },
+            "spotify_url": {
+              "href": "https://open.spotify.com/show/0PfltCTXYhOvWlgp689n5q",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "Communications Leadership",
+            "date": "August 27, 2026",
+            "iso_date": "2026-08-27",
+            "duration": "26:38",
+            "guest": "Christina Twomey, CCO, S&P Global",
+            "topics": "Communications, Leadership",
+            "apple_url": {
+              "href": "https://podcasts.apple.com/us/podcast/a-better-angle-on-communications-leadership/id1799265091?i=1000786288071",
+              "type": "EXTERNAL"
+            },
+            "spotify_url": {
+              "href": "https://open.spotify.com/show/0PfltCTXYhOvWlgp689n5q",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "The Next Generation of Marketing",
+            "date": "July 15, 2026",
+            "iso_date": "2026-07-15",
+            "duration": "13:57",
+            "guest": "NYU Graduate Students, Alyssa Byam & Vanessa Marquez-Kramme",
+            "topics": "Marketing, AI, Careers",
+            "apple_url": {
+              "href": "https://podcasts.apple.com/us/podcast/a-better-angle-on-the-next-generation-of/id1799265091?i=1000776910437",
+              "type": "EXTERNAL"
+            },
+            "spotify_url": {
+              "href": "https://open.spotify.com/show/0PfltCTXYhOvWlgp689n5q",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "Brand Community",
+            "date": "June 24, 2026",
+            "iso_date": "2026-06-24",
+            "duration": "18:31",
+            "guest": "Katherine Steinberg, Editor-In-Chief, SheKnows",
+            "topics": "Brand & Community, Communications",
+            "apple_url": {
+              "href": "https://podcasts.apple.com/us/podcast/a-better-angle-on-brand-community-with/id1799265091?i=1000774039726",
+              "type": "EXTERNAL"
+            },
+            "spotify_url": {
+              "href": "https://open.spotify.com/show/0PfltCTXYhOvWlgp689n5q",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "Leadership",
+            "date": "May 20, 2026",
+            "iso_date": "2026-05-20",
+            "duration": "25:12",
+            "guest": "Cameron Batten, Global CCO at CNH",
+            "topics": "Leadership, Careers",
+            "apple_url": {
+              "href": "https://podcasts.apple.com/us/podcast/a-better-angle-on-leadership-with-cameron-batten/id1799265091?i=1000768743510",
+              "type": "EXTERNAL"
+            },
+            "spotify_url": {
+              "href": "https://open.spotify.com/show/0PfltCTXYhOvWlgp689n5q",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "Tech-Driven Marketing Careers",
+            "date": "April 29, 2026",
+            "iso_date": "2026-04-29",
+            "duration": "14:02",
+            "guest": "Amber Weinberger, Senior Client Partnerships Manager, Marketing Solutions, LinkedIn",
+            "topics": "Marketing, Careers",
+            "apple_url": {
+              "href": "https://podcasts.apple.com/us/podcast/a-better-angle-on-tech-driven-marketing-careers/id1799265091?i=1000764401620",
+              "type": "EXTERNAL"
+            },
+            "spotify_url": {
+              "href": "https://open.spotify.com/episode/47w4HiHfHzt7Ie0ugGNYH5",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "The Better Angle One Year Anniversary",
+            "date": "April 22, 2026",
+            "iso_date": "2026-04-22",
+            "duration": "17:24",
+            "guest": "Cortney Stapleton & Kathleen Rennie, Co-hosts",
+            "topics": "Leadership",
+            "apple_url": {
+              "href": "https://podcasts.apple.com/us/podcast/the-better-angle-one-year-anniversary/id1799265091?i=1000763064635",
+              "type": "EXTERNAL"
+            },
+            "spotify_url": {
+              "href": "https://open.spotify.com/episode/3S25IXAEy7zYvBffpHd6Xt",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "Political Communications",
+            "date": "March 18, 2026",
+            "iso_date": "2026-03-18",
+            "duration": "21:39",
+            "guest": "Marjorie Sweeney, Chief Speechwriter to Two Consecutive Mayors of NYC - Bill De Blasio and Eric Adams",
+            "topics": "Communications, AI",
+            "apple_url": {
+              "href": "https://podcasts.apple.com/us/podcast/a-better-angle-on-political-communications-with/id1799265091?i=1000755962102",
+              "type": "EXTERNAL"
+            },
+            "spotify_url": {
+              "href": "https://open.spotify.com/episode/3ell66qGATboGbgOLXDbIe",
+              "type": "EXTERNAL"
+            }
+          }
+        ],
+        "occurrence": {
+          "min": 0,
+          "default": 9,
+          "sorting_label_field": "content_group.episodes.title"
+        },
+        "children": [
+          {
+            "name": "title",
+            "label": "Episode Title",
+            "type": "text"
+          },
+          {
+            "name": "date",
+            "label": "Display Date",
+            "type": "text"
+          },
+          {
+            "name": "iso_date",
+            "label": "Date (YYYY-MM-DD)",
+            "type": "text"
+          },
+          {
+            "name": "duration",
+            "label": "Duration",
+            "type": "text"
+          },
+          {
+            "name": "guest",
+            "label": "Guest",
+            "type": "text"
+          },
+          {
+            "name": "topics",
+            "label": "Topics (comma separated)",
+            "type": "text"
+          },
+          {
+            "name": "apple_url",
+            "label": "Apple Podcasts URL",
+            "type": "url",
+            "default": {
+              "href": "",
+              "type": "EXTERNAL"
+            },
+            "supported_types": [
+              "EXTERNAL",
+              "CONTENT",
+              "FILE"
+            ]
+          },
+          {
+            "name": "spotify_url",
+            "label": "Spotify URL",
+            "type": "url",
+            "default": {
+              "href": "",
+              "type": "EXTERNAL"
+            },
+            "supported_types": [
+              "EXTERNAL",
+              "CONTENT",
+              "FILE"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "animate",
+        "label": "Enable Scroll Animation",
+        "type": "boolean",
+        "default": true,
+        "display": "toggle"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Image Overlay Color",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            },
+            "visibility": {
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "operator": "EQUAL"
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "text_color",
+        "label": "Text Color",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "muted_color",
+        "label": "Secondary Text Color",
+        "type": "color",
+        "default": {
+          "color": "#404040",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_color",
+        "label": "Link Hover Color",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "border_color",
+        "label": "Divider Color",
+        "type": "color",
+        "default": {
+          "color": "#bfbfbf",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

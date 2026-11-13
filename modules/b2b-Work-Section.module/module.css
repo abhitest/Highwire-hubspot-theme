@@ -14,3 +14,7 @@
     clip-path: inset(0 0 100%);
   }
 }
+
+@media (max-width:480px){
+  .hw-b2b-work__copy h3 br { display:none; }
+}

@@ -1,5 +1,6 @@
 .hw-b2b-outcomes { position:relative; color:var(--color-primary,#000); background-color:var(--outcomes-background,#fff); background-image:var(--outcomes-background-image,none); background-position:center; background-size:cover; }
 .hw-b2b-outcomes * { box-sizing:border-box; }
+.hw-b2b-outcomes_title h3 { text-wrap: balance;}
 .hw-b2b-outcomes .baseModuleOverlay { position:absolute; inset:0; pointer-events:none; background:var(--outcomes-overlay,transparent); }
 .hw-b2b-outcomes__layout { position:relative; display:grid; grid-template-columns:minmax(0,456fr) minmax(0,744fr); gap:clamp(48px,7.778vw,112px); align-items:start; }
 .hw-b2b-outcomes__intro { position:sticky; top:96px; align-self:start; }
@@ -81,4 +82,8 @@ html[data-motion=reduced] .hw-b2b-outcomes *,html[data-motion=reduced] .hw-b2b-o
 .hw-b2b-outcomes__item a:not(.hw-b2b-outcomes__box-link) {
   position: relative;
   z-index: 2;
+}
+
+@media (max-width: 480px){
+  .hw-b2b-outcomes__item p { margin-left:0 }
 }

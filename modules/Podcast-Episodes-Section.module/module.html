@@ -1,0 +1,102 @@
+<section
+  class="hw-podcast hw-podcast-episodes baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"
+  {% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}" {% endif %}
+  data-animate="{{ module.content_group.animate|string|lower }}"><span class="baseModuleOverlay"
+    aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+
+    <header class="pod-episodes-header">
+      <div>
+        <h3 data-podcast-reveal>{{ module.content_group.heading }}</h3>
+        <p class="font20 lh15">{{ module.content_group.description }}</p>
+      </div><label class="pod-filter" hidden><span>{{ module.content_group.filter_label }}</span><select
+          data-topic-filter>
+          <option value="">{{ module.content_group.all_label }}</option>
+        </select></label>
+    </header>
+    <div class="pod-results">
+      <p class="opacity70" role="status" aria-live="polite" data-results
+        data-singular="{{ module.content_group.singular_label|escape_attr }}"
+        data-plural="{{ module.content_group.plural_label|escape_attr }}">{{ module.content_group.episodes|length }} {{
+        module.content_group.plural_label }}</p>
+        <button type="button" data-reset hidden>
+          {{ module.content_group.reset_label }}
+        </button>
+    </div>
+    <ul class="pod-episode-list" role="list">{% for episode in module.content_group.episodes %}<li data-episode>
+        <article class="pod-episode">
+          <div class="pod-episode-meta opacity70">
+            <time{% if episode.iso_date %} datetime="{{ episode.iso_date|escape_attr }}" {% endif %}>{{
+              episode.date }}</time><span>{{ episode.duration }}</span>
+          </div>
+          <div>
+            <h6>{{ episode.title }}</h6>
+            <p class="pod-guest font18">{{ episode.guest }}</p>
+            <ul class="pod-tags" aria-label="Topics">{% for topic in episode.topics|split(',') %}{% if topic|trim %}<li
+                data-topic>{{ topic|trim }}</li>{% endif %}{% endfor %}</ul>
+          </div>
+          <div class="pod-episode-links">{% if episode.apple_url.href %}<a class="pod-link"
+              href="{{ episode.apple_url.href|escape_url }}" target="_blank" rel="noopener noreferrer"
+              aria-label="{{ episode.title|escape_attr }} ? {{ module.content_group.apple_label|escape_attr }}">{{
+              module.content_group.apple_label }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4" />
+              </svg></a>{% endif %}{% if episode.spotify_url.href %}<a class="pod-link"
+              href="{{ episode.spotify_url.href|escape_url }}" target="_blank" rel="noopener noreferrer"
+              aria-label="{{ episode.title|escape_attr }} ? {{ module.content_group.spotify_label|escape_attr }}">{{
+              module.content_group.spotify_label }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4" />
+              </svg></a>{% endif %}</div>
+        </article>
+      </li>{% endfor %}</ul>
+    <p class="pod-empty" data-empty{% if module.content_group.episodes|length %} hidden{% endif %}>{{
+      module.content_group.empty_label }}</p>
+  </div>
+</section>
+{% require_css %}
+    <style>
+
+
+        
+      {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+ --pod-text:{{ module.style.text_color.css }};--pod-muted:{{ module.style.muted_color.css }};--pod-accent:{{ module.style.accent_color.css }};--pod-border:{{ module.style.border_color.css }};
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1300px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+
+    </style>
+  {% end_require_css %}

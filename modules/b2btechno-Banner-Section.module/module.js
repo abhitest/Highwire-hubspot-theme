@@ -39,7 +39,7 @@
     window.addEventListener('resize', scheduleHeaderOffset, { passive: true });
     window.addEventListener('load', scheduleHeaderOffset, { once: true });
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const mobile = matchMedia('(max-width: 767px)');
+    const mobile = matchMedia('(width < 900px)');
     const motionOff = () => reduced.matches || mobile.matches || document.documentElement.dataset.motion === 'reduced';
     const media = section.querySelector('.hw-b2b-banner__media');
     const photo = media && media.querySelector('img');

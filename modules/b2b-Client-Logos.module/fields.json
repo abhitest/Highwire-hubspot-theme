@@ -124,6 +124,14 @@
     ]
   },
   {
+    "name": "two_column_layout",
+    "label": "Use Two-Column Layout",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false,
+    "help_text": "Show two equal-width logo cells per row on desktop and tablet, like the Financial Services page. Add two logos for a single row. Mobile uses the Mobile columns setting."
+  },
+  {
     "name": "animate",
     "label": "Enable logo reveal animation",
     "type": "boolean",

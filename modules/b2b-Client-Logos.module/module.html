@@ -29,6 +29,10 @@
   {% for key in ['columns','tablet_columns','mobile_columns'] %}
   --clients-{{ key }}:{{ module.style[key] }};
   {% endfor %}
+  {% if module.two_column_layout %}
+  --clients-columns:2;
+  --clients-tablet_columns:2;
+  {% endif %}
   --clients-logo_opacity:{{ module.style.logo_opacity / 100 }};
   --clients-hover_opacity:{{ module.style.hover_opacity / 100 }};
   --clients-filter:{% if module.style.monochrome %}brightness(0){% else %}none{% endif %};

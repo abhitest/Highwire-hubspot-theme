@@ -14,7 +14,7 @@
           {% endif %}
           <div data-contact-reveal><h3>{{ module.leader.full_name }}</h3><p>{{ module.leader.role }}</p></div>
         </div>
-        <div class="hw-contact__bio font20 lh15" data-contact-reveal>{{ module.leader.bio }}</div>
+        <div class="hw-contact__bio font18 lh15" data-contact-reveal>{{ module.leader.bio }}</div>
       </article>
     </div>
       {% if module.form.form_id %}
@@ -28,6 +28,7 @@
 {% require_css %}
 <style>
 .{{ name }}.hw-contact {
+  --contact-accent:{{ module.style.accent_color.css|default('#ffce3d') }};
   --contact-background:rgba({{ module.style.background_color.color|convert_rgb }},{{ module.style.background_color.opacity / 100 }});
   {% for breakpoint in ['desktop','tablet','mobile'] %}
     {% for edge in ['top','bottom'] %}

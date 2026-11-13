@@ -1,0 +1,71 @@
+<section class="{{ name|escape_attr }} baseModuleStyle hw-industry-pillars {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    <div class="hw-industry-pillars__grid">
+      {% for column in module.content_group.columns %}
+      <article class="hw-industry-pillars__card">
+        {% if column.title %}
+        <h3 class="hw-industry-pillars__title">
+          {{ column.title|escape_html }}
+        </h3>
+        {% endif %}
+        {% if column.content %}
+        <div class="hw-industry-pillars__content font18 lh15">
+          {{ column.content }}
+        </div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% require_css %}
+    <style>
+
+
+        
+      {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+        --pillars-accent:{{ module.style.accent_color.css }};
+        --pillars-heading:{{ module.style.heading_color.css }};
+        --pillars-content:{{ module.style.content_color.css }};
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1300px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+
+    </style>
+  {% end_require_css %}

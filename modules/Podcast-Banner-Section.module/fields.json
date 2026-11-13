@@ -1,0 +1,652 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "id": "content_group",
+    "name": "content_group",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "name": "parent_label",
+        "label": "Breadcrumb Parent",
+        "type": "text",
+        "default": "Insights"
+      },
+      {
+        "name": "parent_url",
+        "label": "Breadcrumb URL",
+        "type": "url",
+        "default": {
+          "href": "/insights",
+          "type": "EXTERNAL"
+        },
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE"
+        ]
+      },
+      {
+        "name": "current_label",
+        "label": "Breadcrumb Current Page",
+        "type": "text",
+        "default": "The Better Angle"
+      },
+      {
+        "name": "eyebrow",
+        "label": "Content Type",
+        "type": "text",
+        "default": "Podcast"
+      },
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "richtext",
+        "default": "<h1>The Better<br>Angle</h1>"
+      },
+      {
+        "name": "subhead",
+        "label": "Subheading",
+        "type": "text",
+        "default": "Conversations with leaders who looked at a challenge differently, and what it changed for them."
+      },
+      {
+        "name": "cover",
+        "label": "Podcast Cover",
+        "type": "image",
+        "default": {
+          "src": "",
+          "alt": "The Better Angle podcast cover",
+          "size_type": "auto",
+          "loading": "lazy"
+        },
+        "responsive": true,
+        "resizable": true
+      },
+      {
+        "name": "listen_label",
+        "label": "Listen Label",
+        "type": "text",
+        "default": "Listen on:"
+      },
+      {
+        "name": "platforms",
+        "label": "Listening Platforms",
+        "type": "group",
+        "default": [
+          {
+            "url": {
+              "href": "https://podcasts.apple.com/us/podcast/the-better-angle/id1799265091",
+              "type": "EXTERNAL"
+            },
+            "default_icon": "apple-white.svg",
+            "new_tab": true,
+            "show_arrow": true,
+            "platform_title": "Apple Podcasts"
+          },
+          {
+            "url": {
+              "href": "https://open.spotify.com/show/0PfltCTXYhOvWlgp689n5q",
+              "type": "EXTERNAL"
+            },
+            "default_icon": "spotify-white.svg",
+            "new_tab": true,
+            "show_arrow": true,
+            "platform_title": "Spotify"
+          }
+        ],
+        "occurrence": {
+          "min": 0,
+          "default": 2,
+          "sorting_label_field": "content_group.platforms.platform_title"
+        },
+        "children": [
+          {
+            "name": "platform_title",
+            "label": "Label",
+            "type": "text"
+          },
+          {
+            "name": "url",
+            "label": "URL",
+            "type": "url",
+            "default": {
+              "href": "",
+              "type": "EXTERNAL"
+            },
+            "supported_types": [
+              "EXTERNAL",
+              "CONTENT",
+              "FILE"
+            ]
+          },
+          {
+            "name": "icon",
+            "label": "Icon",
+            "type": "image",
+            "default": {
+              "src": "",
+              "alt": "",
+              "size_type": "auto",
+              "loading": "lazy"
+            },
+            "responsive": true,
+            "resizable": true
+          },
+          {
+            "name": "default_icon",
+            "label": "Included Icon",
+            "type": "choice",
+            "default": "",
+            "choices": [
+              [
+                "",
+                "None"
+              ],
+              [
+                "apple-white.svg",
+                "Apple"
+              ],
+              [
+                "spotify-white.svg",
+                "Spotify"
+              ]
+            ]
+          },
+          {
+            "name": "new_tab",
+            "label": "Open in New Tab",
+            "type": "boolean",
+            "display": "toggle",
+            "default": true
+          },
+          {
+            "name": "show_arrow",
+            "label": "Show Link Arrow",
+            "type": "boolean",
+            "display": "toggle",
+            "default": true
+          }
+        ]
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "richtext",
+        "default": "<p>Produced by Highwire and NYU School of Professional Studies, The Better Angle brings together communications and marketing leaders to unpack the insight behind a breakthrough moment in their careers. Co-hosts Cortney Stapleton and Kathleen Rennie explore how each guest approached a familiar problem from a new angle, from building authentic brand trust to navigating a professional setback. New episodes every month.</p>"
+      },
+      {
+        "name": "animate",
+        "label": "Enable Scroll Animation",
+        "type": "boolean",
+        "default": true,
+        "display": "toggle"
+      },
+      {
+        "name": "show_breadcrumb",
+        "label": "Show Breadcrumb",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "name": "show_cover",
+        "label": "Show Cover Image",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "name": "use_default_cover",
+        "label": "Use Included Cover When Image Is Empty",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "name": "show_divider",
+        "label": "Show Description Divider",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "parent_label": "Insights",
+      "parent_url": {
+        "href": "/insights",
+        "type": "EXTERNAL"
+      },
+      "current_label": "The Better Angle",
+      "eyebrow": "Podcast",
+      "title": "<h1>The Better<br>Angle</h1>",
+      "subhead": "Conversations with leaders who looked at a challenge differently, and what it changed for them.",
+      "cover": {
+        "src": "",
+        "alt": "The Better Angle podcast cover",
+        "size_type": "auto",
+        "loading": "lazy"
+      },
+      "listen_label": "Listen on:",
+      "platforms": [
+        {
+          "url": {
+            "href": "https://podcasts.apple.com/us/podcast/the-better-angle/id1799265091",
+            "type": "EXTERNAL"
+          },
+          "default_icon": "apple-white.svg",
+          "new_tab": true,
+          "show_arrow": true,
+          "platform_title": "Apple Podcasts"
+        },
+        {
+          "url": {
+            "href": "https://open.spotify.com/show/0PfltCTXYhOvWlgp689n5q",
+            "type": "EXTERNAL"
+          },
+          "default_icon": "spotify-white.svg",
+          "new_tab": true,
+          "show_arrow": true,
+          "platform_title": "Spotify"
+        }
+      ],
+      "description": "<p>Produced by Highwire and NYU School of Professional Studies, The Better Angle brings together communications and marketing leaders to unpack the insight behind a breakthrough moment in their careers. Co-hosts Cortney Stapleton and Kathleen Rennie explore how each guest approached a familiar problem from a new angle, from building authentic brand trust to navigating a professional setback. New episodes every month.</p>",
+      "animate": true,
+      "show_breadcrumb": true,
+      "show_cover": true,
+      "use_default_cover": true,
+      "show_divider": true
+    }
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#000000",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Image Overlay Color",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            },
+            "visibility": {
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "operator": "EQUAL"
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "text_color",
+        "label": "Text Color",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "muted_color",
+        "label": "Secondary Text Color",
+        "type": "color",
+        "default": {
+          "color": "#cccccc",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_color",
+        "label": "Link Hover Color",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "border_color",
+        "label": "Divider Color",
+        "type": "color",
+        "default": {
+          "color": "#555555",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "breadcrumb_color",
+        "label": "Breadcrumb Marker Color",
+        "type": "color",
+        "default": {
+          "color": "#4bb7ff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "cover_background",
+        "label": "Cover Background Color",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "title_size",
+        "label": "Desktop Title Size",
+        "type": "number",
+        "display": "text",
+        "default": 96,
+        "min": 24,
+        "max": 160,
+        "suffix": "px"
+      },
+      {
+        "name": "tablet_title_size",
+        "label": "Tablet Title Size",
+        "type": "number",
+        "display": "text",
+        "default": 72,
+        "min": 24,
+        "max": 120,
+        "suffix": "px"
+      },
+      {
+        "name": "mobile_title_size",
+        "label": "Mobile Title Size",
+        "type": "number",
+        "display": "text",
+        "default": 56,
+        "min": 24,
+        "max": 96,
+        "suffix": "px"
+      },
+      {
+        "name": "column_gap",
+        "label": "Column Gap",
+        "type": "number",
+        "display": "text",
+        "default": 112,
+        "min": 0,
+        "max": 160,
+        "suffix": "px"
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

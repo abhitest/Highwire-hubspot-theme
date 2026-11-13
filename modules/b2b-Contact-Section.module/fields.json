@@ -95,6 +95,16 @@
     "tab": "STYLE",
     "children": [
       {
+        "name": "accent_color",
+        "label": "Accent Color",
+        "type": "color",
+        "help_text": "Color of the animated reveal overlay and the section top border.",
+        "default": {
+          "color": "#ffce3d",
+          "opacity": 100
+        }
+      },
+      {
         "name": "background_color",
         "label": "Background colour",
         "type": "color",

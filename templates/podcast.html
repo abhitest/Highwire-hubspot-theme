@@ -1,0 +1,59 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Podcast - The Better Angle
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "dnd_area", label="Podcast", class="body-container body-container--podcast" %}
+  {% dnd_section padding={"top": 0, "bottom": 0, "left": 0, "right": 0}, full_width=true %}
+    {% dnd_module path="../modules/Podcast-Banner-Section.module",
+      content_group={
+        "parent_label": "Insights",
+        "parent_url": {
+          "href": "/insights",
+          "type": "EXTERNAL"
+        },
+        "current_label": "The Better Angle",
+        "eyebrow": "Podcast",
+        "title": "<h1>The Better<br>Angle</h1>",
+        "subhead": "Conversations with leaders who looked at a challenge differently, and what it changed for them.",
+        "cover": {
+          "src": "",
+          "alt": "The Better Angle podcast cover",
+          "size_type": "auto",
+          "loading": "lazy"
+        },
+        "listen_label": "Listen on:",
+        "platforms": [
+          {
+            "platform_title": "Apple Podcasts",
+            "url": {
+              "href": "https://podcasts.apple.com/us/podcast/the-better-angle/id1799265091",
+              "type": "EXTERNAL"
+            },
+            "default_icon": "apple-white.svg"
+          },
+          {
+            "platform_title": "Spotify",
+            "url": {
+              "href": "https://open.spotify.com/show/0PfltCTXYhOvWlgp689n5q",
+              "type": "EXTERNAL"
+            },
+            "default_icon": "spotify-white.svg"
+          }
+        ],
+        "description": "<p>Produced by Highwire and NYU School of Professional Studies, The Better Angle brings together communications and marketing leaders to unpack the insight behind a breakthrough moment in their careers. Co-hosts Cortney Stapleton and Kathleen Rennie explore how each guest approached a familiar problem from a new angle, from building authentic brand trust to navigating a professional setback. New episodes every month.</p>",
+        "animate": true
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top": 0, "bottom": 0, "left": 0, "right": 0}, full_width=true %}
+    {% dnd_module path="../modules/Podcast-Hosts-Section.module" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top": 0, "bottom": 0, "left": 0, "right": 0}, full_width=true %}
+    {% dnd_module path="../modules/Podcast-Episodes-Section.module" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+{% end_dnd_area %}
+{% endblock body %}

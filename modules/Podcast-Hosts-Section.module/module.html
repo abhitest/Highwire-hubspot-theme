@@ -1,0 +1,85 @@
+<section
+  class="hw-podcast hw-podcast-hosts baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"
+  {% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}" {% endif %}
+  data-animate="{{ module.content_group.animate|string|lower }}"><span class="baseModuleOverlay"
+    aria-hidden="true"></span>
+  <div class="baseModuleParent content-wrapper">
+    <h3 data-podcast-reveal>{{ module.content_group.heading }}</h3>
+    <div class="pod-host-grid">
+      {% for host in module.content_group.hosts %}
+      <article class="pod-host">
+        {% if host.photo.src %}  
+        <div class="pod-portrait">
+          <img src="{{ host.photo.src  }}" alt="{{ host.photo.alt  }}" width="120" height="168" loading="lazy">
+        </div>
+        {% endif %}
+        <div class="pod-host-copy">
+
+          <h6>{{ host.full_name }}</h6>
+
+          <p class="font18">{{ host.role }}</p>
+          {% if host.linkedin_url.href|trim and module.content_group.linkedin_label|trim %}
+          <a class="pod-link" href="{{ host.linkedin_url.href|escape_url }}" target="_blank" rel="noopener noreferrer">
+            {{ module.content_group.linkedin_label }}
+            <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4" />
+            </svg>
+          </a>
+          {% endif %}
+        </div>
+        {% if host.bio %}
+        <div class="pod-bio font18 opacity70">{{ host.bio }}</div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% require_css %}
+    <style>
+
+
+        
+      {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+ --pod-text:{{ module.style.text_color.css }};--pod-muted:{{ module.style.muted_color.css }};--pod-accent:{{ module.style.accent_color.css }};--pod-border:{{ module.style.border_color.css }};
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1300px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+
+    </style>
+  {% end_require_css %}

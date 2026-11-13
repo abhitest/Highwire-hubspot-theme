@@ -25,7 +25,7 @@
           {% for item in group.questions %}
           <details class="hw-faq__item" name="{{ name|escape_attr }}-accordion" id="{{ name|escape_attr }}-faq-{{ group_index }}-{{ loop.index }}" {% if module.content_group.initially_open and group_index == 1 and loop.first %}open{% endif %}>
             <summary>{% if group.show_heading %}<h4>{{ item.question|escape_html }}</h4>{% else %}<h3>{{ item.question|escape_html }}</h3>{% endif %}<span class="hw-faq__mark" aria-hidden="true"></span></summary>
-            <div class="hw-faq__answer">{{ item.answer }}</div>
+            <div class="hw-faq__answer font18">{{ item.answer }}</div>
           </details>
           {% endfor %}
         </div>
