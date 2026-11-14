@@ -131,6 +131,87 @@
     ]
   },
   {
+    "name": "awards",
+    "label": "Awards",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Awards"
+      },
+      {
+        "name": "items",
+        "label": "Award entries",
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 20,
+          "default": 2,
+          "sorting_label_field": "awards.items.title"
+        },
+        "children": [
+          {
+            "name": "year",
+            "label": "Year",
+            "type": "text",
+            "default": "2025"
+          },
+          {
+            "name": "title",
+            "label": "Award title",
+            "type": "text",
+            "allow_new_line": true,
+            "default": ""
+          },
+          {
+            "name": "recipient",
+            "label": "Recipient",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "icon",
+            "label": "Award icon image",
+            "type": "image",
+            "responsive": true,
+            "resizable": true
+          },
+          {
+            "name": "icon_background",
+            "label": "Icon background color",
+            "type": "color",
+            "default": {
+              "color": "#4bb7ff",
+              "opacity": 100
+            }
+          }
+        ],
+        "default": [
+          {
+            "year": "2025",
+            "title": "PRWeek + PR Museum’s #NextGen Honoree, Recipient of the Bayard Rustin Award",
+            "recipient": "Martin Bradshaw",
+            "icon_background": {
+              "color": "#4bb7ff",
+              "opacity": 100
+            }
+          },
+          {
+            "year": "2025",
+            "title": "Diversity Action Alliance (DAA) G.E.M.S. Honoree",
+            "recipient": "Stacyann Nathan",
+            "icon_background": {
+              "color": "#fa9bff",
+              "opacity": 100
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "style",
     "name": "style",
     "label": "Styles",

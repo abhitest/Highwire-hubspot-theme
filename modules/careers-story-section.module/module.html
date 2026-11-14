@@ -1,4 +1,4 @@
-<div class="hw-career-story baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-career-story data-animate="{{ 'true' if module.style.enable_animation else 'false' }}">
+<div class="hw-career-story baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-career-story data-editor="{{ 'true' if is_in_editor else 'false' }}" data-animate="{{ 'true' if module.style.enable_animation else 'false' }}">
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent hw-career-story__layout">
     <div class="hw-career-story__panels">

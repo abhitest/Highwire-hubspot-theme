@@ -1,0 +1,13 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Default Page
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "dnd_area", label="Main content", class="body-container body-container--default" %}
+  
+
+{% end_dnd_area %}
+{% endblock body %}

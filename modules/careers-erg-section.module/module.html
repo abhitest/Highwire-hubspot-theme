@@ -5,7 +5,20 @@
 <div class="hw-career-erg__groups">{% for group in module.groups %}<article class="hw-career-erg__group">
 {% if group.group_logo.src %}<img class="hw-career-erg__logo" src="{{ group.group_logo.src|escape_url }}" alt="{{ group.group_logo.alt|escape_attr }}" width="96" height="96" loading="lazy" decoding="async">{% endif %}
 <div class="hw-career-erg__group-copy">{% if group.group_title %}<h3>{{ group.group_title }}</h3>{% endif %}{% if group.group_content %}<div class="hw-career-erg__description">{{ group.group_content }}</div>{% endif %}</div>
-</article>{% endfor %}</div></div></div></div></section>
+</article>{% endfor %}
+{% if module.awards.heading or module.awards.items %}<section class="hw-career-erg__awards" aria-labelledby="{{ name|escape_attr }}-awards-title">
+{% if module.awards.heading %}<h3 id="{{ name|escape_attr }}-awards-title" class="hw-career-erg__awards-heading">{{ module.awards.heading }}</h3>{% endif %}
+{% for award in module.awards.items %}<article class="hw-career-erg__award">
+  <div class="hw-career-erg__award-icon" style="--award-icon-background:rgba({{ award.icon_background.color|convert_rgb }},{{ award.icon_background.opacity / 100 }});">
+    {% if award.icon.src %}<img src="{{ award.icon.src|escape_url }}" alt="{{ award.icon.alt|escape_attr }}" width="48" height="48" loading="lazy">{% else %}<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 8h14v7a7 7 0 0 1-14 0V8Zm7 14v10m-7 8h14M13 11H9c0 6 3 10 8 10m18-10h4c0 6-3 10-8 10M24 32l-4 8m4-8 4 8" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endif %}
+  </div>
+  <div class="hw-career-erg__award-copy">
+    {% if award.year %}<p class="hw-career-erg__award-year">{{ award.year }}</p>{% endif %}
+    {% if award.title %}<h4>{{ award.title }}</h4>{% endif %}
+    {% if award.recipient %}<p class="hw-career-erg__award-recipient">- {{ award.recipient }}</p>{% endif %}
+  </div>
+</article>{% endfor %}</section>{% endif %}
+</div></div></div></div></section>
 {% require_css %}
 <style>
 .{{ name }}.hw-career-erg {

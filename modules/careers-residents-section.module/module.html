@@ -1,11 +1,78 @@
-<section class="hw-career-residents baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %} data-career-residents data-animate="{{ 'true' if module.style.enable_animation else 'false' }}" data-sticky="{{ 'true' if module.style.sticky_intro else 'false' }}">
-<span class="baseModuleOverlay" aria-hidden="true"></span>
-<div class="baseModuleParent"><div class="content-wrapper"><div class="hw-career-residents__layout">
-<header class="hw-career-residents__intro">{% if module.content_group.title %}<h2 id="{{ name|escape_attr }}-title" data-residents-reveal>{{ module.content_group.title }}</h2>{% endif %}{% if module.content_group.content %}<div class="hw-career-residents__content">{{ module.content_group.content }}</div>{% endif %}</header>
-<div class="hw-career-residents__grid">{% for person in module.profiles %}<article class="hw-career-residents__profile" tabindex="0" {% if person.full_name %}aria-labelledby="{{ name|escape_attr }}-person-{{ loop.index }}"{% endif %}>
-<div class="hw-career-residents__portrait">{% if person.portrait.src %}<img src="{{ person.portrait.src|escape_url }}" alt="{{ person.portrait.alt|escape_attr }}" loading="lazy" decoding="async">{% endif %}<span class="hw-career-residents__arrow" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></span></div>
-<div>{% if person.full_name %}<h3 id="{{ name|escape_attr }}-person-{{ loop.index }}">{{ person.full_name }}</h3>{% endif %}{% if person.role_content %}<div class="hw-career-residents__role">{{ person.role_content }}</div>{% endif %}</div>
-</article>{% endfor %}</div></div></div></div></section>
+<section
+  class="hw-career-residents baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"
+  {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}" {% endif %} {% if
+  module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title" {% endif %} data-career-residents
+  data-animate="{{ 'true' if module.style.enable_animation else 'false' }}"
+  data-sticky="{{ 'true' if module.style.sticky_intro else 'false' }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent">
+    <div class="content-wrapper">
+      <div class="hw-career-residents__layout">
+        <header class="hw-career-residents__intro">
+          {% if module.content_group.title %}
+          <h2 id="{{ name|escape_attr }}-title" data-residents-reveal>{{ module.content_group.title }}</h2>
+          {% endif %}
+          {% if module.content_group.content %}
+          <div class="hw-career-residents__content">
+            {{ module.content_group.content }}
+          </div>
+          {% endif %}
+        </header>
+        <div class="hw-career-residents__grid">
+          {% for person in module.profiles %}
+          <article class="hw-career-residents__profile" tabindex="0" {% if person.full_name %}aria-labelledby="{{ name|escape_attr }}-person-{{ loop.index }}" {% endif %}>
+            {% if person.link.url.href %}
+            {% set href = person.link.url.href %}
+            {% if person.link.url.type is equalto "EMAIL_ADDRESS" %}
+              {% set href = "mailto:" + href %}
+            {% elif person.link.url.type is equalto "PHONE_NUMBER" %}
+              {% set href = "tel:" + href %}
+            {% endif %}
+            <a
+              {% if person.link.url.type is equalto "CALL_TO_ACTION"  %}
+                href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+              {% else %}
+                href="{{ href|escape_url }}"
+              {% endif %}
+              {% if person.link.open_in_new_tab %}
+                target="_blank"
+              {% endif %}
+              {% if person.link.rel %}
+                rel="{{ person.link.rel|escape_attr }}"
+              {% endif %} class="hw-career-residents_link"
+              >
+             
+            </a>
+            {% endif %}
+            <div class="hw-career-residents__portrait">
+              {% if person.portrait.src %}
+              <img src="{{ person.portrait.src|escape_url }}" alt="{{ person.portrait.alt|escape_attr }}" loading="lazy" decoding="async">
+              {% endif %}
+              <span class="hw-career-residents__arrow" aria-hidden="true">
+                <svg viewBox="0 0 18 18" fill="none">
+                  <path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4" />
+                </svg>
+              </span>
+            </div>
+            <div>
+              {% if person.full_name %}
+              <h3 id="{{ name|escape_attr }}-person-{{ loop.index }}">
+                {{ person.full_name }}
+              </h3>
+              {% endif %}
+              {% if person.role_content %}
+              <div class="hw-career-residents__role">
+                {{ person.role_content }}
+              </div>
+              {% endif %}
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% require_css %}
 <style>
 .{{ name }}.hw-career-residents {

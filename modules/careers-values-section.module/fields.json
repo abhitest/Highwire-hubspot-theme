@@ -84,7 +84,8 @@
       },
       {
         "name": "icon_choice",
-        "label": "Icon",
+        "label": "Fallback icon",
+        "help_text": "Used when no icon image is selected. Choose No icon to hide the fallback.",
         "type": "choice",
         "default": "group",
         "display": "select",
@@ -133,15 +134,11 @@
       },
       {
         "name": "icon_image",
-        "label": "Custom icon image",
+        "label": "Icon image",
+        "help_text": "Select or upload an image to replace the fallback icon.",
         "type": "image",
         "responsive": true,
-        "resizable": true,
-        "visibility": {
-          "controlling_field_path": "items.icon_choice",
-          "controlling_value_regex": "custom",
-          "operator": "EQUAL"
-        }
+        "resizable": true
       }
     ],
     "default": [

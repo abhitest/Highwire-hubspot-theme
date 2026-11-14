@@ -13,7 +13,9 @@
     }
     const colors = ['var(--story-accent_one)', 'var(--story-accent_two)', 'var(--story-accent_three)'];
     let active = -1, frame = 0, animations = [];
-    const motionOff = () => reduced.matches || section.dataset.animate === 'false' || document.documentElement.dataset.motion === 'reduced';
+    // The editor canvas can be taller than the visible viewport. Keep all
+    // chapters visible there instead of sizing and revealing them on scroll.
+    const motionOff = () => section.dataset.editor === 'true' || reduced.matches || section.dataset.animate === 'false' || document.documentElement.dataset.motion === 'reduced';
     const cancel = () => { animations.forEach(animation => animation.cancel()); animations = []; };
     const activate = index => {
       const previous = active < 0 ? index : active;
@@ -74,7 +76,7 @@
     });
     const settings = new MutationObserver(schedule);
     settings.observe(document.documentElement, { attributes: true, attributeFilter: ['data-motion'] });
-    settings.observe(section, { attributes: true, attributeFilter: ['data-animate'] });
+    settings.observe(section, { attributes: true, attributeFilter: ['data-animate', 'data-editor'] });
     const resize = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(schedule) : null;
     resize?.observe(section);
     const cleanup = () => {

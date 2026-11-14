@@ -10,9 +10,9 @@
       <div class="hw-career-values__rows">
         {% for item in module.items %}
         <article class="hw-career-values__row" tabindex="0" {% if item.item_title %}aria-labelledby="{{ name|escape_attr }}-value-{{ loop.index }}"{% endif %}>
-          {% if item.icon_choice != 'none' %}<span class="hw-career-values__icon" aria-hidden="true">
-            {% if item.icon_choice == 'custom' %}
-              {% if item.icon_image.src %}<img src="{{ item.icon_image.src|escape_url }}" alt="" width="32" height="32" loading="lazy">{% endif %}
+          {% if item.icon_image.src or (item.icon_choice and item.icon_choice != 'none' and item.icon_choice != 'custom') %}<span class="hw-career-values__icon" aria-hidden="true">
+            {% if item.icon_image.src %}
+              <img src="{{ item.icon_image.src|escape_url }}" alt="" width="32" height="32" loading="lazy">
             {% else %}<img src="{{ get_asset_url('../../images/careers-icons/' ~ item.icon_choice ~ '.svg')|escape_url }}" alt="" width="32" height="32" loading="lazy">{% endif %}
           </span>{% endif %}
           <div class="hw-career-values__row-copy">
