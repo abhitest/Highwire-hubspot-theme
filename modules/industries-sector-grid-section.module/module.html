@@ -1,0 +1,47 @@
+<section class="hw-industry-directory {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"
+  {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %}
+  aria-labelledby="{{ name|escape_attr }}-heading"
+  data-animate="{{ module.content_group.animate|string|lower }}">
+  <div class="content-wrapper">
+  <div class="baseModuleParent hw-industry-directory__inner">
+    <header class="hw-industry-directory__intro">
+      {% if module.content_group.heading %}<h2 id="{{ name|escape_attr }}-heading" data-reveal>{{ module.content_group.heading|escape_html }}</h2>{% endif %}
+      {% if module.content_group.description %}<p>{{ module.content_group.description|escape_html }}</p>{% endif %}
+    </header>
+    <div class="hw-industry-directory__grid">
+      {% for item in module.content_group.sectors %}
+      {% set href = item.link.url.href %}
+      <article class="hw-industry-directory__card" aria-labelledby="{{ name|escape_attr }}-sector-{{ loop.index }}">
+        {% if href %}<a class="hw-industry-directory__link" href="{{ href|escape_url }}" aria-label="{{ item.cta_label|escape_attr }}" {% if item.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ item.link.rel|escape_attr }}{% if item.link.open_in_new_tab %} noopener{% endif %}">{% else %}<div class="hw-industry-directory__link">{% endif %}
+          <div class="hw-industry-directory__photo" data-pixel-media="true">
+            {% if item.image.src %}<img src="{{ item.image.src|escape_url }}" alt="{{ item.image.alt|escape_attr }}" loading="lazy" decoding="async">{% endif %}
+          </div>
+          <div class="hw-industry-directory__copy">
+            <h3 id="{{ name|escape_attr }}-sector-{{ loop.index }}">{{ item.title|escape_html }}</h3>
+            {% if item.description %}<p>{{ item.description|escape_html }}</p>{% endif %}
+            {% if item.cta_label %}<span class="hw-industry-directory__action"><span>{{ item.cta_label|escape_html }}</span><svg viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 14 14 4"></path><path d="M6 4h8v8"></path></g></svg></span>{% endif %}
+          </div>
+        {% if href %}</a>{% else %}</div>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-industry-directory {
+  {{ module.style.spacing.desktop_spacing.css }}
+  --industry-directory-background: {{ module.style.background_color.css }};
+  --industry-directory-heading: {{ module.style.heading_color.css }};
+  --industry-directory-text: {{ module.style.text_color.css }};
+  --industry-directory-border: {{ module.style.border_color.css }};
+  background-color: var(--industry-directory-background);
+}
+{% for item in module.content_group.sectors %}
+.{{ name }} .hw-industry-directory__card:nth-child({{ loop.index }}) { --sector-color: {{ item.accent_color.css }}; --image-position-y: {{ item.image_position_y|default(50, true) }}%; }
+{% endfor %}
+@media(max-width:1300px) { .{{ name }}.hw-industry-directory { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-industry-directory { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}
