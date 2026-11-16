@@ -159,6 +159,91 @@
     ]
   },
   {
+    "name": "show_extended_team",
+    "label": "Show extended team",
+    "type": "boolean",
+    "display": "toggle",
+    "default": false
+  },
+  {
+    "name": "extended_team",
+    "label": "Meet the extended team",
+    "type": "group",
+    "tab": "CONTENT",
+    "visibility": {
+      "controlling_field_path": "show_extended_team",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+        "name": "title",
+        "label": "Accordion heading",
+        "type": "text",
+        "required": true,
+        "default": "Meet the extended team"
+      },
+      {
+        "name": "profiles",
+        "label": "Extended team members",
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 30,
+          "default": 0,
+          "sorting_label_field": "extended_team.profiles.full_name"
+        },
+        "children": [
+          {
+            "name": "full_name",
+            "label": "Full name",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "role_content",
+            "label": "Role",
+            "type": "richtext",
+            "default": ""
+          },
+          {
+            "name": "portrait",
+            "label": "Portrait",
+            "type": "image",
+            "responsive": true,
+            "resizable": true
+          },
+          {
+            "name": "link",
+            "label": "Link",
+            "required": false,
+            "locked": false,
+            "supported_types": [
+              "EXTERNAL",
+              "CONTENT",
+              "FILE",
+              "EMAIL_ADDRESS",
+              "BLOG"
+            ],
+            "type": "link",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": {
+              "url": {
+                "content_id": null,
+                "type": "EXTERNAL",
+                "href": ""
+              },
+              "open_in_new_tab": false,
+              "no_follow": false
+            }
+          }
+        ],
+        "default": []
+      }
+    ]
+  },
+  {
     "id": "style",
     "name": "style",
     "label": "Styles",

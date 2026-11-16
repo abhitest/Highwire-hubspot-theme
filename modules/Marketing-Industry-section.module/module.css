@@ -1,0 +1,28 @@
+.hw-marketing-industry { position:relative; background-size:cover; background-position:center; font-family:var(--body,Arial,sans-serif); color:var(--industry-heading_color); }
+.hw-marketing-industry,.hw-marketing-industry * { box-sizing:border-box; }
+.hw-marketing-industry > .baseModuleOverlay { position:absolute; inset:0; pointer-events:none; }
+.hw-marketing-industry__layout { position:relative; display:grid; grid-template-columns:minmax(0,456fr) minmax(0,744fr); gap:clamp(48px,7.778vw,112px); align-items:start; }
+.hw-marketing-industry[data-sticky=true] .hw-marketing-industry__intro { position:sticky; top:var(--industry-sticky-offset); }
+.hw-marketing-industry h2 { margin:0; color:var(--industry-heading_color); font:400 56px/1.08 var(--display,Arial,sans-serif); letter-spacing:-1.68px; overflow-wrap:break-word; }
+.hw-marketing-industry__lead { margin-top:32px; color:var(--industry-intro_color); font-size:20px; line-height:1.5; }
+.hw-marketing-industry__lead p,.hw-marketing-industry__description p { margin:0; font:inherit; color:inherit; }
+.hw-marketing-industry__lead p+p,.hw-marketing-industry__description p+p { margin-top:16px; }
+.hw-marketing-industry__item { --item-accent:var(--industry-accent_one); position:relative; border-top:1px solid var(--industry-rule_color); padding:40px 0 56px; }
+.hw-marketing-industry__item:last-child { padding-bottom:0; }
+.hw-marketing-industry__item:before { content:''; position:absolute; top:-1px; left:0; right:0; height:4px; background:var(--item-accent); transform:scaleY(0); transform-origin:top; transition:transform .36s cubic-bezier(.22,1,.36,1); }
+.hw-marketing-industry__item:is(:hover,:focus-visible):before { transform:scaleY(1); }
+.hw-marketing-industry__item:focus-visible { outline:2px solid var(--item-accent); outline-offset:8px; }
+.hw-marketing-industry__heading { display:flex; align-items:center; gap:24px; }
+.hw-marketing-industry h3 { margin:0; color:var(--industry-heading_color); font:400 30px/1.2 var(--display,Arial,sans-serif); letter-spacing:-.6px; overflow-wrap:break-word; }
+.hw-marketing-industry__icon { display:grid; place-items:center; width:48px; height:48px; flex:0 0 48px; transition:background-color .22s cubic-bezier(.4,0,.2,1); }
+.hw-marketing-industry__icon img { display:block; width:24px; height:24px; object-fit:contain; filter:brightness(0) invert(1); }
+.hw-marketing-industry__item:is(:hover,:focus-visible) .hw-marketing-industry__icon { background:var(--item-accent); }
+.hw-marketing-industry__item:is(:hover,:focus-visible) img { filter:brightness(0); }
+.hw-marketing-industry__description { margin:28px 0 0 72px; color:var(--industry-content_color); font-size:18px; line-height:1.5; }
+.hw-marketing-industry.is-motion-ready .hw-marketing-industry__description { opacity:0; transform:translateY(16px); transition:opacity .36s ease,transform .65s cubic-bezier(.22,1,.36,1); }
+.hw-marketing-industry.is-motion-ready .is-motion-active .hw-marketing-industry__description,.hw-marketing-industry .hw-marketing-industry__item:focus-within .hw-marketing-industry__description { opacity:1; transform:none; }
+@media(max-width:1024px) { .hw-marketing-industry h2 { font-size:44px; } .hw-marketing-industry__layout { gap:40px; } }
+@media(max-width:767px) { .hw-marketing-industry__layout { grid-template-columns:minmax(0,1fr); gap:48px; } .hw-marketing-industry[data-sticky=true] .hw-marketing-industry__intro { position:static; } .hw-marketing-industry h2 { font-size:36px; letter-spacing:-1.08px; } .hw-marketing-industry h3 { font-size:26px; } .hw-marketing-industry__heading { gap:16px; } .hw-marketing-industry__description { margin-left:64px; } }
+html[data-motion=reduced] .hw-marketing-industry .hw-marketing-industry__description,.hw-marketing-industry[data-animate=false] .hw-marketing-industry__description { opacity:1; transform:none; }
+html[data-motion=reduced] .hw-marketing-industry *,html[data-motion=reduced] .hw-marketing-industry *:before,.hw-marketing-industry[data-animate=false] *,.hw-marketing-industry[data-animate=false] *:before { transition:none!important; }
+@media(prefers-reduced-motion:reduce) { .hw-marketing-industry *, .hw-marketing-industry *:before { transition:none!important; } .hw-marketing-industry .hw-marketing-industry__description { opacity:1!important; transform:none!important; } }

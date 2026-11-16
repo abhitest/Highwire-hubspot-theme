@@ -4,7 +4,7 @@
 .hw-career-story__layout { position:relative; }
 .hw-career-story__panel { padding:var(--story-vertical-padding,72px) var(--story-padding); }
 .hw-career-story .hw-career-story__eyebrow { margin:0 0 24px; font-size:16px; line-height:1.5; color:inherit; }
-.hw-career-story .hw-career-story__heading { margin:0 0 -8px; padding-bottom:8px; overflow:hidden; font:400 clamp(36px,3.4vw,48px)/1.08 var(--display,Arial,sans-serif); letter-spacing:-.03em; color:inherit; text-wrap:balance; white-space:pre-line; }
+.hw-career-story .hw-career-story__heading { margin:0 0 -8px; padding-bottom:8px; overflow:hidden; color:inherit; text-wrap:balance;}
 .hw-career-story__heading > span { display:block; margin-bottom:-8px; padding-bottom:8px; clip-path:inset(0); transform:translateY(0); }
 .hw-career-story[data-motion-mode=animated] .hw-career-story__panel[data-entered=false] .hw-career-story__heading > span { clip-path:inset(0 0 100%); transform:translateY(24px); }
 .hw-career-story[data-motion-mode=animated] .hw-career-story__panel[data-entered=true] .hw-career-story__heading > span { transition:clip-path .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1); }
@@ -13,7 +13,7 @@
 .hw-career-story__content p+p,.hw-career-story__checklist p+p { margin-top:16px; }
 .hw-career-story a { color:inherit; text-decoration:underline; }
 .hw-career-story__checklist { margin:36px 0 0; padding:0; list-style:none; }
-.hw-career-story__checklist li { --benefit-accent:var(--story-accent_one); display:grid; grid-template-columns:24px minmax(0,1fr); gap:16px; align-items:start; padding:24px 0; font-size:20px; line-height:1.5; }
+.hw-career-story__checklist li { --benefit-accent:var(--story-accent_one); display:grid; grid-template-columns:24px minmax(0,1fr); gap:16px; align-items:start; padding:24px 0;}
 .hw-career-story__mark { position:relative; display:grid; place-items:center; width:24px; height:24px; margin-top:3px; }
 .hw-career-story__mark:before { content:''; width:8px; height:8px; background:currentColor; transition:transform .22s cubic-bezier(.22,1,.36,1),opacity .22s; }
 .hw-career-story__mark svg { position:absolute; inset:0; width:24px; height:24px; fill:none; stroke:var(--benefit-accent); stroke-width:2; }
@@ -35,8 +35,8 @@
 .hw-career-story:not([data-motion-mode=animated]) .hw-career-story__panel { max-width:900px; margin:0 auto; }
 @media(max-width:767px) {
 .hw-career-story__panel { padding:var(--story-mobile-vertical-padding,48px) var(--story-mobile-padding); }
-.hw-career-story .hw-career-story__heading { font-size:36px; }
-.hw-career-story__checklist li { font-size:18px; padding:18px 0; }
+
+.hw-career-story__checklist li { padding:18px 0; }
 .hw-career-story__inline-photo { height:auto; aspect-ratio:1.1; }
 }
 html[data-motion=reduced] .hw-career-story *,html[data-motion=reduced] .hw-career-story *:before,.hw-career-story[data-animate=false] *,.hw-career-story[data-animate=false] *:before { transition:none!important; }

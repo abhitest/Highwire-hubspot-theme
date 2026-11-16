@@ -1,12 +1,23 @@
 <section class="hw-careers-banner baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title or module.content_group.highlighted_title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %}>
   <span class="baseModuleOverlay" aria-hidden="true"></span>
+  {% if is_in_editor %}<span hidden data-careers-editor></span>{% endif %}
   <div class="baseModuleParent">
     <div class="content-wrapper">
       {% if module.content_group.title or module.content_group.highlighted_title %}
-      <h1 class="hw-careers-banner__title" id="{{ name|escape_attr }}-title">{% if module.content_group.title %}{{ module.content_group.title }}{% endif %}{% if module.content_group.highlighted_title %}<span>{{ module.content_group.highlighted_title }}</span>{% endif %}</h1>
+      <h1 class="hw-careers-banner__title" id="{{ name|escape_attr }}-title">
+        {% if module.content_group.title %}
+        {{ module.content_group.title }}
+        {% endif %}
+        {% if module.content_group.highlighted_title %}
+        <span>
+          {{ module.content_group.highlighted_title }}
+        </span>
+        {% endif %}
+      </h1>
       {% endif %}
       <div class="hw-careers-banner__lead">
-        {% if module.content_group.content %}<div class="hw-careers-banner__content">{{ module.content_group.content }}</div>{% endif %}
+        {% if module.content_group.content %}
+        <div class="hw-careers-banner__content font20 lh15">{{ module.content_group.content }}</div>{% endif %}
         {% if module.content_group.button_text and module.content_group.button_link.url.href %}
           {% set href = module.content_group.button_link.url.href %}
           {% if module.content_group.button_link.url.type == 'EMAIL_ADDRESS' %}{% set href = 'mailto:' ~ href %}{% elif module.content_group.button_link.url.type == 'PHONE_NUMBER' %}{% set href = 'tel:' ~ href %}{% endif %}

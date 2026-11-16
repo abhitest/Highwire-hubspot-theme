@@ -4,9 +4,9 @@
 .hw-career-belonging__layout { position:relative; }
 .hw-career-belonging__panel { padding:var(--belonging-vertical-padding,72px) var(--belonging-padding); }
 .hw-career-belonging .hw-career-belonging__eyebrow { margin:0 0 24px; font-size:16px; line-height:1.5; color:inherit; }
-.hw-career-belonging .hw-career-belonging__heading { margin:0 0 -8px; padding-bottom:8px; overflow:hidden; font:400 clamp(36px,3.4vw,48px)/1.08 var(--display,Arial,sans-serif); letter-spacing:-.03em; color:inherit; text-wrap:balance; white-space:pre-line; }
+.hw-career-belonging .hw-career-belonging__heading { margin:0 0 -8px; padding-bottom:8px; overflow:hidden;  color:inherit; text-wrap:balance;}
 .hw-career-belonging__heading > span { display:block; margin-bottom:-8px; padding-bottom:8px; clip-path:inset(0); transform:translateY(0); }
-.hw-career-belonging__content { margin-top:28px; color:var(--belonging-content_color); font-size:18px; line-height:1.55; }
+.hw-career-belonging__content { margin-top:28px; color:var(--belonging-content_color); }
 .hw-career-belonging a { color:inherit; text-decoration:underline; }
 
 .hw-career-belonging__layout { display:grid; grid-template-columns:minmax(0,736fr) minmax(0,704fr); align-items:start; }
@@ -25,8 +25,8 @@ html[data-motion=reduced] .hw-career-belonging__heading,.hw-career-belonging[dat
 .hw-career-belonging__articles article { border-top:1px solid var(--belonging-rule_color); padding:32px 0; }
 .hw-career-belonging__articles article:first-child { padding-top:28px; }
 .hw-career-belonging__articles article:last-child { padding-bottom:0; }
-.hw-career-belonging__articles h3 { margin:0; color:inherit; font:400 30px/1.2 var(--display,Arial,sans-serif); letter-spacing:-.035em; }
-.hw-career-belonging__article-content { margin-top:16px; color:var(--belonging-content_color); font-size:18px; line-height:1.55; }
+.hw-career-belonging__articles h3 { margin:0; color:inherit;  }
+.hw-career-belonging__article-content { margin-top:16px; color:var(--belonging-content_color);}
 .hw-career-belonging__article-content p { margin:0; color:inherit; }
 .hw-career-belonging__article-content p+p { margin-top:16px; }
 @media(max-width:767px) { .hw-career-belonging__layout { grid-template-columns:minmax(0,1fr); } .hw-career-belonging__panel { padding:var(--belonging-mobile-vertical-padding,48px) var(--belonging-mobile-padding); } .hw-career-belonging .hw-career-belonging__heading { font-size:36px; } .hw-career-belonging__photo { position:relative; height:480px; } .hw-career-belonging__articles h3 { font-size:26px; } }
