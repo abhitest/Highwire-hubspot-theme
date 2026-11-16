@@ -20,7 +20,12 @@
 <style>
 /* Only per-instance editor values live here; all CSS rules are in Page Css. */
 .{{ name }} {
+  {% if module.style.background_property.background_palette == 'custom' %}
+  --awards-background: {{ module.style.background_property.custom_background_color.css }};
+  {% else %}
   --awards-background: var(--color-{{ module.style.background_property.background_palette or 'secondary' }});
+  {% endif %}
+  --awards-columns: {{ module.content_group.logo_columns or module.style.logo_columns or '4' }};
   {% if module.style.background_property.background_choice == 'bgImage' %}
   --awards-background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
   --awards-overlay: color-mix(in srgb, var(--color-primary) 60%, transparent);

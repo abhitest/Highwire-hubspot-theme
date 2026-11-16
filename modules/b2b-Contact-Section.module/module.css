@@ -9,6 +9,8 @@ html[data-motion=reduced] .hw-contact::after,.hw-contact[data-animate=false]::af
 .hw-contact__rule { display:none; }
 .hw-contact__layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(48px,7.8vw,112px); }
 .hw-contact__copy { display:flex; flex-direction:column; gap:170px; }
+.hw-contact__leaders { min-width:0; }
+.hw-contact__leaders > .hw-contact__leader + .hw-contact__leader { border-top:1px solid #c4c4c4; margin-top:48px; padding-top:40px; }
 .hw-contact__intro h3 { margin:0; }
 .hw-contact__intro > p { max-width:490px; margin:30px 0 0; font-size:20px; line-height:1.4; }
 .hw-contact__identity { display:flex; align-items:flex-end; gap:22px; }

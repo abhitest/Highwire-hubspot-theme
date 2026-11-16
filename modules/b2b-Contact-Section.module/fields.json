@@ -66,6 +66,49 @@
     ]
   },
   {
+    "name": "additional_leaders",
+    "label": "Additional Leaders",
+    "type": "group",
+    "children": [
+      {
+        "name": "photo",
+        "label": "Leader portrait",
+        "type": "image",
+        "help_text": "Select the leader portrait from your files. Displayed in grayscale at 100 x 124 pixels.",
+        "default": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "name": "full_name",
+        "label": "Name",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "role",
+        "label": "Role",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "bio",
+        "label": "Biography",
+        "type": "richtext",
+        "default": ""
+      }
+    ],
+    "help_text": "Add more leaders below the primary Leader. Drag entries to reorder them.",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "default": 0,
+      "sorting_label_field": "additional_leaders.full_name"
+    },
+    "default": []
+  },
+  {
     "name": "form",
     "label": "Contact form",
     "type": "form",
