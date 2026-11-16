@@ -4,7 +4,7 @@
     <div class="hw-events__reading">
       <header class="hw-events__hero">
         {% if module.eyebrow|escape_html %}<span class="hw-events__eyebrow">{{ module.eyebrow|escape_html }}</span>{% endif %}
-        <h1 class="h3 {% if module.eyebrow %}hw-events_no-eyebrow{% endif %}" id="{{ name|escape_attr }}-title" data-event-reveal>{% for line in module.heading|split('\n') %}<span>{{ line|escape_html }}</span>{% endfor %}</h1>
+        <h1 class="h3 {% if module.eyebrow|escape_html %}hw-events_no-eyebrow{% endif %}" id="{{ name|escape_attr }}-title" data-event-reveal>{% for line in module.heading|split('\n') %}<span>{{ line|escape_html }}</span>{% endfor %}</h1>
         <dl class="hw-events__meta">{% for item in module.event_meta %}<div><dt class="secondary_font">{{ item.detail_label|escape_html }}</dt><dd>{{ item.value|escape_html }}</dd></div>{% endfor %}</dl>
       </header>
       <div class="hw-events__story">

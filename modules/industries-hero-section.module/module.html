@@ -1,0 +1,70 @@
+<div class="{{ name}} baseModuleStyle hw-industries-hero {{ module.custom_style.custom_class|escape_attr }}" id="{{ module.custom_style.section_id|escape_attr }}" aria-labelledby="{{ name|escape_attr }}-heading">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent">
+    <div class="content-wrapper">
+      <div class="customWidthOption">
+        <div class="moduletitleSection">
+          <div class="moduleTitle" id="{{ name|escape_attr }}-heading">
+            {{ module.content_group.heading }}
+          </div>
+          {% if module.content_group.description %}
+          <div class="moduleContent hw-industries-hero__content font20 lh16">
+            {{ module.content_group.description }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ {% require_css %}
+    <style>
+    {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+      
+      {% if module.style.heading_color.color %} .{{name}}.baseModuleStyle h1 { color: {{ module.style.heading_color.css }}; }{% endif %}
+      {% if module.style.heading_highlight_color.color %} .{{name}}.baseModuleStyle h1 span { color: {{ module.style.heading_highlight_color.css }}; }{% endif %}
+      {% if module.style.text_color.color %} .{{name}}.baseModuleStyle .moduleContent { color: {{ module.style.text_color.css }}; }{% endif %}
+      {% if module.style.text_color.color %} .{{name}}.baseModuleStyle .moduleContent p { color: {{ module.style.text_color.css }}; } {% endif %} 
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1300px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+{#       {% end_scope_css %} #}
+    </style>
+      {% end_require_css %}
+   
+    
