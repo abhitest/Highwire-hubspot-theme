@@ -1,28 +1,229 @@
-.hw-career-residents { position:relative; background-size:cover; background-position:center; color:var(--residents-title_color); font-family:var(--body,Arial,sans-serif); }
-.hw-career-residents,.hw-career-residents * { box-sizing:border-box; }
-.hw-career-residents > .baseModuleOverlay { position:absolute; inset:0; pointer-events:none; }
-.hw-career-residents > .baseModuleParent { position:relative; }
-.hw-career-residents__layout { display:grid; grid-template-columns:minmax(0,480fr) minmax(0,768fr); gap:64px; align-items:start; }
-.hw-career-residents[data-sticky=true] .hw-career-residents__intro { position:sticky; top:var(--residents-sticky-offset); }
-.hw-career-residents h2 { margin:28px 0 0; color:inherit; font:400 clamp(32px,3.4vw,48px)/1.08 var(--display,Arial,sans-serif); letter-spacing:-.03em; overflow-wrap:break-word; }
-.hw-career-residents__content { margin-top:28px; font-size:18px; line-height:1.55; color:var(--residents-content_color); }
-.hw-career-residents__content p,.hw-career-residents__role p { margin:0; color:inherit; }
-.hw-career-residents__content p+p { margin-top:24px; }
-.hw-career-residents__grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px 32px; }
-.hw-career-residents__profile { --profile-accent:var(--residents-accent_one); display:grid; grid-template-columns:minmax(80px,144px) minmax(0,1fr); gap:24px; align-items:center; }
-.hw-career-residents__portrait { position:relative; height:192px; overflow:hidden; background:#fff; }
-.hw-career-residents__portrait img { width:100%; height:118%; display:block; object-fit:cover; object-position:center top; filter:grayscale(1); }
-.hw-career-residents h3 { margin:0; color:inherit; font:400 24px/1.18 var(--display,Arial,sans-serif); letter-spacing:-.02em; overflow-wrap:break-word; }
-.hw-career-residents__role { margin-top:12px; color:var(--residents-content_color); font-size:16px; line-height:1.5; }
-.hw-career-residents__role p+p { margin-top:12px; }
-.hw-career-residents__portrait:after { content:''; position:absolute; bottom:0; left:0; right:0; height:4px; background:var(--profile-accent); transform:scaleX(0); transform-origin:left; transition:transform .36s cubic-bezier(.22,1,.36,1); }
-.hw-career-residents__arrow { position:absolute; bottom:0; right:0; display:grid; place-items:center; width:40px; height:40px; background:var(--profile-accent); color:#000; transform:translateY(100%); transition:transform .36s cubic-bezier(.22,1,.36,1); }
-.hw-career-residents__arrow svg { width:24px; height:24px; }
-.hw-career-residents__profile:is(:hover,:focus-visible) .hw-career-residents__portrait:after { transform:scaleX(1); }
-.hw-career-residents__profile:is(:hover,:focus-visible) .hw-career-residents__arrow { transform:translateY(0); }
-.hw-career-residents__profile:focus-visible { outline:2px solid var(--profile-accent); outline-offset:5px; }
-.hw-career-residents.is-motion-ready [data-residents-reveal] { opacity:0; transform:translateY(28px); }
-.hw-career-residents.is-motion-ready [data-residents-reveal].is-visible { opacity:1; transform:none; transition:opacity .36s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.22,1,.36,1); }
+.hw-career-residents {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: var(--residents-title_color);
+    font-family: var(--body, Arial, sans-serif);
+}
+
+.hw-career-residents,
+.hw-career-residents * {
+    box-sizing: border-box;
+}
+
+.hw-career-residents>.baseModuleOverlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hw-career-residents>.baseModuleParent {
+    position: relative;
+}
+
+.hw-career-residents__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 480fr) minmax(0, 768fr);
+    gap: 64px;
+    align-items: start;
+}
+
+.hw-career-residents[data-sticky=true] .hw-career-residents__intro {
+    position: sticky;
+    top: var(--residents-sticky-offset);
+}
+
+.hw-career-residents h2 {
+    margin: 28px 0 0;
+    color: inherit;
+   
+    overflow-wrap: break-word;
+}
+
+.hw-career-residents__content {
+    margin-top: 28px;
+    color: var(--residents-content_color);
+}
+
+.hw-career-residents__content p,
+.hw-career-residents__role p {
+    margin: 0;
+    color: inherit;
+}
+
+.hw-career-residents__content p+p {
+    margin-top: 24px;
+}
+
+.hw-career-residents__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 32px;
+}
+
+.hw-career-residents__extended {
+    grid-column: 1 / -1;
+    min-width: 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.hw-career-residents__team-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 80px;
+    padding: 24px 0;
+    list-style: none;
+    cursor: pointer;
+    color: inherit;
+    font: 600 16px/1.5 var(--body, Arial, sans-serif);
+}
+
+.hw-career-residents__team-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.hw-career-residents__team-toggle:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
+.hw-career-residents__team-icon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    flex: none;
+}
+
+.hw-career-residents__team-icon:before,
+.hw-career-residents__team-icon:after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+}
+
+.hw-career-residents__team-icon:before {
+    width: 18px;
+    height: 2px;
+    top: 11px;
+    left: 3px;
+}
+
+.hw-career-residents__team-icon:after {
+    width: 2px;
+    height: 18px;
+    top: 3px;
+    left: 11px;
+}
+
+.hw-career-residents__extended[open]>summary .hw-career-residents__team-icon:after {
+    display: none;
+}
+
+.hw-career-residents__extended-grid {
+    padding: 24px 0 48px;
+}
+
+.hw-career-residents__profile {
+    --profile-accent: var(--residents-accent_one);
+    display: grid;
+    grid-template-columns: minmax(80px, 144px) minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+}
+
+.hw-career-residents__portrait {
+    position: relative;
+    height: 192px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.hw-career-residents__portrait img {
+    width: 100%;
+    height: 118%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(1);
+}
+
+.hw-career-residents h3 {
+    margin: 0;
+    color: inherit;
+    font: 400 24px/1.18 var(--display, Arial, sans-serif);
+    letter-spacing: -.02em;
+    overflow-wrap: break-word;
+}
+
+.hw-career-residents__role {
+    margin-top: 12px;
+    color: var(--residents-content_color);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.hw-career-residents__role p+p {
+    margin-top: 12px;
+}
+
+.hw-career-residents__portrait:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--profile-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .36s cubic-bezier(.22, 1, .36, 1);
+}
+
+.hw-career-residents__arrow {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    background: var(--profile-accent);
+    color: #000;
+    transform: translateY(100%);
+    transition: transform .36s cubic-bezier(.22, 1, .36, 1);
+}
+
+.hw-career-residents__arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+.hw-career-residents__profile:is(:hover, :focus-visible) .hw-career-residents__portrait:after {
+    transform: scaleX(1);
+}
+
+.hw-career-residents__profile:is(:hover, :focus-visible) .hw-career-residents__arrow {
+    transform: translateY(0);
+}
+
+.hw-career-residents__profile:focus-visible {
+    outline: 2px solid var(--profile-accent);
+    outline-offset: 5px;
+}
+
+.hw-career-residents.is-motion-ready [data-residents-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+}
+
+.hw-career-residents.is-motion-ready [data-residents-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    transition: opacity .36s cubic-bezier(.4, 0, .2, 1), transform .65s cubic-bezier(.22, 1, .36, 1);
+}
 
 .hw-career-residents__profile {
     position: relative;
@@ -39,9 +240,73 @@
 
 
 
-@media(max-width:1200px) { .hw-career-residents__layout { gap:40px; } .hw-career-residents__profile { grid-template-columns:100px minmax(0,1fr); gap:18px; } .hw-career-residents__portrait { height:150px; } }
-@media(max-width:991px) { .hw-career-residents__layout { grid-template-columns:minmax(0,1fr); } .hw-career-residents[data-sticky=true] .hw-career-residents__intro { position:static; } .hw-career-residents h2 { margin-top:0; } }
-@media(max-width:600px) { .hw-career-residents__grid { grid-template-columns:minmax(0,1fr); gap:32px; } .hw-career-residents__profile { grid-template-columns:120px minmax(0,1fr); gap:24px; } .hw-career-residents__portrait { height:160px; } }
-html[data-motion=reduced] .hw-career-residents *,html[data-motion=reduced] .hw-career-residents *:after,.hw-career-residents[data-animate=false] *,.hw-career-residents[data-animate=false] *:after { transition:none!important; }
-html[data-motion=reduced] .hw-career-residents [data-residents-reveal],.hw-career-residents[data-animate=false] [data-residents-reveal] { opacity:1!important; transform:none!important; }
-@media(prefers-reduced-motion:reduce) { .hw-career-residents *, .hw-career-residents *:after { transition:none!important; } .hw-career-residents [data-residents-reveal] { opacity:1!important; transform:none!important; } }
+@media(max-width:1200px) {
+    .hw-career-residents__layout {
+        gap: 40px;
+    }
+
+    .hw-career-residents__profile {
+        grid-template-columns: 100px minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .hw-career-residents__portrait {
+        height: 150px;
+    }
+}
+
+@media(max-width:991px) {
+    .hw-career-residents__layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hw-career-residents[data-sticky=true] .hw-career-residents__intro {
+        position: static;
+    }
+
+    .hw-career-residents h2 {
+        margin-top: 0;
+    }
+}
+
+@media(max-width:600px) {
+    .hw-career-residents__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .hw-career-residents__profile {
+        grid-template-columns: 120px minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .hw-career-residents__portrait {
+        height: 160px;
+    }
+}
+
+html[data-motion=reduced] .hw-career-residents *,
+html[data-motion=reduced] .hw-career-residents *:after,
+.hw-career-residents[data-animate=false] *,
+.hw-career-residents[data-animate=false] *:after {
+    transition: none !important;
+}
+
+html[data-motion=reduced] .hw-career-residents [data-residents-reveal],
+.hw-career-residents[data-animate=false] [data-residents-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .hw-career-residents *,
+    .hw-career-residents *:after {
+        transition: none !important;
+    }
+
+    .hw-career-residents [data-residents-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

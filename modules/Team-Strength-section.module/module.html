@@ -1,0 +1,63 @@
+<section data-team-strength data-animate="{{ 'true' if module.style.enable_animation else 'false' }}" class="{{ name|escape_attr }} baseModuleStyle hw-team-strength {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %}>
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent hw-team-strength__layout">
+    <div class="hw-team-strength__copy">
+      {% if module.content_group.title %}<h2 data-team-strength-reveal id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>{% endif %}
+      {% if module.content_group.content %}<div class="hw-team-strength__content">{{ module.content_group.content }}</div>{% endif %}
+      {% if module.values %}
+      <div class="hw-team-strength__values">
+        {% for item in module.values %}
+        <article>{% if item.title %}<h3>{{ item.title|escape_html }}</h3>{% endif %}{% if item.content %}<div>{{ item.content }}</div>{% endif %}</article>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="hw-team-strength__people">
+    <div class="hw-team-strength__media" data-team-strength-pixels>
+      {% set image_src = module.content_group.image.src or get_asset_url('../../images/team-strength.webp') %}
+      <img src="{{ image_src|escape_url }}" alt="{{ module.content_group.image.alt|escape_attr }}" loading="lazy" decoding="async"><canvas aria-hidden="true"></canvas>
+    </div>
+    {% if module.invitation.enabled %}
+    <div class="hw-team-strength__invitation">
+      {% if module.invitation.text %}<p>{{ module.invitation.text|escape_html }}</p>{% endif %}
+      {% if module.invitation.button_text and module.invitation.link.url.href %}
+      <a href="{{ module.invitation.link.url.href|escape_url }}" {% if module.invitation.link.open_in_new_tab %}target="_blank"{% endif %} rel="noopener {{ module.invitation.link.rel|escape_attr }}">{{ module.invitation.button_text|escape_html }} <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></a>
+      {% endif %}
+    </div>
+    {% endif %}
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-team-strength {
+  {{ module.style.spacing.desktop_spacing.css }}
+  {% for color in ['value_color','rule_color','footer_background','footer_color','button_background','button_color','button_hover_background'] %}
+  --team-strength-{{ color }}: {{ module.style[color].css }};
+  {% endfor %}
+  --team-strength-sticky-offset: {{ module.style.sticky_offset }}px;
+  --team-strength-heading: {{ module.style.heading_color.css }};
+  --team-strength-content: {{ module.style.content_color.css }};
+  --team-strength-image-position: {{ module.content_group.image_position }}%;
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  background: {{ module.style.background_property.background_gredient.css }};
+  {% else %}
+  background-color: {{ module.style.background_property.background_color.css }};
+  {% endif %}
+}
+.{{ name }} .hw-team-strength__copy { {{ module.style.content_spacing.desktop_spacing.css }} }
+{% if module.style.background_property.background_choice == 'bgImage' %}
+.{{ name }} > .baseModuleOverlay { background: {{ module.style.background_property.overlay_color.css }}; }
+{% endif %}
+@media(max-width:1300px) {
+  .{{ name }}.hw-team-strength { {{ module.style.spacing.tab_spacing.css }} }
+  .{{ name }} .hw-team-strength__copy { {{ module.style.content_spacing.tab_spacing.css }} }
+}
+@media(max-width:767px) {
+  .{{ name }}.hw-team-strength { {{ module.style.spacing.mobile_spacing.css }} }
+  .{{ name }} .hw-team-strength__copy { {{ module.style.content_spacing.mobile_spacing.css }} }
+}
+</style>
+{% end_require_css %}

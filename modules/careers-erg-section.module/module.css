@@ -4,9 +4,9 @@
 .hw-career-erg > .baseModuleParent { position:relative; }
 .hw-career-erg__layout { display:grid; grid-template-columns:minmax(0,608fr) minmax(0,640fr); gap:64px; align-items:start; }
 .hw-career-erg[data-sticky=true] .hw-career-erg__intro { position:sticky; top:var(--erg-sticky-offset); }
-.hw-career-erg h2 { margin:0; color:inherit; font:400 clamp(36px,3.4vw,48px)/1.08 var(--display,Arial,sans-serif); letter-spacing:-.03em; white-space:pre-line; overflow-wrap:break-word; }
+.hw-career-erg h2 { margin:0; color:inherit; white-space:pre-line; overflow-wrap:break-word; }
 .hw-career-erg__content { margin-top:28px; }
-.hw-career-erg__content,.hw-career-erg__description { color:var(--erg-content_color); font-size:18px; line-height:1.55; }
+.hw-career-erg__content,.hw-career-erg__description { color:var(--erg-content_color); }
 .hw-career-erg__content p,.hw-career-erg__description p { margin:0; color:inherit; }
 .hw-career-erg__content p+p,.hw-career-erg__description p+p { margin-top:24px; }
 .hw-career-erg a { color:inherit; text-decoration:underline; }
@@ -15,7 +15,7 @@
 .hw-career-erg__group:last-of-type { padding-bottom:0; }
 .hw-career-erg__group-copy { grid-column:2; min-width:0; }
 .hw-career-erg__logo { display:block; width:96px; height:96px; object-fit:contain; }
-.hw-career-erg h3 { margin:0; color:inherit; font:400 30px/1.2 var(--display,Arial,sans-serif); letter-spacing:-.035em; }
+.hw-career-erg h3 { margin:0; color:inherit; }
 .hw-career-erg__description { margin-top:16px; }
 .hw-career-erg__awards { margin-top:56px; padding-top:40px; border-top:1px solid var(--erg-rule_color); }
 .hw-career-erg .hw-career-erg__awards-heading { margin:0 0 24px; color:inherit; font:400 16px/1.5 var(--body,Arial,sans-serif); letter-spacing:0; }

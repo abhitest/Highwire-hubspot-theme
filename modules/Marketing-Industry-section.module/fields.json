@@ -1,0 +1,473 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "id": "content_group",
+    "name": "content_group",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "name": "title",
+        "label": "Heading",
+        "type": "text",
+        "default": "Grounded in Your Industry and Audience, Moving from Day One"
+      },
+      {
+        "name": "content",
+        "label": "Introduction",
+        "type": "richtext",
+        "default": "<p>Marketing works when it starts with a deep understanding of your industry and your audience. Every program we build is grounded in that insight and delivered by teams who know how each channel performs.</p>"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "name": "items",
+    "label": "Industry Benefits",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 12,
+      "default": 3,
+      "sorting_label_field": "items.title"
+    },
+    "children": [
+      {
+        "name": "title",
+        "label": "Heading",
+        "type": "text"
+      },
+      {
+        "name": "content",
+        "label": "Description",
+        "type": "richtext"
+      },
+      {
+        "name": "default_icon",
+        "label": "Built-in Icon",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "compass",
+            "Compass"
+          ],
+          [
+            "layers",
+            "Layers"
+          ],
+          [
+            "line-up",
+            "Growth Chart"
+          ]
+        ],
+        "default": "compass"
+      },
+      {
+        "name": "icon",
+        "label": "Custom Icon",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "help_text": "Optional. Replaces the selected built-in icon."
+      }
+    ],
+    "default": [
+      {
+        "title": "Fluent in your sector from the first meeting",
+        "content": "<p>Our teams arrive fluent in your sector and in how your audiences research and buy online today, so your program gets to market faster. That�s the Highwire way: speed with substance.</p>",
+        "default_icon": "compass"
+      },
+      {
+        "title": "Senior judgment across every channel",
+        "content": "<p>Senior strategists align social, paid, influencer, and lifecycle with the business problems we&#x27;re solving, while tech-enabled tools keep the program sharp as your business changes.</p>",
+        "default_icon": "layers"
+      },
+      {
+        "title": "Always reading what's next",
+        "content": "<p>Once a campaign is live, we study why it performed and watch the signals that point to what�s next, so we can recommend a new path before the market forces one.</p>",
+        "default_icon": "line-up"
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gradient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#000000",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Background Image Overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 70
+            },
+            "visibility": {
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "operator": "EQUAL"
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 64,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 40,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 40,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 24,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 24,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "heading_color",
+        "label": "Heading Color",
+        "type": "color",
+        "default": {
+          "color": "#FFFFFF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "intro_color",
+        "label": "Introduction Color",
+        "type": "color",
+        "default": {
+          "color": "#FFFFFF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_color",
+        "label": "Description Color",
+        "type": "color",
+        "default": {
+          "color": "#B3B3B3",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "rule_color",
+        "label": "Divider Color",
+        "type": "color",
+        "default": {
+          "color": "#474747",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_one",
+        "label": "Hover Color 1",
+        "type": "color",
+        "default": {
+          "color": "#4BB7FF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_two",
+        "label": "Hover Color 2",
+        "type": "color",
+        "default": {
+          "color": "#FA9BFF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_three",
+        "label": "Hover Color 3",
+        "type": "color",
+        "default": {
+          "color": "#FF7042",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "enable_animation",
+        "label": "Enable Animations",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "sticky_intro",
+        "label": "Sticky Introduction",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "sticky_offset",
+        "label": "Sticky Top Offset",
+        "type": "number",
+        "min": 0,
+        "max": 300,
+        "default": 96,
+        "suffix": "px"
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

@@ -1,0 +1,630 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "id": "content_group",
+    "name": "content_group",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "name": "title",
+        "label": "Heading",
+        "type": "text",
+        "default": "The Strength of your Work Begins with the Strength of our Team"
+      },
+      {
+        "name": "content",
+        "label": "Content",
+        "type": "richtext",
+        "default": "<p>The best work comes from people who feel supported, trusted, and challenged to grow. We build that environment deliberately, giving different perspectives room to shape the work and our teams the confidence to push it further.</p>"
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "help_text": "Leave the image empty to use the included reference photograph.",
+        "default": {
+          "src": "",
+          "alt": "Highwire colleagues exchanging ideas around a lounge table",
+          "size_type": "auto",
+          "loading": "lazy"
+        }
+      },
+      {
+        "name": "image_position",
+        "label": "Image horizontal focal point",
+        "type": "number",
+        "min": 0,
+        "max": 100,
+        "default": 50,
+        "suffix": "%"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "name": "values",
+    "label": "Values",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 12,
+      "default": 4,
+      "sorting_label_field": "values.title"
+    },
+    "children": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text"
+      },
+      {
+        "name": "content",
+        "label": "Description",
+        "type": "richtext"
+      }
+    ],
+    "default": [
+      {
+        "title": "Inclusion Always",
+        "content": "<p>We make room for different perspectives and make sure people can contribute.</p>"
+      },
+      {
+        "title": "Growth Mindset",
+        "content": "<p>We stay curious, challenge our assumptions and keep building our skills.</p>"
+      },
+      {
+        "title": "Team Empowerment",
+        "content": "<p>We give people the support, resources, and trust to do their best work.</p>"
+      },
+      {
+        "title": "Fierce Distinction",
+        "content": "<p>We set high standards and push for work that earns attention and makes a difference.</p>"
+      }
+    ]
+  },
+  {
+    "name": "invitation",
+    "label": "Image Footer",
+    "type": "group",
+    "children": [
+      {
+        "name": "enabled",
+        "label": "Show image footer",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "text",
+        "label": "Text",
+        "type": "text",
+        "default": "Help shape what Highwire becomes next."
+      },
+      {
+        "name": "button_text",
+        "label": "Button text",
+        "type": "text",
+        "default": "Join the team"
+      },
+      {
+        "name": "link",
+        "label": "Button link",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "/about/careers"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gradient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#F0F0F0",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Background image overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            },
+            "visibility": {
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "operator": "EQUAL"
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.content_spacing",
+        "name": "content_spacing",
+        "label": "Content Panel Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.content_spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 64,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.content_spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 40,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 40,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.content_spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 24,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 24,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "heading_color",
+        "label": "Heading Color",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_color",
+        "label": "Content Color",
+        "type": "color",
+        "default": {
+          "color": "#222222",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "value_color",
+        "label": "Value Description Color",
+        "type": "color",
+        "default": {
+          "color": "#666666",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "rule_color",
+        "label": "Divider Color",
+        "type": "color",
+        "default": {
+          "color": "#CCCCCC",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "footer_background",
+        "label": "Image Footer Background",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "footer_color",
+        "label": "Image Footer Text Color",
+        "type": "color",
+        "default": {
+          "color": "#FFFFFF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "button_background",
+        "label": "Button Background",
+        "type": "color",
+        "default": {
+          "color": "#FFFFFF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "button_color",
+        "label": "Button Text Color",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "enable_animation",
+        "label": "Enable Animations",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "sticky_offset",
+        "label": "Sticky Image Top Offset",
+        "type": "number",
+        "min": 0,
+        "max": 300,
+        "default": 56,
+        "suffix": "px"
+      },
+      {
+        "name": "button_hover_background",
+        "label": "Button Hover Background",
+        "type": "color",
+        "default": {
+          "color": "#FF7042",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

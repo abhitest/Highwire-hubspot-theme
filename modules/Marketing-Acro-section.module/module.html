@@ -1,0 +1,26 @@
+<section class="{{ name|escape_attr }} baseModuleStyle hw-marketing-acro {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %} data-marketing-module data-animate="{{ 'true' if module.style.enable_animation else 'false' }}">
+<span class="baseModuleOverlay" aria-hidden="true"></span><div class="baseModuleParent hw-marketing-acro__layout">
+<div class="hw-marketing-acro__copy" data-marketing-reveal>
+{% if module.content_group.title %}<h2 id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>{% endif %}
+{% if module.content_group.content %}<div class="hw-marketing-acro__content">{{ module.content_group.content }}</div>{% endif %}
+{% if module.content_group.button_text and module.content_group.button_link.url.href %}<a class="hw-marketing-acro__button" href="{{ module.content_group.button_link.url.href|escape_url }}" {% if module.content_group.button_link.open_in_new_tab %}target="_blank"{% endif %} rel="noopener {{ module.content_group.button_link.rel|escape_attr }}"><span>{{ module.content_group.button_text|escape_html }}</span><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></a>{% endif %}
+</div><div class="hw-marketing-acro__media" data-marketing-pixels>
+{% set image_src = module.content_group.image.src or get_asset_url('../../images/marketing-acro-suite.png') %}
+<img src="{{ image_src|escape_url }}" alt="{{ module.content_group.image.alt|escape_attr }}" loading="lazy" decoding="async"><canvas aria-hidden="true"></canvas>
+</div>
+</div></section>
+{% require_css %}
+<style>
+.{{ name }}.hw-marketing-acro {
+ {{ module.style.spacing.desktop_spacing.css }}
+ {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+ {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+ {% else %}background-color:{{ module.style.background_property.background_color.css }};{% endif %}
+ {% for color in ['heading_color','content_color','button_color','button_background','hover_color','image_edge_color'] %}--marketing-{{ color }}:{{ module.style[color].css }};{% endfor %}
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }} > .baseModuleOverlay { background:{{ module.style.background_property.overlay_color.css }}; }{% endif %}
+.{{ name }} .hw-marketing-acro__copy { {{ module.style.content_spacing.desktop_spacing.css }} }
+@media(max-width:1300px) { .{{ name }}.hw-marketing-acro { {{ module.style.spacing.tab_spacing.css }} } .{{ name }} .hw-marketing-acro__copy { {{ module.style.content_spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-marketing-acro { {{ module.style.spacing.mobile_spacing.css }} } .{{ name }} .hw-marketing-acro__copy { {{ module.style.content_spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

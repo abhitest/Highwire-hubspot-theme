@@ -1,0 +1,36 @@
+<section class="{{ name|escape_attr }} baseModuleStyle hw-marketing-industry {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %} data-marketing-industry data-animate="{{ 'true' if module.style.enable_animation else 'false' }}" data-sticky="{{ 'true' if module.style.sticky_intro else 'false' }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent hw-marketing-industry__layout">
+    <header class="hw-marketing-industry__intro">
+      {% if module.content_group.title %}<h2 id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>{% endif %}
+      {% if module.content_group.content %}<div class="hw-marketing-industry__lead">{{ module.content_group.content }}</div>{% endif %}
+    </header>
+    <div class="hw-marketing-industry__list">
+      {% for item in module.items %}
+      <article class="hw-marketing-industry__item" tabindex="0" {% if item.title %}aria-labelledby="{{ name|escape_attr }}-item-{{ loop.index }}"{% endif %}>
+        <div class="hw-marketing-industry__heading">
+          {% set icon_src = item.icon.src or get_asset_url('../../images/marketing-icons/' ~ item.default_icon ~ '.svg') %}
+          <span class="hw-marketing-industry__icon" aria-hidden="true"><img src="{{ icon_src|escape_url }}" alt="" width="24" height="24" loading="lazy"></span>
+          {% if item.title %}<h3 id="{{ name|escape_attr }}-item-{{ loop.index }}">{{ item.title|escape_html }}</h3>{% endif %}
+        </div>
+        {% if item.content %}<div class="hw-marketing-industry__description">{{ item.content }}</div>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-marketing-industry {
+  {{ module.style.spacing.desktop_spacing.css }}
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background-color:{{ module.style.background_property.background_color.css }};{% endif %}
+  {% for color in ['heading_color','intro_color','content_color','rule_color','accent_one','accent_two','accent_three'] %}--industry-{{ color }}:{{ module.style[color].css }};{% endfor %}
+  --industry-sticky-offset:{{ module.style.sticky_offset }}px;
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }} > .baseModuleOverlay { background:{{ module.style.background_property.overlay_color.css }}; }{% endif %}
+@media(max-width:1300px) { .{{ name }}.hw-marketing-industry { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-marketing-industry { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

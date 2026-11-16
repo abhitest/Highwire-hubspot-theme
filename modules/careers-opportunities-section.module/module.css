@@ -4,8 +4,8 @@
 .hw-career-opportunities > .baseModuleParent { position:relative; }
 .hw-career-opportunities__layout { display:grid; grid-template-columns:minmax(0,608fr) minmax(0,640fr); gap:64px; align-items:start; }
 .hw-career-opportunities[data-sticky=true] .hw-career-opportunities__intro { position:sticky; top:var(--opportunities-sticky-offset); }
-.hw-career-opportunities h2 { margin:0; color:inherit; font:400 clamp(36px,3.4vw,48px)/1.08 var(--display,Arial,sans-serif); letter-spacing:-.03em; white-space:pre-line; overflow-wrap:break-word; }
-.hw-career-opportunities__content { margin-top:28px; color:var(--opportunities-content_color); font-size:18px; line-height:1.55; }
+.hw-career-opportunities h2 { margin:0; color:inherit;  white-space:pre-line; overflow-wrap:break-word; }
+.hw-career-opportunities__content { margin-top:28px; color:var(--opportunities-content_color); }
 .hw-career-opportunities__content p { margin:0; color:inherit; }
 .hw-career-opportunities__content p+p { margin-top:24px; }
 .hw-career-opportunities .hw-career-opportunities__label { margin:0 0 24px; color:inherit; font-size:16px; line-height:1.5; }

@@ -1,0 +1,42 @@
+<section class="{{ name|escape_attr }} baseModuleStyle hw-two-column-image {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %}>
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent hw-two-column-image__layout">
+    <div class="hw-two-column-image__copy">
+      {% if module.content_group.title %}<h2 id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>{% endif %}
+      {% if module.content_group.content %}<div class="hw-two-column-image__content">{{ module.content_group.content }}</div>{% endif %}
+    </div>
+    <div class="hw-two-column-image__media">
+      {% set image_src = module.content_group.image.src or get_asset_url('../../images/two-column-about-story.webp') %}
+      <img src="{{ image_src|escape_url }}" alt="{{ module.content_group.image.alt|escape_attr }}" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-two-column-image {
+  {{ module.style.spacing.desktop_spacing.css }}
+  --two-column-heading: {{ module.style.heading_color.css }};
+  --two-column-content: {{ module.style.content_color.css }};
+  --two-column-image-position: {{ module.content_group.image_position }}%;
+  {% if module.style.background_property.background_choice == 'bgImage' %}
+  background-image: url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}
+  background: {{ module.style.background_property.background_gredient.css }};
+  {% else %}
+  background-color: {{ module.style.background_property.background_color.css }};
+  {% endif %}
+}
+.{{ name }} .hw-two-column-image__copy { {{ module.style.content_spacing.desktop_spacing.css }} }
+{% if module.style.background_property.background_choice == 'bgImage' %}
+.{{ name }} > .baseModuleOverlay { background: {{ module.style.background_property.overlay_color.css }}; }
+{% endif %}
+@media(max-width:1300px) {
+  .{{ name }}.hw-two-column-image { {{ module.style.spacing.tab_spacing.css }} }
+  .{{ name }} .hw-two-column-image__copy { {{ module.style.content_spacing.tab_spacing.css }} }
+}
+@media(max-width:767px) {
+  .{{ name }}.hw-two-column-image { {{ module.style.spacing.mobile_spacing.css }} }
+  .{{ name }} .hw-two-column-image__copy { {{ module.style.content_spacing.mobile_spacing.css }} }
+}
+</style>
+{% end_require_css %}

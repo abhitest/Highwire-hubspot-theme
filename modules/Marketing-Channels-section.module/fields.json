@@ -1,0 +1,431 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "id": "content_group",
+    "name": "content_group",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "name": "title",
+        "label": "Heading",
+        "type": "text",
+        "default": "Every Channel, Built Around How Your Buyers Decide"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "name": "services",
+    "label": "Services",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 30,
+      "default": 8,
+      "sorting_label_field": "services.title"
+    },
+    "children": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text"
+      },
+      {
+        "name": "content",
+        "label": "Description",
+        "type": "richtext"
+      }
+    ],
+    "default": [
+      {
+        "title": "Paid Media",
+        "content": "<p>Media investment performs when it follows real audience behavior. We plan and optimize media investment strategies based on the patterns that apply specifically to your audience and sector.</p>"
+      },
+      {
+        "title": "Demand Generation",
+        "content": "<p>Today�s marketers are being asked to tie revenue outcomes back to specific campaign efforts. Our full-funnel programs connect awareness to pipeline so you can track and attribute both reach and revenue.</p>"
+      },
+      {
+        "title": "Organic Social",
+        "content": "<p>We craft social strategy and content that meets your audience where they spend their time. Then we feed those real-time audience signals back into the program to ensure your content is always hitting the right strategy at the right time.</p>"
+      },
+      {
+        "title": "CRM and Lifecycle Marketing",
+        "content": "<p>A traceable customer journey needs every touchpoint connected. We build lifecycle programs that guide prospects along continuous, connected buyer journeys.</p>"
+      },
+      {
+        "title": "AEO/GEO Search and AI Visibility",
+        "content": "<p>Your buyers ask AI to compare options and recommend a shortlist long before they reach your site. All of our content is optimized for both human and AI-led search so your brand shows up the way you want it to in the answers that shape buying decisions.</p>"
+      },
+      {
+        "title": "Influencer",
+        "content": "<p>Authentic, insight-led creator relationships drive real results. Our proprietary methodology goes beyond simple metrics like follower count to identify the influencers whose content truly resonates with their audiences and who will extend your brand&#x27;s credibility across their communities.</p>"
+      },
+      {
+        "title": "Sales Enablement",
+        "content": "<p>Marketing assets should support buyers well past the moment of discovery. We build sales enablement programs that nurture prospects through evaluation to the final purchase decision.</p>"
+      },
+      {
+        "title": "Events",
+        "content": "<p>An event is a moment in time. The marketing around it should not be. We build the strategy first, then pair every live occasion with content, earned media, and follow-on marketing that carries well beyond the room.</p>"
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gradient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#FFFFFF",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Background Image Overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 100
+            },
+            "visibility": {
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "operator": "EQUAL"
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 104,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 64,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 40,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 40,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 48,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 24,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 24,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "heading_color",
+        "label": "Heading Color",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "content_color",
+        "label": "Content Color",
+        "type": "color",
+        "default": {
+          "color": "#404040",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "enable_animation",
+        "label": "Enable Animation",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "rule_color",
+        "label": "Divider Color",
+        "type": "color",
+        "default": {
+          "color": "#BFBFBF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_one",
+        "label": "Hover Color 1",
+        "type": "color",
+        "default": {
+          "color": "#4BB7FF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_two",
+        "label": "Hover Color 2",
+        "type": "color",
+        "default": {
+          "color": "#FA9BFF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_three",
+        "label": "Hover Color 3",
+        "type": "color",
+        "default": {
+          "color": "#FF7042",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]
