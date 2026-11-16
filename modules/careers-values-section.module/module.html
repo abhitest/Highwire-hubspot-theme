@@ -2,22 +2,45 @@
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent">
     <div class="content-wrapper"><div class="hw-career-values__layout">
-      <header class="hw-career-values__intro">
-        {% if module.content_group.eyebrow %}<p class="hw-career-values__eyebrow">{{ module.content_group.eyebrow }}</p>{% endif %}
-        {% if module.content_group.title %}<h2 id="{{ name|escape_attr }}-title" class="hw-career-values__title" data-values-reveal>{{ module.content_group.title }}</h2>{% endif %}
-        {% if module.content_group.content %}<div class="hw-career-values__copy">{{ module.content_group.content }}</div>{% endif %}
-      </header>
+      <div class="hw-career-values__intro">
+        {% if module.content_group.eyebrow %}
+        <p class="hw-career-values__eyebrow">
+          {{ module.content_group.eyebrow }}
+        </p>
+        {% endif %}
+        {% if module.content_group.title %}
+        <h2 id="{{ name|escape_attr }}-title" class=" h4 hw-career-values__title" data-values-reveal>
+          {{ module.content_group.title }}
+        </h2>
+        {% endif %}
+        {% if module.content_group.content %}
+        <div class="hw-career-values__copy font18">
+          {{ module.content_group.content }}
+        </div>
+        {% endif %}
+      </div>
       <div class="hw-career-values__rows">
         {% for item in module.items %}
         <article class="hw-career-values__row" tabindex="0" {% if item.item_title %}aria-labelledby="{{ name|escape_attr }}-value-{{ loop.index }}"{% endif %}>
           {% if item.icon_image.src or (item.icon_choice and item.icon_choice != 'none' and item.icon_choice != 'custom') %}<span class="hw-career-values__icon" aria-hidden="true">
             {% if item.icon_image.src %}
               <img src="{{ item.icon_image.src|escape_url }}" alt="" width="32" height="32" loading="lazy">
-            {% else %}<img src="{{ get_asset_url('../../images/careers-icons/' ~ item.icon_choice ~ '.svg')|escape_url }}" alt="" width="32" height="32" loading="lazy">{% endif %}
-          </span>{% endif %}
+            {% else %}
+            <img src="{{ get_asset_url('../../images/careers-icons/' ~ item.icon_choice ~ '.svg')|escape_url }}" alt="" width="32" height="32" loading="lazy">
+            {% endif %}
+          </span>
+          {% endif %}
           <div class="hw-career-values__row-copy">
-            {% if item.item_title %}<h3 id="{{ name|escape_attr }}-value-{{ loop.index }}">{{ item.item_title }}</h3>{% endif %}
-            {% if item.item_content %}<div class="hw-career-values__description">{{ item.item_content }}</div>{% endif %}
+            {% if item.item_title %}
+            <h3 id="{{ name|escape_attr }}-value-{{ loop.index }}" class="h6">
+              {{ item.item_title }}
+            </h3>
+            {% endif %}
+            {% if item.item_content %}
+            <div class="hw-career-values__description font18">
+              {{ item.item_content }}
+            </div>
+            {% endif %}
           </div>
         </article>
         {% endfor %}
