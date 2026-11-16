@@ -56,6 +56,28 @@
         "default": "Recognized as one of the best in the industry"
       },
       {
+        "name": "logo_columns",
+        "label": "Logo Columns",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "2",
+            "2 Columns"
+          ],
+          [
+            "3",
+            "3 Columns"
+          ],
+          [
+            "4",
+            "4 Columns"
+          ]
+        ],
+        "default": "4",
+        "help_text": "Desktop and tablet layout. Mobile displays two columns."
+      },
+      {
         "name": "awards",
         "label": "Awards",
         "type": "group",
@@ -74,7 +96,6 @@
               "alt": ""
             }
           },
-        
           {
             "name": "width",
             "label": "Logo width (px)",
@@ -293,9 +314,27 @@
               [
                 "octonary",
                 "octonary"
+              ],
+              [
+                "custom",
+                "Custom color"
               ]
             ],
             "default": "secondary"
+          },
+          {
+            "name": "custom_background_color",
+            "label": "Custom Background Color",
+            "type": "color",
+            "default": {
+              "color": "#FFFFFF",
+              "opacity": 100
+            },
+            "visibility": {
+              "controlling_field_path": "style.background_property.background_palette",
+              "controlling_value_regex": "custom",
+              "operator": "EQUAL"
+            }
           },
           {
             "id": "style.background_property.background_gredient",
