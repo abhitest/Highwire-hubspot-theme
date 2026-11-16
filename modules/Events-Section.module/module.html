@@ -3,8 +3,8 @@
   <div class="hw-events__layout">
     <div class="hw-events__reading">
       <header class="hw-events__hero">
-        <span class="hw-events__eyebrow">{{ module.eyebrow|escape_html }}</span>
-        <h1 class="h3" id="{{ name|escape_attr }}-title" data-event-reveal>{% for line in module.heading|split('\n') %}<span>{{ line|escape_html }}</span>{% endfor %}</h1>
+        {% if module.eyebrow|escape_html %}<span class="hw-events__eyebrow">{{ module.eyebrow|escape_html }}</span>{% endif %}
+        <h1 class="h3 {% if module.eyebrow %}hw-events_no-eyebrow{% endif %}" id="{{ name|escape_attr }}-title" data-event-reveal>{% for line in module.heading|split('\n') %}<span>{{ line|escape_html }}</span>{% endfor %}</h1>
         <dl class="hw-events__meta">{% for item in module.event_meta %}<div><dt class="secondary_font">{{ item.detail_label|escape_html }}</dt><dd>{{ item.value|escape_html }}</dd></div>{% endfor %}</dl>
       </header>
       <div class="hw-events__story">
@@ -16,7 +16,7 @@
         <h2 data-event-reveal>{{ module.speakers_heading|escape_html }}</h2>
         <div class="hw-events__speaker-grid">{% for speaker in module.speakers %}
           <article data-event-reveal style="--event-index:{{ loop.index0 }}">
-            {% if speaker.photo.src %}<div class="hw-events__portrait"><img src="{{ speaker.photo.src|escape_url }}" alt="{{ (speaker.photo.alt or speaker.full_name)|escape_attr }}" loading="lazy" width="312" height="222"></div>{% endif %}
+            {% if speaker.photo.src %}<div class="hw-events__portrait {% if module.update_speakers_image_sizes %}hw-events__portrait-sizes{% endif %}"><img src="{{ speaker.photo.src|escape_url }}" alt="{{ (speaker.photo.alt or speaker.full_name)|escape_attr }}" loading="lazy" width="312" height="222"></div>{% endif %}
             <h3>{{ speaker.full_name|escape_html }}</h3><p>{{ speaker.role|escape_html }}</p>
             {% if speaker.speaker_label %}<p class="hw-events__speaker-label tertiary_color secondary_font">{{ speaker.speaker_label|escape_html }}</p>{% endif %}
           </article>{% endfor %}</div>
@@ -26,10 +26,12 @@
         {{ module.details_intro }}
         {% if module.schedule or module.schedule_heading %}<h3>{{ module.schedule_heading|escape_html }}</h3><ul>{% for item in module.schedule %}<li>{{ item|escape_html }}</li>{% endfor %}</ul>{% endif %}
         {% if module.address_heading %}<h3>{{ module.address_heading|escape_html }}</h3>{% endif %}{% if module.address %}{{ module.address }}{% endif %}
+        {% if module.RSVP_link.href %}<a class="hw-events__recap" href="{{ module.RSVP_link.href|escape_url }}">{{ module.RSVP_label|escape_html }}<span aria-hidden="true">→</span></a>{% endif %}
       </div>
     </div> 
-    <aside class="hw-events__rail" aria-labelledby="{{ name|escape_attr }}-form-title">
+    <aside class="hw-events__rail {% if module.form_text %}events__rail-form-headertext{% endif %}" aria-labelledby="{{ name|escape_attr }}-form-title">
       <h2 id="{{ name|escape_attr }}-form-title">{{ module.form_heading|escape_html }}</h2>
+      {% if module.form_text %}<div class="events__rail-form-text font18 lh15">{{ module.form_text }}</div>{% endif %}
       {% if module.registration_form.form_id %}
       {% form form_to_use="{{ module.registration_form.form_id }}", response_response_type="{{ module.registration_form.response_type }}", response_message="{{ module.registration_form.message }}", response_redirect_id="{{ module.registration_form.redirect_id }}", response_redirect_url="{{ module.registration_form.redirect_url }}" %}
       {% elif is_in_editor %}<p>Select a registration form in the module settings.</p>{% endif %}

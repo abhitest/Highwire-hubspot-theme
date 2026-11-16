@@ -1,0 +1,1076 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Industries
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "dnd_area", label="Industries", class="body-container body-container--industries-health" %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/b2btechno-Banner-Section.module",
+      custom_style={
+        "container_choice": "content-wrapper",
+        "section_id": "hero"
+      },
+      content_group={
+        "parent_label": "Industries",
+        "parent_url": {
+          "type": "EXTERNAL",
+          "href": "/#industries"
+        },
+        "current_label": "Health",
+        "heading_lines": [
+          "Complex Science,",
+          "Human Stories"
+        ],
+        "description": "We help healthcare leaders find the clearest, most credible way to show up in moments that matter.",
+        "hero_image": {
+          "src": "https://highwire-demo.vercel.app/images/industries/health/health-hero-research-dialogue-v01.png",
+          "alt": "A researcher and clinical colleague studying a sample at a laboratory microscope",
+          "size_type": "auto"
+        },
+        "body_copy": "<p>Healthcare marketing and communications teams face pressures few other sectors can match. The subject matter is technically complex, the regulatory environment is unforgiving, and the audiences — including patients, clinicians, caregivers, policymakers, and payers — each bring different levels of health literacy, motivations, and thresholds for trust.</p><p>Earning credibility with any one of them is hard enough. Maintaining it across all of them is where most agencies fall short.</p><p>Highwire Health brings the strategic discipline and sector fluency to align complex audiences around a connected and coherent narrative and deliver it in a way that earns attention from audiences who don’t have time to spare.</p>",
+        "body_cta_label": "See our health work",
+        "body_cta_url": {
+          "href": "#work",
+          "type": "EXTERNAL"
+        }
+      },
+      style={
+        "accent_color": {
+          "color": "#00b89c",
+          "opacity": 100
+        },
+        "background_property": {
+          "background_choice": "bgColor",
+          "background_image": {
+            "size_type": "auto",
+            "src": "",
+            "alt": null,
+            "loading": "disabled"
+          },
+          "background_palette": "subtle",
+          "mobile_background_palette": "subtle",
+          "background_gredient": {}
+        },
+        "spacing": {}
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/b2b-Chapter-Section.module",
+      custom_style={
+        "container_choice": "content-wrapper",
+        "section_id": "challenges"
+      },
+      content_group={
+        "heading": "Tensions Shaping Healthcare’s Next Chapter",
+        "intro": "<p>Healthcare leaders face a landscape where complex science, competing stakeholder priorities, and high regulatory expectations make clear communication harder than ever. We’re seeing these tensions shape how organizations build credibility, align audiences, and strengthen influence.</p>",
+        "chapters": [
+          {
+            "title": "Science Lost in Translation",
+            "description": "<p>The breakthroughs are real, but the story isn't landing. When complex science or technology outpaces the language used to describe it, credibility gaps form before audiences ever get the chance to believe in what you've built.</p>",
+            "cta_label": "Let?s talk about it",
+            "cta_url": {
+              "href": "#contact",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "Stakeholders Pulling in Different Directions",
+            "description": "<p>Clinicians, payers, regulators, and investors each bring different priorities to the same conversation. Without a shared narrative that holds across all of them, even the strongest message loses its force.</p>",
+            "cta_label": "Let?s talk about it",
+            "cta_url": {
+              "href": "#contact",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "No Room for Imprecision",
+            "description": "<p>Healthcare marketing and communications that can't hold up under regulatory and public pressure create risk that follows the brand long after the moment has passed.</p>",
+            "cta_label": "Let?s talk about it",
+            "cta_url": {
+              "href": "#contact",
+              "type": "EXTERNAL"
+            }
+          },
+          {
+            "title": "Executives Without a Platform",
+            "description": "<p>Your leaders have expertise and a point of view worth sharing, but you don’t have the infrastructure to turn that knowledge into the kind of external influence that shapes how your category gets defined.</p>",
+            "cta_label": "Let?s talk about it",
+            "cta_url": {
+              "href": "#contact",
+              "type": "EXTERNAL"
+            }
+          }
+        ]
+      },
+      style={
+        "background_property": {
+          "background_choice": "bgColor",
+          "background_image": {
+            "size_type": "auto",
+            "src": "",
+            "alt": null,
+            "loading": "disabled"
+          },
+          "background_palette": "primary",
+          "mobile_background_palette": "primary",
+          "background_gredient": {}
+        },
+        "spacing": {}
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/b2b-Work-Section.module",
+      custom_style={
+        "container_choice": "content-wrapper",
+        "section_id": "work"
+      },
+      content_group={
+        "heading": "Work That Moves Your Brand Forward",
+        "intro": "<p>See how we help health companies sharpen their story, shape their category, and create momentum.</p>",
+        "cards": [
+          {
+            "client": "Definitive Healthcare",
+            "title": "Building Brand Awareness through Healthcare Intelligence",
+            "description": "We turned healthcare intelligence into stories people could use, pairing original data with expert perspectives to build recognition among providers, industry leaders, and the media.",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/industries/health/industry-case-study--healthcare.png",
+              "alt": "Building Brand Awareness through Healthcare Intelligence",
+              "size_type": "auto"
+            },
+            "link": {
+              "url": {
+                "href": "",
+                "type": "EXTERNAL"
+              },
+              "open_in_new_tab": false
+            },
+            "tags": [
+              "Thought Leadership",
+              "Data Storytelling"
+            ],
+            "metrics": [
+              {
+                "metric_label": "Earned media placements",
+                "value": "145+"
+              },
+              {
+                "metric_label": "Growth in report engagement",
+                "value": "3.4×"
+              }
+            ]
+          },
+          {
+            "client": "Nurse recruitment case study",
+            "title": "Driving Nurse Recruitment with Data-Driven Marketing",
+            "description": "An audience-led campaign connected nurses with the roles that fit their ambitions, combining relevant creative, targeted media, and continuous optimization across the recruitment journey.",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/industries/health/nurse-recruitment.webp",
+              "alt": "Driving Nurse Recruitment with Data-Driven Marketing",
+              "size_type": "auto"
+            },
+            "link": {
+              "url": {
+                "href": "",
+                "type": "EXTERNAL"
+              },
+              "open_in_new_tab": false
+            },
+            "tags": [
+              "Performance Marketing",
+              "Audience Strategy"
+            ],
+            "metrics": [
+              {
+                "metric_label": "Increase in qualified applications",
+                "value": "58%"
+              },
+              {
+                "metric_label": "Lower cost per application",
+                "value": "32%"
+              }
+            ]
+          }
+        ],
+        "more_label": "See more health work",
+        "more_url": {
+          "type": "EXTERNAL",
+          "href": "/#work"
+        }
+      },
+      style={
+        "background_property": {
+          "background_choice": "bgColor",
+          "background_image": {
+            "size_type": "auto",
+            "src": "",
+            "alt": null,
+            "loading": "disabled"
+          },
+          "background_palette": "secondary",
+          "mobile_background_palette": "secondary",
+          "background_gredient": {}
+        },
+        "spacing": {}
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/Industries-Strategy-Section.module",
+      custom_style={
+        "container_choice": "content-wrapper",
+        "section_id": "expertise"
+      },
+      content_group={
+        "title": "<h2>Shared Strategy.<br>Shared Execution.<br>One Connected View of<br>the Healthcare Ecosystem</h2>",
+        "content": "<p>Highwire Health specializes in three key areas, yet is designed to run as a single integrated team so clients operating across life sciences, health innovation, and the business of health never have to manage the translation between them.</p>",
+        "image": {
+          "src": "",
+          "alt": "A clinician, researcher and care coordinator reviewing materials together in a healthcare workspace",
+          "size_type": "auto",
+          "loading": "lazy"
+        },
+        "image_left": false
+      },
+      style={
+        "background_property": {
+          "background_choice": "bgColor",
+          "background_image": {
+            "size_type": "auto",
+            "src": "",
+            "alt": null,
+            "loading": "disabled"
+          },
+          "background_color": {
+            "color": "#ffffff",
+            "opacity": 100
+          },
+          "background_gredient": {},
+          "overlay_color": {
+            "color": "#000000",
+            "opacity": 0
+          }
+        },
+        "spacing": {
+          "desktop_spacing": {
+            "padding": {
+              "top": {
+                "value": 120,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 72,
+                "units": "px"
+              },
+              "left": {
+                "value": null,
+                "units": null
+              },
+              "right": {
+                "value": null,
+                "units": null
+              }
+            }
+          },
+          "tab_spacing": {
+            "padding": {
+              "top": {
+                "value": 80,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 64,
+                "units": "px"
+              },
+              "left": {
+                "value": null,
+                "units": null
+              },
+              "right": {
+                "value": null,
+                "units": null
+              }
+            }
+          },
+          "mobile_spacing": {
+            "padding": {
+              "top": {
+                "value": 56,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 48,
+                "units": "px"
+              },
+              "left": {
+                "value": null,
+                "units": null
+              },
+              "right": {
+                "value": null,
+                "units": null
+              }
+            }
+          }
+        }
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/Industries-Three-Column-Section.module",
+      custom_style={
+        "container_choice": "content-wrapper",
+        "section_id": "health-specialisms"
+      },
+      content_group={
+        "columns": [
+          {
+            "title": "Life Sciences",
+            "content": "<p>We partner with life sciences organizations to accelerate growth, drive real-world impact, and show up with precision and proof when it matters most. We know how to build value with speed across clinical trial milestones, advocacy and engagement, launches, corporate narrative, and executive visibility ? bringing evidence-led storytelling to work that helps remove barriers to care.</p>"
+          },
+          {
+            "title": "Health Innovation",
+            "content": "<p>We help innovators blend health and technology by building the credibility that drives adoption, grounded in evidence, informed by modern tools including AI, and executed with the precision healthcare demands. We know how to take a story from breakthrough technology to clinical workflow to payer acceptance.</p>"
+          },
+          {
+            "title": "Business of Health",
+            "content": "<p>We understand the realities of patient, provider, and payor dynamics ? from reimbursement pressure and value-based care to the operational complexity of healthcare delivery. Our positioning and go-to-market strategies reflect how decisions actually get made, so organizations can earn trust, unlock adoption, and build sustainable growth.</p>"
+          }
+        ],
+        "animate": true
+      },
+      style={
+        "background_property": {
+          "background_choice": "bgColor",
+          "background_image": {
+            "size_type": "auto",
+            "src": "",
+            "alt": null,
+            "loading": "disabled"
+          },
+          "background_color": {
+            "color": "#ffffff",
+            "opacity": 100
+          },
+          "background_gredient": {},
+          "overlay_color": {
+            "color": "#000000",
+            "opacity": 0
+          }
+        },
+        "spacing": {
+          "desktop_spacing": {
+            "padding": {
+              "top": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 96,
+                "units": "px"
+              },
+              "left": {
+                "value": null,
+                "units": null
+              },
+              "right": {
+                "value": null,
+                "units": null
+              }
+            }
+          },
+          "tab_spacing": {
+            "padding": {
+              "top": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 72,
+                "units": "px"
+              },
+              "left": {
+                "value": null,
+                "units": null
+              },
+              "right": {
+                "value": null,
+                "units": null
+              }
+            }
+          },
+          "mobile_spacing": {
+            "padding": {
+              "top": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 48,
+                "units": "px"
+              },
+              "left": {
+                "value": null,
+                "units": null
+              },
+              "right": {
+                "value": null,
+                "units": null
+              }
+            }
+          }
+        },
+        "accent_color": {
+          "color": "#00b89c",
+          "opacity": 100
+        },
+        "heading_color": {
+          "color": "#000000",
+          "opacity": 100
+        },
+        "content_color": {
+          "color": "#404040",
+          "opacity": 100
+        }
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/Industries-Expertise-Section.module",
+      custom_style={
+        "container_choice": "content-wrapper",
+        "section_id": "areas-of-expertise"
+      },
+      content_group={
+        "title": "<h2>Our Areas<br>of Expertise</h2>",
+        "image": {
+          "src": "",
+          "alt": "A physician listening to a woman during a consultation in a softly lit clinic",
+          "size_type": "auto",
+          "loading": "lazy"
+        },
+        "areas": [
+          {
+            "title": "Women?s Health"
+          },
+          {
+            "title": "Cardiology"
+          },
+          {
+            "title": "Pediatrics"
+          },
+          {
+            "title": "Behavioral Health and Wellness"
+          },
+          {
+            "title": "Oncology and Rare Disease"
+          }
+        ],
+        "animate": true,
+        "image_right": false
+      },
+      style={
+        "background_property": {
+          "background_choice": "bgColor",
+          "background_image": {
+            "size_type": "auto",
+            "src": "",
+            "alt": null,
+            "loading": "disabled"
+          },
+          "background_color": {
+            "color": "#ffffff",
+            "opacity": 100
+          },
+          "background_gredient": {},
+          "overlay_color": {
+            "color": "#000000",
+            "opacity": 0
+          }
+        },
+        "spacing": {
+          "desktop_spacing": {
+            "padding": {
+              "top": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 112,
+                "units": "px"
+              },
+              "left": {
+                "value": null,
+                "units": null
+              },
+              "right": {
+                "value": null,
+                "units": null
+              }
+            }
+          },
+          "tab_spacing": {
+            "padding": {
+              "top": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 80,
+                "units": "px"
+              },
+              "left": {
+                "value": null,
+                "units": null
+              },
+              "right": {
+                "value": null,
+                "units": null
+              }
+            }
+          },
+          "mobile_spacing": {
+            "padding": {
+              "top": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 56,
+                "units": "px"
+              },
+              "left": {
+                "value": null,
+                "units": null
+              },
+              "right": {
+                "value": null,
+                "units": null
+              }
+            }
+          }
+        },
+        "accent_color": {
+          "color": "#00b89c",
+          "opacity": 100
+        },
+        "text_color": {
+          "color": "#000000",
+          "opacity": 100
+        },
+        "border_color": {
+          "color": "#bfbfbf",
+          "opacity": 100
+        }
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/b2b-Client-Logos.module",
+      custom_style={
+        "section_id": "clients"
+      },
+      heading="Trusted by Healthcare Leaders",
+      intro="<p>We partner with healthcare organizations tackling consequential challenges and looking for a team that can help turn ambition into action.</p>",
+      logos=[
+        {
+          "image": {
+            "src": "https://highwire-demo.vercel.app/images/industries/health/johnson-johnson.svg",
+            "alt": "J&J",
+            "size_type": "auto"
+          },
+          "width": 176
+        },
+        {
+          "image": {
+            "src": "https://highwire-demo.vercel.app/images/industries/health/cvs-health.svg",
+            "alt": "CVS Health",
+            "size_type": "auto"
+          },
+          "width": 164
+        },
+        {
+          "image": {
+            "src": "https://highwire-demo.vercel.app/images/industries/health/fujifilm.svg",
+            "alt": "Fujifilm",
+            "size_type": "auto"
+          },
+          "width": 158
+        },
+        {
+          "image": {
+            "src": "https://highwire-demo.vercel.app/images/industries/health/vibrant.svg",
+            "alt": "Vibrant Emotional Health",
+            "size_type": "auto"
+          },
+          "width": 176
+        },
+        {
+          "image": {
+            "src": "https://highwire-demo.vercel.app/images/industries/health/definitive-healthcare.svg",
+            "alt": "Definitive Healthcare",
+            "size_type": "auto"
+          },
+          "width": 164
+        }
+      ],
+      two_column_layout=false,
+      animate=true,
+      style={
+        "background": {
+          "color": "#f0f0f0",
+          "opacity": 100
+        },
+        "heading_color": {
+          "color": "#000000",
+          "opacity": 100
+        },
+        "text_color": {
+          "color": "#000000",
+          "opacity": 100
+        },
+        "border_color": {
+          "color": "#c4c4c4",
+          "opacity": 100
+        },
+        "spacing": {
+          "desktop": {
+            "padding": {
+              "top": {
+                "value": 80,
+                "units": "px"
+              },
+              "right": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 80,
+                "units": "px"
+              },
+              "left": {
+                "value": 0,
+                "units": "px"
+              }
+            },
+            "margin": {
+              "top": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 0,
+                "units": "px"
+              }
+            }
+          },
+          "tablet": {
+            "padding": {
+              "top": {
+                "value": 64,
+                "units": "px"
+              },
+              "right": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 64,
+                "units": "px"
+              },
+              "left": {
+                "value": 0,
+                "units": "px"
+              }
+            },
+            "margin": {
+              "top": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 0,
+                "units": "px"
+              }
+            }
+          },
+          "mobile": {
+            "padding": {
+              "top": {
+                "value": 48,
+                "units": "px"
+              },
+              "right": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 48,
+                "units": "px"
+              },
+              "left": {
+                "value": 0,
+                "units": "px"
+              }
+            },
+            "margin": {
+              "top": {
+                "value": 0,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 0,
+                "units": "px"
+              }
+            }
+          }
+        },
+        "max_width": 1312,
+        "intro_width": 840,
+        "heading_size": 56,
+        "mobile_heading_size": 36,
+        "text_size": 20,
+        "heading_gap": 24,
+        "grid_gap": 48,
+        "columns": 5,
+        "tablet_columns": 3,
+        "mobile_columns": 2,
+        "cell_height": 150,
+        "mobile_cell_height": 120,
+        "cell_padding": 24,
+        "logo_height": 64,
+        "border_width": 1,
+        "logo_opacity": 60,
+        "hover_opacity": 100,
+        "monochrome": true,
+        "duration": 650,
+        "stagger": 40
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/b2b-Outcomes-section.module",
+      custom_style={
+        "container_choice": "content-wrapper",
+        "section_id": "capabilities"
+      },
+      content_group={
+        "heading": "Connected Capabilities, From Strategy to Outcomes",
+        "intro": "<p>Strategy, brand, communications, content, and marketing working together toward the same business goal.</p>",
+        "capabilities": [
+          {
+            "title": "Strategy & Intelligence",
+            "description": "Every program starts with a sharper understanding of the landscape it will operate in. We build the market intelligence, audience insight, and competitive context that make every activation more precisely targeted and every decision clearly grounded in where the market is moving.",
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/search.svg",
+              "alt": "",
+              "size_type": "auto",
+              "width": 24,
+              "height": 24
+            }
+          },
+          {
+            "title": "Marketing",
+            "description": "The full growth engine, from awareness through pipeline. We build and activate programs across every channel where the organizations we work with need to be found, considered, and chosen, with measurement frameworks that connect marketing performance to the revenue conversations that matter most.",
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/target.svg",
+              "alt": "",
+              "size_type": "auto",
+              "width": 24,
+              "height": 24
+            }
+          },
+          {
+            "title": "Communications",
+            "description": "Reputation is built over years and tested in moments. We bring the senior counsel, media relationships, and sector fluency to protect and advance reputations across earned media, executive visibility, crisis response, and every channel where the organization’s credibility is at stake.",
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/chat.svg",
+              "alt": "",
+              "size_type": "auto",
+              "width": 24,
+              "height": 24
+            }
+          },
+          {
+            "title": "Content & Thought Leadership",
+            "description": "Intelligence-led content that earns authority with the audiences that shape decisions and produces the commercial results that make every program defensible. We build research-anchored thought leadership that functions as a category asset, compounding in value with every piece that follows.",
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/book-open.svg",
+              "alt": "",
+              "size_type": "auto",
+              "width": 24,
+              "height": 24
+            }
+          },
+          {
+            "title": "Brand & Creative",
+            "description": "Brand is the story an organization tells before anyone asks. We build the strategy, identity, and creative expression that give that story clarity, consistency, and the credibility to hold up in every environment the organization needs to lead.",
+            "icon": {
+              "src": "https://highwire-demo.vercel.app/images/icons/industry/edit.svg",
+              "alt": "",
+              "size_type": "auto",
+              "width": 24,
+              "height": 24
+            }
+          }
+        ]
+      },
+      style={
+        "background_property": {
+          "background_choice": "bgColor",
+          "background_image": {
+            "size_type": "auto",
+            "src": "",
+            "alt": null,
+            "loading": "disabled"
+          },
+          "background_palette": "secondary",
+          "mobile_background_palette": "secondary",
+          "background_gredient": {}
+        },
+        "spacing": {}
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/b2b-Acro-Suite-section.module",
+      custom_style={
+        "container_choice": "content-wrapper",
+        "section_id": "acro"
+      },
+      content_group={
+        "heading": "Acro Suite: Intelligence Built Into the Work",
+        "intro": "<p>Acro brings intelligence, AI, and performance data together so our teams can connect what’s happening in the market to the decisions we recommend for your business.</p>",
+        "cta_text": "Explore Acro",
+        "products": [
+          {
+            "title": "AcroAI",
+            "description": "<p>Highwire’s proprietary AI infrastructure is embedded in every engagement. It compresses the distance between market signal and strategic action so your programs are built on what the market is doing right now, not last quarter's data.</p>",
+            "tone": "zest",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              }
+            }
+          },
+          {
+            "title": "AcroIntelligence",
+            "description": "<p>Real-time market monitoring and narrative analytics built for healthcare. We track where your category is moving, how competitors are positioning, and where the next trend is forming before it becomes a headline.</p>",
+            "tone": "sky",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              }
+            }
+          },
+          {
+            "title": "AcroAnswers",
+            "description": "<p>Performance measurement in the language of your boardroom. Not vanity metrics, but revenue-tied outcomes that make every program defensible at the executive level.</p>",
+            "tone": "orchid",
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": ""
+              }
+            }
+          }
+        ]
+      },
+      style={
+        "background_property": {
+          "background_choice": "bgColor",
+          "background_image": {
+            "size_type": "auto",
+            "src": "",
+            "alt": null,
+            "loading": "disabled"
+          },
+          "background_palette": "primary",
+          "mobile_background_palette": "primary",
+          "background_gredient": {}
+        },
+        "spacing": {}
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/thinking-section.module",
+      custom_style={
+        "container_choice": "content-wrapper",
+        "section_id": "insights"
+      },
+      content_group={
+        "stacked_intro": true,
+        "eyebrow": "Our Insights",
+        "heading": "Perspectives for Health Leaders",
+        "description": "<p>Research and thinking from Highwire on the questions, opportunities, and challenges shaping the decisions health leaders face.</p>",
+        "articles": [
+          {
+            "title": "Building Trust to Power Progress: 6 Takeaways from Highwire’s Energy Leaders Panel",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/industries/editorial/energy-leaders-panel.png",
+              "alt": "Building Trust to Power Progress: 6 Takeaways from Highwire’s Energy Leaders Panel",
+              "size_type": "auto"
+            },
+            "link": {
+              "url": {
+                "href": "",
+                "type": "EXTERNAL"
+              },
+              "open_in_new_tab": false
+            }
+          },
+          {
+            "title": "A Benchmark Isn’t a Strategy; Introducing AcroAnswers",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/industries/editorial/acroanswers.png",
+              "alt": "A Benchmark Isn’t a Strategy; Introducing AcroAnswers",
+              "size_type": "auto"
+            },
+            "link": {
+              "url": {
+                "href": "",
+                "type": "EXTERNAL"
+              },
+              "open_in_new_tab": false
+            }
+          },
+          {
+            "title": "Your First AI Incident Is a Resilience Test, Not a Tech Failure",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/home/insights/ai-incident.png",
+              "alt": "Your First AI Incident Is a Resilience Test, Not a Tech Failure",
+              "size_type": "auto"
+            },
+            "link": {
+              "url": {
+                "href": "",
+                "type": "EXTERNAL"
+              },
+              "open_in_new_tab": false
+            }
+          }
+        ]
+      },
+      style={
+        "background_property": {
+          "background_choice": "bgColor",
+          "background_image": {
+            "size_type": "auto",
+            "src": "",
+            "alt": null,
+            "loading": "disabled"
+          },
+          "background_palette": "secondary",
+          "background_gredient": {}
+        },
+        "spacing": {}
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/b2b-Contact-Section.module",
+      custom_style={
+        "custom_class": "",
+        "section_id": "contact"
+      },
+      heading="Let’s Get to Work",
+      intro="Senior Highwire leaders stay close to the work, the market, and your business from day one.",
+      leader={
+        "full_name": "Gloria Vanderham",
+        "role": "Managing Director",
+        "photo": {
+          "src": "https://highwire-demo.vercel.app/images/industries/health/gloria-vanderham.png",
+          "alt": "Gloria Vanderham",
+          "size_type": "auto"
+        },
+        "bio": "<p>Gloria is a strategic communications leader with 25+ years transforming healthcare narratives into breakthrough opportunities. As Managing Director of Highwire Health, she brings extensive experience building high-impact brands and cultivating effective teams. Gloria most recently served as CEO and Co-Founder of Bliss Bio Health, scaling the women-led marketing accelerator and removing barriers to care. Previously, she spent over a decade at Novartis in senior leadership roles, including Regional Head of Europe Communications, where she drove performance across 50+ countries, and Vice President and Deputy Global Head of Communications for Novartis Oncology, where she built ecosystems and pioneered content marketing and social media excellence. Earlier in her career, she held positions at Johnson & Johnson and Fleishman-Hillard — and she’s on your account from day one.</p>"
+      },
+      form={
+        "response_type": "inline",
+        "message": "Thank you. We’ll be in touch soon."
+      },
+      unconfigured_message="The contact form is not available yet.",
+      animate=true,
+      style={
+        "accent_color": {
+          "color": "#00b89c",
+          "opacity": 100
+        },
+        "background_color": {
+          "color": "#f0f0f0",
+          "opacity": 100
+        },
+        "spacing": {
+          "desktop": {
+            "padding": {
+              "top": {
+                "value": 100,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 100,
+                "units": "px"
+              },
+              "left": {
+                "value": 0,
+                "units": "px"
+              },
+              "right": {
+                "value": 0,
+                "units": "px"
+              }
+            }
+          },
+          "tablet": {
+            "padding": {
+              "top": {
+                "value": 72,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 72,
+                "units": "px"
+              },
+              "left": {
+                "value": 0,
+                "units": "px"
+              },
+              "right": {
+                "value": 0,
+                "units": "px"
+              }
+            }
+          },
+          "mobile": {
+            "padding": {
+              "top": {
+                "value": 56,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 56,
+                "units": "px"
+              },
+              "left": {
+                "value": 0,
+                "units": "px"
+              },
+              "right": {
+                "value": 0,
+                "units": "px"
+              }
+            }
+          }
+        }
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+{% end_dnd_area %}
+{% endblock body %}
