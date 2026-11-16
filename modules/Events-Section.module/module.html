@@ -24,10 +24,10 @@
       <div class="hw-events__details">
         <h2 data-event-reveal>{{ module.details_heading|escape_html }}</h2>
         {{ module.details_intro }}
-        {% if module.schedule %}<h3>{{ module.schedule_heading|escape_html }}</h3><ul>{% for item in module.schedule %}<li>{{ item|escape_html }}</li>{% endfor %}</ul>{% endif %}
-        <h3>{{ module.address_heading|escape_html }}</h3>{{ module.address }}
+        {% if module.schedule or module.schedule_heading %}<h3>{{ module.schedule_heading|escape_html }}</h3><ul>{% for item in module.schedule %}<li>{{ item|escape_html }}</li>{% endfor %}</ul>{% endif %}
+        {% if module.address_heading %}<h3>{{ module.address_heading|escape_html }}</h3>{% endif %}{% if module.address %}{{ module.address }}{% endif %}
       </div>
-    </div>
+    </div> 
     <aside class="hw-events__rail" aria-labelledby="{{ name|escape_attr }}-form-title">
       <h2 id="{{ name|escape_attr }}-form-title">{{ module.form_heading|escape_html }}</h2>
       {% if module.registration_form.form_id %}
