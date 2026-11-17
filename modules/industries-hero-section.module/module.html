@@ -46,6 +46,24 @@
       {% if module.style.text_color.color %} .{{name}}.baseModuleStyle .moduleContent { color: {{ module.style.text_color.css }}; }{% endif %}
       {% if module.style.text_color.color %} .{{name}}.baseModuleStyle .moduleContent p { color: {{ module.style.text_color.css }}; } {% endif %} 
 
+      /* Match the reference page's scroll-triggered title reveal. */
+      .{{name}}.baseModuleStyle.hw-industries-hero--motion-ready .moduleTitle h1 {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      .{{name}}.baseModuleStyle.hw-industries-hero--motion-ready .moduleTitle h1.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 550ms ease, transform 750ms cubic-bezier(.2, .7, .2, 1);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .{{name}}.baseModuleStyle.hw-industries-hero--motion-ready .moduleTitle h1 {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
 
       {# End Desktop Styling #}
 
