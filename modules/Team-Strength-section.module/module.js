@@ -5,6 +5,17 @@
     section.dataset.teamStrengthReady = 'true';
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     const motionOff = () => section.dataset.animate === 'false' || reduced.matches || document.documentElement.dataset.motion === 'reduced';
+    const accents = ['#4bb7ff', '#fa9bff', '#ff7042'];
+    let previousAccent = -1;
+    section.querySelectorAll('.hw-team-strength__values article').forEach(row => {
+      const cycle = () => {
+        const choices = accents.map((_, index) => index).filter(index => index !== previousAccent);
+        previousAccent = choices[Math.floor(Math.random() * choices.length)];
+        row.style.setProperty('--value-accent', accents[previousAccent]);
+      };
+      row.addEventListener('pointerenter', cycle);
+      row.addEventListener('focus', () => { if (!row.matches(':hover')) cycle(); });
+    });
     let observer;
     if (!motionOff() && 'IntersectionObserver' in window) {
       observer = new IntersectionObserver(entries => entries.forEach(entry => {

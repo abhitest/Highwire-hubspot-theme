@@ -71,7 +71,8 @@
           {% if module.show_extended_team %}
           <details class="hw-career-residents__extended">
             <summary class="hw-career-residents__team-toggle">
-              <span>{{ module.extended_team.title|default('Meet the extended team', true)|escape_html }}</span>
+              <span class="hw-career-residents__label-collapsed">{{ module.extended_team.title|default('Meet the extended leadership team', true)|escape_html }}</span>
+              <span class="hw-career-residents__label-expanded">Show less</span>
               <span class="hw-career-residents__team-icon" aria-hidden="true"></span>
             </summary>
             <div class="hw-career-residents__grid hw-career-residents__extended-grid">

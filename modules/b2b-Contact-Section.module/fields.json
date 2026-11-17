@@ -31,6 +31,53 @@
     "default": "Senior Highwire leaders stay close to the work, the market, and your business from day one."
   },
   {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "tab": "CONTENT",
+    "children": [
+      {
+        "name": "team_gap_desktop",
+        "label": "Introduction to Team Gap - Desktop",
+        "type": "number",
+        "min": 0,
+        "suffix": "px",
+        "default": 170
+      },
+      {
+        "name": "team_gap_tablet",
+        "label": "Introduction to Team Gap - Tablet (1024px and below)",
+        "type": "number",
+        "min": 0,
+        "suffix": "px",
+        "default": 120
+      },
+      {
+        "name": "team_gap_small_tablet",
+        "label": "Introduction to Team Gap - Small Tablet (900px and below)",
+        "type": "number",
+        "min": 0,
+        "suffix": "px",
+        "default": 80
+      },
+      {
+        "name": "team_gap_mobile",
+        "label": "Introduction to Team Gap - Mobile (767px and below)",
+        "type": "number",
+        "min": 0,
+        "suffix": "px",
+        "default": 48
+      }
+    ]
+  },
+  {
+    "name": "team_title",
+    "label": "Team Title (optional)",
+    "type": "text",
+    "default": "",
+    "help_text": "Shown above the leader profiles, for example: Meet Your Marketing Team. Leave blank to hide."
+  },
+  {
     "name": "leader",
     "label": "Leader",
     "type": "group",

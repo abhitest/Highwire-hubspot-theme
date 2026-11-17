@@ -79,6 +79,11 @@
     cursor: pointer;
     color: inherit;
     font: 600 16px/1.5 var(--body, Arial, sans-serif);
+    transition: color .22s cubic-bezier(.4, 0, .2, 1);
+}
+
+.hw-career-residents__team-toggle:is(:hover, :focus-visible) {
+    color: var(--action-accent, #ff7042);
 }
 
 .hw-career-residents__team-toggle::-webkit-details-marker {
@@ -86,8 +91,8 @@
 }
 
 .hw-career-residents__team-toggle:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 4px;
+    outline: 2px solid var(--action-accent, #ff7042);
+    outline-offset: 6px;
 }
 
 .hw-career-residents__team-icon {
@@ -310,3 +315,6 @@ html[data-motion=reduced] .hw-career-residents [data-residents-reveal],
         transform: none !important;
     }
 }
+.hw-career-residents__extended > summary .hw-career-residents__label-expanded { display:none; }
+.hw-career-residents__extended[open] > summary .hw-career-residents__label-collapsed { display:none; }
+.hw-career-residents__extended[open] > summary .hw-career-residents__label-expanded { display:inline; }
