@@ -81,12 +81,27 @@
           "Your Category"
         ]
       },
+      { "name": "heading_color", 
+        "label": "Heading color", 
+        "type": "color", 
+        "default": null 
+      },
+      { "name": "heading_span_color", 
+        "label": "Heading Span color", 
+        "type": "color", 
+        "default": null 
+      },
       {
         "name": "description",
         "label": "Description",
         "type": "text",
         "allow_new_line": true,
         "default": "We help leaders make sense of the shifts in their industry, sharpen where they stand, and build the influence to move with it."
+      },
+      { "name": "description_color", 
+        "label": "Description color", 
+        "type": "color", 
+        "default": null 
       },
       {
         "name": "hero_image",

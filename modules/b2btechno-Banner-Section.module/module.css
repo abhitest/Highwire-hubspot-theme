@@ -1,5 +1,6 @@
 /* Section styles are maintained in css/theme-overrides.css under Page Css. */
 /* Disable banner motion below 900px, including the pinned scroll effect. */
+.hw-b2b-banner-uptitle .hw-b2b-banner__copy h1 { letter-spacing: -.05em; margin-right: -32px; }
 @media (width < 900px) {
   .hw-b2b-banner :is(.hw-b2b-banner__line > span, .hw-b2b-banner__description, .hw-b2b-banner__media),
   .hw-b2b-banner .hw-b2b-banner__copy::before {
@@ -22,4 +23,6 @@
   .hw-b2b-banner .hw-b2b-banner__cta,
   .hw-b2b-banner .hw-b2b-banner__cta::before,
   .hw-b2b-banner .hw-b2b-banner__cta svg { transition:none; }
+  .hw-b2b-banner-uptitle .hw-b2b-banner__copy h1 { margin-right: 0; }
 }
+

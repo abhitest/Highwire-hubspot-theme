@@ -1,0 +1,340 @@
+[
+  {
+    "name": "custom_style",
+    "label": "Custom Style",
+    "type": "group",
+    "children": [
+      { "name": "custom_class", "label": "Custom class", "type": "text", "default": "" },
+      { "name": "section_id", "label": "Section ID", "type": "text", "default": "disciplines" }
+    ]
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      { "name": "heading", "label": "Heading", "type": "text", "default": "The Disciplines Behind Every Program" },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "richtext",
+        "allow_new_line": true,
+        "default": "<p>Each of our capabilities is led by senior specialists and built to strengthen the others, so your program delivers more than any one of them could alone.</p>"
+      },
+      { "name": "animate", "label": "Enable intro reveal", "type": "boolean", "default": true },
+      {
+        "name": "disciplines",
+        "label": "Disciplines",
+        "type": "group",
+        "occurrence": { "min": 1, "max": 20, "default": 5, "sorting_label_field": "disciplines.title" },
+        "children": [
+          { "name": "anchor", "label": "Anchor ID", "type": "text", "default": "" },
+          { "name": "title", "label": "Title", "type": "text", "default": "" },
+          { "name": "promise", "label": "Short heading", "type": "text", "default": "" },
+          { "name": "description", "label": "Description", "type": "richtext", "allow_new_line": true, "default": "" },
+          {
+            "name": "image",
+            "label": "Image",
+            "type": "image",
+            "responsive": true,
+            "resizable": true,
+            "default": { "src": "", "alt": "", "size_type": "auto", "loading": "lazy" }
+          },
+          {
+            "name": "icon",
+            "label": "Icon",
+            "type": "image",
+            "responsive": true,
+            "resizable": true,
+            "default": { "src": "", "alt": "", "size_type": "auto", "loading": "lazy" }
+          },
+          { "name": "accent_color", "label": "Icon background color", "type": "color", "default": { "color": "#4BB7FF", "opacity": 100 } },
+          { "name": "services", "label": "Services", "type": "richtext", "allow_new_line": true, "default": "" },
+          { "name": "cta_label", "label": "Link label", "type": "text", "default": "" },
+          {
+            "name": "cta_link",
+            "label": "Link URL",
+            "type": "link",
+            "supported_types": ["EXTERNAL", "CONTENT"],
+            "default": { "url": { "type": "EXTERNAL", "href": "#" }, "open_in_new_tab": false }
+          }
+        ],
+        "default": [
+          {
+            "anchor": "strategy",
+            "title": "Strategy & Intelligence",
+            "promise": "Start with a sharper read on the landscape",
+            "description": "<p>Big decisions get easier when you can see your market clearly and know where it's heading. With strategy and insights working as one team, research turns into direction you can act on and a foundation every other discipline builds from.</p>",
+            "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-98.webp", "alt": "A Highwire colleague reviewing work on a laptop", "size_type": "auto", "loading": "lazy" },
+            "icon": { "src": "https://highwire-demo.vercel.app/images/icons/industry/search.svg", "alt": "", "size_type": "auto", "loading": "lazy" },
+            "accent_color": { "color": "#4BB7FF", "opacity": 100 },
+            "services": "<ul><li>Brand and competitive audits</li><li>Audience research</li><li>Channel audits and strategy</li><li>Measurement frameworks</li><li>Performance dashboards</li></ul>",
+            "cta_label": "Explore Strategy & Intelligence"
+          },
+          {
+            "anchor": "marketing",
+            "title": "Marketing",
+            "promise": "Turn attention into pipeline",
+            "description": "<p>Your buyers are researching and deciding across more channels than ever. A full growth engine, from paid and search to social and lifecycle, reaches them when they're ready to act and gets sharper with every result.</p>",
+            "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-44.webp", "alt": "Highwire colleagues arranging ideas on a planning board", "size_type": "auto", "loading": "lazy" },
+            "icon": { "src": "https://highwire-demo.vercel.app/images/icons/industry/target.svg", "alt": "", "size_type": "auto", "loading": "lazy" },
+            "accent_color": { "color": "#FF7042", "opacity": 100 },
+            "services": "<ul><li>Paid media</li><li>Demand generation</li><li>Search and AI visibility</li><li>Organic social</li><li>Influencer</li><li>CRM and lifecycle</li><li>Sales enablement</li><li>Events</li></ul>",
+            "cta_label": "Explore Marketing"
+          },
+          {
+            "anchor": "communications",
+            "title": "Communications",
+            "promise": "Earn the trust of every audience that shapes your growth",
+            "description": "<p>Investors, employees, customers, and policymakers are all forming a view of where your company is headed. Senior counsel alongside your leadership helps each of them see it clearly, building a reputation that strengthens everything else you do, including how you show up in AI answers.</p>",
+            "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-1.webp", "alt": "Highwire colleagues discussing their work around a meeting table", "size_type": "auto", "loading": "lazy" },
+            "icon": { "src": "https://highwire-demo.vercel.app/images/icons/industry/chat.svg", "alt": "", "size_type": "auto", "loading": "lazy" },
+            "accent_color": { "color": "#FA9BFF", "opacity": 100 },
+            "services": "<ul><li>Earned media</li><li>Executive visibility</li><li>Corporate reputation</li><li>Crisis and issues management</li><li>IPOs and transactions</li><li>Public affairs</li><li>Product communications</li></ul>",
+            "cta_label": "Explore Communications"
+          },
+          {
+            "anchor": "content",
+            "title": "Content & Thought Leadership",
+            "promise": "Build authority that compounds",
+            "description": "<p>Your expertise is one of your most valuable assets once the right people can find it and want to read it. Original research and thought leadership turn it into content decision-makers return to, with one consistent story every team can build on.</p>",
+            "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-17.webp", "alt": "A Highwire colleague taking notes during a team discussion", "size_type": "auto", "loading": "lazy" },
+            "icon": { "src": "https://highwire-demo.vercel.app/images/icons/industry/book-open.svg", "alt": "", "size_type": "auto", "loading": "lazy" },
+            "accent_color": { "color": "#4BB7FF", "opacity": 100 },
+            "services": "<ul><li>Content strategy</li><li>Thought leadership programs</li><li>Original research and reports</li><li>Editorial and newsletters</li><li>Web and campaign copy</li><li>Content repurposing</li></ul>",
+            "cta_label": "Explore Content & Thought Leadership"
+          },
+          {
+            "anchor": "creative",
+            "title": "Brand & Creative",
+            "promise": "Build a presence that demands attention",
+            "description": "<p>Your audience forms an opinion of your brand long before they read a word. Identity, campaigns, video, and motion built on creative strategy make sure what they see looks like a leader.</p>",
+            "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-37.webp", "alt": "A Highwire colleague presenting ideas to her team", "size_type": "auto", "loading": "lazy" },
+            "icon": { "src": "https://highwire-demo.vercel.app/images/icons/industry/edit.svg", "alt": "", "size_type": "auto", "loading": "lazy" },
+            "accent_color": { "color": "#FF7042", "opacity": 100 },
+            "services": "<ul><li>Creative strategy</li><li>Brand identity</li><li>Brand messaging and voice</li><li>Campaign design</li><li>Video and motion</li><li>Social-first content</li><li>Podcasts and audio</li></ul>",
+            "cta_label": "Explore Brand & Creative"
+          }
+        ]
+      }
+    ]
+  },
+  {
+  "id" : "style",
+  "name" : "style",
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "style.background_property",
+    "name" : "background_property",
+    "label" : "Background Property",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "style.background_property.background_choice",
+      "name" : "background_choice",
+      "label" : "Select Background Type",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "placeholder" : "",
+      "choices" : [ [ "bgImage", "Background Image" ], [ "bgColor", "Background Color" ], [ "gredient", "Background Gredient" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null
+    }, {
+      "id" : "style.background_property.background_image",
+      "name" : "background_image",
+      "label" : "Background Image",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "bgImage",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "",
+        "alt" : null,
+        "loading" : "disabled"
+      }
+    }, {
+      "id" : "style.background_property.background_color",
+      "name" : "background_color",
+      "label" : "Background Color",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "bgColor",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : null,
+        "opacity" : null,
+        "hex" : null,
+        "rgba" : null,
+        "rgb" : null
+      }
+    }, {
+      "id" : "style.background_property.background_gredient",
+      "name" : "background_gredient",
+      "label" : "Background Gradient",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "gredient",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "gradient",
+      "display_width" : null,
+      "default" : { }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  }, {
+    "id" : "style.spacing",
+    "name" : "spacing",
+    "label" : "Spacing",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "style.spacing.desktop_spacing",
+      "name" : "desktop_spacing",
+      "label" : "Desktop Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 104,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 112,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    }, {
+      "id" : "style.spacing.tab_spacing",
+      "name" : "tab_spacing",
+      "label" : "Tab Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 104,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 112,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    }, {
+      "id" : "style.spacing.mobile_spacing",
+      "name" : "mobile_spacing",
+      "label" : "Mobile Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 72,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 80,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}
+]

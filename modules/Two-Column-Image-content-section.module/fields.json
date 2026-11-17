@@ -56,6 +56,15 @@
         "default": "<p>Highwire was founded when smartphones and social media were putting new influence in people?s hands. Companies had new ways to reach people, and people had new power to shape their reputations. Amid that sea change, we stood shoulder to shoulder with the companies writing the next chapter, turning their vision into a future people could see themselves in.</p><p>That same spirit drives us today. As our clients? ambitions have grown, so have we, expanding across industries and disciplines to help them meet challenges that reach far beyond communications. Our teams connect a deep understanding of each business with the strategy and creativity to move it forward.</p>"
       },
       {
+        "name": "content_width",
+        "label": "Content Width",
+        "type": "number",
+        "min": 0,
+        "max": 2000,
+        "default": null,
+        "suffix": "px"
+      },
+      {
         "name": "image",
         "label": "Image",
         "type": "image",

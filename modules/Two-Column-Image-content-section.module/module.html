@@ -2,13 +2,16 @@
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent hw-two-column-image__layout">
     <div class="hw-two-column-image__copy">
+
       {% if module.content_group.title %}<h2 class="h3" id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>{% endif %}
       {% if module.content_group.content %}<div class="hw-two-column-image__content font18 lh15">{{ module.content_group.content }}</div>{% endif %}
+
     </div>
     <div class="hw-two-column-image__media">
       {% set image_src = module.content_group.image.src or get_asset_url('../../images/two-column-about-story.webp') %}
       <img src="{{ image_src|escape_url }}" alt="{{ module.content_group.image.alt|escape_attr }}" loading="lazy" decoding="async">
     </div>
+   
   </div>
 </section>
 {% require_css %}
@@ -30,6 +33,9 @@
 {% if module.style.background_property.background_choice == 'bgImage' %}
 .{{ name }} > .baseModuleOverlay { background: {{ module.style.background_property.overlay_color.css }}; }
 {% endif %}
+
+{% if module.content_group.content_width %}.{{ name }} .hw-two-column-image__content { max-width: {{ module.content_group.content_width }}px; }{% endif %}
+
 @media(max-width:1300px) {
   .{{ name }}.hw-two-column-image { {{ module.style.spacing.tab_spacing.css }} }
   .{{ name }} .hw-two-column-image__copy { {{ module.style.content_spacing.tab_spacing.css }} }
