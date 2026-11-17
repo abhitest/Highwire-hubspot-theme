@@ -36,39 +36,100 @@
       }
     %}{% end_dnd_module %}
   {% end_dnd_section %}
+
   {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
-    {% dnd_module path="../modules/Industries-Trust-Section.module",
+    {% dnd_module path="../modules/industries-sector-grid-section.module",
       custom_style={
-        "section_id": "industries-trust"
+        "section_id": "sectors"
       },
       content_group={
-        "title": "Business Runs on Trust Between Industries",
-        "content": "<p>Technology companies, financial institutions, security providers, and professional services firms rely on one another to grow, and each has to earn the others&#8217; confidence to win their business. Because Highwire works across that ecosystem, we know what each industry needs to hear before it trusts a partner, and we build that understanding into every program you run with us.</p>",
-        "image": {
-          "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-73.webp",
-          "alt": "Highwire colleagues sharing ideas in an office lounge",
-          "size_type": "auto",
-          "loading": "lazy"
-        },
-        "image_position": 39,
-        "animate": true
-      },
-      style={
-        "background_property": {
-          "background_choice": "bgColor",
-          "background_color": {
-            "color": "#f1f1f1",
-            "opacity": 100
+        "heading": "Fluent in Your World",
+        "description": "Explore the sectors where our teams have built deep experience, and see what we help leaders in each one achieve.",
+        "animate": true,
+        "sectors": [
+          {
+            "title": "B2B Technology",
+            "description": "Technology categories are always being redrawn, and buyers have more choices than time to evaluate them. As the #6 B2B technology agency in the US, we help technology companies show why they matter to the buyers deciding what comes next.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/industry-b2btech.webp", "alt": "Attendees gathered at a Highwire industry event", "size_type": "auto", "loading": "lazy"},
+            "image_position_y": 58,
+            "cta_label": "Explore B2B Technology",
+            "link": {"url": {"type": "EXTERNAL", "href": "/industries/b2b-technology"}, "open_in_new_tab": false},
+            "accent_color": {"color": "#FFCA3A", "opacity": 100}
+          },
+          {
+            "title": "Cybersecurity",
+            "description": "In cybersecurity, every buying decision is a bet on trust, made in a crowded market where the stakes are always high. We help security companies prove their value to the buyers and boards responsible for protecting the business.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-75.webp", "alt": "Highwire colleagues collaborating with laptops in an office lounge", "size_type": "auto", "loading": "lazy"},
+            "image_position_y": 0,
+            "cta_label": "Explore Cybersecurity",
+            "link": {"url": {"type": "EXTERNAL", "href": "/industries/cybersecurity"}, "open_in_new_tab": false},
+            "accent_color": {"color": "#7841E6", "opacity": 100}
+          },
+          {
+            "title": "Health",
+            "description": "In health, progress depends on convincing many stakeholders at once, each with its own standard of proof. As a top 20 health practice, we help health and life sciences organizations turn innovation into adoption across the full health ecosystem.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-38.webp", "alt": "Highwire teammates discussing ideas beside a planning board", "size_type": "auto", "loading": "lazy"},
+            "image_position_y": 50,
+            "cta_label": "Explore Highwire Health",
+            "link": {"url": {"type": "EXTERNAL", "href": "/industries/health"}, "open_in_new_tab": false},
+            "accent_color": {"color": "#00BB96", "opacity": 100}
+          },
+          {
+            "title": "Financial Services",
+            "description": "Financial services firms compete in markets that move quickly and answer to regulators who move carefully. As a top 10 financial services firm in the US with 35 years in the sector, we help institutions grow with confidence through every market cycle.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-63.webp", "alt": "Highwire colleagues reviewing their work at a conference table", "size_type": "auto", "loading": "lazy"},
+            "image_position_y": 50,
+            "cta_label": "Explore Financial Services",
+            "link": {"url": {"type": "EXTERNAL", "href": "/industries/financial-services"}, "open_in_new_tab": false},
+            "accent_color": {"color": "#5678FE", "opacity": 100}
+          },
+          {
+            "title": "Professional Services",
+            "description": "Firms sell expertise, and expertise is hard to tell apart from the outside. As the #5 professional services agency in the US, with 50 years in the category, we help firms make their value clear to the clients they want to win and grow with over time.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-13.webp", "alt": "Highwire team members listening during a working session", "size_type": "auto", "loading": "lazy"},
+            "image_position_y": 50,
+            "cta_label": "Explore Professional Services",
+            "link": {"url": {"type": "EXTERNAL", "href": "/industries/professional-services"}, "open_in_new_tab": false},
+            "accent_color": {"color": "#2844B5", "opacity": 100}
+          },
+          {
+            "title": "Energy",
+            "description": "Energy companies build for decades while policy and public opinion can shift almost instantly. We help energy companies keep long-term plans on track as the political and public landscape around them changes.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/industry-energy.webp", "alt": "Panelists and audience at a Highwire energy event", "size_type": "auto", "loading": "lazy"},
+            "image_position_y": 50,
+            "cta_label": "Explore Energy",
+            "link": {"url": {"type": "EXTERNAL", "href": "/industries/energy"}, "open_in_new_tab": false},
+            "accent_color": {"color": "#89B825", "opacity": 100}
+          },
+          {
+            "title": "Impact",
+            "description": "The work creates value that rarely shows up on a balance sheet, and the story has to travel beyond familiar impact networks. We help businesses and mission-driven organizations show what their impact is worth and attract the partners and support that sustain it.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-92.webp", "alt": "Highwire colleagues collaborating across a table", "size_type": "auto", "loading": "lazy"},
+            "image_position_y": 50,
+            "cta_label": "Explore Impact",
+            "link": {"url": {"type": "EXTERNAL", "href": "/industries/impact"}, "open_in_new_tab": false},
+            "accent_color": {"color": "#411B8B", "opacity": 100}
           }
-        },
-        "heading_color": {
-          "color": "#000000",
-          "opacity": 100
-        },
-        "content_color": {
-          "color": "#161616",
-          "opacity": 100
-        }
+        ]
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/Two-Column-Image-content-section.module",
+      custom_style={
+        "section_id": "industries-industry-leaders"
+      },
+      content_group={
+        "title": "Let’s Raise your Industry Standing",
+        "content": "<p>Your extended team is ready when you are. Bring us the moment in front of you, and we'll help you lead it.</p>"
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/work-closing-section.module",
+      custom_style={
+        "section_id": "industries-work-closing"
       }
     %}{% end_dnd_module %}
   {% end_dnd_section %}
