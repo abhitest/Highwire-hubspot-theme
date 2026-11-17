@@ -20,6 +20,31 @@
       }, { threshold:0.1 });
       observer.observe(title);
     }
+    section.querySelectorAll('[data-normal-video]').forEach(video => {
+      const cover = video.parentElement.querySelector('.hw-work-banner__cover');
+      const button = cover.querySelector('button');
+      let accentIndex = 0;
+      const accents = ['#4bb7ff', '#fa9bff', '#ff7042'];
+      const cycle = () => button.style.setProperty('--play-accent', accents[accentIndex++ % accents.length]);
+      button.addEventListener('pointerenter', cycle);
+      button.addEventListener('focus', () => { if (!button.matches(':hover')) cycle(); });
+      video.controls = false;
+      video.tabIndex = -1;
+      cover.hidden = false;
+      const revealControls = () => {
+        cover.hidden = true;
+        video.controls = true;
+        video.tabIndex = 0;
+      };
+      button.addEventListener('click', () => {
+        revealControls();
+        video.focus();
+        // Keep native controls available if the browser refuses playback.
+        video.play()?.catch(() => {});
+      });
+      video.addEventListener('play', revealControls);
+      video.addEventListener('error', revealControls);
+    });
     section.querySelectorAll('[data-youtube]').forEach(player => {
       player.querySelector('button').addEventListener('click', () => {
         const raw = player.dataset.youtube.trim();

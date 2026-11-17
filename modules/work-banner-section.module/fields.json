@@ -77,6 +77,10 @@
             "HubSpot Video"
           ],
           [
+            "normal",
+            "Normal Video"
+          ],
+          [
             "youtube",
             "YouTube"
           ]
@@ -90,6 +94,17 @@
         "visibility": {
           "controlling_field_path": "content_group.video_type",
           "controlling_value_regex": "hubspot",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "video_file",
+        "label": "Video file",
+        "type": "file",
+        "help_text": "Select a browser-compatible video file, such as MP4. Uses the custom animated play button.",
+        "visibility": {
+          "controlling_field_path": "content_group.video_type",
+          "controlling_value_regex": "normal",
           "operator": "EQUAL"
         }
       },
@@ -111,7 +126,8 @@
       },
       {
         "name": "poster",
-        "label": "YouTube poster image",
+        "label": "Video poster image",
+        "help_text": "Optional cover image for Normal Video or YouTube. HubSpot Video uses its own thumbnail.",
         "type": "image",
         "responsive": true,
         "resizable": true

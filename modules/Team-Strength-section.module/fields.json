@@ -105,6 +105,14 @@
         "name": "content",
         "label": "Description",
         "type": "richtext"
+      },
+      {
+        "name": "icon",
+        "label": "Custom Icon",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "help_text": "Optional. Uses the reference group, lamp, lightning and trophy icons by default."
       }
     ],
     "default": [
