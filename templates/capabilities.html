@@ -1,0 +1,102 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Capabilities
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "dnd_area", label="Capabilities", class="body-container body-container--capabilities" %}
+  {% dnd_section padding={"top": 0, "bottom": 0, "left": 0, "right": 0}, full_width=true %}
+    {% dnd_module path="../modules/b2btechno-Banner-Section.module" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section padding={"top": 0, "bottom": 0, "left": 0, "right": 0}, full_width=true %}
+    {% dnd_module path="../modules/Capabilities-Disciplines-Section.module",
+      custom_style={
+        "section_id": "disciplines"
+      },
+      content_group={
+        "heading": "The Disciplines Behind Every Program",
+        "description": "Each of our capabilities is led by senior specialists and built to strengthen the others, so your program delivers more than any one of them could alone.",
+        "animate": true,
+        "disciplines": [
+          {
+            "anchor": "strategy",
+            "title": "Strategy & Intelligence",
+            "promise": "Start with a sharper read on the landscape",
+            "description": "Big decisions get easier when you can see your market clearly and know where it's heading. With strategy and insights working as one team, research turns into direction you can act on and a foundation every other discipline builds from.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-98.webp", "alt": "A Highwire colleague reviewing work on a laptop", "size_type": "auto", "loading": "lazy"},
+            "icon": {"src": "https://highwire-demo.vercel.app/images/icons/industry/search.svg", "alt": "", "size_type": "auto", "loading": "lazy"},
+            "accent_color": {"color": "#4BB7FF", "opacity": 100},
+            "services": "<ul><li>Brand and competitive audits</li><li>Audience research</li><li>Channel audits and strategy</li><li>Measurement frameworks</li><li>Performance dashboards</li></ul>",
+            "cta_label": "Explore Strategy & Intelligence"
+          },
+          {
+            "anchor": "marketing",
+            "title": "Marketing",
+            "promise": "Turn attention into pipeline",
+            "description": "Your buyers are researching and deciding across more channels than ever. A full growth engine, from paid and search to social and lifecycle, reaches them when they're ready to act and gets sharper with every result.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-44.webp", "alt": "Highwire colleagues arranging ideas on a planning board", "size_type": "auto", "loading": "lazy"},
+            "icon": {"src": "https://highwire-demo.vercel.app/images/icons/industry/target.svg", "alt": "", "size_type": "auto", "loading": "lazy"},
+            "accent_color": {"color": "#FF7042", "opacity": 100},
+            "services": "<ul><li>Paid media</li><li>Demand generation</li><li>Search and AI visibility</li><li>Organic social</li><li>Influencer</li><li>CRM and lifecycle</li><li>Sales enablement</li><li>Events</li></ul>",
+            "cta_label": "Explore Marketing"
+          },
+          {
+            "anchor": "communications",
+            "title": "Communications",
+            "promise": "Earn the trust of every audience that shapes your growth",
+            "description": "Investors, employees, customers, and policymakers are all forming a view of where your company is headed. Senior counsel alongside your leadership helps each of them see it clearly, building a reputation that strengthens everything else you do, including how you show up in AI answers.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-1.webp", "alt": "Highwire colleagues discussing their work around a meeting table", "size_type": "auto", "loading": "lazy"},
+            "icon": {"src": "https://highwire-demo.vercel.app/images/icons/industry/chat.svg", "alt": "", "size_type": "auto", "loading": "lazy"},
+            "accent_color": {"color": "#FA9BFF", "opacity": 100},
+            "services": "<ul><li>Earned media</li><li>Executive visibility</li><li>Corporate reputation</li><li>Crisis and issues management</li><li>IPOs and transactions</li><li>Public affairs</li><li>Product communications</li></ul>",
+            "cta_label": "Explore Communications"
+          },
+          {
+            "anchor": "content",
+            "title": "Content & Thought Leadership",
+            "promise": "Build authority that compounds",
+            "description": "Your expertise is one of your most valuable assets once the right people can find it and want to read it. Original research and thought leadership turn it into content decision-makers return to, with one consistent story every team can build on.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-17.webp", "alt": "A Highwire colleague taking notes during a team discussion", "size_type": "auto", "loading": "lazy"},
+            "icon": {"src": "https://highwire-demo.vercel.app/images/icons/industry/book-open.svg", "alt": "", "size_type": "auto", "loading": "lazy"},
+            "accent_color": {"color": "#4BB7FF", "opacity": 100},
+            "services": "<ul><li>Content strategy</li><li>Thought leadership programs</li><li>Original research and reports</li><li>Editorial and newsletters</li><li>Web and campaign copy</li><li>Content repurposing</li></ul>",
+            "cta_label": "Explore Content & Thought Leadership"
+          },
+          {
+            "anchor": "creative",
+            "title": "Brand & Creative",
+            "promise": "Build a presence that demands attention",
+            "description": "Your audience forms an opinion of your brand long before they read a word. Identity, campaigns, video, and motion built on creative strategy make sure what they see looks like a leader.",
+            "image": {"src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-37.webp", "alt": "A Highwire colleague presenting ideas to her team", "size_type": "auto", "loading": "lazy"},
+            "icon": {"src": "https://highwire-demo.vercel.app/images/icons/industry/edit.svg", "alt": "", "size_type": "auto", "loading": "lazy"},
+            "accent_color": {"color": "#FF7042", "opacity": 100},
+            "services": "<ul><li>Creative strategy</li><li>Brand identity</li><li>Brand messaging and voice</li><li>Campaign design</li><li>Video and motion</li><li>Social-first content</li><li>Podcasts and audio</li></ul>",
+            "cta_label": "Explore Brand & Creative"
+          }
+        ]
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section padding={"top": 0, "bottom": 0, "left": 0, "right": 0}, full_width=true %}
+    {% dnd_module path="../modules/Capabilities-Acro-Suite-Section.module" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section padding={"top": 0, "bottom": 0, "left": 0, "right": 0}, full_width=true %}
+    {% dnd_module path="../modules/Capabilities-Insight-Out-Section.module" %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  
+  
+  {% dnd_section padding={"top":0,"bottom":0,"left":0,"right":0}, full_width=true %}
+    {% dnd_module path="../modules/work-closing-section.module",
+      custom_style={
+        "section_id": "industries-work-closing"
+      }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+{% end_dnd_area %}
+{% endblock body %}

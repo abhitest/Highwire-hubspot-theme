@@ -1,0 +1,107 @@
+.hw-cap-acro { position: relative; isolation: isolate; overflow: hidden; }
+.hw-cap-acro__inner { position: relative; }
+.hw-cap-acro__visual { position: absolute; z-index: -1; inset: 0; left: 50%; right: auto; width: 100vw; transform: translateX(-50%); overflow: hidden; }
+.hw-cap-acro__visual::after { position: absolute; inset: 0; background: linear-gradient(#000000db, #00000094 48%, #0000004d); content: ""; }
+.hw-cap-acro__visual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
+.hw-cap-acro__intro { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 24px; min-height: 624px; }
+.hw-cap-acro__intro h2 { margin: 0; font-size: 104px; line-height: 1; letter-spacing: -4.5px; }
+.hw-cap-acro__intro h2 span { display: block; white-space: nowrap; } 
+.hw-cap-acro__promise { margin: 280px 0 0; font-size: 36px; line-height: 1.2; font-family: Onest, serif; letter-spacing: -1px; }
+
+.hw-cap-acro__description {
+  margin-top: 448px;
+  line-height: 1.55; }
+
+.hw-cap-acro__description p { margin: 0; color: inherit; font: inherit; }
+
+.hw-cap-acro__stage { position: relative; height: 176px; margin-top: 64px; }
+
+.hw-cap-acro__products {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.hw-cap-acro__product {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 176px;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 28px;
+  color: var(--black, #000);
+  background: var(--sky, #4bb7ff);
+  font: 400 var(--type-feature-title, 36px)/1.2 var(--display, Arial, sans-serif);
+  letter-spacing: -1.4px;
+  text-decoration: none;
+  transform: translateY(0);
+  transition: transform var(--motion-standard, 500ms) var(--ease-brand, cubic-bezier(.22, 1, .36, 1)), background var(--motion-fast, 180ms);
+}
+
+/* .hw-cap-acro__product:nth-child(2) { background: var(--orchid, #fa9bff); }
+.hw-cap-acro__product:nth-child(3) { background: var(--zest, #ff7042); } */
+.hw-cap-acro__product strong { font-weight: 600; }
+
+.hw-cap-acro__product svg {
+  display: block;
+  flex: 0 0 24px;
+  align-self: flex-end;
+  width: 24px;
+  height: 24px;
+  transition: transform var(--motion-standard, 500ms) var(--ease-brand, cubic-bezier(.22, 1, .36, 1));
+}
+
+.hw-cap-acro__product:is(a:hover, a:focus-visible) {
+  background: var(--white, #fff);
+  transform: translateY(-8px);
+}
+
+.hw-cap-acro__product:is(a:hover, a:focus-visible) svg { transform: translate(3px, -3px); }
+.hw-cap-acro__product:focus-visible { outline: 2px solid var(--black, #000); outline-offset: 4px; }
+
+.hw-cap-acro--motion-ready[data-animate="true"] [data-reveal] { opacity: 0; transform: translateY(28px); }
+.hw-cap-acro--motion-ready[data-animate="true"] [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--motion-standard, 600ms) ease, transform var(--motion-expressive, 700ms) var(--ease-brand, cubic-bezier(.2, .7, .2, 1));
+}
+
+@media (max-width: 1100px) {
+  
+  .hw-cap-acro__intro { min-height: 560px; }
+  .hw-cap-acro__intro h2 { font-size: clamp(40px, 8.6vw, 96px); letter-spacing: -3.5px; }
+  .hw-cap-acro__promise { margin-top: 240px; font-size: clamp(28px, 3vw, 36px); }
+  .hw-cap-acro__description { margin-top: 390px; }
+  .hw-cap-acro__products { gap: 16px; }
+  .hw-cap-acro__product { padding: 24px; font-size: clamp(24px, 3vw, 32px); }
+}
+
+@media (max-width: 767px) {
+  .hw-cap-acro { padding: 56px 0 48px; }
+  .hw-cap-acro__intro { grid-template-columns: minmax(0, 1fr); gap: 0; min-height: 0; }
+  .hw-cap-acro__intro h2 { font-size: clamp(40px, 16vw, 88px); letter-spacing: -3.5px; }
+  .hw-cap-acro__promise { max-width: 440px; margin-top: 48px; font-size: 28px; }
+  .hw-cap-acro__description { max-width: 520px; margin-top: 36px; }
+  .hw-cap-acro__stage { height: auto; margin-top: 48px; }
+  .hw-cap-acro__products { position: relative; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .hw-cap-acro__product { min-height: 144px; padding: 24px; font-size: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-cap-acro__product,
+  .hw-cap-acro__product svg,
+  .hw-cap-acro [data-reveal],
+  .hw-cap-acro [data-reveal].is-visible { transition: none; animation: none; }
+  .hw-cap-acro--motion-ready[data-animate="true"] [data-reveal],
+  .hw-cap-acro--motion-ready[data-animate="true"] [data-reveal].is-visible { opacity: 1; transform: none; }
+}
+
+html[data-motion="reduced"] .hw-cap-acro__product,
+html[data-motion="reduced"] .hw-cap-acro__product svg { transition: none; }

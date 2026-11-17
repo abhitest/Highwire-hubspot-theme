@@ -17,9 +17,9 @@
       {
         "name": "description",
         "label": "Description",
-        "type": "text",
+        "type": "richtext",
         "allow_new_line": true,
-        "default": "Explore the sectors where our teams have built deep experience, and see what we help leaders in each one achieve."
+        "default": "<p>Explore the sectors where our teams have built deep experience, and see what we help leaders in each one achieve.</p>"
       },
       { "name": "animate", "label": "Enable intro reveal and image hover effect", "type": "boolean", "default": true },
       {
@@ -29,7 +29,7 @@
         "occurrence": { "min": 1, "max": 20, "default": 7, "sorting_label_field": "sectors.title" },
         "children": [
           { "name": "title", "label": "Heading", "type": "text", "default": "" },
-          { "name": "description", "label": "Text", "type": "text", "allow_new_line": true, "default": "" },
+          { "name": "description", "label": "Text", "type": "richtext", "allow_new_line": true, "default": "" },
           {
             "name": "image",
             "label": "Image",
@@ -60,7 +60,7 @@
         "default": [
           {
             "title": "B2B Technology",
-            "description": "Technology categories are always being redrawn, and buyers have more choices than time to evaluate them. As the #6 B2B technology agency in the US, we help technology companies show why they matter to the buyers deciding what comes next.",
+            "description": "<p>Technology categories are always being redrawn, and buyers have more choices than time to evaluate them. As the #6 B2B technology agency in the US, we help technology companies show why they matter to the buyers deciding what comes next.</p>",
             "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/industry-b2btech.webp", "alt": "Attendees gathered at a Highwire industry event", "size_type": "auto", "loading": "lazy" },
             "image_position_y": 58,
             "cta_label": "Explore B2B Technology",
@@ -69,7 +69,7 @@
           },
           {
             "title": "Cybersecurity",
-            "description": "In cybersecurity, every buying decision is a bet on trust, made in a crowded market where the stakes are always high. We help security companies prove their value to the buyers and boards responsible for protecting the business.",
+            "description": "<p>In cybersecurity, every buying decision is a bet on trust, made in a crowded market where the stakes are always high. We help security companies prove their value to the buyers and boards responsible for protecting the business.</p>",
             "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-75.webp", "alt": "Highwire colleagues collaborating with laptops in an office lounge", "size_type": "auto", "loading": "lazy" },
             "image_position_y": 0,
             "cta_label": "Explore Cybersecurity",
@@ -78,7 +78,7 @@
           },
           {
             "title": "Health",
-            "description": "In health, progress depends on convincing many stakeholders at once, each with its own standard of proof. As a top 20 health practice, we help health and life sciences organizations turn innovation into adoption across the full health ecosystem.",
+            "description": "<p>In health, progress depends on convincing many stakeholders at once, each with its own standard of proof. As a top 20 health practice, we help health and life sciences organizations turn innovation into adoption across the full health ecosystem.</p>",
             "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-38.webp", "alt": "Highwire teammates discussing ideas beside a planning board", "size_type": "auto", "loading": "lazy" },
             "image_position_y": 50,
             "cta_label": "Explore Highwire Health",
@@ -87,7 +87,7 @@
           },
           {
             "title": "Financial Services",
-            "description": "Financial services firms compete in markets that move quickly and answer to regulators who move carefully. As a top 10 financial services firm in the US with 35 years in the sector, we help institutions grow with confidence through every market cycle.",
+            "description": "<p>Financial services firms compete in markets that move quickly and answer to regulators who move carefully. As a top 10 financial services firm in the US with 35 years in the sector, we help institutions grow with confidence through every market cycle.</p>",
             "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-63.webp", "alt": "Highwire colleagues reviewing their work at a conference table", "size_type": "auto", "loading": "lazy" },
             "image_position_y": 50,
             "cta_label": "Explore Financial Services",
@@ -96,7 +96,7 @@
           },
           {
             "title": "Professional Services",
-            "description": "Firms sell expertise, and expertise is hard to tell apart from the outside. As the #5 professional services agency in the US, with 50 years in the category, we help firms make their value clear to the clients they want to win and grow with over time.",
+            "description": "<p>Firms sell expertise, and expertise is hard to tell apart from the outside. As the #5 professional services agency in the US, with 50 years in the category, we help firms make their value clear to the clients they want to win and grow with over time.</p>",
             "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-13.webp", "alt": "Highwire team members listening during a working session", "size_type": "auto", "loading": "lazy" },
             "image_position_y": 50,
             "cta_label": "Explore Professional Services",
@@ -105,7 +105,7 @@
           },
           {
             "title": "Energy",
-            "description": "Energy companies build for decades while policy and public opinion can shift almost instantly. We help energy companies keep long-term plans on track as the political and public landscape around them changes.",
+            "description": "<p>Energy companies build for decades while policy and public opinion can shift almost instantly. We help energy companies keep long-term plans on track as the political and public landscape around them changes.</p>",
             "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/industry-energy.webp", "alt": "Panelists and audience at a Highwire energy event", "size_type": "auto", "loading": "lazy" },
             "image_position_y": 50,
             "cta_label": "Explore Energy",
@@ -114,7 +114,7 @@
           },
           {
             "title": "Impact",
-            "description": "The work creates value that rarely shows up on a balance sheet, and the story has to travel beyond familiar impact networks. We help businesses and mission-driven organizations show what their impact is worth and attract the partners and support that sustain it.",
+            "description": "<p>The work creates value that rarely shows up on a balance sheet, and the story has to travel beyond familiar impact networks. We help businesses and mission-driven organizations show what their impact is worth and attract the partners and support that sustain it.</p>",
             "image": { "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-92.webp", "alt": "Highwire colleagues collaborating across a table", "size_type": "auto", "loading": "lazy" },
             "image_position_y": 50,
             "cta_label": "Explore Impact",
@@ -126,26 +126,222 @@
     ]
   },
   {
-    "name": "style",
-    "label": "Styles",
-    "type": "group",
-    "tab": "STYLE",
-    "children": [
-      { "name": "background_color", "label": "Section background color", "type": "color", "default": { "color": "#FFFFFF", "opacity": 100 } },
-      { "name": "heading_color", "label": "Heading color", "type": "color", "default": { "color": "#000000", "opacity": 100 } },
-      { "name": "text_color", "label": "Text color", "type": "color", "default": { "color": "#000000", "opacity": 100 } },
-      { "name": "border_color", "label": "Card rule color", "type": "color", "default": { "color": "#C8C8C8", "opacity": 100 } },
-      {
-        "name": "spacing",
-        "label": "Section spacing",
-        "type": "group",
-        "tab": "STYLE",
-        "children": [
-          { "name": "desktop_spacing", "label": "Desktop spacing", "type": "spacing", "default": { "padding": { "top": { "value": 80, "units": "px" }, "right": { "value": 0, "units": "px" }, "bottom": { "value": 104, "units": "px" }, "left": { "value": 0, "units": "px" } } } },
-          { "name": "tab_spacing", "label": "Tablet spacing", "type": "spacing", "default": { "padding": { "top": { "value": 64, "units": "px" }, "right": { "value": 0, "units": "px" }, "bottom": { "value": 80, "units": "px" }, "left": { "value": 0, "units": "px" } } } },
-          { "name": "mobile_spacing", "label": "Mobile spacing", "type": "spacing", "default": { "padding": { "top": { "value": 48, "units": "px" }, "right": { "value": 0, "units": "px" }, "bottom": { "value": 64, "units": "px" }, "left": { "value": 0, "units": "px" } } } }
-        ]
+  "id" : "style",
+  "name" : "style",
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "style.background_property",
+    "name" : "background_property",
+    "label" : "Background Property",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "style.background_property.background_choice",
+      "name" : "background_choice",
+      "label" : "Select Background Type",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "placeholder" : "",
+      "choices" : [ [ "bgImage", "Background Image" ], [ "bgColor", "Background Color" ], [ "gredient", "Background Gredient" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "bgColor"
+    }, {
+      "id" : "style.background_property.background_image",
+      "name" : "background_image",
+      "label" : "Background Image",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "bgImage",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "",
+        "alt" : null,
+        "loading" : "disabled"
       }
-    ]
-  }
+    }, {
+      "id" : "style.background_property.background_color",
+      "name" : "background_color",
+      "label" : "Background Color",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "bgColor",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : "#ffffff",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "style.background_property.background_gredient",
+      "name" : "background_gredient",
+      "label" : "Background Gradient",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "gredient",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "gradient",
+      "display_width" : null,
+      "default" : { }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  }, { "name": "heading_color", "label": "Heading color", "type": "color", "default": { "color": "#000000", "opacity": 100 } },
+     { "name": "text_color", "label": "Text color", "type": "color", "default": { "color": "#000000", "opacity": 100 } },
+     { "name": "border_color", "label": "Card rule color", "type": "color", "default": { "color": "#C8C8C8", "opacity": 100 } },
+     {
+    "id" : "style.spacing",
+    "name" : "spacing",
+    "label" : "Spacing",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "style.spacing.desktop_spacing",
+      "name" : "desktop_spacing",
+      "label" : "Desktop Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 80,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 104,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    }, {
+      "id" : "style.spacing.tab_spacing",
+      "name" : "tab_spacing",
+      "label" : "Tab Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 64,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 80,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    }, {
+      "id" : "style.spacing.mobile_spacing",
+      "name" : "mobile_spacing",
+      "label" : "Mobile Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 48,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 64,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}
 ]

@@ -2,16 +2,18 @@
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent hw-b2b-banner__grid">
     <div class="hw-b2b-banner__copy">
+     {% if module.content_group.current_label or module.content_group.parent_label %} 
       <nav class="hw-b2b-banner__breadcrumb" aria-label="Breadcrumb">
         <ol>
           <li>{% if module.content_group.parent_url.href %}<a href="{{ module.content_group.parent_url.href|escape_url }}">{{ module.content_group.parent_label|escape_html }}</a>{% else %}{{ module.content_group.parent_label|escape_html }}{% endif %}</li>
           <li><span class="hw-b2b-banner__separator" aria-hidden="true">/</span><span aria-current="page">{{ module.content_group.current_label|escape_html }}</span></li>
         </ol>
       </nav>
+      {% endif %}
       <h1 class="primary_color">
         {% for line in module.content_group.heading_lines %}
         <span class="hw-b2b-banner__line" style="--line:{{ loop.index0 }}"><span>
-          {{ line|escape_html }}</span>
+          {{ line }}</span>
         </span>
         {% if not loop.last %} 
         {% endif %}
@@ -73,6 +75,9 @@
   {% endfor %}
 }
 
+{% if module.content_group.heading_color.css %} .hw-b2b-banner__copy h1 { color: {{ module.content_group.heading_color.css}}; }{% endif %}
+{% if module.content_group.heading_span_color.css %} .hw-b2b-banner__copy h1 span span span { color: {{ module.content_group.heading_span_color.css}}; }{% endif %}
+{% if module.content_group.description_color.css %} .hw-b2b-banner__copy .hw-b2b-banner__description { color: {{ module.content_group.description_color.css}}; }{% endif %}
 
 @media (max-width: 767px){
   .{{ name }} {

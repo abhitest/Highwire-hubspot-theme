@@ -1,0 +1,85 @@
+<section class="hw-cap-approach baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"
+  {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %}
+  aria-labelledby="{{ name|escape_attr }}-heading"
+  data-animate="{{ module.content_group.animate|string|lower }}">
+  <div class="content-wrapper">
+    <div class="hw-cap-approach__layout">
+      <header class="hw-cap-approach__intro" data-reveal>
+        <h2 class="h3" id="{{ name|escape_attr }}-heading">
+          {% for line in module.content_group.heading|split('\n') %}{% if line %}<span>{{ line|escape_html }}</span>{% endif %}{% endfor %}
+        </h2>
+        {% if module.content_group.intro_description %}<div class="hw-cap-approach__intro-description font20">{{ module.content_group.intro_description }}</div>{% endif %}
+      </header>
+
+      <div class="hw-cap-approach__content">
+        <ol class="hw-cap-approach__timeline" aria-label="Our approach">
+          {% for step in module.content_group.steps %}
+            <li class="hw-cap-approach__step" data-step-reveal>
+              <span class="hw-cap-approach__marker" aria-hidden="true"></span>
+              <div class="hw-cap-approach__step-copy">
+                <p class="hw-cap-approach__eyebrow">Step {{ loop.index }}</p>
+                {% if step.title %}<h3>{{ step.title|escape_html }}</h3>{% endif %}
+                {% if step.description %}<div class="hw-cap-approach__step-description font18">{{ step.description }}</div>{% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ol>
+        {% set cta_href = module.content_group.cta_link.url.href %}
+        {% if module.content_group.cta_label and cta_href and cta_href != '#' %}
+          <a class="hw-cap-approach__action" href="{{ cta_href|escape_url }}" {% if module.content_group.cta_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+            <span>{{ module.content_group.cta_label|escape_html }}</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" stroke="currentColor" stroke-width="1.7" stroke-linecap="square" stroke-linejoin="miter" /></svg>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% require_css %}
+<style>
+
+{# {% scope_css %} #}
+        
+      {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1300px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+{#       {% end_scope_css %} #}
+    </style>
+  {% end_require_css %}

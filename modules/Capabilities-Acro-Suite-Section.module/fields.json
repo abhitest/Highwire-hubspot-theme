@@ -1,0 +1,281 @@
+[
+  {
+    "name": "custom_style",
+    "label": "Custom Style",
+    "type": "group",
+    "children": [
+      { "name": "custom_class", "label": "Custom class", "type": "text", "default": "" },
+      { "name": "section_id", "label": "Section ID", "type": "text", "default": "acro" }
+    ]
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "children": [
+      {
+        "name": "background_image",
+        "label": "Background image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "default": { "src": "https://highwire-demo.vercel.app/images/home/acro/acro-suite.png", "alt": "", "size_type": "auto", "loading": "eager" }
+      },
+      { "name": "heading", "label": "Heading", "type": "text", "allow_new_line": true, "default": "The Acro\nSuite" },
+      { "name": "heading_color", "label": "Heading text color", "type": "color", "default": { "color": "#FFFFFF", "opacity": 100 } },
+      { "name": "promise", "label": "Promise", "type": "text", "default": "Close the gap between market signal and action" },
+      { "name": "promise_color", "label": "Promise text color", "type": "color", "default": { "color": "#FFFFFF", "opacity": 100 } },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "richtext",
+        "allow_new_line": true,
+        "default": "<p>Off-the-shelf tools rarely keep up with the complexity of your market. The Acro Suite, Highwire's proprietary AI platform, was built for it, giving your whole program the same real-time read on your market so it can respond as conditions change.</p>"
+      },
+      { "name": "description_color", "label": "Description text color", "type": "color", "default": { "color": "#FFFFFF", "opacity": 100 } },
+      { "name": "animate", "label": "Enable entrance reveal", "type": "boolean", "default": true },
+      {
+        "name": "products",
+        "label": "Products",
+        "type": "group",
+        "occurrence": { "min": 1, "max": 8, "default": 3, "sorting_label_field": "products.product_name" },
+        "children": [
+          { "name": "product_name", "label": "Product name after Acro", "type": "text", "default": "" },
+          { "name": "background_color", "label": "Card background color", "type": "color", "default": { "color": "#4BB7FF", "opacity": 100 } },
+          { "name": "hover_color", "label": "Card hover background color", "type": "color", "default": { "color": "#FFFFFF", "opacity": 100 } },
+          {
+            "name": "link",
+            "label": "Product link",
+            "type": "link",
+            "supported_types": ["EXTERNAL", "CONTENT"],
+            "default": { "url": { "type": "EXTERNAL", "href": "#" }, "open_in_new_tab": false }
+          }
+        ],
+        "default": [
+          { "product_name": "<strong>Acro</strong>AI", "background_color": { "color": "#4BB7FF", "opacity": 100 }, "hover_color": { "color": "#FFFFFF", "opacity": 100 }, "link": { "url": { "type": "EXTERNAL", "href": "/acroai" }, "open_in_new_tab": false } },
+          { "product_name": "<strong>Acro</strong>Intelligence", "background_color": { "color": "#FA9BFF", "opacity": 100 }, "hover_color": { "color": "#FFFFFF", "opacity": 100 }, "link": { "url": { "type": "EXTERNAL", "href": "/acrointelligence" }, "open_in_new_tab": false } },
+          { "product_name": "<strong>Acro</strong>Answers", "background_color": { "color": "#FF7042", "opacity": 100 }, "hover_color": { "color": "#FFFFFF", "opacity": 100 }, "link": { "url": { "type": "EXTERNAL", "href": "/acroanswers" }, "open_in_new_tab": false } }
+        ]
+      }
+    ]
+  },
+  {
+  "id" : "style",
+  "name" : "style",
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "style.background_property",
+    "name" : "background_property",
+    "label" : "Background Property",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "style.background_property.background_choice",
+      "name" : "background_choice",
+      "label" : "Select Background Type",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "placeholder" : "",
+      "choices" : [ [ "bgImage", "Background Image" ], [ "bgColor", "Background Color" ], [ "gredient", "Background Gredient" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "bgColor"
+    }, {
+      "id" : "style.background_property.background_image",
+      "name" : "background_image",
+      "label" : "Background Image",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "bgImage",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "",
+        "alt" : null,
+        "loading" : "disabled"
+      }
+    }, {
+      "id" : "style.background_property.background_color",
+      "name" : "background_color",
+      "label" : "Background Color",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "bgColor",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : "#000000",
+        "opacity" : null,
+        "hex" : null,
+        "rgba" : null,
+        "rgb" : null
+      }
+    }, {
+      "id" : "style.background_property.background_gredient",
+      "name" : "background_gredient",
+      "label" : "Background Gradient",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "gredient",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "gradient",
+      "display_width" : null,
+      "default" : { }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  }, {
+    "id" : "style.spacing",
+    "name" : "spacing",
+    "label" : "Spacing",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "style.spacing.desktop_spacing",
+      "name" : "desktop_spacing",
+      "label" : "Desktop Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 88,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 72,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    }, {
+      "id" : "style.spacing.tab_spacing",
+      "name" : "tab_spacing",
+      "label" : "Tab Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 88,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 72,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    }, {
+      "id" : "style.spacing.mobile_spacing",
+      "name" : "mobile_spacing",
+      "label" : "Mobile Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 56,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 58,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}
+]
