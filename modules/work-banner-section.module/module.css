@@ -32,3 +32,11 @@
 .hw-work-banner__normal-play:focus-visible { outline:2px solid #fff; outline-offset:6px; }
 html[data-motion=reduced] .hw-work-banner__normal-play,html[data-motion=reduced] .hw-work-banner__normal-play svg,.hw-work-banner[data-animate=false] .hw-work-banner__normal-play,.hw-work-banner[data-animate=false] .hw-work-banner__normal-play svg { transition:none; }
 @media(prefers-reduced-motion:reduce) { .hw-work-banner__normal-play,.hw-work-banner__normal-play svg { transition:none; } }
+
+@media (max-width:640px){
+  .hw-work-banner__normal-play {
+    width: 80px;
+    height: 80px;
+}
+}
+

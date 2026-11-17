@@ -50,6 +50,13 @@
         "default": "Awards & Recognition"
       },
       {
+        "name": "content",
+        "label": "Content",
+        "type": "richtext",
+        "default": "",
+        "help_text": "Optional content above the title. Leave blank to hide."
+      },
+      {
         "name": "title",
         "label": "Title",
         "type": "text",

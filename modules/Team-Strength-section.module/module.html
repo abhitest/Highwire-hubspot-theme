@@ -2,8 +2,12 @@
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent hw-team-strength__layout">
     <div class="hw-team-strength__copy">
-      {% if module.content_group.title %}<h2 data-team-strength-reveal id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>{% endif %}
-      {% if module.content_group.content %}<div class="hw-team-strength__content">{{ module.content_group.content }}</div>{% endif %}
+      {% if module.content_group.title %}
+      <h2 data-team-strength-reveal id="{{ name|escape_attr }}-title" class="h3">
+        {{ module.content_group.title|escape_html }}
+      </h2>
+      {% endif %}
+      {% if module.content_group.content %}<div class="hw-team-strength__content font20 lh15">{{ module.content_group.content }}</div>{% endif %}
       {% if module.values %}
       <div class="hw-team-strength__values">
         {% for item in module.values %}
@@ -27,7 +31,7 @@
     </div>
     {% if module.invitation.enabled %}
     <div class="hw-team-strength__invitation">
-      {% if module.invitation.text %}<p>{{ module.invitation.text|escape_html }}</p>{% endif %}
+      {% if module.invitation.text %}<p class="h6">{{ module.invitation.text|escape_html }}</p>{% endif %}
       {% if module.invitation.button_text and module.invitation.link.url.href %}
       <a href="{{ module.invitation.link.url.href|escape_url }}" {% if module.invitation.link.open_in_new_tab %}target="_blank"{% endif %} rel="noopener {{ module.invitation.link.rel|escape_attr }}">{{ module.invitation.button_text|escape_html }} <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4"/></svg></a>
       {% endif %}

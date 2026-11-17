@@ -4,6 +4,9 @@
     {% if module.content_group.heading %}
     <p class="hw-awards__eyebrow"{% if not module.content_group.title %} id="{{ name|escape_attr }}-title"{% endif %}>{{ module.content_group.heading|escape_html }}</p>
     {% endif %}
+    {% if module.content_group.content|striptags|trim %}
+    <div class="hw-awards__content">{{ module.content_group.content }}</div>
+    {% endif %}
     {% if module.content_group.title %}
     <h2 class="hw-awards__title h3" id="{{ name|escape_attr }}-title"><span>{{ module.content_group.title }}</span></h2>
     {% endif %}

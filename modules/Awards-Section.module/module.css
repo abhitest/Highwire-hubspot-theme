@@ -1,1 +1,4 @@
 /* Styles are in css/theme-overrides.css, Page Css. */
+.hw-awards .hw-awards__content { margin:0 0 32px; color:inherit; font:400 var(--theme-body-size,18px)/1.5 var(--body,Arial,sans-serif); }
+.hw-awards__content p { margin:0; color:inherit; font:inherit; }
+.hw-awards__content p+p { margin-top:16px; }
