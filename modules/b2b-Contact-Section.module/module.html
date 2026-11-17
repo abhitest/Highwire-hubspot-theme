@@ -8,12 +8,15 @@
         <p data-contact-reveal>{{ module.intro }}</p>
       </div>
       <div class="hw-contact__leaders">
+      {% if module.team_title|trim %}
+      <h3 class="hw-contact__team-title h6" data-contact-reveal>{{ module.team_title|escape_html }}</h3>
+      {% endif %}
       <article class="hw-contact__leader">
         <div class="hw-contact__identity">
           {% if module.leader.photo.src %}
           <div class="hw-contact__photo" data-contact-reveal="photo"><img src="{{ module.leader.photo.src|escape_url }}" alt="{{ module.leader.photo.alt|escape_attr }}" width="100" height="124" loading="lazy"></div>
           {% endif %}
-          <div data-contact-reveal><h3>{{ module.leader.full_name }}</h3><p>{{ module.leader.role }}</p></div>
+          <div data-contact-reveal><h3 class="h6">{{ module.leader.full_name }}</h3><p>{{ module.leader.role }}</p></div>
         </div>
         <div class="hw-contact__bio font18 lh15" data-contact-reveal>{{ module.leader.bio }}</div>
       </article>
@@ -41,6 +44,12 @@
 {% require_css %}
 <style>
 .{{ name }}.hw-contact {
+  {% for breakpoint in ['desktop','tablet','small_tablet','mobile'] %}
+    {% set team_gap = module.content_group['team_gap_' ~ breakpoint] %}
+    {% if team_gap is number %}
+    --contact-team-gap-{{ breakpoint }}:{{ team_gap }}px;
+    {% endif %}
+  {% endfor %}
   --contact-accent:{{ module.style.accent_color.css|default('#ffce3d') }};
   --contact-background:rgba({{ module.style.background_color.color|convert_rgb }},{{ module.style.background_color.opacity / 100 }});
   {% for breakpoint in ['desktop','tablet','mobile'] %}

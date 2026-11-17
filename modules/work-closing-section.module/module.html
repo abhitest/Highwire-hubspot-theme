@@ -7,8 +7,8 @@
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="content-wrapper">
   <div class="baseModuleParent hw-work-closing__copy">
-    <h3 class="secondary_color" id="{{ name|escape_attr }}-heading">{{ module.content_group.heading|escape_html }}</h3>
-    {% if module.content_group.description %}<p>{{ module.content_group.description|escape_html }}</p>{% endif %}
+    <h3 class="secondary_color" id="{{ name|escape_attr }}-heading">{{ module.content_group.heading }}</h3>
+    {% if module.content_group.description %}<p>{{ module.content_group.description }}</p>{% endif %}
     <div class="hw-work-closing__actions">
       {{ action(module.content_group.primary_label, module.content_group.primary_link, 'primary') }}
       {{ action(module.content_group.secondary_label, module.content_group.secondary_link, 'secondary') }}

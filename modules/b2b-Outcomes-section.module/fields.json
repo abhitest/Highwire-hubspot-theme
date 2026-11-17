@@ -83,6 +83,13 @@
             "responsive": true
           },
           {
+            "name": "show_arrow",
+            "label": "Show Arrow",
+            "type": "boolean",
+            "default": false,
+            "help_text": "Show an upward-right arrow beside this capability heading."
+          },
+          {
             "name": "link",
             "label": "Box link (optional)",
             "type": "link",

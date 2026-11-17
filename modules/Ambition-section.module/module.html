@@ -1,16 +1,16 @@
 <section data-ambition-section data-animate="{{ 'true' if module.style.enable_animation else 'false' }}" class="{{ name|escape_attr }} baseModuleStyle hw-ambition {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %}>
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent content-wrapper">
-    {% if module.content_group.title %}<h2 class="hw-ambition__title" id="{{ name|escape_attr }}-title">
+    {% if module.content_group.title %}<h2 class="hw-ambition__title h3" id="{{ name|escape_attr }}-title">
       {{ module.content_group.title }}</h2>{% endif %}
     <div class="hw-ambition__stats">
       {% for item in module.statistics %}
       <div class="hw-ambition__stat">
-        <h3><span class="hw-ambition__number">
-          {{ item.number|escape_html }}
+        <h3 class="h2"><span class="hw-ambition__number">
+          {{ item.number }}
         </span>
-        <span class="hw-ambition__label">{{ (item.text or item.label)|escape_html }}</span></h3>
-        {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+        <span class="hw-ambition__label">{{ (item.text or item.label) }}</span></h3>
+        {% if item.description %}<p class="font18 lh15">{{ item.description }}</p>{% endif %}
       </div>
       {% endfor %}
     </div>

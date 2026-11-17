@@ -47,7 +47,7 @@
                 <li>{{ tag|escape_html }}</li>{% endfor %}</ul>{% endif %}
               {% if card.metrics %}<dl class="hw-b2b-work__metrics">{% for metric in card.metrics %}<div>
                   <dt>{{ metric.metric_label }}</dt>
-                  <dd>{{ metric.value }}</dd>
+                  <dd class="h4">{{ metric.value }}</dd>
                 </div>{% endfor %}</dl>{% endif %}
             </div>
           </article>
