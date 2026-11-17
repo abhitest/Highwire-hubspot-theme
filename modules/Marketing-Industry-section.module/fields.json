@@ -300,11 +300,11 @@
                   "units": "px"
                 },
                 "left": {
-                  "value": 64,
+                  "value": 0,
                   "units": "px"
                 },
                 "right": {
-                  "value": 64,
+                  "value": 0,
                   "units": "px"
                 }
               }
@@ -331,11 +331,11 @@
                   "units": "px"
                 },
                 "left": {
-                  "value": 40,
+                  "value": 0,
                   "units": "px"
                 },
                 "right": {
-                  "value": 40,
+                  "value": 0,
                   "units": "px"
                 }
               }
@@ -362,11 +362,11 @@
                   "units": "px"
                 },
                 "left": {
-                  "value": 24,
+                  "value": 0,
                   "units": "px"
                 },
                 "right": {
-                  "value": 24,
+                  "value": 0,
                   "units": "px"
                 }
               }

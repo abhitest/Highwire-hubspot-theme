@@ -7,7 +7,15 @@
       {% if module.values %}
       <div class="hw-team-strength__values">
         {% for item in module.values %}
-        <article>{% if item.title %}<h3>{{ item.title|escape_html }}</h3>{% endif %}{% if item.content %}<div>{{ item.content }}</div>{% endif %}</article>
+        {% set default_icons = ['group', 'lamp', 'lightning', 'trophy'] %}
+        {% set icon_src = item.icon.src or get_asset_url('../../images/careers-icons/' ~ default_icons[loop.index0 % 4] ~ '.svg') %}
+        <article tabindex="0" {% if item.title %}aria-labelledby="{{ name|escape_attr }}-value-{{ loop.index }}"{% endif %}>
+          <span class="hw-team-strength__value-icon" aria-hidden="true"><img src="{{ icon_src|escape_url }}" alt="" width="32" height="32" loading="lazy"></span>
+          <div class="hw-team-strength__value-copy">
+            {% if item.title %}<h3 id="{{ name|escape_attr }}-value-{{ loop.index }}">{{ item.title|escape_html }}</h3>{% endif %}
+            {% if item.content %}<div class="hw-team-strength__value-description">{{ item.content }}</div>{% endif %}
+          </div>
+        </article>
         {% endfor %}
       </div>
       {% endif %}

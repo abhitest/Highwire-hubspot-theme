@@ -4,6 +4,46 @@
     section.dataset.valuesReady = 'true';
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     const motionOff = () => section.dataset.animate === 'false' || reduced.matches || document.documentElement.dataset.motion === 'reduced';
+    section.querySelectorAll('.hw-career-residents__extended').forEach(details => {
+      const summary = details.querySelector('summary');
+      let animation;
+      let expanded = details.open;
+      const finish = () => {
+        if (animation) {
+          animation.onfinish = null;
+          animation.cancel();
+          animation = null;
+        }
+        details.open = expanded;
+        details.style.removeProperty('height');
+        details.style.removeProperty('overflow');
+      };
+      summary.addEventListener('click', event => {
+        if (!details.animate) return;
+        event.preventDefault();
+        const start = details.getBoundingClientRect().height;
+        expanded = !expanded;
+        if (animation) {
+          animation.onfinish = null;
+          animation.cancel();
+        }
+        if (motionOff()) { finish(); return; }
+        details.style.removeProperty('height');
+        details.open = expanded;
+        const end = details.getBoundingClientRect().height;
+        // Keep content rendered until the closing animation completes.
+        details.open = true;
+        details.style.height = `${start}px`;
+        details.style.overflow = 'hidden';
+        animation = details.animate(
+          [{ height:`${start}px` }, { height:`${end}px` }],
+          { duration:360, easing:'cubic-bezier(.22,1,.36,1)', fill:'forwards' }
+        );
+        animation.onfinish = finish;
+      });
+      reduced.addEventListener('change', () => { if (motionOff()) finish(); });
+      window.addEventListener('resize', () => { if (animation) finish(); });
+    });
     const heading = section.querySelector('[data-residents-reveal]');
     let observer;
     if (heading && !motionOff() && 'IntersectionObserver' in window) {
