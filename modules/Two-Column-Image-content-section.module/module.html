@@ -2,10 +2,10 @@
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="baseModuleParent hw-two-column-image__layout">
     <div class="hw-two-column-image__copy">
-     <div class="hw-two-column-image__copy_inner">
-      {% if module.content_group.title %}<h2 id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>{% endif %}
-      {% if module.content_group.content %}<div class="hw-two-column-image__content font20">{{ module.content_group.content }}</div>{% endif %}
-    </div>
+
+      {% if module.content_group.title %}<h2 class="h3" id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>{% endif %}
+      {% if module.content_group.content %}<div class="hw-two-column-image__content font18 lh15">{{ module.content_group.content }}</div>{% endif %}
+
     </div>
     <div class="hw-two-column-image__media">
       {% set image_src = module.content_group.image.src or get_asset_url('../../images/two-column-about-story.webp') %}
