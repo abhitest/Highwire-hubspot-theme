@@ -1,4 +1,17 @@
 <section class="hero primarybg" id="{{ module.custom_style.section_id }}" data-section data-hero-module>
+  <script>
+    // Set the opening pose before the browser can paint the hero's children.
+    // The deferred module must never rewind an already visible finished hero.
+    (() => {
+      const hero = document.currentScript.parentElement;
+      if (matchMedia('(min-width: 768px) and (prefers-reduced-motion: no-preference)').matches &&
+          document.documentElement.dataset.motion !== 'reduced') {
+        hero.dataset.heroMotion = 'preparing';
+        // Keep the content available if the module fails to download.
+        hero.heroBootTimeout = setTimeout(() => { hero.dataset.heroMotion = 'done'; }, 6000);
+      }
+    })();
+  </script>
   <div class="hero__frame" aria-hidden="true">
     <div class="hero__camera">
       {% if module.content_group.hero_image.src %}

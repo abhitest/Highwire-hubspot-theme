@@ -26,26 +26,34 @@
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const mobile = matchMedia('(max-width: 767px)');
     const motionOff = () => mobile.matches || reduced.matches || document.documentElement.dataset.motion === 'reduced';
-    const finish = () => { hero.dataset.heroMotion = 'done'; };
+    const finish = () => {
+      clearTimeout(hero.heroBootTimeout);
+      hero.dataset.heroMotion = 'done';
+    };
     // Animation is owned by this module, independent of the theme runtime.
-    if (!motionOff()) {
-      hero.dataset.heroMotion = 'preparing';
+    if (!motionOff() && hero.dataset.heroMotion === 'preparing') {
       const start = async () => {
         const photo = hero.querySelector('.hero__camera img');
-        // The first frame needs the decoded image, including on an uncached reload.
-        if (photo && photo.decode) {
-          try { await photo.decode(); } catch (_) { /* Keep content available if the image fails. */ }
-        }
+        // Resolve the image and font metrics before moving the composition.
+        // A late font swap otherwise shifts the text/CTA halfway through entry.
+        await Promise.allSettled([
+          photo && photo.decode ? photo.decode() : Promise.resolve(),
+          document.fonts ? document.fonts.ready : Promise.resolve()
+        ]);
         requestAnimationFrame(() => requestAnimationFrame(() => {
           if (motionOff() || hero.dataset.heroMotion === 'done') return finish();
+          clearTimeout(hero.heroBootTimeout);
           hero.dataset.heroMotion = 'running';
-          // Release animation fill styles so hover/focus transforms can work.
-          setTimeout(finish, 2300);
+          // Release fill styles only once the rendered animations actually end,
+          // including when the tab is throttled or the main thread is busy.
+          Promise.allSettled(hero.getAnimations({ subtree: true }).map(animation => animation.finished))
+            .then(finish);
         }));
       };
-      if (document.readyState === 'complete') start();
-      else window.addEventListener('load', start, { once: true });
-    }
+      // Only the hero image gates its entrance; analytics and other page assets
+      // must not leave the opening frame waiting for the window load event.
+      start();
+    } else finish();
     reduced.addEventListener('change', () => { if (motionOff()) finish(); });
     mobile.addEventListener('change', () => { if (motionOff()) finish(); });
     const cta = hero.querySelector('.hero__cta');
@@ -142,7 +150,10 @@
     window.addEventListener('resize', hide, { passive: true });
     window.addEventListener('blur', hide);
     reduced.addEventListener('change', hide);
-    new MutationObserver(hide).observe(document.documentElement, { attributes:true, attributeFilter:['data-motion'] });
+    new MutationObserver(() => {
+      hide();
+      if (motionOff()) finish();
+    }).observe(document.documentElement, { attributes:true, attributeFilter:['data-motion'] });
   });
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

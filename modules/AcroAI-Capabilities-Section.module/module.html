@@ -18,6 +18,9 @@
         {% endif %}
       </figure>
       <div class="hw-cap__list">
+        {% if module.content_group.list_title|trim %}
+        <h4 class="hw-cap__list-title">{{ module.content_group.list_title|escape_html }}</h4>
+        {% endif %}
         {% for item in module.content_group.capabilities %}
         <article class="hw-cap__card" tabindex="0" aria-labelledby="{{ name|escape_attr }}-item-{{ loop.index }}">
           <div class="hw-cap__heading"><span class="hw-cap__icon" aria-hidden="true">{% if item.icon.src %}<img src="{{ item.icon.src|escape_url }}" alt="" width="24" height="24" loading="lazy">{% endif %}</span><h6 id="{{ name|escape_attr }}-item-{{ loop.index }}">{{ item.title|escape_html }}</h6><span class="hw-cap__number">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span></div>

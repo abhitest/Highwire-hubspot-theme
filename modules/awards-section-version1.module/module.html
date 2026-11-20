@@ -5,7 +5,7 @@
     <p class="hw-awards-v1__eyebrow"{% if not module.content_group.title %} id="{{ name|escape_attr }}-title"{% endif %}>{{ module.content_group.heading|escape_html }}</p>
     {% endif %}
     {% if module.content_group.title %}
-    <h2 class="hw-awards-v1__title" id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>
+    <h2 class="hw-awards-v1__title h3" id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}</h2>
     {% endif %}
     {% if module.content_group.content|striptags|trim %}
     <div class="hw-awards-v1__content">{{ module.content_group.content }}</div>

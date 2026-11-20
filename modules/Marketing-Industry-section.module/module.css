@@ -183,6 +183,10 @@
     }
 }
 
+@media (max-width: 480px){
+    .hw-marketing-industry__description { margin-left:0 }
+}
+
 html[data-motion=reduced] .hw-marketing-industry .hw-marketing-industry__description,
 .hw-marketing-industry[data-animate=false] .hw-marketing-industry__description {
     opacity: 1;

@@ -5,7 +5,7 @@
   <div class="content-wrapper">
     <div class="hw-cap-disciplines__inner">
       <header class="hw-cap-disciplines__intro" data-reveal>
-        {% if module.content_group.heading %}<h2 class="h3" id="{{ name|escape_attr }}-heading">{{ module.content_group.heading|escape_html }}</h2>{% endif %}
+        {% if module.content_group.heading %}<h2 class="h3" id="{{ name|escape_attr }}-heading">{{ module.content_group.heading }}</h2>{% endif %}
         {% if module.content_group.description %}<div class="hw-cap-disciplines__intro-copy font20">{{ module.content_group.description }}</div>{% endif %}
       </header>
 
@@ -18,9 +18,9 @@
           <div class="hw-cap-disciplines__copy">
             <div class="hw-cap-disciplines__title-row">
               <span class="hw-cap-disciplines__icon" aria-hidden="true">{% if item.icon.src %}<img src="{{ item.icon.src|escape_url }}" alt="" width="36" height="36" loading="lazy" decoding="async">{% endif %}</span>
-              <h3 id="{{ name|escape_attr }}-item-{{ loop.index }}">{{ item.title|escape_html }}</h3>
+              <h3 id="{{ name|escape_attr }}-item-{{ loop.index }}" class="h4">{{ item.title }}</h3>
             </div>
-            {% if item.promise %}<p class="hw-cap-disciplines__promise">{{ item.promise|escape_html }}</p>{% endif %}
+            {% if item.promise %}<p class="hw-cap-disciplines__promise h6">{{ item.promise }}</p>{% endif %}
             {% if item.description %}<div class="hw-cap-disciplines__description font18">{{ item.description }}</div>{% endif %}
             {% if item.services %}<div class="hw-cap-disciplines__services">{{ item.services }}</div>{% endif %}
             {% if item.cta_label %}
@@ -28,7 +28,7 @@
               {% if cta_href and cta_href != '#' %}
               <a class="hw-cap-disciplines__action" href="{{ cta_href|escape_url }}" {% if item.cta_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}><span>{{ item.cta_label|escape_html }}</span><svg viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 14 14 4"></path><path d="M6 4h8v8"></path></g></svg></a>
               {% else %}
-              <span class="hw-cap-disciplines__action"><span>{{ item.cta_label|escape_html }}</span><svg viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 14 14 4"></path><path d="M6 4h8v8"></path></g></svg></span>
+              <span class="hw-cap-disciplines__action"><span>{{ item.cta_label }}</span><svg viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 14 14 4"></path><path d="M6 4h8v8"></path></g></svg></span>
               {% endif %}
             {% endif %}
           </div>

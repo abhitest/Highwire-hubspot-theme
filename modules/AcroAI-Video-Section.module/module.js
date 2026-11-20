@@ -25,13 +25,24 @@
       button.addEventListener('focus',()=>{if(!button.matches(':hover'))colour();});
       const fail=()=>{poster.hidden=false;status.hidden=false;status.textContent='The video could not be played. Please try again.';};
       video.addEventListener('error',fail);
+      video.addEventListener('playing',()=>{poster.hidden=true;status.hidden=true;});
       button.addEventListener('click',()=>{
         if(!video.dataset.src)return;
         status.hidden=true;
         if(!video.getAttribute('src'))video.src=video.dataset.src;
-        poster.hidden=true;video.controls=true;video.focus({preventScroll:true});
+        poster.hidden=true;video.focus({preventScroll:true});
         const promise=video.play();if(promise)promise.catch(fail);
       });
+      if(video.autoplay&&video.dataset.src){
+        // Set the property as well as the markup attribute before requesting play.
+        video.muted=true;
+        video.src=video.dataset.src;
+        const promise=video.play();
+        if(promise)promise.catch(()=>{
+          // Autoplay can be declined by the browser; retain the manual play button.
+          poster.hidden=false;
+        });
+      }
     });
   };
   window.hwAcroVideoInit=refresh;

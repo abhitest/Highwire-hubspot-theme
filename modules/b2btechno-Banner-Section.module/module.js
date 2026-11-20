@@ -69,15 +69,19 @@
     if (motionOff()) finish();
     else {
       section.dataset.b2bMotion = 'preparing';
-      // Gate only on a visible loader, never on unrelated page assets.
-      const loader = document.querySelector('.hw-page-loader');
-      const loaderStyle = loader && getComputedStyle(loader);
-      const loaderAnimations = loader && loaderStyle.display !== 'none' && loaderStyle.visibility !== 'hidden'
-        ? loader.getAnimations().filter(animation => animation.playState === 'running') : [];
-      if (loaderAnimations.length) Promise.allSettled(loaderAnimations.map(animation => animation.finished)).then(ready);
-      else ready();
-      // Failed or stalled assets must not leave content hidden indefinitely.
-      setTimeout(() => { if (!started) { if (observer) observer.disconnect(); finish(); } }, 5000);
+      const afterLoad = () => {
+        // Wait for the full page load, then let any visible loader finish.
+        const loader = document.querySelector('.hw-page-loader');
+        const loaderStyle = loader && getComputedStyle(loader);
+        const loaderAnimations = loader && loaderStyle.display !== 'none' && loaderStyle.visibility !== 'hidden'
+          ? loader.getAnimations().filter(animation => animation.playState === 'running') : [];
+        if (loaderAnimations.length) Promise.allSettled(loaderAnimations.map(animation => animation.finished)).then(ready);
+        else ready();
+        // Start the fallback clock after load so it cannot skip the entrance on slow pages.
+        setTimeout(() => { if (!started) { if (observer) observer.disconnect(); finish(); } }, 5000);
+      };
+      if (document.readyState === 'complete') afterLoad();
+      else window.addEventListener('load', afterLoad, { once: true });
     }
 
     if (!media || !photo) return;

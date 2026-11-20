@@ -115,6 +115,42 @@
         }
       },
       {
+        "name": "autoplay",
+        "label": "Autoplay video (muted)",
+        "type": "boolean",
+        "default": false,
+        "help_text": "Automatically start the video without sound. Viewers can unmute using the video controls.",
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "loop",
+        "label": "Loop video continuously",
+        "type": "boolean",
+        "default": false,
+        "help_text": "Restart the video automatically when it ends. Enable with Autoplay for continuous playback.",
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "name": "hide_controls",
+        "label": "Hide video controls",
+        "type": "boolean",
+        "default": false,
+        "help_text": "Hide the native playback controls. Use with muted autoplay and looping for continuous video.",
+        "visibility": {
+          "controlling_field_path": "content_group.media_type",
+          "controlling_value_regex": "video",
+          "operator": "EQUAL"
+        }
+      },
+      {
         "name": "captions_url",
         "label": "Captions file URL (WebVTT, optional)",
         "type": "url",

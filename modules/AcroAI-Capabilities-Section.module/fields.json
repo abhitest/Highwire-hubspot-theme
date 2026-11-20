@@ -180,6 +180,13 @@
         "default": true
       },
       {
+        "name": "list_title",
+        "label": "Capabilities list title (optional)",
+        "type": "text",
+        "default": "",
+        "help_text": "Shown above the capabilities on the right, for example: Four Elements of AI Visibility. Leave blank to hide."
+      },
+      {
         "name": "capabilities",
         "label": "Capabilities",
         "type": "group",

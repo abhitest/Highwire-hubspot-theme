@@ -1,15 +1,14 @@
 [
   {
-  "name": "logo",
-  "label": "Logo",
-  "required": false,
-  "locked": false,
-  "type": "richtext",
-  "inline_help_text": "",
-  "help_text": "",
-  "default": null 
-},
-  
+    "name": "logo",
+    "label": "Logo",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": null
+  },
   {
     "name": "home_link",
     "label": "Logo link",
@@ -86,6 +85,14 @@
               },
               "open_in_new_tab": false
             }
+          },
+          {
+            "name": "black_background",
+            "label": "Black background",
+            "type": "boolean",
+            "display": "toggle",
+            "default": false,
+            "help_text": "Show this dropdown link with a black background and white text."
           }
         ]
       },
@@ -101,6 +108,29 @@
         "type": "text",
         "allow_new_line": true,
         "default": "Sector depth.\nNot guesswork."
+      },
+      {
+        "name": "dropdown_button_text",
+        "label": "Dropdown button text",
+        "type": "text",
+        "help_text": "Leave blank to use All followed by the navigation label in the intro layout. In the compact layout, leave blank to omit the extra button row."
+      },
+      {
+        "name": "dropdown_button_link",
+        "label": "Dropdown button link",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "help_text": "Leave blank to use the navigation Link.",
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false
+        }
       }
     ],
     "default": [

@@ -32,20 +32,16 @@
   };
   const off = element => reduced.matches || document.documentElement.dataset.motion === 'reduced' || element.closest('.hw-events').dataset.animate === 'false';
   const play = (element, state) => {
-    if (off(element) || state.played || !element.animate) return;
+    if (off(element) || state.played) return;
     state.played = true;
-    const style = getComputedStyle(element);
-    const duration = parseFloat(style.getPropertyValue('--m-exp')) * 1000 || 650;
-    const delay = (parseFloat(style.getPropertyValue('--event-index')) || 0) * (parseFloat(style.getPropertyValue('--m-stagger')) || 80);
-    state.animation = element.animate([{opacity:0,transform:'translateY(28px)'},{opacity:1,transform:'translateY(0)'}],{duration,delay,easing:style.getPropertyValue('--ease').trim() || 'cubic-bezier(.22,1,.36,1)',fill:'backwards'});
-    state.animation.onfinish = state.animation.oncancel = () => { state.animation = null; };
+    element.classList.add('is-event-visible');
   };
   const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => entries.forEach(entry => {
     const state = targets.get(entry.target);
     if (!state) return;
-    state.visible = entry.isIntersecting;
+    state.visible = entry.isIntersecting && entry.intersectionRatio >= 0.12;
     if (state.visible) play(entry.target,state);
-  }),{threshold:0,rootMargin:'0px 0px -8% 0px'}) : null;
+  }),{threshold:0.12,rootMargin:'0px 0px -8% 0px'}) : null;
   const measuredRails = new WeakSet();
   const updateRail = rail => {
     if (!rail.isConnected) return;
@@ -68,11 +64,16 @@
       else backgrounds.delete(section);
     });
     scheduleBackgrounds();
-    targets.forEach((state,element) => { if (!element.isConnected) { if (state.animation) state.animation.cancel(); if (observer) observer.unobserve(element); targets.delete(element); } });
+    targets.forEach((state,element) => { if (!element.isConnected) { if (observer) observer.unobserve(element); targets.delete(element); } });
     document.querySelectorAll('.hw-events [data-event-reveal]').forEach(element => {
       if (targets.has(element)) return;
-      targets.set(element,{visible:false,played:false,animation:null});
-      if (observer) observer.observe(element);
+      targets.set(element,{visible:false,played:false});
+      if (observer) {
+        element.classList.add('is-event-ready');
+        // Commit the hidden starting state before an already-visible target reveals.
+        getComputedStyle(element).opacity;
+        observer.observe(element);
+      }
     });
     document.querySelectorAll('.hw-events__rail').forEach(rail => {
       updateRail(rail);
@@ -83,7 +84,7 @@
     scheduleBackgrounds();
     targets.forEach((state,element) => {
     if (!element.isConnected) return;
-    if (off(element)) { if (state.animation) state.animation.cancel(); state.played=false; }
+    if (off(element)) { element.classList.remove('is-event-visible'); state.played=false; }
     else if (state.visible) play(element,state);
     });
   };

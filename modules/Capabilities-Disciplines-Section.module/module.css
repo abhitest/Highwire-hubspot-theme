@@ -110,17 +110,13 @@
 .hw-cap-disciplines__icon img { display: block; width: 36px; height: 36px; object-fit: contain; filter: brightness(0); }
 
 .hw-cap-disciplines__title-row h3 {
-  margin: 0;
-  font-size: 48px; font-weight: 400; line-height: 1.1;
-  letter-spacing: -1.68px; font-family: Onest, serif;
-  text-wrap: balance;
+  margin: 0;text-wrap: balance;
 }
 
 .hw-cap-disciplines__promise {
   max-width: 720px;
   margin: 32px 0 0;
-  font-size: clamp(20px,2.1vw,30px); line-height: 1.25;
-  letter-spacing: -.8px; font-family: Onest, serif;
+ 
   text-wrap: pretty;
 }
 
@@ -203,14 +199,20 @@ html[data-motion="reduced"] .hw-cap-disciplines [data-reveal].is-visible {
   .hw-cap-disciplines__intro,
   .hw-cap-disciplines__item { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px; }
   .hw-cap-disciplines__title-row { gap: 16px; }
-  .hw-cap-disciplines__title-row h3 { font-size: clamp(34px, 4vw, 44px); }
+  
   /* .hw-cap-disciplines__media { min-height: 480px; } */
 }
+
+@media (max-width:991px){
+.hw-cap-disciplines__item,.hw-cap-disciplines__intro { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .hw-cap-disciplines__media {      aspect-ratio: 4 / 3;        min-height: 0;    }
+  }
+
 
 @media (max-width: 767px) {
   /* .hw-cap-disciplines { padding: 72px 0 80px; } */
   .hw-cap-disciplines__intro,
-  .hw-cap-disciplines__item { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  
   .hw-cap-disciplines__intro { margin-bottom: 48px; }
   .hw-cap-disciplines__intro-copy { padding-top: 0; }
   .hw-cap-disciplines__item { padding-top: 24px; }
@@ -219,7 +221,7 @@ html[data-motion="reduced"] .hw-cap-disciplines [data-reveal].is-visible {
   .hw-cap-disciplines__title-row { gap: 16px; }
   .hw-cap-disciplines__icon { flex-basis: 46px; width: 46px; height: 46px; }
   .hw-cap-disciplines__icon img { width: 30px; height: 30px; }
-  .hw-cap-disciplines__title-row h3 { font-size: clamp(24px,6vw,40px); letter-spacing: -1px; }
+  
   .hw-cap-disciplines__promise { margin-top: 24px; }
   .hw-cap-disciplines__description { margin-top: 18px; font-size: 16px; }
   .hw-cap-disciplines__services ul { gap: 8px; margin: 22px 0 26px; }
