@@ -1,0 +1,28 @@
+.hw-two-column-titlecnt { position:relative; }
+.hw-two-column-titlecnt *, .hw-two-column-titlecnt *::before { box-sizing:border-box; }
+.hw-two-column-titlecnt .content-wrapper { max-width:1440px; margin-inline:auto; padding-inline:64px; }
+.hw-two-column-titlecnt__grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0; }
+.hw-two-column-titlecnt__heading { display:flex; flex-direction:column; align-items:flex-start; gap:32px; padding-right:64px; color:var(--titlecnt-heading,#fff); }
+.hw-two-column-titlecnt__eyebrow { margin:0; color:inherit; font:400 16px/1.5 Arial,Helvetica,sans-serif; }
+.hw-two-column-titlecnt__heading h2 { max-width:560px; margin:0; color:inherit; }
+.hw-two-column-titlecnt__content { display:flex; flex-direction:column; justify-content:flex-end; gap:24px; color:var(--titlecnt-content,rgba(255,255,255,.7));}
+.hw-two-column-titlecnt__content > * { max-width:560px; margin:0; color:inherit; }
+.hw-two-column-titlecnt__content p { font:inherit; }
+.hw-two-column-titlecnt__content a { color:inherit; text-decoration:underline; }
+.hw-two-column-titlecnt--motion [data-titlecnt-reveal] { opacity:0; transform:translateY(28px); }
+.hw-two-column-titlecnt--motion [data-titlecnt-reveal].is-visible { opacity:1; transform:none; transition:opacity 360ms cubic-bezier(.4,0,.2,1),transform 650ms cubic-bezier(.22,1,.36,1); }
+@media(max-width:1100px) {
+ .hw-two-column-titlecnt .content-wrapper { padding-inline:32px; }
+ .hw-two-column-titlecnt__heading { padding-right:40px; }
+ 
+}
+@media(max-width:767px) {
+ .hw-two-column-titlecnt .content-wrapper { padding-inline:24px; }
+ .hw-two-column-titlecnt__grid { grid-template-columns:minmax(0,1fr); gap:32px; }
+ .hw-two-column-titlecnt__heading { padding-right:0; gap:24px; }
+ 
+}
+@media(prefers-reduced-motion:reduce) {
+ .hw-two-column-titlecnt--motion [data-titlecnt-reveal],.hw-two-column-titlecnt--motion [data-titlecnt-reveal].is-visible { opacity:1; transform:none; transition:none; }
+}
+html[data-motion="reduced"] .hw-two-column-titlecnt--motion [data-titlecnt-reveal] { opacity:1; transform:none; transition:none; }

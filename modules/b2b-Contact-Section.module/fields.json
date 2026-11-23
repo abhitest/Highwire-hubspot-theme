@@ -27,8 +27,8 @@
   {
     "name": "intro",
     "label": "Introduction",
-    "type": "text",
-    "default": "Senior Highwire leaders stay close to the work, the market, and your business from day one."
+    "type": "richtext",
+    "default": "<p>Senior Highwire leaders stay close to the work, the market, and your business from day one.</p>"
   },
   {
     "name": "content_group",

@@ -1,0 +1,457 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "container_choice": "content-wrapper"
+    }
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "tab": "CONTENT",
+    "children": [
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Three Ways to Get Ahead with Acro"
+      },
+      {
+        "name": "description",
+        "label": "Introduction",
+        "type": "richtext",
+        "default": "<p>From understanding your category and competitors to influencing how your brand is discovered, the Acro Suite helps your team turn insights into differentiated marketing communications programs.</p>"
+      },
+      {
+        "name": "animate",
+        "label": "Enable animation",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "products",
+        "label": "Products",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 12,
+          "default": 3,
+          "sorting_label_field": "content_group.products.title"
+        },
+        "children": [
+          {
+            "name": "image",
+            "label": "Product image",
+            "type": "image",
+            "default": {
+              "src": "https://highwire-demo.vercel.app/images/acro-suite/acroai-interface.jpg",
+              "alt": "",
+              "size_type": "auto",
+              "loading": "lazy"
+            }
+          },
+          {
+            "name": "title",
+            "label": "Product name",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "subtitle",
+            "label": "Subtitle",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "description",
+            "label": "Description",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "cta",
+            "label": "Link text",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "name": "link",
+            "label": "Product link",
+            "type": "link",
+            "default": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/acroai"
+              },
+              "open_in_new_tab": false
+            }
+          }
+        ],
+        "default": [
+          {
+            "title": "AcroAI",
+            "subtitle": "Make more room for strategy.",
+            "description": "AcroAI brings agentic AI into your team's daily workflows. It takes on repetitive tasks, speeds the path from insight to execution, and frees your people to focus on strategy, creativity, and decisions.",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/acro-suite/acroai-interface.jpg",
+              "alt": "",
+              "size_type": "auto",
+              "loading": "lazy"
+            },
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/acroai"
+              },
+              "open_in_new_tab": false
+            },
+            "cta": "Explore AcroAI"
+          },
+          {
+            "title": "AcroIntelligence",
+            "subtitle": "See what’s changing before it changes the conversation.",
+            "description": "AcroIntelligence turns large volumes of media and market information into insight on the narratives, competitors, issues, and emerging trends shaping your market. Your team can spot openings, anticipate risks, and make sharper strategic calls.",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/acro-suite/acrointelligence-interface.jpg",
+              "alt": "",
+              "size_type": "auto",
+              "loading": "lazy"
+            },
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/acrointelligence"
+              },
+              "open_in_new_tab": false
+            },
+            "cta": "Explore AcroIntelligence"
+          },
+          {
+            "title": "AcroAnswers",
+            "subtitle": "Make your brand part of the answer.",
+            "description": "Your next client or customer may start by asking an AI assistant. AcroAnswers shows how your brand appears in those replies and where competitors are gaining ground. Your team tracks results on a live dashboard, and Highwire experts recommend the program changes that strengthen your credibility and influence.",
+            "image": {
+              "src": "https://highwire-demo.vercel.app/images/products/acroanswers/interface-poster.jpg",
+              "alt": "",
+              "size_type": "auto",
+              "loading": "lazy"
+            },
+            "link": {
+              "url": {
+                "type": "EXTERNAL",
+                "href": "/acroanswers"
+              },
+              "open_in_new_tab": false
+            },
+            "cta": "Explore AcroAnswers"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#FFFFFF",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Image overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            },
+            "visibility": {
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "operator": "EQUAL"
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 104,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "accent_color",
+        "label": "Hover rule color",
+        "type": "color",
+        "default": {
+          "color": "#4BB7FF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "text_color",
+        "label": "Text color",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

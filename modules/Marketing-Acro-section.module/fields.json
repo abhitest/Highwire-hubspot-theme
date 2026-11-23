@@ -44,6 +44,13 @@
     "locked": false,
     "children": [
       {
+        "name": "tag",
+        "label": "Tag (optional)",
+        "type": "text",
+        "default": "",
+        "help_text": "Shown above the heading, for example: Powered by Acro. Leave blank to hide."
+      },
+      {
         "name": "title",
         "label": "Heading",
         "type": "text",

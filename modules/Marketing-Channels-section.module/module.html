@@ -5,11 +5,16 @@
     data-animate="{{ 'true' if module.style.enable_animation else 'false' }}">
     <span class="baseModuleOverlay" aria-hidden="true"></span>
     <div class="content-wrapper">
-        <div class="baseModuleParent hw-marketing-channels__layout">
+        <div class="baseModuleParent hw-marketing-channels__layout{% if module.content_group.content %} hw-marketing-channels__layout--with-content{% endif %}">
             {% if module.content_group.title %}
             <h2 class="h3" id="{{ name|escape_attr }}-title" data-marketing-reveal>
                 {{ module.content_group.title }}
             </h2>
+            {% endif %}
+            {% if module.content_group.content %}
+            <div class="hw-marketing-channels__intro-content" data-marketing-reveal>
+                {{ module.content_group.content }}
+            </div>
             {% endif %}
             <div class="hw-marketing-channels__grid">
                 {% for item in module.services %}

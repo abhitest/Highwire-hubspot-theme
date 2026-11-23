@@ -1,0 +1,224 @@
+[
+  {
+    "name": "custom_style",
+    "label": "Custom Style",
+    "type": "group",
+    "children": [
+      {
+        "name": "custom_class",
+        "label": "Custom class",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "section_id",
+        "label": "Section ID",
+        "type": "text",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Ready for Your High-Stakes Moment"
+  },
+  {
+    "name": "intro",
+    "label": "Introduction",
+    "type": "richtext",
+    "default": "<p>Tell us what's ahead for your business, and we'll help every audience see what you see.</p>"
+  },
+  {
+    "name": "team_image",
+    "label": "Team image",
+    "type": "image",
+    "default": {
+      "src": "https://highwire-demo.vercel.app/images/highwire-real/highwire-aspire-73.webp",
+      "alt": "Highwire colleagues discussing a program together in an office lounge",
+      "size_type": "auto"
+    }
+  },
+  {
+    "name": "team_content",
+    "label": "Content below image",
+    "type": "richtext",
+    "default": "<p>Our communications team brings senior counselors with deep sector expertise and long-standing media relationships to every engagement. You will work with people who know your industry and stay close to your program as your business grows.</p>"
+  },
+  {
+    "name": "content_group",
+    "label": "Content",
+    "type": "group",
+    "tab": "CONTENT",
+    "children": [
+      {
+        "name": "team_gap_desktop",
+        "label": "Introduction to Image Gap - Desktop",
+        "type": "number",
+        "min": 0,
+        "suffix": "px",
+        "default": 56
+      },
+      {
+        "name": "team_gap_tablet",
+        "label": "Introduction to Image Gap - Tablet (1024px and below)",
+        "type": "number",
+        "min": 0,
+        "suffix": "px",
+        "default": 48
+      },
+      {
+        "name": "team_gap_small_tablet",
+        "label": "Introduction to Image Gap - Small Tablet (900px and below)",
+        "type": "number",
+        "min": 0,
+        "suffix": "px",
+        "default": 40
+      },
+      {
+        "name": "team_gap_mobile",
+        "label": "Introduction to Image Gap - Mobile (767px and below)",
+        "type": "number",
+        "min": 0,
+        "suffix": "px",
+        "default": 32
+      }
+    ]
+  },
+  {
+    "name": "form",
+    "label": "Contact form",
+    "type": "form",
+    "required": false,
+    "help_text": "Choose a legacy HubSpot form rendered as raw HTML to apply module styling. Use First name and Last name in one row, followed by Work email, Company and a multiline message. Set the submit label to Start the Conversation.",
+    "default": {
+      "response_type": "inline",
+      "message": "Thank you. We’ll be in touch soon."
+    }
+  },
+  {
+    "name": "unconfigured_message",
+    "label": "Message when no form is selected",
+    "type": "text",
+    "default": "The contact form is not available yet."
+  },
+  {
+    "name": "animate",
+    "label": "Enable animations",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "style",
+    "label": "Styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "name": "accent_color",
+        "label": "Accent Color",
+        "type": "color",
+        "help_text": "Color of the animated reveal overlay and the section top border.",
+        "default": {
+          "color": "#4BB7FF",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "background_color",
+        "label": "Background colour",
+        "type": "color",
+        "default": {
+          "color": "#f0f0f0",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "spacing",
+        "label": "Section spacing",
+        "type": "group",
+        "children": [
+          {
+            "name": "desktop",
+            "label": "Desktop spacing",
+            "type": "spacing",
+            "help_text": "Top and bottom spacing only. content-wrapper handles horizontal gutters.",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 64,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "name": "tablet",
+            "label": "Tablet spacing",
+            "type": "spacing",
+            "help_text": "Top and bottom spacing only. content-wrapper handles horizontal gutters.",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 72,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          },
+          {
+            "name": "mobile",
+            "label": "Mobile spacing",
+            "type": "spacing",
+            "help_text": "Top and bottom spacing only. content-wrapper handles horizontal gutters.",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 0,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 0,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

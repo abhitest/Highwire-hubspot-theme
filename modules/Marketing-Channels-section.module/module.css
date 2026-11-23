@@ -153,3 +153,13 @@ html[data-motion=reduced] .hw-marketing-channels *:before,
 
  
 }
+/* Optional introduction below the section heading. */
+.hw-marketing-channels__layout--with-content > h2 { margin-bottom:24px; }
+.hw-marketing-channels__intro-content { max-width:880px; margin-bottom:64px; color:var(--marketing-heading_color); font-size:20px; line-height:1.5; }
+.hw-marketing-channels__intro-content > :first-child { margin-top:0; }
+.hw-marketing-channels__intro-content > :last-child { margin-bottom:0; }
+.hw-marketing-channels__intro-content p { color:inherit; font-size:inherit; line-height:inherit; }
+.hw-marketing-channels__intro-content p + p { margin-top:16px; }
+@media(max-width:767px) {
+    .hw-marketing-channels__intro-content { margin-bottom:40px; font-size:18px; }
+}

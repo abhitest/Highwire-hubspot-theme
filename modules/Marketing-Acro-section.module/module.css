@@ -184,3 +184,4 @@ html[data-motion=reduced] .hw-marketing-acro *:before,
     aspect-ratio: unset;
 }
 }
+.hw-marketing-acro__tag { margin:0; color:var(--marketing-heading_color); font-size:16px; line-height:1.5; font-weight:400; }

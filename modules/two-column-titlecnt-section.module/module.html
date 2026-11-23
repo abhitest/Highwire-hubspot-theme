@@ -1,0 +1,67 @@
+<section class="{{ name|escape_attr }} baseModuleStyle hw-two-column-titlecnt {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} {% if module.content_group.title %}aria-labelledby="{{ name|escape_attr }}-title"{% endif %} data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay" aria-hidden="true"></span>
+  <div class="baseModuleParent">
+    <div class="content-wrapper">
+      <div class="hw-two-column-titlecnt__grid">
+        <header class="hw-two-column-titlecnt__heading" data-titlecnt-reveal>
+          {% if module.content_group.eyebrow %}<p class="hw-two-column-titlecnt__eyebrow">{{ module.content_group.eyebrow }}</p>{% endif %}
+          {% if module.content_group.title %}<h2 class="h3" id="{{ name|escape_attr }}-title">{{ module.content_group.title }}</h2>{% endif %}
+        </header>
+        {% if module.content_group.content %}<div class="hw-two-column-titlecnt__content font20 lh15" data-titlecnt-reveal>{{ module.content_group.content }}</div>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-two-column-titlecnt {
+  --titlecnt-heading: {{ module.style.heading_color.css }};
+  --titlecnt-content: {{ module.style.content_color.css }};
+}
+</style>
+    <style>
+
+{#       {% scope_css %} #}
+        
+      {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1300px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+{#       {% end_scope_css %} #}
+    </style>
+  {% end_require_css %}

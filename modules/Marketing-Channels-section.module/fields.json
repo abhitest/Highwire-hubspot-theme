@@ -48,6 +48,12 @@
         "label": "Heading",
         "type": "text",
         "default": "Every Channel, Built Around How Your Buyers Decide"
+      },
+      {
+        "name": "content",
+        "label": "Content below heading",
+        "type": "richtext",
+        "default": ""
       }
     ],
     "tab": "CONTENT",

@@ -1,0 +1,12 @@
+{
+  "label": "Communications - Ready for Your High-Stakes Moment",
+  "css_assets": [],
+  "js_assets": [],
+  "external_js": [],
+  "global": false,
+  "content_types": [
+    "SITE_PAGE",
+    "LANDING_PAGE"
+  ],
+  "is_available_for_new_content": true
+}

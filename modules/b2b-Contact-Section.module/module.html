@@ -5,7 +5,7 @@
     <div class="hw-contact__copy">
       <div class="hw-contact__intro">
         <h3 id="{{ name|escape_attr }}-title" data-contact-reveal>{{ module.heading }}</h3>
-        <p data-contact-reveal>{{ module.intro }}</p>
+        <div class="hw-contact__intro-content" data-contact-reveal>{{ module.intro }}</div>
       </div>
       <div class="hw-contact__leaders">
       {% if module.team_title|trim %}
