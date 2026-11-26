@@ -48,4 +48,34 @@
   {% endfor %}
 }
 </style>
+<style>
+  /* Styles are in css/theme-overrides.css, Page Css. */
+.hw-awards .hw-awards__content { margin:0 0 32px; color:inherit; font:400 var(--theme-body-size,18px)/1.5 var(--body,Arial,sans-serif); }
+.hw-awards__content p { margin:0; color:inherit; font:inherit; }
+.hw-awards__content p+p { margin-top:16px; }
+
+</style>
 {% end_require_css %}
+
+{% require_js %}
+<script>
+  (() => {
+ const init=()=>document.querySelectorAll('.hw-awards').forEach(section=>{
+  if(section.dataset.ready)return;
+  const title=section.querySelector('.hw-awards__title');
+  if(!title)return;
+  const reveal=()=>section.dataset.visible='true';
+  section.dataset.ready='true';
+  section.addEventListener('focusin',reveal);
+  if('IntersectionObserver' in window){
+   const observer=new IntersectionObserver(entries=>{
+    if(entries.some(entry=>entry.isIntersecting)){reveal();observer.disconnect();}
+   },{threshold:.1});
+   observer.observe(title);
+  }else reveal();
+ });
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+
+</script>
+{% end_require_js %}

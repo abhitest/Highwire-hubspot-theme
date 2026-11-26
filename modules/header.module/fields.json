@@ -15,7 +15,11 @@
     "type": "link",
     "supported_types": [
       "EXTERNAL",
-      "CONTENT"
+      "CONTENT",
+      "BLOG",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "PHONE_NUMBER"
     ],
     "default": {
       "url": {
@@ -46,7 +50,11 @@
         "type": "link",
         "supported_types": [
           "EXTERNAL",
-          "CONTENT"
+          "CONTENT",
+          "BLOG",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "PHONE_NUMBER"
         ],
         "default": {
           "url": {
@@ -76,7 +84,11 @@
             "type": "link",
             "supported_types": [
               "EXTERNAL",
-              "CONTENT"
+              "CONTENT",
+              "BLOG",
+              "FILE",
+              "EMAIL_ADDRESS",
+              "PHONE_NUMBER"
             ],
             "default": {
               "url": {
@@ -142,7 +154,11 @@
         "type": "link",
         "supported_types": [
           "EXTERNAL",
-          "CONTENT"
+          "CONTENT",
+          "BLOG",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "PHONE_NUMBER"
         ],
         "help_text": "Leave blank to use the navigation Link.",
         "default": {
@@ -283,7 +299,11 @@
     "type": "link",
     "supported_types": [
       "EXTERNAL",
-      "CONTENT"
+      "CONTENT",
+      "BLOG",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "PHONE_NUMBER"
     ],
     "default": {
       "url": {

@@ -117,7 +117,7 @@
   },
   "display_width": null,
   "id": "hero_image",
-  "help_text": "Also used as the video poster and fallback. Keep this image optimized.",
+  "help_text": "Used in Image mode only. Video mode does not download or display this image.",
   "label": "Hero image (landscape, at least 2000px wide)",
   "locked": false,
   "name": "hero_image",
@@ -147,10 +147,9 @@
 },
  {
   "name": "video_url",
-  "label": "Video URL",
-  "type": "text",
-  "allow_new_line": false,
-  "help_text": "Direct HTTPS MP4 or WebM file URL (HubSpot Files or CDN), not a YouTube/Vimeo page. Use a short compressed video without audio, ideally under 3 MB. The image handles the opening animation. Video loads after page load and the entrance animation, when the browser is idle and the hero is visible, then plays muted and loops. Video size and hosting still affect bandwidth and playback performance. Keep the hero image as fallback.",
+  "label": "Video file",
+  "type": "file",
+  "help_text": "Select or upload an MP4 or WebM video from HubSpot Files. Visible video starts immediately, muted and looping, without an image or waiting for page load. Use a short compressed 720p/1080p video without audio, ideally under 3 MB, with MP4 fast-start enabled. File size and hosting affect performance.",
   "visibility": {
     "controlling_field_path": "content_group.media_type",
     "operator": "EQUAL",
@@ -165,7 +164,7 @@
   "resizable": true,
   "responsive": true,
   "show_loading": false,
-  "help_text": "Used on screens up to 767px wide. Leave empty to use the desktop hero image.",
+  "help_text": "Used on screens up to 767px wide in Image mode only. Leave empty to use the desktop hero image.",
   "default": {
    "size_type": "auto",
    "src": "https://8855469.fs1.hubspotusercontent-na1.net/hubfs/8855469/highwire-theme-assets/image%20(28).png",

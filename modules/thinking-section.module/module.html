@@ -33,7 +33,8 @@
   </{{ tag }}>
   {% endfor %}
   </div>
-</div></section>
+</div>
+</section>
 {% require_css %}
 <style>
 /* Only per-instance editor values live here; all CSS rules are in Page Css. */
@@ -58,4 +59,94 @@
   {% endfor %}
 }
 </style>
+<style>
+  /* Optional header CTA, aligned with the description in the B2B layout. */
+.hw-thinking .hw-thinking__intro--with-cta .hw-thinking__cta {
+  grid-column:2; justify-self:end; align-self:end;
+  display:inline-flex; align-items:center; justify-content:space-between; gap:32px;
+  min-height:64px; padding:20px 24px; background:var(--color-primary,#000);
+  color:var(--color-secondary,#fff); text-decoration:none;
+  font:600 16px/1.5 var(--display,Arial,sans-serif);
+  transition:background-color .22s,color .22s;
+}
+.hw-thinking__cta svg { display:block; width:24px; height:24px; flex:0 0 24px; transition:transform .36s cubic-bezier(.22,1,.36,1); }
+.hw-thinking .hw-thinking__intro--with-cta .hw-thinking__cta:is(:hover,:focus-visible) svg { transform:translate(3px,-3px); }
+.hw-thinking .hw-thinking__intro--with-cta .hw-thinking__cta:is(:hover,:focus-visible) { background:var(--color-tertiary,#ff7042); color:var(--color-primary,#000); }
+.hw-thinking__cta:focus-visible { outline:2px solid var(--color-tertiary,#ff7042); outline-offset:5px; }
+.hw-thinking .hw-thinking__intro.hw-thinking__intro--stacked.hw-thinking__intro--with-cta {
+  grid-template-columns:minmax(0,752fr) minmax(0,496fr); gap:24px clamp(24px,4.444vw,64px);
+}
+.hw-thinking__intro--stacked.hw-thinking__intro--with-cta .hw-thinking_TitleSec { grid-column:1 / -1; }
+.hw-thinking__intro--stacked.hw-thinking__intro--with-cta .hw-thinking_content { grid-column:1; }
+@media(max-width:767px) {
+  .hw-thinking .hw-thinking__intro.hw-thinking__intro--with-cta { grid-template-columns:minmax(0,1fr); gap:24px; }
+  .hw-thinking .hw-thinking__intro--with-cta .hw-thinking__cta { grid-column:1; justify-self:start; }
+}
+
+@media(prefers-reduced-motion:reduce) { .hw-thinking__cta, .hw-thinking__cta svg { transition:none; } }
+
+</style>
 {% end_require_css %}
+
+{% require_js %}
+<script>
+  (() => {
+  // Careers-style whole-cell pixel lens, shared behavior across image modules.
+  const pixelSize = width => innerWidth < 767 ? Math.max(8, Math.min(26, width / 32)) : 26;
+  const maskPixels = (context, canvas, x, y, width, height) => {
+    const col = Math.floor(x / width * canvas.width), row = Math.floor(y / height * canvas.height);
+    const spread = 4 + Math.floor(2 * Math.random());
+    context.globalCompositeOperation = 'destination-in';
+    context.beginPath();
+    for (let cy = Math.max(0, row - spread); cy <= Math.min(canvas.height - 1, row + spread); cy++) {
+      for (let cx = Math.max(0, col - spread); cx <= Math.min(canvas.width - 1, col + spread); cx++) {
+        const distance = Math.max(Math.abs(cx - col), Math.abs(cy - row));
+        const chance = .9 * (1 - (distance - 3) / (spread - 3));
+        if (distance <= 3 || (distance < spread && Math.random() < chance)) context.rect(cx, cy, 1, 1);
+      }
+    }
+    context.fill();
+    context.globalCompositeOperation = 'source-over';
+  };
+
+ const init=()=>document.querySelectorAll('[data-thinking-module]').forEach(section=>{
+  if(section.dataset.ready)return;section.dataset.ready='true';
+  const reveal=()=>section.dataset.visible='true';
+  if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){reveal();observer.disconnect();}},{threshold:.1});observer.observe(section);}else reveal();
+  section.addEventListener('focusin',reveal);
+  let next=0;const colors=['quinary','quaternary','tertiary'],reduced=matchMedia('(prefers-reduced-motion:reduce)');
+  section.querySelectorAll('.hw-thinking__card').forEach(card=>{
+   const media=card.querySelector('.hw-thinking__media');
+   const color=()=>{let index=next;if(card.dataset.color===String(index))index=(index+1)%3;card.dataset.color=String(index);card.style.setProperty('--thinking-accent','var(--color-'+colors[index]+')');next=(index+1)%3;};
+   card.addEventListener('pointerenter',color);card.addEventListener('focusin',()=>{if(!card.matches(':hover'))color();});
+   const canvas=media.querySelector('canvas'),image=media.querySelector('img');
+   const context=canvas.getContext('2d');
+   let frame=0;
+   const hide=()=>{cancelAnimationFrame(frame);frame=0;delete media.dataset.pointer;};
+   media.addEventListener('pointermove',e=>{
+    if(e.pointerType!=='mouse'||reduced.matches||document.documentElement.dataset.motion==='reduced')return;
+    const x=e.clientX,y=e.clientY;
+    cancelAnimationFrame(frame);
+    frame=requestAnimationFrame(()=>{
+     frame=0;
+     const r=media.getBoundingClientRect();
+     if(!r.width||!r.height)return;
+     media.style.setProperty('--thinking-x',(x-r.left)*media.clientWidth/r.width+'px');
+     media.style.setProperty('--thinking-y',(y-r.top)*media.clientHeight/r.height+'px');
+     media.dataset.pointer='true';
+     if(!context||!image.complete||!image.naturalWidth)return;
+     const width=media.clientWidth,height=media.clientHeight;
+     canvas.width=Math.max(1,Math.ceil(width/pixelSize(width)));canvas.height=Math.max(1,Math.ceil(height/pixelSize(width)));
+     const scale=Math.max(width/image.naturalWidth,height/image.naturalHeight);
+     const cropWidth=width/scale,cropHeight=height/scale;
+     context.drawImage(image,(image.naturalWidth-cropWidth)/2,(image.naturalHeight-cropHeight)/2,cropWidth,cropHeight,0,0,canvas.width,canvas.height);
+     maskPixels(context,canvas,(x-r.left)*width/r.width,(y-r.top)*height/r.height,width,height);
+    });
+   });
+   new MutationObserver(hide).observe(document.documentElement,{attributes:true,attributeFilter:['data-motion']});
+   media.addEventListener('pointerleave',hide);media.addEventListener('pointercancel',hide);window.addEventListener('scroll',hide,{passive:true,capture:true});window.addEventListener('resize',hide,{passive:true});window.addEventListener('blur',hide);reduced.addEventListener('change',hide);
+  });
+ });if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+{% end_require_js %}

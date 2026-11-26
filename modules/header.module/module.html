@@ -1,7 +1,7 @@
 <header class="hw-header" data-hw-header>
   
   <div class="hw-header__bar">
-    <a class="hw-header__logo" href="{{ module.home_link.url.href|default('/')|escape_url }}" aria-label="Highwire home">
+    <a class="hw-header__logo" href="{% if module.home_link.url.type == 'EMAIL_ADDRESS' %}mailto:{% elif module.home_link.url.type == 'PHONE_NUMBER' %}tel:{% endif %}{{ module.home_link.url.href|default('/')|escape_url }}" aria-label="Highwire home">
       {% if module.logo %}
       {{ module.logo }}
       {% else %}
@@ -45,18 +45,93 @@
             <div class="hw-header__panel{% if not has_intro %} hw-header__panel--compact{% if is_about_menu %} hw-header__panel--about{% endif %}{% endif %}" id="{{ name|escape_attr }}-dropdown-{{ loop.index }}" aria-hidden="true" inert>{% if has_intro %}<div class="hw-header__intro">
                 {% if item.dropdown_eyebrow|trim %}<span>{{ item.dropdown_eyebrow|escape_html }}</span>{% endif %}
                 {% if item.dropdown_heading|trim %}<p>{{ item.dropdown_heading|escape_html }}</p>{% endif %}
-                {% if button_link.url.href %}<a class="hw-header__all" href="{{ button_link.url.href|escape_url }}" {% if button_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ button_link.rel|escape_attr }}{% if button_link.open_in_new_tab %} noopener{% endif %}">{{ button_text|escape_html }} <span aria-hidden="true">&#8599;</span></a>{% endif %}
+                {% if button_link.url.href %}<a class="hw-header__all" href="{% if button_link.url.type == 'EMAIL_ADDRESS' %}mailto:{% elif button_link.url.type == 'PHONE_NUMBER' %}tel:{% endif %}{{ button_link.url.href|escape_url }}" {% if button_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ button_link.rel|escape_attr }}{% if button_link.open_in_new_tab %} noopener{% endif %}">{{ button_text|escape_html }} <span aria-hidden="true">&#8599;</span></a>{% endif %}
               </div>{% endif %}<ul>
-            {% for child in item.children %}<li{% if child.black_background %} class="hw-header__link--black"{% endif %}><a{% if child.hover_text_color.color %} class="hw-header__link--custom-hover-text"{% endif %}{% if child.hover_background_color.color or child.hover_text_color.color or child.hover_arrow_color.color %} style="{% if child.hover_background_color.color %}--header-custom-hover: rgba({{ child.hover_background_color.color|convert_rgb }}, {{ child.hover_background_color.opacity|default(100) / 100 }});{% endif %}{% if child.hover_text_color.color %}--header-custom-hover-text: rgba({{ child.hover_text_color.color|convert_rgb }}, {{ child.hover_text_color.opacity|default(100) / 100 }});{% endif %}{% if child.hover_arrow_color.color %}--header-custom-hover-arrow: rgba({{ child.hover_arrow_color.color|convert_rgb }}, {{ child.hover_arrow_color.opacity|default(100) / 100 }});{% endif %}"{% endif %} href="{{ child.link.url.href|escape_url }}" {% if child.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ child.link.rel|escape_attr }}{% if child.link.open_in_new_tab %} noopener{% endif %}"><small>{% if not has_intro and loop.index < 10 %}0{% endif %}{{ loop.index }}</small>{{ child.menu_text|escape_html }}<span aria-hidden="true">{% if is_about_menu and not has_intro %}<svg viewBox="0 0 18 18" fill="none" focusable="false"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 14 14 4"></path><path d="M6 4h8v8"></path></g></svg>{% else %}&#8599;{% endif %}</span></a></li>{% endfor %}
-              {% if button_link.url.href and item.dropdown_button_text and item.dropdown_button_text|trim and item.dropdown_button_text|trim|lower != 'null' %}<li class="hw-header__all-row"><a href="{{ button_link.url.href|escape_url }}" {% if button_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ button_link.rel|escape_attr }}{% if button_link.open_in_new_tab %} noopener{% endif %}"><small>{% if item.children|length < 9 %}0{% endif %}{{ item.children|length + 1 }}</small>{{ button_text|escape_html }}<span aria-hidden="true">&#8599;</span></a></li>{% endif %}
+            {% for child in item.children %}<li{% if child.black_background %} class="hw-header__link--black"{% endif %}><a{% if child.hover_text_color.color %} class="hw-header__link--custom-hover-text"{% endif %}{% if child.hover_background_color.color or child.hover_text_color.color or child.hover_arrow_color.color %} style="{% if child.hover_background_color.color %}--header-custom-hover: rgba({{ child.hover_background_color.color|convert_rgb }}, {{ child.hover_background_color.opacity|default(100) / 100 }});{% endif %}{% if child.hover_text_color.color %}--header-custom-hover-text: rgba({{ child.hover_text_color.color|convert_rgb }}, {{ child.hover_text_color.opacity|default(100) / 100 }});{% endif %}{% if child.hover_arrow_color.color %}--header-custom-hover-arrow: rgba({{ child.hover_arrow_color.color|convert_rgb }}, {{ child.hover_arrow_color.opacity|default(100) / 100 }});{% endif %}"{% endif %} href="{% if child.link.url.type == 'EMAIL_ADDRESS' %}mailto:{% elif child.link.url.type == 'PHONE_NUMBER' %}tel:{% endif %}{{ child.link.url.href|escape_url }}" {% if child.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ child.link.rel|escape_attr }}{% if child.link.open_in_new_tab %} noopener{% endif %}"><small>{% if not has_intro and loop.index < 10 %}0{% endif %}{{ loop.index }}</small>{{ child.menu_text|escape_html }}<span aria-hidden="true">{% if is_about_menu and not has_intro %}<svg viewBox="0 0 18 18" fill="none" focusable="false"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 14 14 4"></path><path d="M6 4h8v8"></path></g></svg>{% else %}&#8599;{% endif %}</span></a></li>{% endfor %}
+              {% if button_link.url.href and item.dropdown_button_text and item.dropdown_button_text|trim and item.dropdown_button_text|trim|lower != 'null' %}<li class="hw-header__all-row"><a href="{% if button_link.url.type == 'EMAIL_ADDRESS' %}mailto:{% elif button_link.url.type == 'PHONE_NUMBER' %}tel:{% endif %}{{ button_link.url.href|escape_url }}" {% if button_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ button_link.rel|escape_attr }}{% if button_link.open_in_new_tab %} noopener{% endif %}"><small>{% if item.children|length < 9 %}0{% endif %}{{ item.children|length + 1 }}</small>{{ button_text|escape_html }}<span aria-hidden="true">&#8599;</span></a></li>{% endif %}
             </ul></div>
           </div>
-        {% else %}<a href="{{ item.link.url.href|escape_url }}" {% if item.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ item.link.rel|escape_attr }}{% if item.link.open_in_new_tab %} noopener{% endif %}">{{ item.menu_text|escape_html }}</a>{% endif %}
+        {% else %}<a href="{% if item.link.url.type == 'EMAIL_ADDRESS' %}mailto:{% elif item.link.url.type == 'PHONE_NUMBER' %}tel:{% endif %}{{ item.link.url.href|escape_url }}" {% if item.link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ item.link.rel|escape_attr }}{% if item.link.open_in_new_tab %} noopener{% endif %}">{{ item.menu_text|escape_html }}</a>{% endif %}
         </li>
       {% endfor %}
       </ul>
-      {% if module.contact_text %}<a class="hw-header__contact" href="{{ module.contact_link.url.href|escape_url }}" {% if module.contact_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ module.contact_link.rel|escape_attr }}{% if module.contact_link.open_in_new_tab %} noopener{% endif %}">{{ module.contact_text|escape_html }}</a>{% endif %}
+      {% if module.contact_text %}<a class="hw-header__contact" href="{% if module.contact_link.url.type == 'EMAIL_ADDRESS' %}mailto:{% elif module.contact_link.url.type == 'PHONE_NUMBER' %}tel:{% endif %}{{ module.contact_link.url.href|escape_url }}" {% if module.contact_link.open_in_new_tab %}target="_blank"{% endif %} rel="{{ module.contact_link.rel|escape_attr }}{% if module.contact_link.open_in_new_tab %} noopener{% endif %}">{{ module.contact_text|escape_html }}</a>{% endif %}
     </nav>
   </div>
 </header>
 <noscript><style>@media (max-width:900px) { .hw-header:not([data-open="true"]) .hw-header__nav { display:flex; } .hw-header__toggle { display:none; } }</style></noscript>
+
+{% require_js %}
+<script>
+  (() => {
+ const init=()=>document.querySelectorAll('[data-hw-header]').forEach(header=>{
+  if(header.dataset.ready)return;
+  header.dataset.ready='true';
+  const toggle=header.querySelector('.hw-header__toggle'),logo=header.querySelector('.hw-header__logo');
+  const menus=[...header.querySelectorAll('.hw-header__dropdown')];
+  const desktop=matchMedia('(min-width:901px)'),timers=new Map();
+  const nav=header.querySelector('.hw-header__nav');
+  const syncNav=()=>{nav.inert=!desktop.matches&&header.dataset.open!=='true';header.style.setProperty('--header-menu-height',nav.scrollHeight+'px');};
+  const setMenu=(menu,open)=>{
+   clearTimeout(timers.get(menu));
+   menu.dataset.open=String(open);
+   menu.querySelector('button').setAttribute('aria-expanded',String(open));
+   const panel=menu.querySelector('.hw-header__panel');panel.inert=!open;panel.setAttribute('aria-hidden',String(!open));
+   if(open){header.dataset.hidden='false';menus.filter(m=>m!==menu).forEach(m=>setMenu(m,false));}
+   syncNav();
+  };
+  const close=()=>{toggle.setAttribute('aria-expanded','false');header.dataset.open='false';menus.forEach(m=>setMenu(m,false));syncNav();};
+  toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';close();toggle.setAttribute('aria-expanded',String(open));header.dataset.open=String(open);header.dataset.hidden='false';syncNav();});
+  syncNav();
+  menus.forEach(menu=>{
+   const trigger=menu.querySelector('button');
+   trigger.addEventListener('click',()=>setMenu(menu,menu.dataset.open!=='true'));
+   menu.addEventListener('pointerenter',e=>{if(desktop.matches&&e.pointerType==='mouse')setMenu(menu,true);});
+   menu.addEventListener('pointerleave',()=>{if(desktop.matches&&!menu.contains(document.activeElement))timers.set(menu,setTimeout(()=>setMenu(menu,false),180));});
+   menu.addEventListener('focusout',e=>{if(desktop.matches&&!menu.contains(e.relatedTarget))setMenu(menu,false);});
+   menu.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){e.preventDefault();e.stopPropagation();setMenu(menu,false);trigger.focus();}
+    if(e.key==='ArrowDown'&&e.target===trigger){e.preventDefault();setMenu(menu,true);menu.querySelector('a').focus();}
+   });
+  });
+  header.addEventListener('keydown',e=>{if(e.key==='Escape'){close();toggle.focus();}});
+  header.addEventListener('click',e=>{if(e.target.closest('a'))close();});
+  document.addEventListener('pointerdown',e=>{if(!header.contains(e.target))close();});
+  header.addEventListener('focusin',()=>{header.dataset.hidden='false';});
+  header.addEventListener('focusout',e=>{if(desktop.matches&&!header.contains(e.relatedTarget))close();});
+  desktop.addEventListener('change',close);
+  // Cycle across dropdown links, skipping each link's previous color.
+  const hoverColors=['tertiary','quaternary','quinary'];
+  let nextHoverColor=0;
+  header.querySelectorAll('.hw-header__panel li a').forEach(link=>{
+   let lastColor=-1;
+   const changeColor=()=>{
+    let index=nextHoverColor;
+    if(index===lastColor)index=(index+1)%hoverColors.length;
+    link.style.setProperty('--header-link-hover','var(--color-'+hoverColors[index]+')');
+    lastColor=index;nextHoverColor=(index+1)%hoverColors.length;
+   };
+   link.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse'||event.pointerType==='pen')changeColor();});
+   link.addEventListener('focus',()=>{if(!link.matches(':hover'))changeColor();});
+  });
+  let color=0;
+  const colorize=()=>logo.dataset.tone=['quaternary','tertiary','quinary'][color++%3];
+  logo.addEventListener('pointerenter',colorize);logo.addEventListener('focus',colorize);
+  logo.addEventListener('pointerleave',()=>{if(document.activeElement!==logo)delete logo.dataset.tone;});
+  logo.addEventListener('blur',()=>delete logo.dataset.tone);
+  // Fixed inside a measured slot so HubSpot module wrappers do not limit sticky travel.
+  const slot=document.createElement('div');slot.className='hw-header-slot';header.before(slot);slot.append(header);
+  let scroller=window;
+  for(let parent=slot.parentElement;parent;parent=parent.parentElement){if(/auto|scroll/.test(getComputedStyle(parent).overflowY)){scroller=parent;break;}}
+  const position=()=>{const r=slot.getBoundingClientRect();header.style.setProperty('--header-left',r.left+'px');header.style.setProperty('--header-width',r.width+'px');header.style.setProperty('--header-top',(scroller===window?0:scroller.getBoundingClientRect().top)+'px');slot.style.height=header.querySelector('.hw-header__logo').offsetHeight+'px';};
+  position();header.dataset.fixed='true';
+  let last=scroller===window?scrollY:scroller.scrollTop;
+  scroller.addEventListener('scroll',()=>{const y=scroller===window?scrollY:scroller.scrollTop,delta=y-last;if(header.dataset.anchorScrolling==='true'){last=y;return;}const open=header.dataset.open==='true'||menus.some(m=>m.dataset.open==='true');if(y<=4||open||header.contains(document.activeElement))header.dataset.hidden='false';else if(Math.abs(delta)>6)header.dataset.hidden=String(delta>0);last=y;},{passive:true});
+  window.addEventListener('resize',()=>{syncNav();position();},{passive:true});
+  new ResizeObserver(position).observe(slot);
+ });
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+
+</script>
+{% end_require_js %}
