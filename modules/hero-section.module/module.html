@@ -27,6 +27,9 @@
         loading="eager" fetchpriority="high" decoding="async">
       </picture>
       {% endif %}
+      {% if module.content_group.media_type == 'video' and module.content_group.video_url %}
+      <video class="hero__video" data-src="{{ module.content_group.video_url|escape_url }}" muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"></video>
+      {% endif %}
       <canvas class="hero__pixels" width="84" height="47"></canvas>
     </div>
   </div>

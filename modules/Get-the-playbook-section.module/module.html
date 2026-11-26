@@ -4,9 +4,13 @@
       <h1 id="{{ name|escape_attr }}-title"><span data-playbook-title>{{ module.title_first|escape_html }}</span><span data-playbook-title>{{ module.title_second|escape_html }} <em>{{ module.title_accent|escape_html }}</em></span></h1>
       <div class="hw-playbook__intro opacity70 font20 lh15">{{ module.intro }}</div>
     </header>
-    <figure class="hw-playbook__preview" aria-label="{{ module.cover_image.alt|default('Report cover preview')|escape_attr }}">
+    <figure class="hw-playbook__preview{% if module.cover_image.src %} hw-playbook__preview--image{% endif %}" aria-label="{{ module.cover_image.alt|default('Report cover preview')|escape_attr }}">
+      {% if module.cover_image.src %}
+      <img class="hw-playbook__image" src="{{ module.cover_image.src|escape_url }}" alt="{{ module.cover_image.alt|escape_attr }}"{% if module.cover_image.width and module.cover_image.height %} width="{{ module.cover_image.width }}" height="{{ module.cover_image.height }}"{% endif %} loading="lazy" decoding="async">
+      {% else %}
       <div class="hw-playbook__blocks" aria-hidden="true"><span></span><span></span></div>
-      <div class="hw-playbook__cover">{% if module.cover_image.src %}<img src="{{ module.cover_image.src|escape_url }}" alt="{{ module.cover_image.alt|escape_attr }}" width="280" height="396" loading="lazy">{% endif %}</div>
+      <div class="hw-playbook__cover"></div>
+      {% endif %}
     </figure>
     <div class="hw-playbook__inside"><h3 data-playbook-reveal>{{ module.inside_title }}</h3><div class="hw-playbook__inside-content font20 lh15 opacity70">{{ module.inside_content }}</div>
       <ul class="hw-playbook__benefits">{% for benefit in module.benefits %}<li tabindex="0" data-playbook-reveal><span class="hw-playbook__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6" pathLength="1"/></svg></span><h3>{{ benefit|escape_html }}</h3></li>{% endfor %}</ul>

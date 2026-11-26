@@ -92,18 +92,6 @@
         "default": "episodes"
       },
       {
-        "name": "apple_label",
-        "label": "Apple Link Label",
-        "type": "text",
-        "default": "Apple Podcasts"
-      },
-      {
-        "name": "spotify_label",
-        "label": "Spotify Link Label",
-        "type": "text",
-        "default": "Spotify"
-      },
-      {
         "name": "episodes",
         "label": "Episodes",
         "type": "group",
@@ -290,7 +278,52 @@
             "type": "text"
           },
           {
+            "name": "hide_apple_links",
+            "label": "Hide Apple Podcasts button",
+            "type": "boolean",
+            "display": "toggle",
+            "default": false,
+            "help_text": "Hide this episode's button without deleting its saved URL."
+          },
+          {
+            "name": "apple_label",
+            "visibility": {
+              "controlling_field_path": "content_group.episodes.hide_apple_links",
+              "controlling_value_regex": "true",
+              "operator": "NOT_EQUAL"
+            },
+            "label": "Apple Link Label",
+            "help_text": "Leave blank to hide this episode's button.",
+            "type": "text",
+            "default": "Apple Podcasts"
+          },
+          {
+            "name": "hide_spotify_links",
+            "label": "Hide Spotify button",
+            "type": "boolean",
+            "display": "toggle",
+            "default": false,
+            "help_text": "Hide this episode's button without deleting its saved URL."
+          },
+          {
+            "name": "spotify_label",
+            "visibility": {
+              "controlling_field_path": "content_group.episodes.hide_spotify_links",
+              "controlling_value_regex": "true",
+              "operator": "NOT_EQUAL"
+            },
+            "label": "Spotify Link Label",
+            "help_text": "Leave blank to hide this episode's button.",
+            "type": "text",
+            "default": "Spotify"
+          },
+          {
             "name": "apple_url",
+            "visibility": {
+              "controlling_field_path": "content_group.episodes.hide_apple_links",
+              "controlling_value_regex": "true",
+              "operator": "NOT_EQUAL"
+            },
             "label": "Apple Podcasts URL",
             "type": "url",
             "default": {
@@ -305,6 +338,11 @@
           },
           {
             "name": "spotify_url",
+            "visibility": {
+              "controlling_field_path": "content_group.episodes.hide_spotify_links",
+              "controlling_value_regex": "true",
+              "operator": "NOT_EQUAL"
+            },
             "label": "Spotify URL",
             "type": "url",
             "default": {

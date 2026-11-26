@@ -35,17 +35,21 @@
             <ul class="pod-tags" aria-label="Topics">{% for topic in episode.topics|split(',') %}{% if topic|trim %}<li
                 data-topic>{{ topic|trim }}</li>{% endif %}{% endfor %}</ul>
           </div>
-          <div class="pod-episode-links">{% if episode.apple_url.href %}<a class="pod-link"
+          {% set show_apple = not episode.hide_apple_links and episode.apple_label|trim and episode.apple_url.href|trim %}
+          {% set show_spotify = not episode.hide_spotify_links and episode.spotify_label|trim and episode.spotify_url.href|trim %}
+          {% if show_apple or show_spotify %}
+          <div class="pod-episode-links">{% if show_apple %}<a class="pod-link"
               href="{{ episode.apple_url.href|escape_url }}" target="_blank" rel="noopener noreferrer"
-              aria-label="{{ episode.title|escape_attr }} ? {{ module.content_group.apple_label|escape_attr }}">{{
-              module.content_group.apple_label }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              aria-label="{{ episode.title|escape_attr }} ? {{ episode.apple_label|escape_attr }}">{{
+              episode.apple_label }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
                 <path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4" />
-              </svg></a>{% endif %}{% if episode.spotify_url.href %}<a class="pod-link"
+              </svg></a>{% endif %}{% if show_spotify %}<a class="pod-link"
               href="{{ episode.spotify_url.href|escape_url }}" target="_blank" rel="noopener noreferrer"
-              aria-label="{{ episode.title|escape_attr }} ? {{ module.content_group.spotify_label|escape_attr }}">{{
-              module.content_group.spotify_label }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              aria-label="{{ episode.title|escape_attr }} ? {{ episode.spotify_label|escape_attr }}">{{
+              episode.spotify_label }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
                 <path d="M4 14 14 4M6 4h8v8" stroke="currentColor" stroke-width="1.4" />
               </svg></a>{% endif %}</div>
+          {% endif %}
         </article>
       </li>{% endfor %}</ul>
     <p class="pod-empty" data-empty{% if module.content_group.episodes|length %} hidden{% endif %}>{{

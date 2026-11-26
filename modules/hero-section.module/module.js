@@ -29,12 +29,83 @@
     const finish = () => {
       clearTimeout(hero.heroBootTimeout);
       hero.dataset.heroMotion = 'done';
+      hero.dispatchEvent(new Event('hero:ready'));
     };
+    const video = hero.querySelector('.hero__video');
+    if (video) {
+      const connection = navigator.connection;
+      let visible = false, pageLoaded = document.readyState === 'complete';
+      let idleReady = false, scheduled = false, failed = false, playPending = false;
+      const allowed = () => !failed && !reduced.matches &&
+        document.documentElement.dataset.motion !== 'reduced' &&
+        !(connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType)));
+      const syncVideo = () => {
+        if (!allowed() || !visible || document.hidden) {
+          video.pause();
+          video.classList.remove('is-playing');
+          return;
+        }
+        // Do not compete with the poster, fonts or opening animation.
+        if (!pageLoaded || hero.dataset.heroMotion !== 'done') return;
+        if (!idleReady) {
+          if (!scheduled) {
+            scheduled = true;
+            const ready = () => { idleReady = true; syncVideo(); };
+            if ('requestIdleCallback' in window) requestIdleCallback(ready, { timeout: 2000 });
+            else setTimeout(ready, 200);
+          }
+          return;
+        }
+        if (!video.hasAttribute('src')) {
+          video.muted = true;
+          video.src = video.dataset.src;
+        }
+        if (video.paused && !playPending) {
+          playPending = true;
+          Promise.resolve(video.play()).catch(error => {
+            // Pausing during a pending play is normal when scrolling away.
+            if (error.name !== 'AbortError') failed = true;
+            video.classList.remove('is-playing');
+          }).finally(() => {
+            playPending = false;
+            if (!failed && visible && !document.hidden && video.paused) syncVideo();
+          });
+        }
+      };
+      video.addEventListener('playing', () => {
+        if (allowed() && visible && !document.hidden) video.classList.add('is-playing');
+        else syncVideo();
+      });
+      video.addEventListener('error', () => {
+        failed = true;
+        video.classList.remove('is-playing');
+      });
+      if (!pageLoaded) window.addEventListener('load', () => {
+        pageLoaded = true;
+        syncVideo();
+      }, { once: true });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(entries => {
+          visible = entries[0].isIntersecting;
+          syncVideo();
+        }).observe(hero);
+      } else {
+        visible = true;
+      }
+      hero.addEventListener('hero:ready', syncVideo);
+      document.addEventListener('visibilitychange', syncVideo);
+      reduced.addEventListener('change', syncVideo);
+      if (connection && connection.addEventListener) connection.addEventListener('change', syncVideo);
+      new MutationObserver(syncVideo).observe(document.documentElement, {
+        attributes: true, attributeFilter: ['data-motion']
+      });
+      syncVideo();
+    }
     // Animation is owned by this module, independent of the theme runtime.
     if (!motionOff() && hero.dataset.heroMotion === 'preparing') {
       const start = async () => {
         const photo = hero.querySelector('.hero__camera img');
-        // Resolve the image and font metrics before moving the composition.
+        // Resolve the poster and font metrics before moving the composition.
         // A late font swap otherwise shifts the text/CTA halfway through entry.
         await Promise.allSettled([
           photo && photo.decode ? photo.decode() : Promise.resolve(),
@@ -89,6 +160,7 @@
 
     let pointer = null;
     let frame = 0;
+    let lastVideoDraw = 0;
 
     const hide = () => {
       pointer = null;
@@ -97,10 +169,18 @@
       canvas.classList.remove('is-active');
     };
 
-    const draw = () => {
+    const draw = (timestamp = 0) => {
       frame = 0;
-      if (!pointer || !image.complete || !image.naturalWidth) return;
-      const rect = image.getBoundingClientRect();
+      if (video && !document.hidden && !video.paused && pointer && timestamp - lastVideoDraw < 50) {
+        frame = requestAnimationFrame(draw);
+        return;
+      }
+      lastVideoDraw = timestamp;
+      const media = video && video.classList.contains('is-playing') && video.readyState >= 2 ? video : image;
+      const mediaWidth = media === video ? video.videoWidth : image.naturalWidth;
+      const mediaHeight = media === video ? video.videoHeight : image.naturalHeight;
+      if (!pointer || !mediaWidth || !mediaHeight) return;
+      const rect = media.getBoundingClientRect();
       const x = pointer.x - rect.left;
       const y = pointer.y - rect.top;
       if (!rect.width || !rect.height || x < 0 || y < 0 || x > rect.width || y > rect.height) {
@@ -109,24 +189,25 @@
       }
 
       // Use image layout coordinates, exactly as the reference does before scaling.
-      const width = image.offsetWidth, height = image.offsetHeight;
+      const width = media.offsetWidth, height = media.offsetHeight;
       if (!width || !height) return;
       const cols = Math.max(1, Math.ceil(width / 26));
       const rows = Math.max(1, Math.ceil(height / 26));
       canvas.width = cols;
       canvas.height = rows;
-      const style = getComputedStyle(image);
+      const style = getComputedStyle(media);
       canvas.style.filter = style.filter;
-      const scale = (style.objectFit === 'contain' ? Math.min : Math.max)(width / image.naturalWidth, height / image.naturalHeight);
+      const scale = (style.objectFit === 'contain' ? Math.min : Math.max)(width / mediaWidth, height / mediaHeight);
       const [positionX, positionY] = style.objectPosition.split(' ').map(value => parseFloat(value) / 100);
-      const drawnWidth = image.naturalWidth * scale, drawnHeight = image.naturalHeight * scale;
+      const drawnWidth = mediaWidth * scale, drawnHeight = mediaHeight * scale;
       // Default canvas sampling preserves the reference's block colors.
-      context.drawImage(image,
+      context.drawImage(media,
         (width - drawnWidth) * (positionX || 0) * cols / width,
         (height - drawnHeight) * (positionY || 0) * rows / height,
         drawnWidth * cols / width, drawnHeight * rows / height);
       maskPixels(context, canvas, x, y, rect.width, rect.height);
       canvas.classList.add('is-active');
+      if (media === video && !video.paused && !document.hidden) frame = requestAnimationFrame(draw);
     };
 
     hero.addEventListener('pointermove', event => {

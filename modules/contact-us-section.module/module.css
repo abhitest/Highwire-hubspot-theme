@@ -1,6 +1,7 @@
 .hw-contact-us { position:relative; background-position:center; background-size:cover; background-repeat:no-repeat; font-family:var(--body,Arial,sans-serif); }
 .hw-contact-us,.hw-contact-us * { box-sizing:border-box; }
 .hw-contact-us > .baseModuleOverlay { position:absolute; inset:0; pointer-events:none; }
+.hw-contact-us::before { content:''; position:absolute; inset:0 0 0 50%; background:var(--contact-us-panel-background,#4bb7ff); pointer-events:none; }
 .hw-contact-us__layout { position:relative; display:grid; grid-template-columns:repeat(2,minmax(0,600px)); justify-content:space-between; gap:72px; }
 .hw-contact-us__copy { display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; gap:80px; min-width:0; }
 .hw-contact-us .moduleTitle { color:inherit; margin:0 0 40px; }
@@ -29,6 +30,13 @@
 .hw-contact-us__form .legal-consent-container { font-size:14px; line-height:1.5; }
 @media(max-width:1100px) { .hw-contact-us__layout { gap:40px; } .hw-contact-us .moduleTitle { font-size:60px; } }
 @media(max-width:900px) { .hw-contact-us__layout { grid-template-columns:minmax(0,1fr); gap:48px; } .hw-contact-us__copy { gap:40px; } .hw-contact-us__mark { width:80px; height:80px; flex-basis:80px; } }
+@media(max-width:900px) {
+  .hw-contact-us { overflow:clip; }
+  .hw-contact-us::before { display:none; }
+  .hw-contact-us__form { position:relative; isolation:isolate; }
+  .hw-contact-us__form::before { content:''; position:absolute; z-index:-1; inset:-24px calc(50% - 50vw) -100vh; background:var(--contact-us-panel-background,#4bb7ff); pointer-events:none; }
+  .hw-contact-us__form::after { content:''; position:absolute; z-index:-1; inset:0; background:var(--contact-us-form-background); pointer-events:none; }
+}
 @media(max-width:767px) { .hw-contact-us .moduleTitle { font-size:clamp(40px,10vw,56px); margin-bottom:28px; } .hw-contact-us .moduleContent { font-size:18px; } .hw-contact-us__form { padding:var(--contact-us-mobile-form-padding); } }
 @media(max-width:480px) { .hw-contact-us__form .hs-form-field { width:100%!important; float:none!important; } .hw-contact-us__form .input { margin-right:0!important; } }
 @media(prefers-reduced-motion:reduce) { .hw-contact-us *,.hw-contact-us *::after { transition:none!important; } }

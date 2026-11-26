@@ -56,6 +56,14 @@
         "default": "Measured in Outcomes."
       },
       {
+        "name": "hide_video",
+        "label": "Hide video",
+        "type": "boolean",
+        "display": "toggle",
+        "default": false,
+        "help_text": "Enable for launch to collapse the video, poster and play button while keeping the caption visible. Your video settings are kept; turn this off to show the video after launch."
+      },
+      {
         "name": "caption",
         "label": "Video caption",
         "type": "text",

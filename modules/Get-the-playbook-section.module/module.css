@@ -27,7 +27,10 @@
 .hw-playbook__inside-content { margin-top:32px; }
 .hw-playbook__preview { position:relative; isolation:isolate; display:flex; justify-content:center; overflow:hidden; height:320px; margin:24px 0 80px; padding:32px 24px 0; background:var(--playbook-cover_background); }
 .hw-playbook__cover { width:280px; max-width:100%; flex:0 1 280px; aspect-ratio:210/297; align-self:flex-start; background:var(--playbook-cover_paper); border-left:8px solid var(--playbook-accent); transform:rotate(-.5deg); }
-.hw-playbook__cover img { display:block; width:100%; height:auto; }
+/* Uploaded artwork fills the entire preview width without the mock cover frame. */
+.hw-playbook__preview--image { display:block; height:auto; padding:0; }
+.hw-playbook__preview--image::after { display:none; }
+.hw-playbook__image { display:block; width:100%; height:auto; }
 .hw-playbook__blocks { position:absolute; inset:0; display:grid; grid-template-columns:1fr 1fr; align-items:end; z-index:-1; }
 .hw-playbook__blocks span:first-child { height:72px; background:var(--playbook-cover_block); }
 .hw-playbook__blocks span:last-child { height:152px; background:var(--playbook-accent); }

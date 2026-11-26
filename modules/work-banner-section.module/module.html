@@ -1,8 +1,9 @@
-<section class="hw-work-banner baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
+<section class="hw-work-banner{% if module.content_group.hide_video %} hw-work-banner--video-hidden{% endif %} baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.content_group.animate|string|lower }}">
   <span class="baseModuleOverlay" aria-hidden="true"></span>
   <div class="content-wrapper">
       <div class="baseModuleParent hw-work-banner__inner">
     <h1 id="{{ name|escape_attr }}-title">{{ module.content_group.title|escape_html }}{% if module.content_group.accent_title %}<span>{{ module.content_group.accent_title|escape_html }}</span>{% endif %}</h1>
+    {% if not module.content_group.hide_video %}
     <figure class="hw-work-banner__reel">
       <div class="hw-work-banner__media{% if module.content_group.video_type == 'normal' %} hw-work-banner__media--normal{% endif %}">
         {% if module.content_group.video_type == 'hubspot' and module.content_group.hubspot_video.player_id %}
@@ -26,6 +27,9 @@
       </div>
       {% if module.content_group.caption %}<figcaption>{{ module.content_group.caption|escape_html }}</figcaption>{% endif %}
     </figure>
+    {% elif module.content_group.caption %}
+    <p class="hw-work-banner__caption">{{ module.content_group.caption|escape_html }}</p>
+    {% endif %}
   </div>
     </div>
 </section>

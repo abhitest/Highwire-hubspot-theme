@@ -16,9 +16,9 @@
 .hw-work-banner__status { position:absolute; bottom:0; padding:16px; color:var(--work-text,#fff); background:#000; }
 .hw-work-banner__youtube { position:relative; }
 .hw-work-banner__media .hs-video-widget,.hw-work-banner__media .hs-video-container,.hw-work-banner__media .hs-video-wrapper { height:100%!important; max-width:100%!important; }
-.hw-work-banner__reel figcaption { max-width:780px; margin-top:24px; color:var(--work-caption,#bfbfbf); font:400 18px/1.5 var(--body,Arial,sans-serif); }
+.hw-work-banner__reel figcaption, .hw-work-banner__caption { max-width:780px; margin-top:24px; color:var(--work-caption,#bfbfbf); font:400 18px/1.5 var(--body,Arial,sans-serif); }
 @media(max-width:1024px) { .hw-work-banner h1 { font-size:64px; } }
-@media(max-width:767px) { .hw-work-banner h1 { font-size:clamp(36px,7.5vw,56px); line-height:1.06; margin-bottom:32px; } .hw-work-banner__media { height:clamp(220px,50vw,360px); } .hw-work-banner__reel figcaption { font-size:16px; } }
+@media(max-width:767px) { .hw-work-banner h1 { font-size:clamp(36px,7.5vw,56px); line-height:1.06; margin-bottom:32px; } .hw-work-banner__media { height:clamp(220px,50vw,360px); } .hw-work-banner__reel figcaption, .hw-work-banner__caption { font-size:16px; } }
 
 /* About-style normal video; the native player remains available without JS. */
 .hw-work-banner__media--normal { position:relative; height:auto; aspect-ratio:16/9; }
@@ -40,3 +40,8 @@ html[data-motion=reduced] .hw-work-banner__normal-play,html[data-motion=reduced]
 }
 }
 
+
+/* Collapse the title-to-video gap when the reel is disabled for launch. */
+.hw-work-banner.hw-work-banner--video-hidden h1 { margin-bottom:0; }
+
+.hw-work-banner__caption { margin-bottom:0; }

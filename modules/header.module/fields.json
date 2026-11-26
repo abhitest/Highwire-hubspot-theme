@@ -87,6 +87,27 @@
             }
           },
           {
+            "name": "hover_background_color",
+            "label": "Hover background color",
+            "type": "color",
+            "required": false,
+            "help_text": "Optional. Set a fixed hover and keyboard-focus background for this submenu item. Leave empty to keep the existing default hover colors."
+          },
+          {
+            "name": "hover_text_color",
+            "label": "Hover text color",
+            "type": "color",
+            "required": false,
+            "help_text": "Optional hover and keyboard-focus color for the label and number. Leave empty to keep the default text color."
+          },
+          {
+            "name": "hover_arrow_color",
+            "label": "Hover arrow color",
+            "type": "color",
+            "required": false,
+            "help_text": "Optional hover and keyboard-focus color for the arrow. Leave empty to follow the text color."
+          },
+          {
             "name": "black_background",
             "label": "Black background",
             "type": "boolean",

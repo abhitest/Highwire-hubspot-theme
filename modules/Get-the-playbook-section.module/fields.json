@@ -50,7 +50,8 @@
   },
   {
     "name": "cover_image",
-    "label": "Report cover image (optional)",
+    "label": "Report preview image (optional)",
+    "help_text": "Fills the full image area below the heading and introduction. Use the complete artwork; its proportions are preserved without cropping.",
     "type": "image",
     "default": {
       "src": "",

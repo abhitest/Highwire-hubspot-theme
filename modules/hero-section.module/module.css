@@ -1,1 +1,3 @@
-/* Section styles are maintained in css/theme-overrides.css under Page Css. */
+/* Keep the optimized poster visible until deferred playback succeeds. */
+.hero__video { opacity:0; pointer-events:none; }
+.hero__video.is-playing { opacity:1; }

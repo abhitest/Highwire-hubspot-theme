@@ -332,6 +332,15 @@
         }
       },
       {
+        "name": "form_panel_background",
+        "label": "Background behind form",
+        "type": "color",
+        "default": {
+          "color": "#4bb7ff",
+          "opacity": 100
+        }
+      },
+      {
         "name": "form_background",
         "label": "Form background",
         "type": "color",

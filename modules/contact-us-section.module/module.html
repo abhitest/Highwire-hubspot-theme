@@ -28,6 +28,7 @@
   background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});
   {% endif %}
   --contact-us-form-background:rgba({{ module.style.form_background.color|convert_rgb }},{{ module.style.form_background.opacity / 100 }});
+  --contact-us-panel-background:{{ module.style.form_panel_background.color|default('#4bb7ff') }};
   --contact-us-form-text:rgba({{ module.style.form_text.color|convert_rgb }},{{ module.style.form_text.opacity / 100 }});
   --contact-us-form-padding:{{ module.style.form_padding }}px;
   --contact-us-mobile-form-padding:{{ module.style.mobile_form_padding }}px;

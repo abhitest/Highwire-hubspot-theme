@@ -117,6 +117,7 @@
   },
   "display_width": null,
   "id": "hero_image",
+  "help_text": "Also used as the video poster and fallback. Keep this image optimized.",
   "label": "Hero image (landscape, at least 2000px wide)",
   "locked": false,
   "name": "hero_image",
@@ -126,6 +127,36 @@
   "show_loading": false,
   "type": "image"
  },
+ {
+  "name": "media_type",
+  "label": "Hero media",
+  "type": "choice",
+  "display": "select",
+  "choices": [
+    [
+      "image",
+      "Image"
+    ],
+    [
+      "video",
+      "Video"
+    ]
+  ],
+  "default": "image",
+  "required": true
+},
+ {
+  "name": "video_url",
+  "label": "Video URL",
+  "type": "text",
+  "allow_new_line": false,
+  "help_text": "Direct HTTPS MP4 or WebM file URL (HubSpot Files or CDN), not a YouTube/Vimeo page. Use a short compressed video without audio, ideally under 3 MB. The image handles the opening animation. Video loads after page load and the entrance animation, when the browser is idle and the hero is visible, then plays muted and loops. Video size and hosting still affect bandwidth and playback performance. Keep the hero image as fallback.",
+  "visibility": {
+    "controlling_field_path": "content_group.media_type",
+    "operator": "EQUAL",
+    "controlling_value_regex": "video"
+  }
+},
  {
   "name": "mobile_image",
   "label": "Mobile Image",

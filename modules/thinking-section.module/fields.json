@@ -81,6 +81,20 @@
       "default": "<p>Informed opinions backed by experience. Read the latest from the Highwire blog.</p>" 
     },
       {
+        "name": "cta_text",
+        "label": "CTA text",
+        "type": "text",
+        "default": "More Insights",
+        "help_text": "Leave blank to hide the CTA."
+      },
+      {
+        "name": "cta_link",
+        "label": "CTA link",
+        "type": "link",
+        "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+        "default": {"url": {"href": "/insights", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      },
+      {
         "name": "articles",
         "label": "Articles",
         "type": "group",

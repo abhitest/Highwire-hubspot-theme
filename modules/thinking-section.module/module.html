@@ -1,7 +1,8 @@
 <section class="hw-thinking baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} data-thinking-module aria-labelledby="{{ name|escape_attr }}-title">
 <span class="baseModuleOverlay" aria-hidden="true"></span>
 <div class="baseModuleParent content-wrapper">
-  <div class="hw-thinking__intro{% if module.content_group.stacked_intro %} hw-thinking__intro--stacked{% endif %}">
+  {% set has_cta = module.content_group.cta_text|trim and module.content_group.cta_link.url.href %}
+  <div class="hw-thinking__intro{% if has_cta %} hw-thinking__intro--with-cta{% endif %}{% if module.content_group.stacked_intro %} hw-thinking__intro--stacked{% endif %}">
     <div class="hw-thinking_TitleSec">
 
     
@@ -11,7 +12,7 @@
     </div>
     {% endif %}
     <div class="hw-thinking_title">
-    <h2 class="h3 lh14" id="{{ name|escape_attr }}-title">
+    <h2 class="h3 lh12" id="{{ name|escape_attr }}-title">
       <span>{{ module.content_group.heading }}</span>
     </h2>
     </div>
@@ -19,6 +20,9 @@
     <div class="hw-thinking_content font20 septenary_color primary_color_mb mb_opacity_70">
     {{ module.content_group.description }}
   </div>
+    {% if has_cta %}
+    <a class="hw-thinking__cta" href="{{ module.content_group.cta_link.url.href|escape_url }}"{% if module.content_group.cta_link.open_in_new_tab %} target="_blank"{% endif %} rel="{{ module.content_group.cta_link.rel|escape_attr }}{% if module.content_group.cta_link.open_in_new_tab %} noopener{% endif %}"><span>{{ module.content_group.cta_text|escape_html }}</span><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 14 14 4"/><path d="M6 4h8v8"/></g></svg></a>
+    {% endif %}
   </div>
   <div class="hw-thinking__cards">
   {% for item in module.content_group.articles %}
