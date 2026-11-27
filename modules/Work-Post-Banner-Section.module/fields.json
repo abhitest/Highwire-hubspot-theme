@@ -52,8 +52,9 @@
         "name": "breadcrumb_label",
         "label": "Overview label",
         "type": "text",
-        "default": "Work",
-        "allow_new_line": true
+        "default": "",
+        "allow_new_line": true,
+        "help_text": "Leave empty to use “Work”."
       },
       {
         "name": "image",
@@ -62,8 +63,8 @@
         "responsive": true,
         "resizable": true,
         "default": {
-          "src": "https://highwire-demo.vercel.app/images/work/splunk/hero.jpg",
-          "alt": "Audience seated at a conference under blue stage lighting",
+          "src": "",
+          "alt": "",
           "size_type": "auto"
         }
       }

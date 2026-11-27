@@ -2,14 +2,16 @@
     <div class="content-wrapper hw-case__hero-copy">
         <nav class="hw-case__breadcrumb" aria-label="Breadcrumb">
             <a href="{{ group.absolute_url|escape_url }}">
-                {{ module.content_group.breadcrumb_label|escape_html }}
+                {{ module.content_group.breadcrumb_label|default('Work', true)|escape_html }}
             </a>
             <span aria-hidden="true">/</span>
             <span aria-current="page">
                 {{ widget_data.work_category.value|default(widget_data.work_category.body.value, true)|default(content.name, true)|striptags|escape_html }}
             </span>
         </nav>
-        <h1 id="{{ name|escape_attr }}-title" data-case-reveal>{{ module.content_group.title|default(content.name, true)|striptags|escape_html }}</h1>
+       
+        <h1 id="{{ name|escape_attr }}-title" data-case-reveal>{{ module.content_group.title|default(widget_data.blog_listing_title.body.value, true)|default(content.name, true)|striptags|escape_html }}</h1>
+       
         {% if content.tag_list %}
             <ul class="hw-case__tags">
                 {% for tag in content.tag_list %}
@@ -19,9 +21,11 @@
         {% endif %}
     </div>
     <div class="hw-case__hero-media">
-        {% set hero_src = content.featured_image or module.content_group.image.src %}
+        {% set hero_src = module.content_group.image.src %}
         {% if hero_src %}
             <img src="{{ hero_src|escape_url }}" alt="{{ content.featured_image_alt_text|default(module.content_group.image.alt, true)|escape_attr }}" fetchpriority="high" decoding="async">
+            {% else %}
+            <img src="{{ content.featured_image|escape_url }}" alt="{{ content.featured_image_alt_text|default(module.content_group.image.alt, true)|escape_attr }}" fetchpriority="high" decoding="async">
         {% endif %}
     </div>
 </section>

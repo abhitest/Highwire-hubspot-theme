@@ -1,0 +1,323 @@
+[ { 
+"name": "section_hide_show",
+"label": "Section [Hide / Show]",
+"required": false,
+"locked": false,
+"display": "checkbox",
+"type": "boolean",
+"inline_help_text": "",
+"help_text": "",
+"default": false },
+  {
+  "id" : "custom_style",
+  "name" : "custom_style",
+  "label" : "Custom Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "custom_class",
+    "name" : "custom_class",
+    "label" : "Custom Class",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null
+  }, {
+    "id" : "section_id",
+    "name" : "section_id",
+    "label" : "Section ID",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "container_choice" : "content-wrapper"
+  }
+}, {
+  "id" : "content_group",
+  "name" : "content_group",
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "content_group.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "The Strategy"
+  }, {
+    "id" : "content_group.content",
+    "name" : "content",
+    "label" : "Content",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Our global, integrated communications strategy helped establish Splunk as a thought leader on the emergent issue of Dark Data. Then, a launch keynote in which Splunk’s then-CEO Doug Meritt shared the stage with former President Barack Obama helped secure Splunk’s leadership in the space.</p><p>We leveraged that new position and our strong relationships with business, broadcast, tech, and local media, as well as with influencers, to raise Splunk’s brand recognition. Our social media creative closed the circle with narrative-focused content pillars that fueled the biggest online engagement in Splunk’s company history.</p>"
+  }, {
+    "id" : "content_group.takeaway",
+    "name" : "takeaway",
+    "label" : "Highlighted takeaway",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}, {
+  "id" : "style",
+  "name" : "style",
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "style.background_property",
+    "name" : "background_property",
+    "label" : "Background Property",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "style.background_property.background_choice",
+      "name" : "background_choice",
+      "label" : "Select Background Type",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "placeholder" : "",
+      "choices" : [ [ "bgImage", "Background Image" ], [ "bgColor", "Background Color" ], [ "gredient", "Background Gredient" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "bgColor"
+    }, {
+      "id" : "style.background_property.background_image",
+      "name" : "background_image",
+      "label" : "Background Image",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "bgImage",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "",
+        "alt" : null,
+        "loading" : "disabled"
+      }
+    }, {
+      "id" : "style.background_property.background_color",
+      "name" : "background_color",
+      "label" : "Background Color",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "bgColor",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : "#f1f1f1",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "style.background_property.background_gredient",
+      "name" : "background_gredient",
+      "label" : "Background Gradient",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "gredient",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "gradient",
+      "display_width" : null,
+      "default" : { }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  }, {
+    "id" : "style.spacing",
+    "name" : "spacing",
+    "label" : "Spacing",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "style.spacing.desktop_spacing",
+      "name" : "desktop_spacing",
+      "label" : "Desktop Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 96,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 96,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "right" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        }
+      }
+    }, {
+      "id" : "style.spacing.tab_spacing",
+      "name" : "tab_spacing",
+      "label" : "Tab Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 96,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 96,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "right" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        }
+      }
+    }, {
+      "id" : "style.spacing.mobile_spacing",
+      "name" : "mobile_spacing",
+      "label" : "Mobile Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 48,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 48,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "right" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        }
+      }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  }, {
+    "id" : "style.text_color",
+    "name" : "text_color",
+    "label" : "Text color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#000000",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "style.accent",
+    "name" : "accent",
+    "label" : "Accent color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#ff7042",
+      "opacity" : 100
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+} ]

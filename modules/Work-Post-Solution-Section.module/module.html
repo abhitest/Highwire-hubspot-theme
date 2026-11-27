@@ -1,5 +1,6 @@
 <section class="hw-case hw-case--solution baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title">
-    <div class="content-wrapper hw-case__reading-row">
+    <div class="content-wrapper">
+        <div class="hw-case__reading-row">
         <h4 id="{{ name|escape_attr }}-title">
             {{ module.content_group.title|escape_html }}
         </h4>
@@ -13,6 +14,13 @@
             </div>
             {% endif %}
         </div>
+        </div>
+        {% if module.content_group.image_one.src or module.content_group.image_two.src %}
+        <div class="hw-case__gallery">
+            {% if module.content_group.image_one.src %}<figure data-case-reveal><img class="" src="{{ module.content_group.image_one.src|escape_url }}" alt="{{ module.content_group.image_one.alt|escape_attr }}" loading="lazy" decoding="async"></figure>{% endif %}
+            {% if module.content_group.image_two.src %}<figure data-case-reveal style="--case-delay:80ms"><img class="" src="{{ module.content_group.image_two.src|escape_url }}" alt="{{ module.content_group.image_two.alt|escape_attr }}" loading="lazy" decoding="async"></figure>{% endif %}
+        </div>
+        {% endif %}
     </div>
 </section>
 {% require_css %}
