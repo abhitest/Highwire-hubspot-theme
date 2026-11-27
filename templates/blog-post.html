@@ -8,11 +8,32 @@
 {% extends "./layouts/base.html" %}
 
 {% block body %}
-<div class="body-container body-container--blog-post">
+{% set podcast_tags = [] %}
+{% set whitepaper_tags = [] %}
+{% for post_tag in content.tag_list or content.topic_list %}
+  {% if post_tag.slug|lower|trim == 'podcast' or post_tag.name|lower|trim == 'podcast' %}
+    {% do podcast_tags.append(post_tag) %}
+  {% endif %}
+  {% set normalized_slug = post_tag.slug|default('',true)|lower|trim|replace('-', '')|replace(' ', '') %}
+  {% set normalized_name = post_tag.name|default('',true)|lower|trim|replace('-', '')|replace(' ', '') %}
+  {% if normalized_slug == 'whitepaper' or normalized_name == 'whitepaper' %}
+    {% do whitepaper_tags.append(post_tag) %}
+  {% endif %}
+{% endfor %}
+<div class="body-container body-container--blog-post{% if whitepaper_tags|length > 0 %} body-container--whitepaper{% elif podcast_tags|length > 0 %} body-container--podcast{% endif %}">
 
+  {% if whitepaper_tags|length > 0 %}
+  {% module "whitepaper_playbook" path="../modules/Get-the-playbook-section.module", label="Get-the-playbook-section" %}
+  {% elif podcast_tags|length > 0 %}
+  {% module "podcast_banner" path="../modules/Podcast-Banner-Section.module", label="Podcast-Banner-Section" %}
+  {% module "podcast_hosts" path="../modules/Podcast-Hosts-Section.module", label="Podcast-Hosts-Section" %}
+  {% module "podcast_episodes" path="../modules/Podcast-Episodes-Section.module", label="Podcast-Episodes-Section" %}
+  {% module "podcast_contact" path="../modules/contactus-version1-section.module", label="Contactus Version1 Section" %}
+  {% else %}
   {% module "blog_post_banner" path="../modules/blog-post-banner-section.module", label="Blog post banner" %}
   {% module "blog_post_content" path="../modules/Blog-Post-Content-Section.module", label="Blog content and table of contents" %}
   {% module "related_articles" path="../modules/Related-articles-section.module", label="Related Articles" %}
+  {% endif %}
 
 
 </div>

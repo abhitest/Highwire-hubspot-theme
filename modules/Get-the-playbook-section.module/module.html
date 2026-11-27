@@ -1,8 +1,13 @@
 <section class="hw-playbook {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}" {% if module.custom_style.section_id %}id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title" data-animate="{{ module.animate|string|lower }}">
   <div class="hw-playbook__reading">
-    <header><span class="hw-playbook__eyebrow">{{ module.eyebrow|escape_html }}</span>
-      <h1 id="{{ name|escape_attr }}-title"><span data-playbook-title>{{ module.title_first|escape_html }}</span><span data-playbook-title>{{ module.title_second|escape_html }} <em>{{ module.title_accent|escape_html }}</em></span></h1>
+    <header>
+      {% if module.eyebrow %}
+      <span class="hw-playbook__eyebrow">{{ module.eyebrow }}</span>
+      {% endif %}
+      <h1 id="{{ name|escape_attr }}-title"><span data-playbook-title>{{ module.title_first }}</span><span data-playbook-title>{{ module.title_second|escape_html }} <em>{{ module.title_accent|escape_html }}</em></span></h1>
+      {% if module.intro %}
       <div class="hw-playbook__intro opacity70 font20 lh15">{{ module.intro }}</div>
+      {% endif %}
     </header>
     <figure class="hw-playbook__preview{% if module.cover_image.src %} hw-playbook__preview--image{% endif %}" aria-label="{{ module.cover_image.alt|default('Report cover preview')|escape_attr }}">
       {% if module.cover_image.src %}

@@ -1,0 +1,465 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "events"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "id": "content_group",
+    "name": "content_group",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "name": "title",
+        "label": "Heading",
+        "type": "richtext",
+        "default": "<h2>Where to Find Us Next</h2>"
+      },
+      {
+        "name": "content",
+        "label": "Introduction",
+        "type": "richtext",
+        "default": "<p>Conversations, panels, and stages where our experts are sharing what they?re seeing.</p>"
+      },
+      {
+        "name": "animate",
+        "label": "Animate heading",
+        "type": "boolean",
+        "default": true
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "name": "events",
+    "label": "Events",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 30,
+      "default": 3
+    },
+    "children": [
+      {
+        "name": "event_date",
+        "label": "Event date",
+        "type": "date"
+      },
+      {
+        "name": "date_placeholder",
+        "label": "Text when date is not set",
+        "type": "text",
+        "default": "Date to be announced"
+      },
+      {
+        "name": "event_format",
+        "label": "Event format",
+        "type": "text",
+        "default": "Panel Discussion"
+      },
+      {
+        "name": "location",
+        "label": "Location",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "event_title",
+        "label": "Event title",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "text",
+        "default": "",
+        "allow_new_line": true
+      },
+      {
+        "name": "cta_text",
+        "label": "CTA text",
+        "type": "text",
+        "default": "View event"
+      },
+      {
+        "name": "cta_link",
+        "label": "Event link",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE"
+        ],
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        }
+      },
+      {
+        "name": "accent_color",
+        "label": "Event accent color",
+        "type": "color",
+        "default": {
+          "color": "#fa9bff",
+          "opacity": 100
+        }
+      }
+    ],
+    "default": [
+      {
+        "event_date": 1790121600000,
+        "event_format": "Panel Discussion",
+        "location": "New York, NY",
+        "event_title": "How Energy Leaders Are Countering Misinformation to Keep Building the Infrastructure the U.S. Needs",
+        "description": "Join Highwire for an exclusive in-person panel discussion on building trust and keeping critical energy projects moving forward.",
+        "cta_text": "View event",
+        "accent_color": {
+          "color": "#fa9bff",
+          "opacity": 100
+        }
+      },
+      {
+        "event_date": 1794960000000,
+        "event_format": "Live Webinar",
+        "location": "Virtual",
+        "event_title": "From AI Visibility to Buyer Trust: What B2B Brands Need to Do Next",
+        "description": "Explore how AI search is reshaping the buyer journey, and what marketing and communications teams can do to turn visibility into confidence.",
+        "cta_text": "Register",
+        "accent_color": {
+          "color": "#4bb7ff",
+          "opacity": 100
+        }
+      },
+      {
+        "event_date": 1796256000000,
+        "event_format": "Roundtable",
+        "location": "San Francisco, CA",
+        "event_title": "The New Influence Map: Building Credibility Beyond Traditional Media",
+        "description": "A conversation with brand and communications leaders on the creators, communities, and independent voices changing how audiences decide who to trust.",
+        "cta_text": "Reserve a seat",
+        "accent_color": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#000000",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Image overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "text_color",
+        "label": "Text color",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "muted_color",
+        "label": "Secondary text color",
+        "type": "color",
+        "default": {
+          "color": "#ffffff",
+          "opacity": 70
+        }
+      },
+      {
+        "name": "hover_color",
+        "label": "Link hover color",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]

@@ -1,0 +1,50 @@
+<section class="{{ name|escape_attr }} baseModuleStyle hw-insights-research {{ module.custom_style.custom_class|escape_attr }}" id="{{ module.custom_style.section_id|default(name,true)|escape_attr }}" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay hw-insights-research__overlay" aria-hidden="true"></span>
+  <div class="baseModuleParent hw-insights-research__inner">
+    <div class="content-wrapper hw-insights-research__container">
+      <div class="customWidthOption hw-insights-research__content-wrap">
+        <header class="moduletitleSection hw-insights-research__intro">
+          {% if module.content_group.title %}<div class="moduleTitle hw-insights-research__title">{{ module.content_group.title }}</div>{% endif %}
+          {% if module.content_group.content %}<div class="moduleContent hw-insights-research__description">{{ module.content_group.content }}</div>{% endif %}
+        </header>
+        <div class="hw-insights-research__grid">
+          {% for item in module.reports %}
+          <article class="hw-insights-research__card">
+            <figure class="hw-insights-research__image{% if item.image_fit == 'contain' %} hw-insights-research__image--contain{% endif %}">
+              {% set image_src = item.image.src or get_asset_url('../../images/thinking-1.webp' if loop.index is odd else '../../images/thinking-2.webp') %}
+              <img src="{{ image_src|escape_url }}" alt="{{ item.image.alt|default('',true)|escape_attr }}" loading="lazy" decoding="async" width="632" height="280">
+            </figure>
+            <div class="hw-insights-research__copy">
+              {% if item.content_type %}<p class="hw-insights-research__type">{{ item.content_type|escape_html }}</p>{% endif %}
+              {% if item.card_title %}<h3 class="hw-insights-research__card-title">{{ item.card_title|escape_html }}</h3>{% endif %}
+              {% if item.subtitle %}<p class="hw-insights-research__subtitle">{{ item.subtitle|escape_html }}</p>{% endif %}
+              {% if item.description %}<p class="hw-insights-research__summary">{{ item.description|escape_html }}</p>{% endif %}
+              <ul class="hw-insights-research__topics" aria-label="Topics">{% for topic in item.topics|split(',') %}{% if topic|trim %}<li>{{ topic|trim|escape_html }}</li>{% endif %}{% endfor %}</ul>
+              {% if item.cta_text %}
+                {% if item.cta_link.url.href %}<a class="hw-insights-research__action" href="{{ item.cta_link.url.href|escape_url }}" {% if item.cta_link.open_in_new_tab %}target="_blank"{% endif %} rel="noopener{% if item.cta_link.no_follow %} nofollow{% endif %}">{% else %}<span class="hw-insights-research__action hw-insights-research__action--disabled" aria-disabled="true">{% endif %}
+                  {{ item.cta_text|escape_html }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square"><path d="M4 14 14 4M6 4h8v8"/></g></svg>
+                {% if item.cta_link.url.href %}</a>{% else %}</span>{% endif %}
+              {% endif %}
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% require_css %}
+<style>
+.{{ name }}.hw-insights-research {
+  {{ module.style.spacing.desktop_spacing.css }}
+  --research-text:{{ module.style.text_color.css }};
+  --research-accent:{{ module.style.accent_color.css }};
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background:{{ module.style.background_property.background_color.css }};{% endif %}
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }} .hw-insights-research__overlay { background:{{ module.style.background_property.overlay_color.css }}; }{% endif %}
+@media(max-width:1300px) { .{{ name }}.hw-insights-research { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-insights-research { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

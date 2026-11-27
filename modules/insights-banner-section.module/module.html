@@ -1,0 +1,174 @@
+<div class="{{ name }} baseModuleStyle hw-insights-banner {{ module.custom_style.custom_class|escape_attr }} " id="{{ module.custom_style.section_id|escape_attr }}" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay hw-insights-banner__overlay" aria-hidden="true"></span>
+  <div class="baseModuleParent hw-insights-banner__inner"> 
+    <div class="content-wrapper hw-insights-banner__container">
+      {# Custum Width Option #}
+      <div class="customWidthOption hw-insights-banner__content-wrap">
+        <div class="moduletitleSection hw-insights-banner__intro">
+
+        
+        {% if  module.content_group.title  %}
+        <div class="moduleTitle hw-insights-banner__title">
+          {{ module.content_group.title }}
+        </div>
+          {% endif %}
+          {% if module.content_group.content %}
+          <div class="moduleContent hw-insights-banner__description">
+            {{ module.content_group.content }}
+          </div>
+          {% endif %}
+          </div>
+          {# Button and Cta Option #}
+
+          {% if module.content_group.want_cta %}
+          <div class="moduleCTA hw-insights-banner__cta-group d_flex align_center gap20 pt20">
+            {% for item in module.content_group.cta_group %}
+            {% set CTA = item %}
+            <div class="cta-section hw-insights-banner__cta">
+              {% if CTA.cta_choice == "normalcta" %}
+              {% if CTA.button_text %}
+              <div class="hw-insights-banner__button {{ CTA.choice_cta_style }}  {% if CTA.button_alignment %} {{ CTA.button_alignment }} {% else %} text-left {% endif %} basebutton-{{ loop.index }} hw-insights-banner__button--{{ loop.index }}">
+                {% set href = CTA.button_link.url.href %}
+                {% if CTA.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+                {% set href = "mailto:" + href %}
+                {% endif %}
+                {% if CTA.button_link.url.type is equalto "PHONE_NUMBER" %}
+                {% set href = "tel:" + href %}
+                {% endif %}
+
+                <a class="hw-insights-banner__cta-link" href="{{ href }}"
+                   {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
+                   {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
+                   >
+                  {{ CTA.button_text }}
+                  {% if CTA.want_arrow %}
+                    <span class="arrow hw-insights-banner__cta-arrow">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <rect x="13.2887" y="14.5453" width="7" height="1" rx="0.25" transform="rotate(-45 13.2887 14.5453)" fill="white" stroke="white" stroke-width="0.5"/>
+                    <rect x="13.9958" y="5.35291" width="7" height="1" rx="0.25" transform="rotate(45 13.9958 5.35291)" fill="white" stroke="white" stroke-width="0.5"/>
+                    <rect x="0.5" y="9.80273" width="16.9958" height="1" rx="0.25" fill="white" stroke="white" stroke-width="0.5"/>
+                  </svg>
+                    </span>
+                  {% endif %}
+
+                </a>
+              </div>
+              {% endif %}
+              {% elif  CTA.cta_choice == 'hubspotCTA' %}
+
+              {% if CTA.hubspot_cta && CTA.hubspot_cta != null %}
+              <div class="hw-insights-banner__button {{ CTA.choice_cta_style }} {% if CTA.button_alignment %} {{ CTA.button_alignment }} {% else %} text-left {% endif %}">
+                {% cta guid="{{ CTA.hubspot_cta }}" %}
+              </div>
+              {% endif %}
+
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {# End Button and Cta Option #}
+
+          {% if module.navigation.show_navigation %}
+          <nav class="hw-insights-banner__navigation" aria-label="{{ module.navigation.navigation_label|escape_attr }}">
+            <div class="hw-insights-banner__tabs" role="tablist" aria-label="{{ module.navigation.navigation_label|escape_attr }}">
+              <button class="hw-insights-banner__tab" id="{{ name|escape_attr }}-tab-all" type="button" role="tab" aria-selected="true" tabindex="0" data-insights-all>{{ module.navigation.all_label|escape_html }}</button>
+              {% for item in module.navigation.tabs %}
+              <button class="hw-insights-banner__tab" id="{{ name|escape_attr }}-tab-{{ loop.index }}" type="button" role="tab" aria-selected="false" tabindex="-1" data-insights-target="{{ item.target_id|escape_attr }}">{{ item.tab_text|escape_html }}</button>
+              {% endfor %}
+            </div>
+            {% if module.navigation.podcast_label and module.navigation.podcast_link.url.href %}
+            <a class="hw-insights-banner__podcast" href="{{ module.navigation.podcast_link.url.href|escape_url }}" {% if module.navigation.podcast_link.open_in_new_tab %}target="_blank"{% endif %} rel="noopener{% if module.navigation.podcast_link.no_follow %} nofollow{% endif %}">
+              {{ module.navigation.podcast_label|escape_html }}<svg viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 14 14 4"></path><path d="M6 4h8v8"></path></g></svg>
+            </a>
+            {% endif %}
+          </nav>
+          {% endif %}
+
+      </div>
+          {# End Custum Width Option #}
+
+
+
+    </div>
+  </div>
+
+</div>
+
+    {% require_css %}
+    <style>
+     {% scope_css %}
+      /****  Button Style  *****/
+      {% for item in module.content_group.cta_group %}
+            {% set CTA = item %}
+      {% if CTA.override_button_style %}
+
+      .hw-insights-banner .hw-insights-banner__button--{{ loop.index }} a{
+        background:{{ CTA.button_style_group.btn_bg_color.css}};
+        color:{{ CTA.button_style_group.btn_text_color.css }};
+        border-color:{{ CTA.button_style_group.btn_border_color.css }};
+      }
+
+      .hw-insights-banner .hw-insights-banner__button--{{ loop.index }} a:hover {
+        background-color:{{ CTA.button_style_group.btn_bg_color_hover.css}};
+        color:{{ CTA.button_style_group.btn_text_color_hover.css }};
+        border-color : {{ CTA.button_style_group.btn_border_color_hover.css }};
+      }
+
+      {% endif %}
+      {% endfor %}
+      /****  End Button Style  ****/
+     {% end_scope_css %}
+    </style>
+    
+   
+    <style>
+
+{#       {% scope_css %} #}
+        
+      {# Desktop Styling #}
+      .{{name}}.hw-insights-banner{
+        position:relative;
+        --insights-text:{{ module.style.text_color.css }};
+        --insights-accent:{{ module.style.accent_color.css }};
+        --insights-inactive:{{ module.style.inactive_color.css }};
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .hw-insights-banner__overlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .hw-insights-banner__inner{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1300px){
+        .{{name}}.hw-insights-banner{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.hw-insights-banner{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+{#       {% end_scope_css %} #}
+    </style>
+  {% end_require_css %}

@@ -6,7 +6,8 @@
   "help_text": "",
   "content_types": [
     "SITE_PAGE",
-    "LANDING_PAGE"
+    "LANDING_PAGE",
+    "BLOG_POST"
   ],
   "js_assets": [],
   "other_assets": [],
