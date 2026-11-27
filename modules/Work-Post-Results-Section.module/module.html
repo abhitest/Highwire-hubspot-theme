@@ -1,3 +1,40 @@
+{% if module.content_group.layout == 'two_column' %}
+
+<section class="hw-case hw-case--results hw-case--results-two-column baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title">
+    <div class="content-wrapper">
+        <div class="hw-case__reading-row">
+        <h3 id="{{ name|escape_attr }}-title" class="secondary_color">
+            {{ module.content_group.title|escape_html }}
+        </h3>
+        <div class="hw-case--results-right">
+          {% if module.content_group.top_content %}  
+         <div class="hw-case--results-content hw-case__prose font20 lh15">
+            {{ module.content_group.top_content }}
+         </div>
+         {% endif %}
+         {% if module.content_group.metrics %}
+         <dl class="hw-case__metrics hw-case__metrics-two-column">
+            {% for metric in module.content_group.metrics %}
+            <div data-case-reveal style="--case-delay:{{ loop.index0 * 80 }}ms;--metric-color:{{ metric.color.color|escape_attr }}">
+                <dt class="font20">{{ metric.description|escape_html }}
+
+                </dt>
+                <dd>{{ metric.value|escape_html }}</dd>
+            </div>
+            {% endfor %}
+        </dl>
+        {% endif %}
+        {% if module.content_group.bottom_content %}  
+         <div class="hw-case--results-bottom-content hw-case__prose font20 lh15">
+            {{ module.content_group.bottom_content }}
+         </div>
+         {% endif %}
+        </div>
+     </div>
+    </div>
+</section>
+{% else %}
+
 <section class="hw-case hw-case--results baseModuleStyle {{ name|escape_attr }} {{ module.custom_style.custom_class|escape_attr }}"{% if module.custom_style.section_id %} id="{{ module.custom_style.section_id|escape_attr }}"{% endif %} aria-labelledby="{{ name|escape_attr }}-title">
     <div class="content-wrapper">
         <h3 id="{{ name|escape_attr }}-title" class="secondary_color">
@@ -15,9 +52,11 @@
         </dl>
     </div>
 </section>
+{% endif %}
 {% require_css %}<style>
 .{{ name }}.hw-case{ {{ module.style.spacing.desktop_spacing.css }} color:{{ module.style.text_color.color }};--case-accent:{{ module.style.accent.color }};
 {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');{% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};{% else %}background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity / 100 }});{% endif %}}
+.{{ name }} .hw-case__metrics--full_width{grid-template-columns:minmax(0,1fr)}
 @media(max-width:1300px){.{{ name }}.hw-case{ {{ module.style.spacing.tab_spacing.css }} }}
 @media(max-width:767px){.{{ name }}.hw-case{ {{ module.style.spacing.mobile_spacing.css }} }}
 </style>{% end_require_css %}

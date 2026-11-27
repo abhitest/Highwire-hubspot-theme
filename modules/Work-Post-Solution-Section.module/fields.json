@@ -59,6 +59,30 @@
         "label": "Highlighted takeaway",
         "type": "richtext",
         "default": "<p>Each piece of our strategy came together in what Constellation Research called “one of the most sophisticated launches of the decade.”</p>"
+      },
+      {
+        "name": "image_one",
+        "label": "First image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "default": {
+          "src": "",
+          "alt": "",
+          "size_type": "auto"
+        }
+      },
+      {
+        "name": "image_two",
+        "label": "Second image",
+        "type": "image",
+        "responsive": true,
+        "resizable": true,
+        "default": {
+          "src": "",
+          "alt": "",
+          "size_type": "auto"
+        }
       }
     ]
   },

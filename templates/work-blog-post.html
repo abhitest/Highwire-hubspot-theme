@@ -9,7 +9,7 @@
 
 {% block body %}
 {{ require_css(get_asset_url('../css/work-case-study.css')) }}
-
+{% text "blog_listing_title" label="Blog Listing Title", value="", export_to_template_context=true %}
 {% text "work_category" label="Category text", value="", export_to_template_context=true %}
 {% choice "work_sector" label="Sector", display="checkbox", multiple=true, choices=[["b2b-technology","B2B Technology"],["cybersecurity","Cybersecurity"],["health","Health"],["financial-services","Financial Services"],["professional-services","Professional Services"],["energy","Energy"],["impact","Impact"]], value=[], export_to_template_context=true %}
 {% choice "work_capability" label="Capability", display="checkbox", multiple=true, choices=[["strategy-and-intelligence","Strategy & Intelligence"],["marketing","Marketing"],["communications","Communications"],["content-and-thought-leadership","Content & Thought Leadership"],["brand-and-creative","Brand & Creative"],["acro-suite","Acro Suite"]], value=[], export_to_template_context=true %}
@@ -19,6 +19,7 @@
 {% module "work_post_intro" path="../modules/Work-Post-Introduction-Section.module", label="Work-Post-Introduction-Section" %}
 {% module "work_post_challenge" path="../modules/Work-Post-Challenge-Section.module", label="Work-Post-Challenge-Section" %}
 {% module "work_post_solution" path="../modules/Work-Post-Solution-Section.module", label="Work-Post-Solution-Section" %}
+{% module "Work Post Strategy" path="../modules/Work-Post-Strategy-Section", label="Work-Post-Strategy-Section" %}
 {% module "work_post_results" path="../modules/Work-Post-Results-Section.module", label="Work-Post-Results-Section" %}
 {% module "work_post_closing" path="../modules/work-closing-section.module", label="work-closing-section" %}
 </main>

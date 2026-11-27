@@ -67,7 +67,11 @@
       {% if category is not defined %}{% set category = post.widgets.work_category.body.value %}{% endif %}
       <div class="hw-work-overview-filter__copy">
       {% if category|trim %}<p class="hw-work-overview-filter__client">{{ category|escape_html }}</p>{% endif %}
+      {% if post.widgets.blog_listing_title.body.value %}
+      <h2>{{ post.widgets.blog_listing_title.body.value|striptags|escape_html }}</h2>
+      {% else %}
       <h2>{{ post.name|striptags|escape_html }}</h2>
+      {% endif %}
       {% if post.tag_list %}<ul class="hw-work-overview-filter__tags" aria-label="Tags">{% for tag in post.tag_list %}<li>{{ tag.name|escape_html }}</li>{% endfor %}</ul>{% endif %}
       </div>
       {% if post.absolute_url %}</a>{% endif %}

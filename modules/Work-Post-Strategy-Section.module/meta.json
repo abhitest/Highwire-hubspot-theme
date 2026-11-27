@@ -1,0 +1,7 @@
+{
+  "global" : false,
+  "content_types" : [ "SITE_PAGE", "BLOG_POST" ],
+  "host_template_types" : [ "ANY" ],
+  "label" : "Work Post Strategy Section",
+  "is_available_for_new_content" : true
+}

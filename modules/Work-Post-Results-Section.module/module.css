@@ -1,0 +1,8 @@
+.hw-case__metrics.hw-case__metrics-two-column { margin-top: 0; }
+.hw-case--results-content { margin-bottom: 40px; }
+.hw-case--results-bottom-content { margin-top: 40px; }
+.hw-case__metrics.hw-case__metrics-two-column dd { font-size: 80px; }
+
+@media (max-width: 1100px) {
+  .hw-case__metrics.hw-case__metrics-two-column dd { font-size: 60px; }
+}
