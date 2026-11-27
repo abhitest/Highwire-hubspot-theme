@@ -1,0 +1,15 @@
+{
+  "label": "Insights Listing Section",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "Automatically uses the blog assigned to this listing template. AJAX filters and load more use that blog only; no blog selection or client blog ID is required.",
+  "content_types": [
+    "BLOG_LISTING"
+  ],
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": [],
+  "is_available_for_new_content": true
+}

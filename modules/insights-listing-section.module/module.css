@@ -1,0 +1,61 @@
+.hw-insights-listing { position:relative; background:#fff center/cover; color:var(--insights-listing-text,#000); }
+.hw-insights-listing, .hw-insights-listing * { box-sizing:border-box; }
+.hw-insights-listing [hidden] { display:none!important; }
+.hw-insights-listing__overlay { position:absolute; inset:0; pointer-events:none; }
+.hw-insights-listing__inner { position:relative; }
+.hw-insights-listing__title h2 { margin:0; font:400 56px/1.08 var(--display,Arial,sans-serif); letter-spacing:-2.8px; color:inherit; }
+.hw-insights-listing__filters { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:end; gap:24px 32px; margin:48px 0 0; padding-bottom:24px; }
+.hw-insights-listing__filter { display:grid; gap:8px; min-width:0; margin:0; color:inherit; font:400 14px/1.4 var(--body,Arial,sans-serif); }
+.hw-insights-listing__filter > span:first-child { color:#555; }
+.hw-insights-listing__select-wrap { display:block; position:relative; }
+.hw-insights-listing__chevron { position:absolute; right:8px; top:50%; transform:translateY(-50%); pointer-events:none; transition:color .22s; }
+.hw-insights-listing__select { appearance:none; border:0; border-bottom:1px solid #bfbfbf; border-radius:0; width:100%; min-width:0; min-height:48px; margin:0; padding:10px 40px 10px 0; background:transparent; color:inherit; font:400 18px/1.5 var(--display,Arial,sans-serif); text-overflow:ellipsis; transition:border-color .22s,color .22s,background-color .22s; }
+.hw-insights-listing__select { cursor:pointer; }
+.hw-insights-listing__select option { color:#000; background:#fff; }
+.hw-insights-listing__select:is(:hover,:focus-visible), .hw-insights-listing__select--active { color:var(--insights-listing-accent,#ff7042); border-bottom-color:var(--insights-listing-accent,#ff7042); }
+.hw-insights-listing__select-wrap:is(:hover,:focus-within) .hw-insights-listing__chevron { color:var(--insights-listing-accent,#ff7042); }
+.hw-insights-listing .hw-insights-listing__select:focus-visible { outline:2px solid var(--insights-listing-accent,#ff7042); outline-offset:3px; }
+.hw-insights-listing__results { display:flex; justify-content:space-between; align-items:center; gap:16px; min-height:72px; }
+.hw-insights-listing__count { margin:0; color:#666; font:400 14px/1.5 var(--body,Arial,sans-serif); }
+.hw-insights-listing__reset, .hw-insights-listing__show-all, .hw-insights-listing__retry { display:inline-flex; gap:12px; align-items:center; border:0; border-radius:0; padding:8px 0; background:transparent; color:inherit; cursor:pointer; font:600 16px/1.5 var(--display,Arial,sans-serif); transition:color .22s; }
+.hw-insights-listing__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:56px 32px; }
+.hw-insights-listing__card { display:flex; flex-direction:column; align-items:flex-start; min-width:0; }
+.hw-insights-listing__image { display:block; position:relative; overflow:hidden; width:100%; height:280px; background:#e9e9e9; }
+.hw-insights-listing__img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .65s cubic-bezier(.22,1,.36,1); }
+.hw-insights-listing__image::after { content:''; position:absolute; inset:auto 0 0; height:6px; background:var(--insights-card-accent,#4bb7ff); transform:scaleX(0); transform-origin:left; transition:transform .36s cubic-bezier(.22,1,.36,1),background-color .22s; }
+.hw-insights-listing__card:is(:hover,:focus-within) .hw-insights-listing__image::after { transform:scaleX(1); }
+.hw-insights-listing__card:is(:hover,:focus-within) .hw-insights-listing__img { transform:scale(1.035); }
+.hw-insights-listing__arrow { width:24px; height:24px; flex:none; }
+.hw-insights-listing__meta { margin:20px 0 12px; color:#666; font:400 14px/1.5 var(--body,Arial,sans-serif); }
+.hw-insights-listing__card-title { margin:0; color:inherit; font:400 24px/1.22 var(--display,Arial,sans-serif); letter-spacing:-.5px; }
+.hw-insights-listing__card-title a { color:inherit; text-decoration:none; transition:color .22s; }
+.hw-insights-listing__summary { margin:16px 0 0; color:inherit; font:400 18px/1.5 var(--body,Arial,sans-serif); }
+.hw-insights-listing__tags { display:flex; flex-wrap:wrap; gap:6px 14px; padding:0; margin:20px 0 24px; list-style:none; color:#666; font:400 14px/1.5 var(--body,Arial,sans-serif); }
+.hw-insights-listing__tags li:not(:last-child)::after { content:'/'; margin-left:14px; color:#bfbfbf; }
+.hw-insights-listing__action { display:inline-flex; gap:24px; align-items:center; margin-top:auto; padding:12px 0; border-bottom:1px solid currentColor; color:inherit; text-decoration:none; font:600 16px/1.5 var(--display,Arial,sans-serif); transition:color .22s; }
+.hw-insights-listing__action:hover, .hw-insights-listing__card-title a:hover, .hw-insights-listing__reset:hover { color:var(--insights-listing-accent,#ff7042); }
+.hw-insights-listing__load-more { display:flex; align-items:center; justify-content:space-between; width:fit-content; min-height:64px; gap:32px; margin:56px auto 0; padding:20px 24px; border:0; border-radius:0; color:#fff; background:#000; font:600 16px/1.5 var(--display,Arial,sans-serif); letter-spacing:normal; text-transform:none; cursor:pointer; transition:background .22s,color .22s; }
+.hw-insights-listing__load-more:is(:hover,:focus-visible):not(:disabled) { background:var(--insights-listing-accent,#ff7042); color:#000; }
+.hw-insights-listing__load-more .hw-insights-listing__arrow { flex:0 0 24px; width:24px; height:24px; transition:transform .36s cubic-bezier(.22,1,.36,1); }
+.hw-insights-listing__load-more:hover:not(:disabled) .hw-insights-listing__arrow { transform:translate(3px,-3px); }
+.hw-insights-listing__load-more:disabled { opacity:.5; cursor:wait; }
+.hw-insights-listing :is(a,button,select,input):focus-visible, .hw-insights-listing__card:focus { outline:none; }
+.hw-insights-listing__empty { padding:32px 0; }
+.hw-insights-listing__empty h3 { font-size:28px; margin:0 0 16px; }
+.hw-insights-listing__error { padding:16px; border:1px solid currentColor; margin-bottom:24px; }
+.hw-insights-listing__error p { margin:0; }
+.hw-insights-listing__pagination { display:flex; justify-content:center; gap:32px; margin-top:32px; }
+.hw-insights-listing__title--pending { opacity:0; transform:translateY(28px); }
+.hw-insights-listing__title--visible { opacity:1; transform:none; transition:opacity .36s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.22,1,.36,1); }
+@media(max-width:1024px) { .hw-insights-listing__grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .hw-insights-listing__title h2 { font-size:48px; } }
+@media(max-width:767px) { .hw-insights-listing__filters { grid-template-columns:1fr; margin-top:32px; gap:20px; } .hw-insights-listing__grid { grid-template-columns:1fr; gap:40px; } .hw-insights-listing__title h2 { font-size:40px; letter-spacing:-1.8px; } .hw-insights-listing__results { flex-wrap:wrap; padding-block:16px; } .hw-insights-listing__image { height:auto; aspect-ratio:416/280; } }
+@media(prefers-reduced-motion:reduce) { .hw-insights-listing *, .hw-insights-listing *::after { transition:none!important; } .hw-insights-listing__title { opacity:1; transform:none; } }
+html[data-motion=reduced] .hw-insights-listing *, html[data-motion=reduced] .hw-insights-listing *::after, .hw-insights-listing[data-animate=false] *, .hw-insights-listing[data-animate=false] *::after { transition:none!important; }
+html[data-motion=reduced] .hw-insights-listing__title, .hw-insights-listing[data-animate=false] .hw-insights-listing__title { opacity:1; transform:none; }
+
+.hw-insights-listing__card:not(:has(.hw-insights-listing__tags)) .hw-insights-listing__action { margin-top:44px; }
+
+.hw-insights-listing__pixel-layer { position:absolute; pointer-events:none; image-rendering:pixelated; }
+
+.hw-insights-listing__image-arrow { position:absolute; bottom:20px; right:20px; display:grid; place-items:center; width:64px; height:64px; color:#000; background:var(--insights-card-accent,#4bb7ff); opacity:0; transform:translateY(10px); transition:opacity .22s,transform .36s cubic-bezier(.22,1,.36,1),background-color .22s; }
+.hw-insights-listing__image:is(:hover,:focus-visible) .hw-insights-listing__image-arrow { opacity:1; transform:translateY(0); }

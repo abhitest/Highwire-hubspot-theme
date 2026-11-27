@@ -1,0 +1,41 @@
+<section class="{{ name|escape_attr }} baseModuleStyle hw-insights-events {{ module.custom_style.custom_class|escape_attr }}" id="{{ module.custom_style.section_id|default(name,true)|escape_attr }}" data-animate="{{ module.content_group.animate|string|lower }}">
+  <span class="baseModuleOverlay hw-insights-events__overlay" aria-hidden="true"></span>
+  <div class="baseModuleParent hw-insights-events__inner">
+    <div class="content-wrapper hw-insights-events__container">
+      <div class="customWidthOption hw-insights-events__content-wrap">
+        <header class="moduletitleSection hw-insights-events__intro">
+          {% if module.content_group.title %}<div class="moduleTitle hw-insights-events__title">{{ module.content_group.title }}</div>{% endif %}
+          {% if module.content_group.content %}<div class="moduleContent hw-insights-events__description">{{ module.content_group.content }}</div>{% endif %}
+        </header>
+        <ul class="hw-insights-events__list">
+{% for item in module.events %}
+<li class="hw-insights-events__item"><article class="hw-insights-events__row" style="--event-accent:{{ item.accent_color.css|default('#fa9bff',true)|escape_attr }}">
+{% if item.event_date %}<time class="hw-insights-events__date" datetime="{{ item.event_date|format_datetime('yyyy-MM-dd', 'UTC')|escape_attr }}" aria-label="{{ item.event_date|format_datetime('MMMM d, yyyy', 'UTC')|escape_attr }}"><span class="hw-insights-events__day">{{ item.event_date|format_datetime('d', 'UTC') }}</span><span class="hw-insights-events__month">{{ item.event_date|format_datetime('MMMM yyyy', 'UTC') }}</span></time>
+{% else %}<p class="hw-insights-events__date-placeholder">{{ item.date_placeholder|escape_html }}</p>{% endif %}
+<div class="hw-insights-events__copy"><div class="hw-insights-events__meta">
+{% if item.event_format %}<p class="hw-insights-events__format">{{ item.event_format|escape_html }}</p>{% endif %}
+{% if item.location %}<p class="hw-insights-events__location">{{ item.location|escape_html }}</p>{% endif %}</div>
+{% if item.event_title %}<h3 class="hw-insights-events__event-title">{{ item.event_title|escape_html }}</h3>{% endif %}
+{% if item.description %}<p class="hw-insights-events__summary">{{ item.description|escape_html }}</p>{% endif %}
+{% if item.cta_text %}
+{% if item.cta_link.url.href %}<a class="hw-insights-events__action" href="{{ item.cta_link.url.href|escape_url }}" {% if item.cta_link.open_in_new_tab %}target="_blank"{% endif %} rel="noopener{% if item.cta_link.no_follow %} nofollow{% endif %}">{% else %}<span class="hw-insights-events__action hw-insights-events__action--disabled" aria-disabled="true">{% endif %}
+{{ item.cta_text|escape_html }}<svg class="hw-insights-events__arrow" viewBox="0 0 18 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="square"><path d="M4 14 14 4M6 4h8v8"/></g></svg>
+{% if item.cta_link.url.href %}</a>{% else %}</span>{% endif %}{% endif %}
+</div></article></li>
+{% endfor %}
+</ul></div></div></div></section>
+{% require_css %}
+<style>
+.{{ name }}.hw-insights-events {
+  {{ module.style.spacing.desktop_spacing.css }}
+  --events-text:{{ module.style.text_color.css }};
+  --events-muted:{{ module.style.muted_color.css }}; --events-hover:{{ module.style.hover_color.css }};
+  {% if module.style.background_property.background_choice == 'bgImage' %}background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');
+  {% elif module.style.background_property.background_choice == 'gredient' %}background:{{ module.style.background_property.background_gredient.css }};
+  {% else %}background:{{ module.style.background_property.background_color.css }};{% endif %}
+}
+{% if module.style.background_property.background_choice == 'bgImage' %}.{{ name }} .hw-insights-events__overlay { background:{{ module.style.background_property.overlay_color.css }}; }{% endif %}
+@media(max-width:1300px) { .{{ name }}.hw-insights-events { {{ module.style.spacing.tab_spacing.css }} } }
+@media(max-width:767px) { .{{ name }}.hw-insights-events { {{ module.style.spacing.mobile_spacing.css }} } }
+</style>
+{% end_require_css %}

@@ -2,7 +2,8 @@
   "label": "Get-the-playbook-section",
   "content_types": [
     "SITE_PAGE",
-    "LANDING_PAGE"
+    "LANDING_PAGE",
+    "BLOG_POST"
   ],
   "is_available_for_new_content": true,
   "global": false,

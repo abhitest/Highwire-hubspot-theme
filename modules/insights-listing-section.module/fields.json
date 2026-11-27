@@ -1,0 +1,503 @@
+[
+  {
+    "id": "custom_style",
+    "name": "custom_style",
+    "label": "Custom Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "custom_class",
+        "name": "custom_class",
+        "label": "Custom Class",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null
+      },
+      {
+        "id": "section_id",
+        "name": "section_id",
+        "label": "Section ID",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "all-insights"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "id": "content_group",
+    "name": "content_group",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "name": "title",
+        "label": "Heading",
+        "type": "text",
+        "default": "Explore All Insights"
+      },
+      {
+        "name": "page_size",
+        "label": "Posts per load",
+        "type": "number",
+        "min": 1,
+        "max": 24,
+        "step": 1,
+        "default": 6
+      },
+      {
+        "name": "animate",
+        "label": "Enable animation",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "fallback_image",
+        "label": "Fallback post image",
+        "type": "image",
+        "default": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "name": "show_tags",
+        "label": "Show sector and capability tags",
+        "type": "boolean",
+        "default": true
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  },
+  {
+    "name": "filters",
+    "label": "Filter settings",
+    "type": "group",
+    "tab": "CONTENT",
+    "children": [
+      {
+        "name": "types",
+        "label": "Content type tags",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "blog, video, newsletter, events, reports & tools, culture, trends, webinars, news, research, whitepaper, pov, event recap, podcast",
+        "help_text": "Category mapping for tags in the blog using this template. Enter tag names or slugs, separated by commas. Unmapped tags appear under Content type automatically."
+      },
+      {
+        "name": "sectors",
+        "label": "Sector / industry tags",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "b2btech, health, energy, financial services, cybersecurity, b2b technology, professional services, impact",
+        "help_text": "Category mapping for tags in the blog using this template. Enter tag names or slugs, separated by commas. Unmapped tags appear under Content type automatically."
+      },
+      {
+        "name": "capabilities",
+        "label": "Capability tags",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "marketing, communications, insights and analytics, strategy, creative, strategy & intelligence, brand & creative, content & thought leadership, acro suite",
+        "help_text": "Category mapping for tags in the blog using this template. Enter tag names or slugs, separated by commas. Unmapped tags appear under Content type automatically."
+      }
+    ]
+  },
+  {
+    "name": "ui_text",
+    "label": "Interface text",
+    "type": "group",
+    "tab": "CONTENT",
+    "children": [
+      {
+        "name": "type_text",
+        "label": "type text",
+        "type": "text",
+        "default": "Content type"
+      },
+      {
+        "name": "sector_text",
+        "label": "sector text",
+        "type": "text",
+        "default": "Sector"
+      },
+      {
+        "name": "capability_text",
+        "label": "capability text",
+        "type": "text",
+        "default": "Capability"
+      },
+      {
+        "name": "all_types",
+        "label": "all types",
+        "type": "text",
+        "default": "All content types"
+      },
+      {
+        "name": "all_sectors",
+        "label": "all sectors",
+        "type": "text",
+        "default": "All sectors"
+      },
+      {
+        "name": "all_capabilities",
+        "label": "all capabilities",
+        "type": "text",
+        "default": "All capabilities"
+      },
+      {
+        "name": "reset_text",
+        "label": "reset text",
+        "type": "text",
+        "default": "Reset filters"
+      },
+      {
+        "name": "load_more_text",
+        "label": "load more text",
+        "type": "text",
+        "default": "Load more"
+      },
+      {
+        "name": "retry_text",
+        "label": "retry text",
+        "type": "text",
+        "default": "Try again"
+      },
+      {
+        "name": "error_text",
+        "label": "error text",
+        "type": "text",
+        "default": "Could not load insights. Please try again."
+      },
+      {
+        "name": "show_all_text",
+        "label": "show all text",
+        "type": "text",
+        "default": "Show all insights"
+      },
+      {
+        "name": "count_text",
+        "label": "count text",
+        "type": "text",
+        "default": "Showing {shown} of {total} insights"
+      },
+      {
+        "name": "read_text",
+        "label": "read text",
+        "type": "text",
+        "default": "Read more"
+      },
+      {
+        "name": "webinar_text",
+        "label": "webinar text",
+        "type": "text",
+        "default": "View webinar"
+      },
+      {
+        "name": "event_text",
+        "label": "event text",
+        "type": "text",
+        "default": "View event"
+      },
+      {
+        "name": "podcast_text",
+        "label": "podcast text",
+        "type": "text",
+        "default": "Listen"
+      },
+      {
+        "name": "video_text",
+        "label": "video text",
+        "type": "text",
+        "default": "Watch video"
+      },
+      {
+        "name": "report_text",
+        "label": "report text",
+        "type": "text",
+        "default": "View report"
+      }
+    ]
+  },
+  {
+    "id": "style",
+    "name": "style",
+    "label": "Styles",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "style.background_property",
+        "name": "background_property",
+        "label": "Background Property",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.background_property.background_choice",
+            "name": "background_choice",
+            "label": "Select Background Type",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "placeholder": "",
+            "choices": [
+              [
+                "bgImage",
+                "Background Image"
+              ],
+              [
+                "bgColor",
+                "Background Color"
+              ],
+              [
+                "gredient",
+                "Background Gredient"
+              ]
+            ],
+            "multiple": false,
+            "reordering_enabled": true,
+            "preset": null,
+            "type": "choice",
+            "display_width": null,
+            "default": "bgColor"
+          },
+          {
+            "id": "style.background_property.background_image",
+            "name": "background_image",
+            "label": "Background Image",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgImage",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "responsive": true,
+            "resizable": true,
+            "show_loading": false,
+            "type": "image",
+            "display_width": null,
+            "default": {
+              "size_type": "auto",
+              "src": "",
+              "alt": null,
+              "loading": "disabled"
+            }
+          },
+          {
+            "id": "style.background_property.background_color",
+            "name": "background_color",
+            "label": "Background Color",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "bgColor",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "color",
+            "display_width": null,
+            "default": {
+              "color": "#ffffff",
+              "opacity": 100
+            }
+          },
+          {
+            "id": "style.background_property.background_gredient",
+            "name": "background_gredient",
+            "label": "Background Gradient",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "style.background_property.background_choice",
+              "controlling_value_regex": "gredient",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "type": "gradient",
+            "display_width": null,
+            "default": {}
+          },
+          {
+            "name": "overlay_color",
+            "label": "Image overlay",
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 0
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "id": "style.spacing",
+        "name": "spacing",
+        "label": "Spacing",
+        "help_text": "",
+        "inline_help_text": "",
+        "required": false,
+        "locked": false,
+        "children": [
+          {
+            "id": "style.spacing.desktop_spacing",
+            "name": "desktop_spacing",
+            "label": "Desktop Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 112,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.tab_spacing",
+            "name": "tab_spacing",
+            "label": "Tab Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 80,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          },
+          {
+            "id": "style.spacing.mobile_spacing",
+            "name": "mobile_spacing",
+            "label": "Mobile Spacing",
+            "help_text": "",
+            "inline_help_text": "",
+            "required": false,
+            "locked": false,
+            "type": "spacing",
+            "display_width": null,
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 56,
+                  "units": "px"
+                },
+                "left": {
+                  "value": null,
+                  "units": null
+                },
+                "right": {
+                  "value": null,
+                  "units": null
+                }
+              }
+            }
+          }
+        ],
+        "tab": "STYLE",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "display_width": null
+      },
+      {
+        "name": "text_color",
+        "label": "Text color",
+        "type": "color",
+        "default": {
+          "color": "#000000",
+          "opacity": 100
+        }
+      },
+      {
+        "name": "accent_color",
+        "label": "Accent color",
+        "type": "color",
+        "default": {
+          "color": "#ff7042",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null
+  }
+]
